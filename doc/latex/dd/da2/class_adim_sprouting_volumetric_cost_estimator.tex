@@ -1,0 +1,200 @@
+\hypertarget{class_adim_sprouting_volumetric_cost_estimator}{}\section{Adim\+Sprouting\+Volumetric\+Cost\+Estimator Class Reference}
+\label{class_adim_sprouting_volumetric_cost_estimator}\index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+
+
+{\ttfamily \#include $<$Adim\+Sprouting\+Volumetric\+Cost\+Estimator.\+h$>$}
+
+Inheritance diagram for Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dd/da2/class_adim_sprouting_volumetric_cost_estimator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_adim_sprouting_volumetric_cost_estimator_a4c61439c00491a68093913ec96c0d41b}{Adim\+Sprouting\+Volumetric\+Cost\+Estimator} (double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_a1d1ad71ae3bf8c56867108d30eba8091}{volume\+Factor}, double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_ab8b8bfa47fa1e8283e9b1d9721d7cf29}{proteolytic\+Factor}, double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_a1a4df5f80756f1559f76b8e980e48cf7}{diffusion\+Factor}, double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_ac04ce5ad212cc71e3de3c3d3563217a2}{volume\+Ref}, double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_a8d3cdcd6ecf322c066cd6042279af68c}{radius\+Ref})
+\item 
+virtual \hyperlink{class_adim_sprouting_volumetric_cost_estimator_a630e63baaff78716b56d5a35f393db93}{$\sim$\+Adim\+Sprouting\+Volumetric\+Cost\+Estimator} ()
+\item 
+\hyperlink{class_abstract_cost_estimator}{Abstract\+Cost\+Estimator} $\ast$ \hyperlink{class_adim_sprouting_volumetric_cost_estimator_acc28ad0a4add66222f87d9df84797524}{clone} ()
+\item 
+void \hyperlink{class_adim_sprouting_volumetric_cost_estimator_aa776aae78d397d422ff6b8041c07c412}{previous\+State} (\hyperlink{class_abstract_object_c_c_o_tree}{Abstract\+Object\+C\+C\+O\+Tree} $\ast$tree, \hyperlink{class_abstract_vascular_element}{Abstract\+Vascular\+Element} $\ast$parent, \hyperlink{structpoint}{point} i\+New, \hyperlink{structpoint}{point} i\+Test, double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_a1b79ece84388a541810e55879ee99d8a}{d\+Lim})
+\item 
+double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_a14757be74a1c73be8322dab990713936}{compute\+Cost} (\hyperlink{class_abstract_object_c_c_o_tree}{Abstract\+Object\+C\+C\+O\+Tree} $\ast$tree)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_ac89ef88c033473f3dbc3209ae7fa79b1}{compute\+Tree\+Cost} (\hyperlink{class_abstract_vascular_element}{Abstract\+Vascular\+Element} $\ast$root)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_abcacf4498f7210da6ff4f04cca3ab176}{previous\+Volume}
+\item 
+double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_ab8b8bfa47fa1e8283e9b1d9721d7cf29}{proteolytic\+Factor}
+\item 
+double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_a1a4df5f80756f1559f76b8e980e48cf7}{diffusion\+Factor}
+\item 
+double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_a1d1ad71ae3bf8c56867108d30eba8091}{volume\+Factor}
+\item 
+double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_aab34b0032a1dd58352bce32596c6925c}{dist\+To\+Parent}
+\item 
+double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_aecf10c7e6f390a23a1c6efdde6860a09}{parent\+Radius}
+\item 
+double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_a1b79ece84388a541810e55879ee99d8a}{d\+Lim}
+\item 
+double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_a04c0ad4a538a899e3b308a817348ce0f}{bif\+Level}
+\item 
+double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_ac04ce5ad212cc71e3de3c3d3563217a2}{volume\+Ref}
+\item 
+double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_a8d3cdcd6ecf322c066cd6042279af68c}{radius\+Ref}
+\item 
+double \hyperlink{class_adim_sprouting_volumetric_cost_estimator_a10b777646a17f717f48d81287f01863d}{length\+Ref}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Cost estimator that considers diffusion and vessel-\/wall degradation associated to sprouting angiogenesis and also weighs the variation of the tree volume. Wall degradation is assumed linear w.\+r.\+t. vessel radius (under the assumption that vessel thickness is linear with vessel radius) and media diffusion of biosignals is assumed to follow Fick\textquotesingle{}s 2nd law. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{Adim\+Sprouting\+Volumetric\+Cost\+Estimator(double volume\+Factor, double proteolytic\+Factor, double diffusion\+Factor, double volume\+Ref, double radius\+Ref)}{AdimSproutingVolumetricCostEstimator(double volumeFactor, double proteolyticFactor, double diffusionFactor, double volumeRef, double radiusRef)}}]{\setlength{\rightskip}{0pt plus 5cm}Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::\+Adim\+Sprouting\+Volumetric\+Cost\+Estimator (
+\begin{DoxyParamCaption}
+\item[{double}]{volume\+Factor, }
+\item[{double}]{proteolytic\+Factor, }
+\item[{double}]{diffusion\+Factor, }
+\item[{double}]{volume\+Ref, }
+\item[{double}]{radius\+Ref}
+\end{DoxyParamCaption}
+)}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_a4c61439c00491a68093913ec96c0d41b}{}\label{class_adim_sprouting_volumetric_cost_estimator_a4c61439c00491a68093913ec96c0d41b}
+Common constructor. \index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!````~Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{$\sim$\+Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\index{````~Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{$\sim$\+Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{$\sim$\+Adim\+Sprouting\+Volumetric\+Cost\+Estimator()}{~AdimSproutingVolumetricCostEstimator()}}]{\setlength{\rightskip}{0pt plus 5cm}Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::$\sim$\+Adim\+Sprouting\+Volumetric\+Cost\+Estimator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_a630e63baaff78716b56d5a35f393db93}{}\label{class_adim_sprouting_volumetric_cost_estimator_a630e63baaff78716b56d5a35f393db93}
+Common destructor. 
+
+\subsection{Member Function Documentation}
+\index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!clone@{clone}}
+\index{clone@{clone}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{clone()}{clone()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Abstract\+Cost\+Estimator} $\ast$ Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_acc28ad0a4add66222f87d9df84797524}{}\label{class_adim_sprouting_volumetric_cost_estimator_acc28ad0a4add66222f87d9df84797524}
+Clones the current estimator instance. \begin{DoxyReturn}{Returns}
+Cloned instance. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_cost_estimator_a928e53418b17eb68c443e2a68fe5cbcf}{Abstract\+Cost\+Estimator}.
+
+\index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!compute\+Cost@{compute\+Cost}}
+\index{compute\+Cost@{compute\+Cost}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{compute\+Cost(\+Abstract\+Object\+C\+C\+O\+Tree $\ast$tree)}{computeCost(AbstractObjectCCOTree *tree)}}]{\setlength{\rightskip}{0pt plus 5cm}double Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::compute\+Cost (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\+Object\+C\+C\+O\+Tree} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_a14757be74a1c73be8322dab990713936}{}\label{class_adim_sprouting_volumetric_cost_estimator_a14757be74a1c73be8322dab990713936}
+Computes the functional cost of the given tree. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Root of the tree at the current step. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Cost of the given tree. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_cost_estimator_a2be0c6cc4aa6a73110c75ad903af428e}{Abstract\+Cost\+Estimator}.
+
+\index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!compute\+Tree\+Cost@{compute\+Tree\+Cost}}
+\index{compute\+Tree\+Cost@{compute\+Tree\+Cost}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{compute\+Tree\+Cost(\+Abstract\+Vascular\+Element $\ast$root)}{computeTreeCost(AbstractVascularElement *root)}}]{\setlength{\rightskip}{0pt plus 5cm}double Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::compute\+Tree\+Cost (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\+Vascular\+Element} $\ast$}]{root}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_ac89ef88c033473f3dbc3209ae7fa79b1}{}\label{class_adim_sprouting_volumetric_cost_estimator_ac89ef88c033473f3dbc3209ae7fa79b1}
+Computes the volume for the tree with root {\ttfamily root}. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Root of the tree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Volume of the tree. 
+\end{DoxyReturn}
+\index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!previous\+State@{previous\+State}}
+\index{previous\+State@{previous\+State}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{previous\+State(\+Abstract\+Object\+C\+C\+O\+Tree $\ast$tree, Abstract\+Vascular\+Element $\ast$parent, point i\+New, point i\+Test, double d\+Lim)}{previousState(AbstractObjectCCOTree *tree, AbstractVascularElement *parent, point iNew, point iTest, double dLim)}}]{\setlength{\rightskip}{0pt plus 5cm}void Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::previous\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\+Object\+C\+C\+O\+Tree} $\ast$}]{tree, }
+\item[{{\bf Abstract\+Vascular\+Element} $\ast$}]{parent, }
+\item[{{\bf point}}]{i\+New, }
+\item[{{\bf point}}]{i\+Test, }
+\item[{double}]{d\+Lim}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_aa776aae78d397d422ff6b8041c07c412}{}\label{class_adim_sprouting_volumetric_cost_estimator_aa776aae78d397d422ff6b8041c07c412}
+Extracts information of the tree at the previous step. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Root of the tree at the previous step. \\
+\hline
+{\em parent} & Vascular element where the new vessel will be connected. \\
+\hline
+{\em i\+New} & Distal position of the new vessel. \\
+\hline
+{\em i\+Test} & Proximal position of the new vessel. \\
+\hline
+{\em d\+Lim} & Minimum radius distance from the new vessel to the tree. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_abstract_cost_estimator_a8a806c3e4537c6d4acc428b029fd60de}{Abstract\+Cost\+Estimator}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!bif\+Level@{bif\+Level}}
+\index{bif\+Level@{bif\+Level}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{bif\+Level}{bifLevel}}]{\setlength{\rightskip}{0pt plus 5cm}double Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::bif\+Level\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_a04c0ad4a538a899e3b308a817348ce0f}{}\label{class_adim_sprouting_volumetric_cost_estimator_a04c0ad4a538a899e3b308a817348ce0f}
+Level of bifurcation. \index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!diffusion\+Factor@{diffusion\+Factor}}
+\index{diffusion\+Factor@{diffusion\+Factor}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{diffusion\+Factor}{diffusionFactor}}]{\setlength{\rightskip}{0pt plus 5cm}double Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::diffusion\+Factor\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_a1a4df5f80756f1559f76b8e980e48cf7}{}\label{class_adim_sprouting_volumetric_cost_estimator_a1a4df5f80756f1559f76b8e980e48cf7}
+Factor of media diffusion of angiogenic growth factors. \index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!dist\+To\+Parent@{dist\+To\+Parent}}
+\index{dist\+To\+Parent@{dist\+To\+Parent}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{dist\+To\+Parent}{distToParent}}]{\setlength{\rightskip}{0pt plus 5cm}double Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::dist\+To\+Parent\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_aab34b0032a1dd58352bce32596c6925c}{}\label{class_adim_sprouting_volumetric_cost_estimator_aab34b0032a1dd58352bce32596c6925c}
+Distance between sprouting source and candidate parent vessel. \index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!d\+Lim@{d\+Lim}}
+\index{d\+Lim@{d\+Lim}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{d\+Lim}{dLim}}]{\setlength{\rightskip}{0pt plus 5cm}double Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::d\+Lim\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_a1b79ece84388a541810e55879ee99d8a}{}\label{class_adim_sprouting_volumetric_cost_estimator_a1b79ece84388a541810e55879ee99d8a}
+Minimum radius distance from the new vessel to the tree. \index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!length\+Ref@{length\+Ref}}
+\index{length\+Ref@{length\+Ref}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{length\+Ref}{lengthRef}}]{\setlength{\rightskip}{0pt plus 5cm}double Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::length\+Ref\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_a10b777646a17f717f48d81287f01863d}{}\label{class_adim_sprouting_volumetric_cost_estimator_a10b777646a17f717f48d81287f01863d}
+Equivalent radius associated to {\ttfamily v\+Ref} \index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!parent\+Radius@{parent\+Radius}}
+\index{parent\+Radius@{parent\+Radius}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{parent\+Radius}{parentRadius}}]{\setlength{\rightskip}{0pt plus 5cm}double Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::parent\+Radius\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_aecf10c7e6f390a23a1c6efdde6860a09}{}\label{class_adim_sprouting_volumetric_cost_estimator_aecf10c7e6f390a23a1c6efdde6860a09}
+Radius of the candidate parent vessel. \index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!previous\+Volume@{previous\+Volume}}
+\index{previous\+Volume@{previous\+Volume}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{previous\+Volume}{previousVolume}}]{\setlength{\rightskip}{0pt plus 5cm}double Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::previous\+Volume\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_abcacf4498f7210da6ff4f04cca3ab176}{}\label{class_adim_sprouting_volumetric_cost_estimator_abcacf4498f7210da6ff4f04cca3ab176}
+Volume at the previous step. \index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!proteolytic\+Factor@{proteolytic\+Factor}}
+\index{proteolytic\+Factor@{proteolytic\+Factor}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{proteolytic\+Factor}{proteolyticFactor}}]{\setlength{\rightskip}{0pt plus 5cm}double Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::proteolytic\+Factor\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_ab8b8bfa47fa1e8283e9b1d9721d7cf29}{}\label{class_adim_sprouting_volumetric_cost_estimator_ab8b8bfa47fa1e8283e9b1d9721d7cf29}
+Vessel wall proteolytic degradation factor. \index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!radius\+Ref@{radius\+Ref}}
+\index{radius\+Ref@{radius\+Ref}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{radius\+Ref}{radiusRef}}]{\setlength{\rightskip}{0pt plus 5cm}double Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::radius\+Ref\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_a8d3cdcd6ecf322c066cd6042279af68c}{}\label{class_adim_sprouting_volumetric_cost_estimator_a8d3cdcd6ecf322c066cd6042279af68c}
+Root radius of the vascular tree \index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!volume\+Factor@{volume\+Factor}}
+\index{volume\+Factor@{volume\+Factor}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{volume\+Factor}{volumeFactor}}]{\setlength{\rightskip}{0pt plus 5cm}double Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::volume\+Factor\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_a1d1ad71ae3bf8c56867108d30eba8091}{}\label{class_adim_sprouting_volumetric_cost_estimator_a1d1ad71ae3bf8c56867108d30eba8091}
+Weigh for tree volume. \index{Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}!volume\+Ref@{volume\+Ref}}
+\index{volume\+Ref@{volume\+Ref}!Adim\+Sprouting\+Volumetric\+Cost\+Estimator@{Adim\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{volume\+Ref}{volumeRef}}]{\setlength{\rightskip}{0pt plus 5cm}double Adim\+Sprouting\+Volumetric\+Cost\+Estimator\+::volume\+Ref\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_adim_sprouting_volumetric_cost_estimator_ac04ce5ad212cc71e3de3c3d3563217a2}{}\label{class_adim_sprouting_volumetric_cost_estimator_ac04ce5ad212cc71e3de3c3d3563217a2}
+Volume of the vascularized domain 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/tree/Adim\+Sprouting\+Volumetric\+Cost\+Estimator.\+h\item 
+structures/tree/Adim\+Sprouting\+Volumetric\+Cost\+Estimator.\+cpp\end{DoxyCompactItemize}

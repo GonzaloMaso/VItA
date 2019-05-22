@@ -1,0 +1,95 @@
+\hypertarget{class_constant_piecewise_constraint_function}{}\section{Constant\+Piecewise\+Constraint\+Function$<$ T, S $>$ Class Template Reference}
+\label{class_constant_piecewise_constraint_function}\index{Constant\+Piecewise\+Constraint\+Function$<$ T, S $>$@{Constant\+Piecewise\+Constraint\+Function$<$ T, S $>$}}
+
+
+{\ttfamily \#include $<$Constant\+Piecewise\+Constraint\+Function.\+h$>$}
+
+Inheritance diagram for Constant\+Piecewise\+Constraint\+Function$<$ T, S $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d4/d89/class_constant_piecewise_constraint_function}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_constant_piecewise_constraint_function_a5f8ebd7b7b8794976f4ddf3a448cd9a6}{Constant\+Piecewise\+Constraint\+Function} (vector$<$ T $>$ \hyperlink{class_constant_piecewise_constraint_function_ae26530a2cd1a3ce9150b68fb16d5423e}{values}, vector$<$ S $>$ \hyperlink{class_constant_piecewise_constraint_function_af28fe38d8c5c4a9a805c8a46d35cd4b2}{conditions})
+\item 
+virtual \hyperlink{class_constant_piecewise_constraint_function_ab44f248af12827ce5cf528ccf163c2f7}{$\sim$\+Constant\+Piecewise\+Constraint\+Function} ()
+\item 
+T \hyperlink{class_constant_piecewise_constraint_function_ae44b78e86336e8a45ebac2344d5de8ce}{get\+Value} (S tree\+Condition)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ T $>$ \hyperlink{class_constant_piecewise_constraint_function_ae26530a2cd1a3ce9150b68fb16d5423e}{values}
+\item 
+vector$<$ S $>$ \hyperlink{class_constant_piecewise_constraint_function_af28fe38d8c5c4a9a805c8a46d35cd4b2}{conditions}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T, class S$>$\\*
+class Constant\+Piecewise\+Constraint\+Function$<$ T, S $>$}
+
+Constraint piecewise function with different constant values for each condition. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Constant\+Piecewise\+Constraint\+Function@{Constant\+Piecewise\+Constraint\+Function}!Constant\+Piecewise\+Constraint\+Function@{Constant\+Piecewise\+Constraint\+Function}}
+\index{Constant\+Piecewise\+Constraint\+Function@{Constant\+Piecewise\+Constraint\+Function}!Constant\+Piecewise\+Constraint\+Function@{Constant\+Piecewise\+Constraint\+Function}}
+\subsubsection[{\texorpdfstring{Constant\+Piecewise\+Constraint\+Function(vector$<$ T $>$ values, vector$<$ S $>$ conditions)}{ConstantPiecewiseConstraintFunction(vector< T > values, vector< S > conditions)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class S $>$ {\bf Constant\+Piecewise\+Constraint\+Function}$<$ T, S $>$\+::{\bf Constant\+Piecewise\+Constraint\+Function} (
+\begin{DoxyParamCaption}
+\item[{vector$<$ T $>$}]{values, }
+\item[{vector$<$ S $>$}]{conditions}
+\end{DoxyParamCaption}
+)}\hypertarget{class_constant_piecewise_constraint_function_a5f8ebd7b7b8794976f4ddf3a448cd9a6}{}\label{class_constant_piecewise_constraint_function_a5f8ebd7b7b8794976f4ddf3a448cd9a6}
+Constructor. 
+\begin{DoxyParams}{Parameters}
+{\em values} & Piecewise constant values for each function piece. \\
+\hline
+{\em conditions} & Lower bound condition for each function piece. \\
+\hline
+\end{DoxyParams}
+\index{Constant\+Piecewise\+Constraint\+Function@{Constant\+Piecewise\+Constraint\+Function}!````~Constant\+Piecewise\+Constraint\+Function@{$\sim$\+Constant\+Piecewise\+Constraint\+Function}}
+\index{````~Constant\+Piecewise\+Constraint\+Function@{$\sim$\+Constant\+Piecewise\+Constraint\+Function}!Constant\+Piecewise\+Constraint\+Function@{Constant\+Piecewise\+Constraint\+Function}}
+\subsubsection[{\texorpdfstring{$\sim$\+Constant\+Piecewise\+Constraint\+Function()}{~ConstantPiecewiseConstraintFunction()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class S $>$ {\bf Constant\+Piecewise\+Constraint\+Function}$<$ T, S $>$\+::$\sim${\bf Constant\+Piecewise\+Constraint\+Function} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_constant_piecewise_constraint_function_ab44f248af12827ce5cf528ccf163c2f7}{}\label{class_constant_piecewise_constraint_function_ab44f248af12827ce5cf528ccf163c2f7}
+Destructor. 
+
+\subsection{Member Function Documentation}
+\index{Constant\+Piecewise\+Constraint\+Function@{Constant\+Piecewise\+Constraint\+Function}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!Constant\+Piecewise\+Constraint\+Function@{Constant\+Piecewise\+Constraint\+Function}}
+\subsubsection[{\texorpdfstring{get\+Value(\+S tree\+Condition)}{getValue(S treeCondition)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class S $>$ T {\bf Constant\+Piecewise\+Constraint\+Function}$<$ T, S $>$\+::get\+Value (
+\begin{DoxyParamCaption}
+\item[{S}]{tree\+Condition}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_constant_piecewise_constraint_function_ae44b78e86336e8a45ebac2344d5de8ce}{}\label{class_constant_piecewise_constraint_function_ae44b78e86336e8a45ebac2344d5de8ce}
+Estimator based on the condition {\ttfamily tree\+Condition}. 
+\begin{DoxyParams}{Parameters}
+{\em tree\+Condition} & Condition value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Constraint function value. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function$<$ T, S $>$}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Constant\+Piecewise\+Constraint\+Function@{Constant\+Piecewise\+Constraint\+Function}!conditions@{conditions}}
+\index{conditions@{conditions}!Constant\+Piecewise\+Constraint\+Function@{Constant\+Piecewise\+Constraint\+Function}}
+\subsubsection[{\texorpdfstring{conditions}{conditions}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class S $>$ vector$<$S$>$ {\bf Constant\+Piecewise\+Constraint\+Function}$<$ T, S $>$\+::conditions\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_constant_piecewise_constraint_function_af28fe38d8c5c4a9a805c8a46d35cd4b2}{}\label{class_constant_piecewise_constraint_function_af28fe38d8c5c4a9a805c8a46d35cd4b2}
+Lower bound condition for each function piece. The upper bounds are the next lower bound. S must define the operator $>$=. \index{Constant\+Piecewise\+Constraint\+Function@{Constant\+Piecewise\+Constraint\+Function}!values@{values}}
+\index{values@{values}!Constant\+Piecewise\+Constraint\+Function@{Constant\+Piecewise\+Constraint\+Function}}
+\subsubsection[{\texorpdfstring{values}{values}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class S $>$ vector$<$T$>$ {\bf Constant\+Piecewise\+Constraint\+Function}$<$ T, S $>$\+::values\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_constant_piecewise_constraint_function_ae26530a2cd1a3ce9150b68fb16d5423e}{}\label{class_constant_piecewise_constraint_function_ae26530a2cd1a3ce9150b68fb16d5423e}
+Piecewise constant values for each function piece. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+constrains/Constant\+Piecewise\+Constraint\+Function.\+h\end{DoxyCompactItemize}

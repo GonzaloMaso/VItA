@@ -1,0 +1,83 @@
+\hypertarget{class_fixed_perfusion_radius_tree_generator}{}\section{Fixed\+Perfusion\+Radius\+Tree\+Generator Class Reference}
+\label{class_fixed_perfusion_radius_tree_generator}\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+
+
+{\ttfamily \#include $<$Fixed\+Perfusion\+Radius\+Tree\+Generator.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_fixed_perfusion_radius_tree_generator_a8abdb4d710719dc724117a51fb6535f2}\label{class_fixed_perfusion_radius_tree_generator_a8abdb4d710719dc724117a51fb6535f2}} 
+{\bfseries Fixed\+Perfusion\+Radius\+Tree\+Generator} (\mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}} $\ast$domain, \mbox{\hyperlink{structpoint}{point}} xi, double root\+Radii, double qi, int n\+Term, gamma\+Func gam, eps\+Lim\+Func eps\+Lim, nu\+Blood\+Func nu, double min\+Angle)
+\item 
+\mbox{\Hypertarget{class_fixed_perfusion_radius_tree_generator_ac29647817d59ec24f8c61afbec4e4c68}\label{class_fixed_perfusion_radius_tree_generator_ac29647817d59ec24f8c61afbec4e4c68}} 
+{\bfseries Fixed\+Perfusion\+Radius\+Tree\+Generator} (\mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}} $\ast$domain, \mbox{\hyperlink{structpoint}{point}} xi, double root\+Radii, double qi, int n\+Term, gamma\+Func gam, eps\+Lim\+Func eps\+Lim, nu\+Blood\+Func nu, double min\+Angle, double viscosity\+Tolerance)
+\item 
+\mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}} $\ast$ \mbox{\hyperlink{class_fixed_perfusion_radius_tree_generator_a628386a3210abbfe8a67417a33d31387}{generate}} ()
+\item 
+\mbox{\Hypertarget{class_fixed_perfusion_radius_tree_generator_ab5f60bf11b980a83faccdd3a667c6bf0}\label{class_fixed_perfusion_radius_tree_generator_ab5f60bf11b980a83faccdd3a667c6bf0}} 
+\mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}} $\ast$ {\bfseries get\+Domain} ()
+\item 
+\mbox{\Hypertarget{class_fixed_perfusion_radius_tree_generator_a7923e095a700607c5d9e46bc3ef6d93e}\label{class_fixed_perfusion_radius_tree_generator_a7923e095a700607c5d9e46bc3ef6d93e}} 
+vector$<$ \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}} $\ast$ $>$ {\bfseries get\+Trees} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fixed_perfusion_radius_tree_generator_ae7a7f4b87282f81b141377032a537e08}{is\+Valid\+Root\+Segment}} (\mbox{\hyperlink{structpoint}{point}} x\+New, int i\+Try)
+\item 
+int \mbox{\hyperlink{class_fixed_perfusion_radius_tree_generator_a306a08e5b09ced0a19fcfae49c7e7399}{is\+Valid\+Segment}} (\mbox{\hyperlink{structpoint}{point}} x\+New, int i\+Try)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generator for a single fixed perfusion tree. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_fixed_perfusion_radius_tree_generator_a628386a3210abbfe8a67417a33d31387}\label{class_fixed_perfusion_radius_tree_generator_a628386a3210abbfe8a67417a33d31387}} 
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!generate@{generate}}
+\index{generate@{generate}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}} $\ast$ Fixed\+Perfusion\+Radius\+Tree\+Generator\+::generate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Tree generation algorithm 3\+: fixed root radius. \begin{DoxyReturn}{Returns}
+C\+CO tree with the giving root radius. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_fixed_perfusion_radius_tree_generator_ae7a7f4b87282f81b141377032a537e08}\label{class_fixed_perfusion_radius_tree_generator_ae7a7f4b87282f81b141377032a537e08}} 
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!is\+Valid\+Root\+Segment@{is\+Valid\+Root\+Segment}}
+\index{is\+Valid\+Root\+Segment@{is\+Valid\+Root\+Segment}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection{\texorpdfstring{is\+Valid\+Root\+Segment()}{isValidRootSegment()}}
+{\footnotesize\ttfamily int Fixed\+Perfusion\+Radius\+Tree\+Generator\+::is\+Valid\+Root\+Segment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+New,  }\item[{int}]{i\+Try }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Returns if the length of the segment defined by x\+Prox and x\+New is higher than d\+Lim (distance criterion). 
+\begin{DoxyParams}{Parameters}
+{\em x\+New} & \\
+\hline
+{\em i\+Try} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_fixed_perfusion_radius_tree_generator_a306a08e5b09ced0a19fcfae49c7e7399}\label{class_fixed_perfusion_radius_tree_generator_a306a08e5b09ced0a19fcfae49c7e7399}} 
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!is\+Valid\+Segment@{is\+Valid\+Segment}}
+\index{is\+Valid\+Segment@{is\+Valid\+Segment}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection{\texorpdfstring{is\+Valid\+Segment()}{isValidSegment()}}
+{\footnotesize\ttfamily int Fixed\+Perfusion\+Radius\+Tree\+Generator\+::is\+Valid\+Segment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+New,  }\item[{int}]{i\+Try }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Returns if the closest point to the whole try is greater than d\+Lim (distance criterion for a new segment). 
+\begin{DoxyParams}{Parameters}
+{\em x\+New} & Proposed distal point \\
+\hline
+{\em i\+Try} & Number of trial \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+tree\+Generator/Fixed\+Perfusion\+Radius\+Tree\+Generator.\+h\item 
+tree\+Generator/Fixed\+Perfusion\+Radius\+Tree\+Generator.\+cpp\end{DoxyCompactItemize}

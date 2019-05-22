@@ -1,0 +1,65 @@
+\hypertarget{class_tree_stats_manager}{}\section{Tree\+Stats\+Manager Class Reference}
+\label{class_tree_stats_manager}\index{Tree\+Stats\+Manager@{Tree\+Stats\+Manager}}
+
+
+{\ttfamily \#include $<$Tree\+Stats\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Tree\+Stats\+Manager} (\hyperlink{class_abstract_structured_c_c_o_tree}{Abstract\+Structured\+C\+C\+O\+Tree} $\ast$\hyperlink{class_tree_stats_manager_a87781acaeb7b0eab470e6678c97b9ec5}{tree})\hypertarget{class_tree_stats_manager_a6073419bbbf25c7c9c37d7f7dd47c3fe}{}\label{class_tree_stats_manager_a6073419bbbf25c7c9c37d7f7dd47c3fe}
+
+\item 
+void \hyperlink{class_tree_stats_manager_a49a109dfc97178229e77fd1a79343423}{get\+Mean\+Per\+Level} (vector$<$ double $>$ $\ast$levels, vector$<$ double $>$ $\ast$means, vector$<$ double $>$ $\ast$stds, \hyperlink{class_vessel_handler_a6cc775e9a5bcbe69ef381f56b52982e7}{Vessel\+Handler\+::\+A\+T\+T\+R\+I\+B\+U\+TE} att)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_abstract_structured_c_c_o_tree}{Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ \hyperlink{class_tree_stats_manager_a87781acaeb7b0eab470e6678c97b9ec5}{tree}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Facade class used to access to all statistical analysis services implemented. The class aims to return vectors with the statistical results and no plots or any other outputs. Outputs are expected to be generated in the C\+C\+O\+Rendering library to decouple G\+UI from data and model components. The last is key to support the C\+CO library in clusters or environments with no G\+UI capabilities.
+
+Creates an instance of the given {\ttfamily tree}. 
+\begin{DoxyParams}{Parameters}
+{\em tree} & Tree for statistical analysis. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Tree\+Stats\+Manager@{Tree\+Stats\+Manager}!get\+Mean\+Per\+Level@{get\+Mean\+Per\+Level}}
+\index{get\+Mean\+Per\+Level@{get\+Mean\+Per\+Level}!Tree\+Stats\+Manager@{Tree\+Stats\+Manager}}
+\subsubsection[{\texorpdfstring{get\+Mean\+Per\+Level(vector$<$ double $>$ $\ast$levels, vector$<$ double $>$ $\ast$means, vector$<$ double $>$ $\ast$stds, Vessel\+Handler\+::\+A\+T\+T\+R\+I\+B\+U\+T\+E att)}{getMeanPerLevel(vector< double > *levels, vector< double > *means, vector< double > *stds, VesselHandler::ATTRIBUTE att)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tree\+Stats\+Manager\+::get\+Mean\+Per\+Level (
+\begin{DoxyParamCaption}
+\item[{vector$<$ double $>$ $\ast$}]{levels, }
+\item[{vector$<$ double $>$ $\ast$}]{means, }
+\item[{vector$<$ double $>$ $\ast$}]{stds, }
+\item[{{\bf Vessel\+Handler\+::\+A\+T\+T\+R\+I\+B\+U\+TE}}]{att}
+\end{DoxyParamCaption}
+)}\hypertarget{class_tree_stats_manager_a49a109dfc97178229e77fd1a79343423}{}\label{class_tree_stats_manager_a49a109dfc97178229e77fd1a79343423}
+Load the vector {\ttfamily levels}, {\ttfamily means} and {\ttfamily stds} with the number of bifurcation level and mean and standard deviation of a vessel field across that levels. 
+\begin{DoxyParams}{Parameters}
+{\em levels} & Levels of bifurcation (0,..., N-\/1). \\
+\hline
+{\em means} & Mean for each level. \\
+\hline
+{\em stds} & Standard deviation for each level. \\
+\hline
+{\em att} & Field over which the mean and std is computed. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{Tree\+Stats\+Manager@{Tree\+Stats\+Manager}!tree@{tree}}
+\index{tree@{tree}!Tree\+Stats\+Manager@{Tree\+Stats\+Manager}}
+\subsubsection[{\texorpdfstring{tree}{tree}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Abstract\+Structured\+C\+C\+O\+Tree}$\ast$ Tree\+Stats\+Manager\+::tree\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_tree_stats_manager_a87781acaeb7b0eab470e6678c97b9ec5}{}\label{class_tree_stats_manager_a87781acaeb7b0eab470e6678c97b9ec5}
+Tree that undergo through statistical analysis. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+stats/Tree\+Stats\+Manager.\+h\item 
+stats/Tree\+Stats\+Manager.\+cpp\end{DoxyCompactItemize}

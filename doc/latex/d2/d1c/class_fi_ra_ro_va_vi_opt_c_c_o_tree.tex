@@ -1,0 +1,496 @@
+\hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree}{}\section{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree Class Reference}
+\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree}\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+
+
+{\ttfamily \#include $<$Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree.\+h$>$}
+
+Inheritance diagram for Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d2/d1c/class_fi_ra_ro_va_vi_opt_c_c_o_tree}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ac2d5f0113e6130aad2c70d650ea3cc50}{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}} (\mbox{\hyperlink{structpoint}{point}} xi, double \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a6774c4c4a44bfc656321922c0d8cf5c3}{root\+Radius}}, double qi, \mbox{\hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}}$<$ double, int $>$ $\ast$gam, \mbox{\hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}}$<$ double, int $>$ $\ast$eps\+Lim, \mbox{\hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}}$<$ double, int $>$ $\ast$nu, double min\+Angle, double ref\+Pressure, double resistance\+Variation\+Tolerance, \mbox{\hyperlink{class_generator_data}{Generator\+Data}} $\ast$\mbox{\hyperlink{class_abstract_c_c_o_tree_afd240b7fad46ddf0a2ed78558cc9b9ca}{instance\+Data}})
+\item 
+\mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a055410e9df6c8b8bc43402853dc35005}{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}} (string filename\+C\+CO, string filename\+V\+TK, \mbox{\hyperlink{class_generator_data}{Generator\+Data}} $\ast$\mbox{\hyperlink{class_abstract_c_c_o_tree_afd240b7fad46ddf0a2ed78558cc9b9ca}{instance\+Data}})
+\item 
+\mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a344bca964ae2ced7bd165204a4e7a771}{$\sim$\+Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}} ()
+\item 
+\mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree}{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}} $\ast$ \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ab22030cefeda0a93307a901fa8baded1}{clone}} ()
+\item 
+void \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_adcec940597abfdec6b02406622c97b18}{get\+Closest\+Tree\+Point}} (\mbox{\hyperlink{structpoint}{point}} x\+New, \mbox{\hyperlink{structpoint}{point}} $\ast$x\+Bif, double $\ast$dist)
+\item 
+vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$ $>$ \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ac109dbefb3e313f9454e74a226a2ad6f}{get\+Close\+Segments}} (\mbox{\hyperlink{structpoint}{point}} x\+New, \mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}} $\ast$domain, int $\ast$n\+Found)
+\item 
+void \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_aca2ace9e5f772754cd1c975cc8431c95}{add\+Vessel}} (\mbox{\hyperlink{structpoint}{point}} x\+Prox, \mbox{\hyperlink{structpoint}{point}} x\+Dist, \mbox{\hyperlink{structvessel}{vessel}} $\ast$parent)
+\item 
+int \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a270d5cd761d5fdad6a260aebd8869e6e}{test\+Vessel}} (\mbox{\hyperlink{structpoint}{point}} x\+New, \mbox{\hyperlink{structvessel}{vessel}} $\ast$parent, \mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}} $\ast$domain, vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$$>$ neighbors, double dlim, \mbox{\hyperlink{structpoint}{point}} $\ast$x\+Bif, double $\ast$cost)
+\item 
+void \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_adf72b1a9082866623330c40b57ae97f7}{print}} ()
+\item 
+string \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ab9e0556084e74d15d63900dd2f51059e}{get\+Tree\+Name}} ()
+\item 
+double \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_aa361b74c3a3bcd6abafd101755ceffc7}{get\+Root\+Radius}} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ae711117b173cbb92acd296ff4973f560}{save\+Tree}} (ofstream $\ast$out\+File)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree}{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}} $\ast$ \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a86cd7106b4911517c645496456ba302f}{clone\+Up\+To}} (int levels, \mbox{\hyperlink{structvessel}{vessel}} $\ast$parent)
+\item 
+\mbox{\hyperlink{structvessel}{vessel}} $\ast$ \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a8a74a523182acf01b31f2a45d29263b2}{clone\+Tree}} (\mbox{\hyperlink{structvessel}{vessel}} $\ast$root, vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$$>$ $\ast$segments)
+\item 
+double \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a5894cf89eef94422e4a1af49fc207b89}{evaluate}} (\mbox{\hyperlink{structpoint}{point}} x\+New, \mbox{\hyperlink{structpoint}{point}} x\+Test, \mbox{\hyperlink{structvessel}{vessel}} $\ast$parent)
+\item 
+void \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ac0905b566762939a0ea67a2fa0ae1133}{update\+Tree}} (\mbox{\hyperlink{structvessel}{vessel}} $\ast$root, \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree}{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}} $\ast$tree)
+\item 
+int \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a1f5fd9391dd301fd0f1734ecbed82780}{is\+Symmetrically\+Valid}} (double beta1, double beta2, int n\+Level)
+\item 
+int \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ab6d2f1242c1f39894465a989542c1e46}{are\+Valid\+Angles}} (\mbox{\hyperlink{structpoint}{point}} x\+Bif, \mbox{\hyperlink{structpoint}{point}} x\+New, \mbox{\hyperlink{structvessel}{vessel}} $\ast$parent)
+\item 
+int \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_aa02a3445bfa0430e731cb2d265665be8}{is\+Overlapped}} (\mbox{\hyperlink{structpoint}{point}} x\+Bif, \mbox{\hyperlink{structpoint}{point}} x\+New, \mbox{\hyperlink{structvessel}{vessel}} $\ast$parent, double d\+Lim)
+\item 
+int \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a3f93dc6bfc79cf34af64c5ad6fb40a0a}{is\+Intersecting\+Vessels}} (\mbox{\hyperlink{structpoint}{point}} p1, \mbox{\hyperlink{structpoint}{point}} p2, \mbox{\hyperlink{structvessel}{vessel}} $\ast$parent, vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$$>$ neighbors)
+\item 
+void \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a50eebc27754469669334de13e35b12d8}{update\+Tree\+Viscosities\+Resistance}} (\mbox{\hyperlink{structvessel}{vessel}} $\ast$root, double parent\+Radius, double $\ast$max\+Resistance\+Variation)
+\item 
+void \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a52979a09656d9a35d340702e54d0863e}{update\+Tree\+Viscosities\+Beta}} (\mbox{\hyperlink{structvessel}{vessel}} $\ast$root, double parent\+Radius, double $\ast$max\+Beta\+Variation)
+\item 
+double \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_aa328ee2b5ea32e0e0064d4324a165e95}{get\+Nu\+FL}} (double radius)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a6774c4c4a44bfc656321922c0d8cf5c3}{root\+Radius}}
+\item 
+double \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a78be49c68bbe3604b8ca309eb077d879}{variation\+Tolerance}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Models a single C\+CO tree which contains the vessel\textquotesingle{}s data and connectivity. It is a variation of the algorithm 5 of Queiroz Ph.\+D. Thesis endowed with H\+PC capabilities such as parallel vessel testing and partial tree functional estimation. Current implementation is in Open\+MP although vessel testing should be executing in M\+PI and bifurcation testing in Open\+MP for best results. Specifications\+:
+\begin{DoxyItemize}
+\item Fixed domain;
+\item Given flow Q;
+\item Given pressure gradient;
+\item Given N terminals;
+\item Constant/variable symmetry per tree level;
+\item Constant/variable Murray coefficient per tree level;
+\item Variable viscosity according to Fahraeus-\/\+Lindquist model. 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ac2d5f0113e6130aad2c70d650ea3cc50}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ac2d5f0113e6130aad2c70d650ea3cc50}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree()}{FiRaRoVaViOptCCOTree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::\+Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{xi,  }\item[{double}]{root\+Radius,  }\item[{double}]{qi,  }\item[{\mbox{\hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}}$<$ double, int $>$ $\ast$}]{gam,  }\item[{\mbox{\hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}}$<$ double, int $>$ $\ast$}]{eps\+Lim,  }\item[{\mbox{\hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}}$<$ double, int $>$ $\ast$}]{nu,  }\item[{double}]{min\+Angle,  }\item[{double}]{ref\+Pressure,  }\item[{double}]{resistance\+Variation\+Tolerance,  }\item[{\mbox{\hyperlink{class_generator_data}{Generator\+Data}} $\ast$}]{instance\+Data }\end{DoxyParamCaption})}
+
+Common tree creator. 
+\begin{DoxyParams}{Parameters}
+{\em xi} & Root point. \\
+\hline
+{\em root\+Radius} & Root radius. \\
+\hline
+{\em qi} & Flow at the root. \\
+\hline
+{\em gam} & Murray law function. \\
+\hline
+{\em eps\+Lim} & Sibling vessels ratio function. \\
+\hline
+{\em nu} & Viscosity function with respect to the tree level. \\
+\hline
+{\em min\+Angle} & Minimum angle allowed. \\
+\hline
+{\em resistance\+Variation\+Tolerance} & Convergence tolerance for the iterative viscosity scheme. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a055410e9df6c8b8bc43402853dc35005}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a055410e9df6c8b8bc43402853dc35005}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree()}{FiRaRoVaViOptCCOTree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::\+Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree (\begin{DoxyParamCaption}\item[{string}]{filename\+C\+CO,  }\item[{string}]{filename\+V\+TK,  }\item[{\mbox{\hyperlink{class_generator_data}{Generator\+Data}} $\ast$}]{instance\+Data }\end{DoxyParamCaption})}
+
+Creates a new tree from the .cco file {\ttfamily filename}. The obtained tree has not vtk\+Line objects of the vessels. 
+\begin{DoxyParams}{Parameters}
+{\em filename\+C\+CO} & Path to the .cco file. \\
+\hline
+{\em filename\+V\+TK} & Path to the .vtk file. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a344bca964ae2ced7bd165204a4e7a771}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a344bca964ae2ced7bd165204a4e7a771}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!````~Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{$\sim$\+Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\index{````~Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{$\sim$\+Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{$\sim$\+Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree()}{~FiRaRoVaViOptCCOTree()}}
+{\footnotesize\ttfamily Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::$\sim$\+Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Common destructor. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_aca2ace9e5f772754cd1c975cc8431c95}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_aca2ace9e5f772754cd1c975cc8431c95}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!add\+Vessel@{add\+Vessel}}
+\index{add\+Vessel@{add\+Vessel}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{add\+Vessel()}{addVessel()}}
+{\footnotesize\ttfamily void Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::add\+Vessel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+Prox,  }\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+Dist,  }\item[{\mbox{\hyperlink{structvessel}{vessel}} $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Adds a new vessel to the C\+CO tree.
+\begin{DoxyParams}{Parameters}
+{\em x\+Prox} & and\\
+\hline
+{\em x\+Dist} & are the proximal and distal nodes of the new vessel and\\
+\hline
+{\em parent} & is the attachment parent vessel. \\
+\hline
+{\em x\+Prox} & Proximal point of the new vessel. \\
+\hline
+{\em x\+Dist} & Distal point of the new vessel. \\
+\hline
+{\em parent} & Parent to the new vessel. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ab6d2f1242c1f39894465a989542c1e46}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ab6d2f1242c1f39894465a989542c1e46}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!are\+Valid\+Angles@{are\+Valid\+Angles}}
+\index{are\+Valid\+Angles@{are\+Valid\+Angles}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{are\+Valid\+Angles()}{areValidAngles()}}
+{\footnotesize\ttfamily int Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::are\+Valid\+Angles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+Bif,  }\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+New,  }\item[{\mbox{\hyperlink{structvessel}{vessel}} $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Checks if the angles of the parent vessel and the new vessel do not violate the minimum angle constraint. 
+\begin{DoxyParams}{Parameters}
+{\em x\+Bif} & Bifurcation point between the new vessel and the distal part of the parent vessel (i\+Con). \\
+\hline
+{\em x\+New} & Distal point of the new vessel. \\
+\hline
+{\em parent} & Parent vessel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the angles are higher than the minimum allowed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ab22030cefeda0a93307a901fa8baded1}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ab22030cefeda0a93307a901fa8baded1}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!clone@{clone}}
+\index{clone@{clone}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree}{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}} $\ast$ Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates a copy from the tree without the vtk structures (neither from the tree nor from the vessels). \begin{DoxyReturn}{Returns}
+Copy from the tree 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a8a74a523182acf01b31f2a45d29263b2}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a8a74a523182acf01b31f2a45d29263b2}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!clone\+Tree@{clone\+Tree}}
+\index{clone\+Tree@{clone\+Tree}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{clone\+Tree()}{cloneTree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structvessel}{vessel}} $\ast$ Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::clone\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvessel}{vessel}} $\ast$}]{root,  }\item[{vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$$>$ $\ast$}]{segments }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Clones the subtree with parent vessel {\ttfamily root} recursively. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Root of the tree to clone. \\
+\hline
+{\em segments} & Segments of the tree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Cloned subtree. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a86cd7106b4911517c645496456ba302f}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a86cd7106b4911517c645496456ba302f}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!clone\+Up\+To@{clone\+Up\+To}}
+\index{clone\+Up\+To@{clone\+Up\+To}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{clone\+Up\+To()}{cloneUpTo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree}{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}} $\ast$ Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::clone\+Up\+To (\begin{DoxyParamCaption}\item[{int}]{levels,  }\item[{\mbox{\hyperlink{structvessel}{vessel}} $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Clones the subtree with parent vessel {\ttfamily levels} . 
+\begin{DoxyParams}{Parameters}
+{\em root} & Root of the tree to clone. \\
+\hline
+{\em segments} & Segments of the tree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Cloned subtree. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a5894cf89eef94422e4a1af49fc207b89}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a5894cf89eef94422e4a1af49fc207b89}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily double Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::evaluate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+New,  }\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+Test,  }\item[{\mbox{\hyperlink{structvessel}{vessel}} $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Returns a partial variation of the cost functional due to the new segment inclusion. 
+\begin{DoxyParams}{Parameters}
+{\em x\+New} & Proximal point of the new vessel. \\
+\hline
+{\em x\+Test} & Distal point of the new vessel. \\
+\hline
+{\em parent} & Parent to the new vessel. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ac109dbefb3e313f9454e74a226a2ad6f}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ac109dbefb3e313f9454e74a226a2ad6f}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!get\+Close\+Segments@{get\+Close\+Segments}}
+\index{get\+Close\+Segments@{get\+Close\+Segments}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{get\+Close\+Segments()}{getCloseSegments()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$ $>$ Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::get\+Close\+Segments (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+New,  }\item[{\mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}} $\ast$}]{domain,  }\item[{int $\ast$}]{n\+Found }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Return the segments in a close neighborhood of {\ttfamily x\+New}. The neighborhood is computed based on the perfusion volume indicated by {\ttfamily domain}. 
+\begin{DoxyParams}{Parameters}
+{\em x\+New} & Center point of the neighborhood of interest. \\
+\hline
+{\em domain} & Domain of the segments. \\
+\hline
+{\em n\+Found} & Amount of segments in the neighborhood. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array of segments in the neighborhood of {\ttfamily x\+New}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_adcec940597abfdec6b02406622c97b18}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_adcec940597abfdec6b02406622c97b18}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!get\+Closest\+Tree\+Point@{get\+Closest\+Tree\+Point}}
+\index{get\+Closest\+Tree\+Point@{get\+Closest\+Tree\+Point}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{get\+Closest\+Tree\+Point()}{getClosestTreePoint()}}
+{\footnotesize\ttfamily void Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::get\+Closest\+Tree\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+New,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$}]{x\+Bif,  }\item[{double $\ast$}]{dist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the closest point in the C\+C\+O\+Tree with respect to {\ttfamily x\+New} point. 
+\begin{DoxyParams}{Parameters}
+{\em x\+New} & Point from which the minimum distance is computed. \\
+\hline
+{\em x\+Bif} & Closest point in the tree to {\ttfamily x\+New}. \\
+\hline
+{\em dist} & Minimum distance between {\ttfamily x\+New} and the tree. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_aa328ee2b5ea32e0e0064d4324a165e95}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_aa328ee2b5ea32e0e0064d4324a165e95}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!get\+Nu\+FL@{get\+Nu\+FL}}
+\index{get\+Nu\+FL@{get\+Nu\+FL}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{get\+Nu\+F\+L()}{getNuFL()}}
+{\footnotesize\ttfamily double Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::get\+Nu\+FL (\begin{DoxyParamCaption}\item[{double}]{radius }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+Returns the viscosity estimated with the Fahraeus-\/\+Lindquist model. 
+\begin{DoxyParams}{Parameters}
+{\em radius} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Viscosity value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_aa361b74c3a3bcd6abafd101755ceffc7}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_aa361b74c3a3bcd6abafd101755ceffc7}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!get\+Root\+Radius@{get\+Root\+Radius}}
+\index{get\+Root\+Radius@{get\+Root\+Radius}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{get\+Root\+Radius()}{getRootRadius()}}
+{\footnotesize\ttfamily double Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::get\+Root\+Radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the root radius. \begin{DoxyReturn}{Returns}
+Root radius. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ab9e0556084e74d15d63900dd2f51059e}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ab9e0556084e74d15d63900dd2f51059e}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!get\+Tree\+Name@{get\+Tree\+Name}}
+\index{get\+Tree\+Name@{get\+Tree\+Name}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{get\+Tree\+Name()}{getTreeName()}}
+{\footnotesize\ttfamily string Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::get\+Tree\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the class name identifier. \begin{DoxyReturn}{Returns}
+Class name. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree_aa044337119c45985addba3ff7d554de2}{Abstract\+C\+C\+O\+Tree}}.
+
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a3f93dc6bfc79cf34af64c5ad6fb40a0a}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a3f93dc6bfc79cf34af64c5ad6fb40a0a}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!is\+Intersecting\+Vessels@{is\+Intersecting\+Vessels}}
+\index{is\+Intersecting\+Vessels@{is\+Intersecting\+Vessels}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{is\+Intersecting\+Vessels()}{isIntersectingVessels()}}
+{\footnotesize\ttfamily int Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::is\+Intersecting\+Vessels (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{p1,  }\item[{\mbox{\hyperlink{structpoint}{point}}}]{p2,  }\item[{\mbox{\hyperlink{structvessel}{vessel}} $\ast$}]{parent,  }\item[{vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$$>$}]{neighbors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+It returns if the line
+\begin{DoxyParams}{Parameters}
+{\em p1} & -\/\\
+\hline
+{\em p2} & intersects any vessel of the tree beside parent. \\
+\hline
+{\em p1} & Extreme point 1 of the line. \\
+\hline
+{\em p2} & Extreme point 2 of the line. \\
+\hline
+{\em parent} & Vessel excluded from the checking. \\
+\hline
+{\em boundary\+Tol} & Factor of line contraction at the extremes to avoid false intersections due to contact with anastomose. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the segment intersects any segment of the tree. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_aa02a3445bfa0430e731cb2d265665be8}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_aa02a3445bfa0430e731cb2d265665be8}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!is\+Overlapped@{is\+Overlapped}}
+\index{is\+Overlapped@{is\+Overlapped}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{is\+Overlapped()}{isOverlapped()}}
+{\footnotesize\ttfamily int Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::is\+Overlapped (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+Bif,  }\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+New,  }\item[{\mbox{\hyperlink{structvessel}{vessel}} $\ast$}]{parent,  }\item[{double}]{d\+Lim }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Determines if the segment x\+Bif-\/x\+New is closer than d\+Lim to any other segment of the tree (without being its parent vessel). Not used. 
+\begin{DoxyParams}{Parameters}
+{\em x\+Bif} & Proximal point for the new segment. \\
+\hline
+{\em x\+New} & Distal point for the new segment. \\
+\hline
+{\em parent} & Parent vessel of the new segment. \\
+\hline
+{\em d\+Lim} & Perfusion volume for each terminal at the current state of the tree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the middle point of the segment is sufficiently distant from the tree. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a1f5fd9391dd301fd0f1734ecbed82780}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a1f5fd9391dd301fd0f1734ecbed82780}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!is\+Symmetrically\+Valid@{is\+Symmetrically\+Valid}}
+\index{is\+Symmetrically\+Valid@{is\+Symmetrically\+Valid}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{is\+Symmetrically\+Valid()}{isSymmetricallyValid()}}
+{\footnotesize\ttfamily int Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::is\+Symmetrically\+Valid (\begin{DoxyParamCaption}\item[{double}]{beta1,  }\item[{double}]{beta2,  }\item[{int}]{n\+Level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+For a giving pair of beta between sibling of a parent vessel, it analyze the symmetry constrain given by eps\+Lim function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em beta1} & Beta for the 1st sibling. \\
+\hline
+{\em beta2} & Beta for the 2nd sibling. \\
+\hline
+{\em n\+Level} & Tree level of the bifurcation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the simmetry constrain is satisfied. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_adf72b1a9082866623330c40b57ae97f7}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_adf72b1a9082866623330c40b57ae97f7}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!print@{print}}
+\index{print@{print}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Prints the current tree node by node. 
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ae711117b173cbb92acd296ff4973f560}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ae711117b173cbb92acd296ff4973f560}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!save\+Tree@{save\+Tree}}
+\index{save\+Tree@{save\+Tree}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{save\+Tree()}{saveTree()}}
+{\footnotesize\ttfamily void Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::save\+Tree (\begin{DoxyParamCaption}\item[{ofstream $\ast$}]{out\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Returns a string with the tree atributes to create the .cco file. 
+\begin{DoxyParams}{Parameters}
+{\em out\+File} & File writer for the .cco file. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a270d5cd761d5fdad6a260aebd8869e6e}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a270d5cd761d5fdad6a260aebd8869e6e}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!test\+Vessel@{test\+Vessel}}
+\index{test\+Vessel@{test\+Vessel}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{test\+Vessel()}{testVessel()}}
+{\footnotesize\ttfamily int Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::test\+Vessel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+New,  }\item[{\mbox{\hyperlink{structvessel}{vessel}} $\ast$}]{parent,  }\item[{\mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}} $\ast$}]{domain,  }\item[{vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$$>$}]{neighbors,  }\item[{double}]{dlim,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$}]{x\+Bif,  }\item[{double $\ast$}]{cost }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+For a given spatial point {\ttfamily x\+New} test its connection with {\ttfamily parent} vessel. It must evaluate if the restrictions of geometry and symmetry are satisfied and also if it do not intersects with other vessel of this tree. It returns in {\ttfamily cost} the functional variation by the inclusion of such vessel. 
+\begin{DoxyParams}{Parameters}
+{\em x\+New} & Distal point for the new vessel to test. \\
+\hline
+{\em parent} & Parent vessel to test the {\ttfamily x\+New} point connection. \\
+\hline
+{\em domain} & Tree domain. \\
+\hline
+{\em neighbors} & Close neighbors used for intersection test. \\
+\hline
+{\em dlim} & Not used in the current implementation. \\
+\hline
+{\em x\+Bif} & Proximal point for the new vessel that present the lower function cost. \\
+\hline
+{\em cost} & Functional cost variation for the best bifurcation position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the connection of the tree with x\+New is possible. If not {\ttfamily cost} is I\+N\+F\+I\+N\+I\+TY. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ac0905b566762939a0ea67a2fa0ae1133}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_ac0905b566762939a0ea67a2fa0ae1133}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!update\+Tree@{update\+Tree}}
+\index{update\+Tree@{update\+Tree}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{update\+Tree()}{updateTree()}}
+{\footnotesize\ttfamily void Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::update\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvessel}{vessel}} $\ast$}]{root,  }\item[{\mbox{\hyperlink{class_fi_ra_ro_va_vi_opt_c_c_o_tree}{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}} $\ast$}]{tree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Updates the tree values for the current topology in only one tree \char`\"{}in order\char`\"{} swept (O(\+N)). As the recursion deepens, the level number is computed for each element. As the recursion is returning, it computes the flow and resistance for the current node and the radius ratio for its childs. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Root vessel for the tree to update. \\
+\hline
+{\em tree} & Tree to update. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a52979a09656d9a35d340702e54d0863e}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a52979a09656d9a35d340702e54d0863e}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!update\+Tree\+Viscosities\+Beta@{update\+Tree\+Viscosities\+Beta}}
+\index{update\+Tree\+Viscosities\+Beta@{update\+Tree\+Viscosities\+Beta}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{update\+Tree\+Viscosities\+Beta()}{updateTreeViscositiesBeta()}}
+{\footnotesize\ttfamily void Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::update\+Tree\+Viscosities\+Beta (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvessel}{vessel}} $\ast$}]{root,  }\item[{double}]{parent\+Radius,  }\item[{double $\ast$}]{max\+Beta\+Variation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Updates the tree beta values for the current vessel diameters. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Tree root. \\
+\hline
+{\em parent\+Radius} & 1.\+0 if root is actually the tree root, or parent radius of root otherwise. \\
+\hline
+{\em max\+Beta\+Variation} & The maximum variation of the beta value due to the update. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a50eebc27754469669334de13e35b12d8}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a50eebc27754469669334de13e35b12d8}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!update\+Tree\+Viscosities\+Resistance@{update\+Tree\+Viscosities\+Resistance}}
+\index{update\+Tree\+Viscosities\+Resistance@{update\+Tree\+Viscosities\+Resistance}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{update\+Tree\+Viscosities\+Resistance()}{updateTreeViscositiesResistance()}}
+{\footnotesize\ttfamily void Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::update\+Tree\+Viscosities\+Resistance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvessel}{vessel}} $\ast$}]{root,  }\item[{double}]{parent\+Radius,  }\item[{double $\ast$}]{max\+Resistance\+Variation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Updates the tree resistance values for the current vessel diameters. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Tree root. \\
+\hline
+{\em parent\+Radius} & 1.\+0 if root is actually the tree root, or parent radius of root otherwise. \\
+\hline
+{\em max\+Resistance\+Variation} & The maximum variation of the resistance due to the update. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a6774c4c4a44bfc656321922c0d8cf5c3}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a6774c4c4a44bfc656321922c0d8cf5c3}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!root\+Radius@{root\+Radius}}
+\index{root\+Radius@{root\+Radius}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{root\+Radius}{rootRadius}}
+{\footnotesize\ttfamily double Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::root\+Radius\hspace{0.3cm}{\ttfamily [private]}}
+
+Root radius. \mbox{\Hypertarget{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a78be49c68bbe3604b8ca309eb077d879}\label{class_fi_ra_ro_va_vi_opt_c_c_o_tree_a78be49c68bbe3604b8ca309eb077d879}} 
+\index{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}!variation\+Tolerance@{variation\+Tolerance}}
+\index{variation\+Tolerance@{variation\+Tolerance}!Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree@{Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{variation\+Tolerance}{variationTolerance}}
+{\footnotesize\ttfamily double Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree\+::variation\+Tolerance\hspace{0.3cm}{\ttfamily [private]}}
+
+Convergence tolerance. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/tree/Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree.\+h\item 
+structures/tree/Fi\+Ra\+Ro\+Va\+Vi\+Opt\+C\+C\+O\+Tree.\+cpp\end{DoxyCompactItemize}

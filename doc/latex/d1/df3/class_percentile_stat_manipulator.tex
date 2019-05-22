@@ -1,0 +1,78 @@
+\hypertarget{class_percentile_stat_manipulator}{}\section{Percentile\+Stat\+Manipulator Class Reference}
+\label{class_percentile_stat_manipulator}\index{Percentile\+Stat\+Manipulator@{Percentile\+Stat\+Manipulator}}
+
+
+{\ttfamily \#include $<$Percentile\+Stat\+Manipulator.\+h$>$}
+
+Inheritance diagram for Percentile\+Stat\+Manipulator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d1/df3/class_percentile_stat_manipulator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_percentile_stat_manipulator_abbf6cd7ebe4b1ac28ed5dd7251bd0a98}{Percentile\+Stat\+Manipulator} (int \hyperlink{class_percentile_stat_manipulator_a6a035c7f4cc7612c37486f81ef329093}{num\+Percentile})
+\item 
+double \hyperlink{class_percentile_stat_manipulator_aba7f8a15c5f22b5ac043e4cd97a6f8b6}{compute} (vector$<$ \hyperlink{structvessel}{vessel} $\ast$ $>$ vessels, \hyperlink{class_vessel_handler_a6cc775e9a5bcbe69ef381f56b52982e7}{Vessel\+Handler\+::\+A\+T\+T\+R\+I\+B\+U\+TE} att)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_percentile_stat_manipulator_a6a035c7f4cc7612c37486f81ef329093}{num\+Percentile}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Computes the N-\/th percentile value of a specific attribute for an array of vessels. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Percentile\+Stat\+Manipulator@{Percentile\+Stat\+Manipulator}!Percentile\+Stat\+Manipulator@{Percentile\+Stat\+Manipulator}}
+\index{Percentile\+Stat\+Manipulator@{Percentile\+Stat\+Manipulator}!Percentile\+Stat\+Manipulator@{Percentile\+Stat\+Manipulator}}
+\subsubsection[{\texorpdfstring{Percentile\+Stat\+Manipulator(int num\+Percentile)}{PercentileStatManipulator(int numPercentile)}}]{\setlength{\rightskip}{0pt plus 5cm}Percentile\+Stat\+Manipulator\+::\+Percentile\+Stat\+Manipulator (
+\begin{DoxyParamCaption}
+\item[{int}]{num\+Percentile}
+\end{DoxyParamCaption}
+)}\hypertarget{class_percentile_stat_manipulator_abbf6cd7ebe4b1ac28ed5dd7251bd0a98}{}\label{class_percentile_stat_manipulator_abbf6cd7ebe4b1ac28ed5dd7251bd0a98}
+Constructor for the statistical manipulator 
+\begin{DoxyParams}{Parameters}
+{\em num\+Percentile} & Number of the percentile which the object will compute. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Percentile\+Stat\+Manipulator@{Percentile\+Stat\+Manipulator}!compute@{compute}}
+\index{compute@{compute}!Percentile\+Stat\+Manipulator@{Percentile\+Stat\+Manipulator}}
+\subsubsection[{\texorpdfstring{compute(vector$<$ vessel $\ast$ $>$ vessels, Vessel\+Handler\+::\+A\+T\+T\+R\+I\+B\+U\+T\+E att)}{compute(vector< vessel * > vessels, VesselHandler::ATTRIBUTE att)}}]{\setlength{\rightskip}{0pt plus 5cm}double Percentile\+Stat\+Manipulator\+::compute (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf vessel} $\ast$ $>$}]{vessels, }
+\item[{{\bf Vessel\+Handler\+::\+A\+T\+T\+R\+I\+B\+U\+TE}}]{att}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_percentile_stat_manipulator_aba7f8a15c5f22b5ac043e4cd97a6f8b6}{}\label{class_percentile_stat_manipulator_aba7f8a15c5f22b5ac043e4cd97a6f8b6}
+Computes the statistical value of interest. 
+\begin{DoxyParams}{Parameters}
+{\em vessels} & Array of vessels from which the statistical function is computed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value of the percentile. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_stat_manipulator_a8ae1dd190a2c85ff4e219a48f92763b7}{Abstract\+Stat\+Manipulator}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Percentile\+Stat\+Manipulator@{Percentile\+Stat\+Manipulator}!num\+Percentile@{num\+Percentile}}
+\index{num\+Percentile@{num\+Percentile}!Percentile\+Stat\+Manipulator@{Percentile\+Stat\+Manipulator}}
+\subsubsection[{\texorpdfstring{num\+Percentile}{numPercentile}}]{\setlength{\rightskip}{0pt plus 5cm}int Percentile\+Stat\+Manipulator\+::num\+Percentile\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_percentile_stat_manipulator_a6a035c7f4cc7612c37486f81ef329093}{}\label{class_percentile_stat_manipulator_a6a035c7f4cc7612c37486f81ef329093}
+Number of the percentile which the object computes. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+stats/Percentile\+Stat\+Manipulator.\+h\item 
+stats/Percentile\+Stat\+Manipulator.\+cpp\end{DoxyCompactItemize}

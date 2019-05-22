@@ -1,0 +1,99 @@
+\hypertarget{class_domain_n_v_r}{}\section{Domain\+N\+VR Class Reference}
+\label{class_domain_n_v_r}\index{Domain\+N\+VR@{Domain\+N\+VR}}
+
+
+{\ttfamily \#include $<$Domain\+N\+V\+R.\+h$>$}
+
+Inheritance diagram for Domain\+N\+VR\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_domain_n_v_r}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_domain_n_v_r_a9e910d94be1cef67bea4f406bac47c7f}\label{class_domain_n_v_r_a9e910d94be1cef67bea4f406bac47c7f}} 
+{\bfseries Domain\+N\+VR} (string filename\+Hull, vector$<$ string $>$ filename\+Non\+Vascular\+Regions)
+\item 
+\mbox{\Hypertarget{class_domain_n_v_r_a93c48145afda22460019c43b5808724b}\label{class_domain_n_v_r_a93c48145afda22460019c43b5808724b}} 
+{\bfseries Domain\+N\+VR} (string filename\+Hull, vector$<$ string $>$ filename\+Non\+Vascular\+Regions, int n\+Draw)
+\item 
+\mbox{\Hypertarget{class_domain_n_v_r_a46b7a56ffdb8f8e0cfcd2a5761571394}\label{class_domain_n_v_r_a46b7a56ffdb8f8e0cfcd2a5761571394}} 
+int {\bfseries is\+Segment\+Inside} (\mbox{\hyperlink{structpoint}{point}} xs, \mbox{\hyperlink{structpoint}{point}} xf)
+\item 
+\mbox{\Hypertarget{class_domain_n_v_r_a590ea752ce83767038de90138faf8a21}\label{class_domain_n_v_r_a590ea752ce83767038de90138faf8a21}} 
+double {\bfseries get\+Characteristic\+Length} ()
+\item 
+\mbox{\Hypertarget{class_domain_n_v_r_a396d51aa262e4b40a7b0416e4e5b7238}\label{class_domain_n_v_r_a396d51aa262e4b40a7b0416e4e5b7238}} 
+double {\bfseries get\+D\+Lim} (int n\+Vessels, double factor)
+\item 
+double $\ast$ \mbox{\hyperlink{class_domain_n_v_r_a400dcad443d14d5eee1938621689e4c7}{get\+Local\+Neighborhood}} (\mbox{\hyperlink{structpoint}{point}} p, int n\+Vessels)
+\item 
+\mbox{\Hypertarget{class_domain_n_v_r_aae7b6782c1caab8cf5246c802be410cc}\label{class_domain_n_v_r_aae7b6782c1caab8cf5246c802be410cc}} 
+double {\bfseries get\+Size} ()
+\item 
+\mbox{\Hypertarget{class_domain_n_v_r_a88c76433bc3e8a1c1d60d4e7643f46d0}\label{class_domain_n_v_r_a88c76433bc3e8a1c1d60d4e7643f46d0}} 
+virtual \mbox{\hyperlink{structpoint}{point}} {\bfseries get\+Random\+Point} ()
+\item 
+\mbox{\Hypertarget{class_domain_n_v_r_ad88301601b9ff38a0c1526ef3a17a141}\label{class_domain_n_v_r_ad88301601b9ff38a0c1526ef3a17a141}} 
+vtk\+Smart\+Pointer$<$ vtk\+Cell\+Locator $>$ \& {\bfseries get\+Locator} ()
+\item 
+\mbox{\Hypertarget{class_domain_n_v_r_a3fead46c8720529bc3faaae5b817ccb7}\label{class_domain_n_v_r_a3fead46c8720529bc3faaae5b817ccb7}} 
+int {\bfseries get\+Draw} ()
+\item 
+\mbox{\Hypertarget{class_domain_n_v_r_a2b303bccf9a1db72e3bae866d7947f2d}\label{class_domain_n_v_r_a2b303bccf9a1db72e3bae866d7947f2d}} 
+deque$<$ \mbox{\hyperlink{structpoint}{point}} $>$ \& {\bfseries get\+Random\+Inner\+Points} ()
+\item 
+\mbox{\Hypertarget{class_domain_n_v_r_a50591c2d4b9e055821cc53416bf4263c}\label{class_domain_n_v_r_a50591c2d4b9e055821cc53416bf4263c}} 
+vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ \& {\bfseries get\+Vtk\+Geometry} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_domain_n_v_r_a7bcd43488a6810609d6004653d36566f}\label{class_domain_n_v_r_a7bcd43488a6810609d6004653d36566f}} 
+void {\bfseries generate\+Random\+Points} ()
+\item 
+\mbox{\Hypertarget{class_domain_n_v_r_aae7ebe5baaefe6824097127c8d91bb2c}\label{class_domain_n_v_r_aae7ebe5baaefe6824097127c8d91bb2c}} 
+void {\bfseries remove\+Random\+Outer\+Points} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_domain_n_v_r_a8fbb161c35df4d674c42fcf0baa76284}\label{class_domain_n_v_r_a8fbb161c35df4d674c42fcf0baa76284}} 
+deque$<$ \mbox{\hyperlink{structpoint}{point}} $>$ {\bfseries random\+Inner\+Points}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Domain with non-\/vascularized regions. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_domain_n_v_r_a400dcad443d14d5eee1938621689e4c7}\label{class_domain_n_v_r_a400dcad443d14d5eee1938621689e4c7}} 
+\index{Domain\+N\+VR@{Domain\+N\+VR}!get\+Local\+Neighborhood@{get\+Local\+Neighborhood}}
+\index{get\+Local\+Neighborhood@{get\+Local\+Neighborhood}!Domain\+N\+VR@{Domain\+N\+VR}}
+\subsubsection{\texorpdfstring{get\+Local\+Neighborhood()}{getLocalNeighborhood()}}
+{\footnotesize\ttfamily double $\ast$ Domain\+N\+V\+R\+::get\+Local\+Neighborhood (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{p,  }\item[{int}]{n\+Vessels }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the bounding box that enclose the perfusion volume of the p scaled times factor. 
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+{\em n\+Vessels} & \\
+\hline
+{\em factor} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/domain/Domain\+N\+V\+R.\+h\item 
+structures/domain/Domain\+N\+V\+R.\+cpp\end{DoxyCompactItemize}

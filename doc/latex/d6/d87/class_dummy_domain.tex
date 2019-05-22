@@ -1,0 +1,79 @@
+\hypertarget{class_dummy_domain}{}\section{Dummy\+Domain Class Reference}
+\label{class_dummy_domain}\index{Dummy\+Domain@{Dummy\+Domain}}
+
+
+{\ttfamily \#include $<$Dummy\+Domain.\+h$>$}
+
+Inheritance diagram for Dummy\+Domain\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{d6/d87/class_dummy_domain}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_dummy_domain_a6c325be924e6f60c83bec4ec6ac495e3}{Dummy\+Domain} (string filename, vector$<$ \hyperlink{structpoint}{point} $>$ points, \hyperlink{class_generator_data}{Generator\+Data} $\ast$\hyperlink{class_abstract_domain_aa37fbabc2bfa92c574f7db7544016b53}{instance\+Data})
+\item 
+virtual \hyperlink{structpoint}{point} \hyperlink{class_dummy_domain_a72074e5e3e53028ec4b73bffee1ba229}{get\+Random\+Point} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Creates a Domain that does not generate random points, instead it loads them from the constructor call. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Dummy\+Domain@{Dummy\+Domain}!Dummy\+Domain@{Dummy\+Domain}}
+\index{Dummy\+Domain@{Dummy\+Domain}!Dummy\+Domain@{Dummy\+Domain}}
+\subsubsection[{\texorpdfstring{Dummy\+Domain(string filename, vector$<$ point $>$ points, Generator\+Data $\ast$instance\+Data)}{DummyDomain(string filename, vector< point > points, GeneratorData *instanceData)}}]{\setlength{\rightskip}{0pt plus 5cm}Dummy\+Domain\+::\+Dummy\+Domain (
+\begin{DoxyParamCaption}
+\item[{string}]{filename, }
+\item[{vector$<$ {\bf point} $>$}]{points, }
+\item[{{\bf Generator\+Data} $\ast$}]{instance\+Data}
+\end{DoxyParamCaption}
+)}\hypertarget{class_dummy_domain_a6c325be924e6f60c83bec4ec6ac495e3}{}\label{class_dummy_domain_a6c325be924e6f60c83bec4ec6ac495e3}
+Constructor that load the domain shape from a vtk\+Polydata representation within {\ttfamily filename} and a preloaded set of points contained in {\ttfamily points}. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & File of the domain representation. \\
+\hline
+{\em points} & Set of preloaded points in the domain.\\
+\hline
+\end{DoxyParams}
+Creates a domain with the geometry of the file 
+\begin{DoxyParams}{Parameters}
+{\em filename} & with the fixed random points \\
+\hline
+{\em points.} & \\
+\hline
+{\em filename} & V\+TP file containing the geometry for the domain. \\
+\hline
+{\em points} & Points used for the tree generation. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Dummy\+Domain@{Dummy\+Domain}!get\+Random\+Point@{get\+Random\+Point}}
+\index{get\+Random\+Point@{get\+Random\+Point}!Dummy\+Domain@{Dummy\+Domain}}
+\subsubsection[{\texorpdfstring{get\+Random\+Point()}{getRandomPoint()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point} Dummy\+Domain\+::get\+Random\+Point (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_dummy_domain_a72074e5e3e53028ec4b73bffee1ba229}{}\label{class_dummy_domain_a72074e5e3e53028ec4b73bffee1ba229}
+Return the last preloaded point. \begin{DoxyReturn}{Returns}
+Last preloaded point.
+\end{DoxyReturn}
+Returns the first random point and removes it from the domain. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_simple_domain_afcf98b009584217d8ab03e0dbfa86839}{Simple\+Domain}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/domain/Dummy\+Domain.\+h\item 
+structures/domain/Dummy\+Domain.\+cpp\end{DoxyCompactItemize}

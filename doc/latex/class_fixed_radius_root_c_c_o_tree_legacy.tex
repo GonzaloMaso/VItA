@@ -1,0 +1,145 @@
+\hypertarget{class_fixed_radius_root_c_c_o_tree_legacy}{}\section{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy Class Reference}
+\label{class_fixed_radius_root_c_c_o_tree_legacy}\index{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}}
+
+
+{\ttfamily \#include $<$Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy.\+h$>$}
+
+Inheritance diagram for Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_fixed_radius_root_c_c_o_tree_legacy}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_fixed_radius_root_c_c_o_tree_legacy_a1eb79d5da0580cf9ea31ed51d215a676}\label{class_fixed_radius_root_c_c_o_tree_legacy_a1eb79d5da0580cf9ea31ed51d215a676}} 
+{\bfseries Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy} (\mbox{\hyperlink{structpoint}{point}} xi, double root\+Radius, double qi, gamma\+Func gam, eps\+Lim\+Func eps\+Lim, nu\+Blood\+Func nu, double min\+Angle)
+\item 
+\mbox{\hyperlink{class_fixed_radius_root_c_c_o_tree_legacy_a4cf9e8bf1edd2cb4c7f22a3deb9b52ff}{$\sim$\+Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}} ()
+\item 
+\mbox{\hyperlink{class_fixed_radius_root_c_c_o_tree_legacy}{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}} $\ast$ \mbox{\hyperlink{class_fixed_radius_root_c_c_o_tree_legacy_a7ee8da3159245b4000e631c199762f61}{clone}} ()
+\item 
+\mbox{\Hypertarget{class_fixed_radius_root_c_c_o_tree_legacy_a43a7c1b6584b258580538764f0a17c18}\label{class_fixed_radius_root_c_c_o_tree_legacy_a43a7c1b6584b258580538764f0a17c18}} 
+void {\bfseries get\+Closest\+Tree\+Point} (\mbox{\hyperlink{structpoint}{point}} x\+New, \mbox{\hyperlink{structpoint}{point}} $\ast$x\+Bif, double $\ast$dist)
+\item 
+vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$ $>$ \mbox{\hyperlink{class_fixed_radius_root_c_c_o_tree_legacy_affd26c5ca4319ea7f207e4eb1bfea6b1}{get\+Close\+Segments}} (\mbox{\hyperlink{structpoint}{point}} x\+New, \mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}} $\ast$domain, int $\ast$n\+Found)
+\item 
+void \mbox{\hyperlink{class_fixed_radius_root_c_c_o_tree_legacy_a8322a2cf314cae0c93db3e0d53f4942b}{add\+Vessel}} (\mbox{\hyperlink{structpoint}{point}} x\+Prox, \mbox{\hyperlink{structpoint}{point}} x\+Dist, \mbox{\hyperlink{structvessel}{vessel}} $\ast$parent)
+\item 
+int \mbox{\hyperlink{class_fixed_radius_root_c_c_o_tree_legacy_a1b36d4046bc3d3ac897eec5d1cec0308}{test\+Vessel}} (\mbox{\hyperlink{structpoint}{point}} x\+New, \mbox{\hyperlink{structvessel}{vessel}} $\ast$parent, \mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}} $\ast$domain, vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$$>$ neighbors, double dlim, \mbox{\hyperlink{structpoint}{point}} $\ast$x\+Bif, double $\ast$cost)
+\item 
+void \mbox{\hyperlink{class_fixed_radius_root_c_c_o_tree_legacy_a0de200e3f10bdd9c2fc4e3c1f37334e1}{print}} ()
+\item 
+void \mbox{\hyperlink{class_fixed_radius_root_c_c_o_tree_legacy_ae62b6fcd1aa0f3772aea173d036f8bb7}{store}} (string filename)
+\item 
+\mbox{\Hypertarget{class_fixed_radius_root_c_c_o_tree_legacy_a4101d7bb1970dda44e58b788ccc58e5e}\label{class_fixed_radius_root_c_c_o_tree_legacy_a4101d7bb1970dda44e58b788ccc58e5e}} 
+double {\bfseries get\+Root\+Radius} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Models a single C\+CO tree which contains the vessel\textquotesingle{}s data and connectivity. Specifications\+:
+\begin{DoxyItemize}
+\item Fixed domain;
+\item Given flux Q;
+\item Given pressure gradient;
+\item Given N terminals;
+\item Fixed symmetry;
+\item Constant Murray coefficient;
+\item Constant flow viscosity; 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_fixed_radius_root_c_c_o_tree_legacy_a4cf9e8bf1edd2cb4c7f22a3deb9b52ff}\label{class_fixed_radius_root_c_c_o_tree_legacy_a4cf9e8bf1edd2cb4c7f22a3deb9b52ff}} 
+\index{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}!````~Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{$\sim$\+Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}}
+\index{````~Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{$\sim$\+Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}!Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}}
+\subsubsection{\texorpdfstring{$\sim$\+Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy()}{~FixedRadiusRootCCOTreeLegacy()}}
+{\footnotesize\ttfamily Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy\+::$\sim$\+Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Paramount importance for erasing cloned trees. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_fixed_radius_root_c_c_o_tree_legacy_a8322a2cf314cae0c93db3e0d53f4942b}\label{class_fixed_radius_root_c_c_o_tree_legacy_a8322a2cf314cae0c93db3e0d53f4942b}} 
+\index{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}!add\+Vessel@{add\+Vessel}}
+\index{add\+Vessel@{add\+Vessel}!Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}}
+\subsubsection{\texorpdfstring{add\+Vessel()}{addVessel()}}
+{\footnotesize\ttfamily void Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy\+::add\+Vessel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+Prox,  }\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+Dist,  }\item[{\mbox{\hyperlink{structvessel}{vessel}} $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Adds a new vessel to the C\+CO tree.
+\begin{DoxyParams}{Parameters}
+{\em x\+Prox} & and\\
+\hline
+{\em x\+Dist} & are the proximal and distal nodes of the new vessel and\\
+\hline
+{\em parent} & is the attachment parent vessel.\\
+\hline
+{\em x\+Prox} & \\
+\hline
+{\em x\+Dist} & \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+\mbox{\Hypertarget{class_fixed_radius_root_c_c_o_tree_legacy_a7ee8da3159245b4000e631c199762f61}\label{class_fixed_radius_root_c_c_o_tree_legacy_a7ee8da3159245b4000e631c199762f61}} 
+\index{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}!clone@{clone}}
+\index{clone@{clone}!Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}}
+\subsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_fixed_radius_root_c_c_o_tree_legacy}{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}} $\ast$ Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a copy of this tree instance. // T\+O\+DO Improve performance \mbox{\Hypertarget{class_fixed_radius_root_c_c_o_tree_legacy_affd26c5ca4319ea7f207e4eb1bfea6b1}\label{class_fixed_radius_root_c_c_o_tree_legacy_affd26c5ca4319ea7f207e4eb1bfea6b1}} 
+\index{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}!get\+Close\+Segments@{get\+Close\+Segments}}
+\index{get\+Close\+Segments@{get\+Close\+Segments}!Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}}
+\subsubsection{\texorpdfstring{get\+Close\+Segments()}{getCloseSegments()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$ $>$ Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy\+::get\+Close\+Segments (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+New,  }\item[{\mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}} $\ast$}]{domain,  }\item[{int $\ast$}]{n\+Found }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the closer cells of a boxed neighborhood centered in x\+New. It assumes a uniform distribution of the vessels in the domain and searches in a perfusion volume feeded by N\+\_\+\+C\+O\+N\+N\+E\+X\+I\+O\+NS. 
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+\mbox{\Hypertarget{class_fixed_radius_root_c_c_o_tree_legacy_a0de200e3f10bdd9c2fc4e3c1f37334e1}\label{class_fixed_radius_root_c_c_o_tree_legacy_a0de200e3f10bdd9c2fc4e3c1f37334e1}} 
+\index{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}!print@{print}}
+\index{print@{print}!Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}}
+\subsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Prints the tree structure attributes in the cout. 
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+\mbox{\Hypertarget{class_fixed_radius_root_c_c_o_tree_legacy_ae62b6fcd1aa0f3772aea173d036f8bb7}\label{class_fixed_radius_root_c_c_o_tree_legacy_ae62b6fcd1aa0f3772aea173d036f8bb7}} 
+\index{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}!store@{store}}
+\index{store@{store}!Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}}
+\subsubsection{\texorpdfstring{store()}{store()}}
+{\footnotesize\ttfamily void Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy\+::store (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Stores the tree as V\+TK file. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & Filename to strore the tree in .V\+TP format. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+\mbox{\Hypertarget{class_fixed_radius_root_c_c_o_tree_legacy_a1b36d4046bc3d3ac897eec5d1cec0308}\label{class_fixed_radius_root_c_c_o_tree_legacy_a1b36d4046bc3d3ac897eec5d1cec0308}} 
+\index{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}!test\+Vessel@{test\+Vessel}}
+\index{test\+Vessel@{test\+Vessel}!Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy@{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}}
+\subsubsection{\texorpdfstring{test\+Vessel()}{testVessel()}}
+{\footnotesize\ttfamily int Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy\+::test\+Vessel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+New,  }\item[{\mbox{\hyperlink{structvessel}{vessel}} $\ast$}]{parent,  }\item[{\mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}} $\ast$}]{domain,  }\item[{vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$$>$}]{neighbors,  }\item[{double}]{d\+Lim,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$}]{x\+Bif,  }\item[{double $\ast$}]{cost }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Tests N\+\_\+\+B\+I\+F\+\_\+\+T\+R\+I\+ES $\ast$ (N\+\_\+\+B\+I\+F\+\_\+\+T\+R\+I\+E\+S+1)/2 -\/ 3 possible positions for the bifurcation site in the triangle delineated by the triplet (x\+New, parent-\/$>$x\+Prox, parent-\/$>$x\+Dist). It returns the bifurcation site x\+Bif which corresponds to the minimum cost in terms of volumetric area of the tree. If all bifurcations are invalid, cost will be D\+B\+L\+\_\+\+M\+AX. 
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy.\+h\item 
+structures/Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy.\+cpp\end{DoxyCompactItemize}

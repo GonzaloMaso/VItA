@@ -1,0 +1,86 @@
+\hypertarget{class_volumetric_cost_estimation}{}\section{Volumetric\+Cost\+Estimation Class Reference}
+\label{class_volumetric_cost_estimation}\index{Volumetric\+Cost\+Estimation@{Volumetric\+Cost\+Estimation}}
+
+
+{\ttfamily \#include $<$Volumetric\+Cost\+Estimation.\+h$>$}
+
+Inheritance diagram for Volumetric\+Cost\+Estimation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d7/d4e/class_volumetric_cost_estimation}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_volumetric_cost_estimation_a51639a770cca0faa91394c672f84cd5d}{Volumetric\+Cost\+Estimation}} (\mbox{\hyperlink{class_abstract_object_c_c_o_tree}{Abstract\+Object\+C\+C\+O\+Tree}} $\ast$\mbox{\hyperlink{class_abstract_cost_estimator_a0ec4eb1fa41bdfb25ad2099dc9fc16c4}{tree}})
+\item 
+virtual \mbox{\hyperlink{class_volumetric_cost_estimation_a6469f825673166358c7a3b78b57fb8dc}{$\sim$\+Volumetric\+Cost\+Estimation}} ()
+\item 
+double \mbox{\hyperlink{class_volumetric_cost_estimation_ae6aa420485924904c08759ef32810c04}{compute\+Cost}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_volumetric_cost_estimation_a5082e98b1aad95975a56c828c1fdbf43}{compute\+Tree\+Cost}} (\mbox{\hyperlink{class_abstract_vascular_element}{Abstract\+Vascular\+Element}} $\ast$root)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Cost estimator that computes the tree volume. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_volumetric_cost_estimation_a51639a770cca0faa91394c672f84cd5d}\label{class_volumetric_cost_estimation_a51639a770cca0faa91394c672f84cd5d}} 
+\index{Volumetric\+Cost\+Estimation@{Volumetric\+Cost\+Estimation}!Volumetric\+Cost\+Estimation@{Volumetric\+Cost\+Estimation}}
+\index{Volumetric\+Cost\+Estimation@{Volumetric\+Cost\+Estimation}!Volumetric\+Cost\+Estimation@{Volumetric\+Cost\+Estimation}}
+\subsubsection{\texorpdfstring{Volumetric\+Cost\+Estimation()}{VolumetricCostEstimation()}}
+{\footnotesize\ttfamily Volumetric\+Cost\+Estimation\+::\+Volumetric\+Cost\+Estimation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_abstract_object_c_c_o_tree}{Abstract\+Object\+C\+C\+O\+Tree}} $\ast$}]{tree }\end{DoxyParamCaption})}
+
+Constructor that specifies the tree to whom the functional cost will be computed. 
+\begin{DoxyParams}{Parameters}
+{\em tree} & Tree over which the functional cost will be computed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_volumetric_cost_estimation_a6469f825673166358c7a3b78b57fb8dc}\label{class_volumetric_cost_estimation_a6469f825673166358c7a3b78b57fb8dc}} 
+\index{Volumetric\+Cost\+Estimation@{Volumetric\+Cost\+Estimation}!````~Volumetric\+Cost\+Estimation@{$\sim$\+Volumetric\+Cost\+Estimation}}
+\index{````~Volumetric\+Cost\+Estimation@{$\sim$\+Volumetric\+Cost\+Estimation}!Volumetric\+Cost\+Estimation@{Volumetric\+Cost\+Estimation}}
+\subsubsection{\texorpdfstring{$\sim$\+Volumetric\+Cost\+Estimation()}{~VolumetricCostEstimation()}}
+{\footnotesize\ttfamily Volumetric\+Cost\+Estimation\+::$\sim$\+Volumetric\+Cost\+Estimation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Common destructor. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_volumetric_cost_estimation_ae6aa420485924904c08759ef32810c04}\label{class_volumetric_cost_estimation_ae6aa420485924904c08759ef32810c04}} 
+\index{Volumetric\+Cost\+Estimation@{Volumetric\+Cost\+Estimation}!compute\+Cost@{compute\+Cost}}
+\index{compute\+Cost@{compute\+Cost}!Volumetric\+Cost\+Estimation@{Volumetric\+Cost\+Estimation}}
+\subsubsection{\texorpdfstring{compute\+Cost()}{computeCost()}}
+{\footnotesize\ttfamily double Volumetric\+Cost\+Estimation\+::compute\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Computes the given tree volume. \begin{DoxyReturn}{Returns}
+Volume of the given tree. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_cost_estimator_a3b6799768610ee84d4bce75bd2e6cdc8}{Abstract\+Cost\+Estimator}}.
+
+\mbox{\Hypertarget{class_volumetric_cost_estimation_a5082e98b1aad95975a56c828c1fdbf43}\label{class_volumetric_cost_estimation_a5082e98b1aad95975a56c828c1fdbf43}} 
+\index{Volumetric\+Cost\+Estimation@{Volumetric\+Cost\+Estimation}!compute\+Tree\+Cost@{compute\+Tree\+Cost}}
+\index{compute\+Tree\+Cost@{compute\+Tree\+Cost}!Volumetric\+Cost\+Estimation@{Volumetric\+Cost\+Estimation}}
+\subsubsection{\texorpdfstring{compute\+Tree\+Cost()}{computeTreeCost()}}
+{\footnotesize\ttfamily double Volumetric\+Cost\+Estimation\+::compute\+Tree\+Cost (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_abstract_vascular_element}{Abstract\+Vascular\+Element}} $\ast$}]{root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Computes the volume for the tree with root {\ttfamily root}. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Root of the tree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Volume of the tree. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/tree/Volumetric\+Cost\+Estimation.\+h\item 
+structures/tree/Volumetric\+Cost\+Estimation.\+cpp\end{DoxyCompactItemize}

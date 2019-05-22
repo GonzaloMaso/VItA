@@ -1,0 +1,61 @@
+\hypertarget{class_v_t_k_converter}{}\section{V\+T\+K\+Converter Class Reference}
+\label{class_v_t_k_converter}\index{V\+T\+K\+Converter@{V\+T\+K\+Converter}}
+
+
+{\ttfamily \#include $<$V\+T\+K\+Converter.\+h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_v_t_k_converter_aa3df2fb65ae80ec1ef476d9e00460cc6}{S\+T\+L2\+V\+T\+K\+Converter} (string stl\+File, string vtk\+File, int write\+A\+S\+C\+I\+I\+Format)
+\item 
+static void \hyperlink{class_v_t_k_converter_a060d99d6e878c421693ca47c73ecdcfc}{O\+B\+J2\+V\+T\+K\+Converter} (string obj\+File, string vtk\+File, int write\+A\+S\+C\+I\+I\+Format)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Converts different mesh formats to V\+TK using V\+TK library. 
+
+\subsection{Member Function Documentation}
+\index{V\+T\+K\+Converter@{V\+T\+K\+Converter}!O\+B\+J2\+V\+T\+K\+Converter@{O\+B\+J2\+V\+T\+K\+Converter}}
+\index{O\+B\+J2\+V\+T\+K\+Converter@{O\+B\+J2\+V\+T\+K\+Converter}!V\+T\+K\+Converter@{V\+T\+K\+Converter}}
+\subsubsection[{\texorpdfstring{O\+B\+J2\+V\+T\+K\+Converter(string obj\+File, string vtk\+File, int write\+A\+S\+C\+I\+I\+Format)}{OBJ2VTKConverter(string objFile, string vtkFile, int writeASCIIFormat)}}]{\setlength{\rightskip}{0pt plus 5cm}void V\+T\+K\+Converter\+::\+O\+B\+J2\+V\+T\+K\+Converter (
+\begin{DoxyParamCaption}
+\item[{string}]{obj\+File, }
+\item[{string}]{vtk\+File, }
+\item[{int}]{write\+A\+S\+C\+I\+I\+Format}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_v_t_k_converter_a060d99d6e878c421693ca47c73ecdcfc}{}\label{class_v_t_k_converter_a060d99d6e878c421693ca47c73ecdcfc}
+Converts a mesh in O\+BJ format to V\+TK format. 
+\begin{DoxyParams}{Parameters}
+{\em obj\+File} & Input O\+BJ file. \\
+\hline
+{\em vtk\+File} & Output V\+TK file. \\
+\hline
+{\em write\+A\+S\+C\+I\+I\+Format} & True for A\+S\+C\+II V\+TK output, otherwise the output will be a binary V\+TK. \\
+\hline
+\end{DoxyParams}
+\index{V\+T\+K\+Converter@{V\+T\+K\+Converter}!S\+T\+L2\+V\+T\+K\+Converter@{S\+T\+L2\+V\+T\+K\+Converter}}
+\index{S\+T\+L2\+V\+T\+K\+Converter@{S\+T\+L2\+V\+T\+K\+Converter}!V\+T\+K\+Converter@{V\+T\+K\+Converter}}
+\subsubsection[{\texorpdfstring{S\+T\+L2\+V\+T\+K\+Converter(string stl\+File, string vtk\+File, int write\+A\+S\+C\+I\+I\+Format)}{STL2VTKConverter(string stlFile, string vtkFile, int writeASCIIFormat)}}]{\setlength{\rightskip}{0pt plus 5cm}void V\+T\+K\+Converter\+::\+S\+T\+L2\+V\+T\+K\+Converter (
+\begin{DoxyParamCaption}
+\item[{string}]{stl\+File, }
+\item[{string}]{vtk\+File, }
+\item[{int}]{write\+A\+S\+C\+I\+I\+Format}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_v_t_k_converter_aa3df2fb65ae80ec1ef476d9e00460cc6}{}\label{class_v_t_k_converter_aa3df2fb65ae80ec1ef476d9e00460cc6}
+Converts a mesh in S\+TL format to V\+TK format. 
+\begin{DoxyParams}{Parameters}
+{\em stl\+File} & Input S\+TL file. \\
+\hline
+{\em vtk\+File} & Output V\+TK file. \\
+\hline
+{\em write\+A\+S\+C\+I\+I\+Format} & True for A\+S\+C\+II V\+TK output, otherwise the output will be a binary V\+TK. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+io/V\+T\+K\+Converter.\+h\item 
+io/V\+T\+K\+Converter.\+cpp\end{DoxyCompactItemize}

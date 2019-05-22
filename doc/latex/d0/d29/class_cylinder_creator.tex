@@ -1,0 +1,106 @@
+\hypertarget{class_cylinder_creator}{}\section{Cylinder\+Creator Class Reference}
+\label{class_cylinder_creator}\index{Cylinder\+Creator@{Cylinder\+Creator}}
+
+
+{\ttfamily \#include $<$Cylinder\+Creator.\+h$>$}
+
+Inheritance diagram for Cylinder\+Creator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d0/d29/class_cylinder_creator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_cylinder_creator_a3bd3c0c293bbc17c02cc5512c96695c5}{Cylinder\+Creator} (vector$<$ double $>$ \hyperlink{class_cylinder_creator_a78f2d1a2db1e3915e182fc102ad4ac96}{center}, double \hyperlink{class_cylinder_creator_a3558e3005e9567532b04a8f1d32ff4a4}{radius}, double \hyperlink{class_cylinder_creator_acd2b5826bf983377bb0f013c01e7329f}{height}, int \hyperlink{class_cylinder_creator_a9bb62db1072cadf1cce2962c7b954b9b}{resolution})
+\item 
+virtual \hyperlink{class_cylinder_creator_aa7b5874b41e919104682ca0e925f897a}{$\sim$\+Cylinder\+Creator} ()
+\item 
+void \hyperlink{class_cylinder_creator_ae4da1cf60c40253ab7f677d8d708eefe}{create} (string filename)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ double $>$ \hyperlink{class_cylinder_creator_a78f2d1a2db1e3915e182fc102ad4ac96}{center}
+\item 
+double \hyperlink{class_cylinder_creator_a3558e3005e9567532b04a8f1d32ff4a4}{radius}
+\item 
+double \hyperlink{class_cylinder_creator_acd2b5826bf983377bb0f013c01e7329f}{height}
+\item 
+int \hyperlink{class_cylinder_creator_a9bb62db1072cadf1cce2962c7b954b9b}{resolution}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Creates a V\+TP file containing a cylinder. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Cylinder\+Creator@{Cylinder\+Creator}!Cylinder\+Creator@{Cylinder\+Creator}}
+\index{Cylinder\+Creator@{Cylinder\+Creator}!Cylinder\+Creator@{Cylinder\+Creator}}
+\subsubsection[{\texorpdfstring{Cylinder\+Creator(vector$<$ double $>$ center, double radius, double height, int resolution)}{CylinderCreator(vector< double > center, double radius, double height, int resolution)}}]{\setlength{\rightskip}{0pt plus 5cm}Cylinder\+Creator\+::\+Cylinder\+Creator (
+\begin{DoxyParamCaption}
+\item[{vector$<$ double $>$}]{center, }
+\item[{double}]{radius, }
+\item[{double}]{height, }
+\item[{int}]{resolution}
+\end{DoxyParamCaption}
+)}\hypertarget{class_cylinder_creator_a3bd3c0c293bbc17c02cc5512c96695c5}{}\label{class_cylinder_creator_a3bd3c0c293bbc17c02cc5512c96695c5}
+Initialize the inner variables of the object. 
+\begin{DoxyParams}{Parameters}
+{\em center} & 3D point denoting the center of the sphere. \\
+\hline
+{\em radius} & Radius of the cylinder base. \\
+\hline
+{\em height} & Height of the cylinder. \\
+\hline
+{\em resolution} & Circumferential resolution. \\
+\hline
+\end{DoxyParams}
+\index{Cylinder\+Creator@{Cylinder\+Creator}!````~Cylinder\+Creator@{$\sim$\+Cylinder\+Creator}}
+\index{````~Cylinder\+Creator@{$\sim$\+Cylinder\+Creator}!Cylinder\+Creator@{Cylinder\+Creator}}
+\subsubsection[{\texorpdfstring{$\sim$\+Cylinder\+Creator()}{~CylinderCreator()}}]{\setlength{\rightskip}{0pt plus 5cm}Cylinder\+Creator\+::$\sim$\+Cylinder\+Creator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_cylinder_creator_aa7b5874b41e919104682ca0e925f897a}{}\label{class_cylinder_creator_aa7b5874b41e919104682ca0e925f897a}
+Standard destructor. 
+
+\subsection{Member Function Documentation}
+\index{Cylinder\+Creator@{Cylinder\+Creator}!create@{create}}
+\index{create@{create}!Cylinder\+Creator@{Cylinder\+Creator}}
+\subsubsection[{\texorpdfstring{create(string filename)}{create(string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}void Cylinder\+Creator\+::create (
+\begin{DoxyParamCaption}
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_cylinder_creator_ae4da1cf60c40253ab7f677d8d708eefe}{}\label{class_cylinder_creator_ae4da1cf60c40253ab7f677d8d708eefe}
+Persist the object in a file with V\+TP format. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & Save file for the current object. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_abstract_creator_a1991e446444ffea2b85216b64f2dcf9e}{Abstract\+Creator}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Cylinder\+Creator@{Cylinder\+Creator}!center@{center}}
+\index{center@{center}!Cylinder\+Creator@{Cylinder\+Creator}}
+\subsubsection[{\texorpdfstring{center}{center}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ Cylinder\+Creator\+::center\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_cylinder_creator_a78f2d1a2db1e3915e182fc102ad4ac96}{}\label{class_cylinder_creator_a78f2d1a2db1e3915e182fc102ad4ac96}
+3D point denoting the center of the sphere. \index{Cylinder\+Creator@{Cylinder\+Creator}!height@{height}}
+\index{height@{height}!Cylinder\+Creator@{Cylinder\+Creator}}
+\subsubsection[{\texorpdfstring{height}{height}}]{\setlength{\rightskip}{0pt plus 5cm}double Cylinder\+Creator\+::height\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_cylinder_creator_acd2b5826bf983377bb0f013c01e7329f}{}\label{class_cylinder_creator_acd2b5826bf983377bb0f013c01e7329f}
+Height of the cylinder. \index{Cylinder\+Creator@{Cylinder\+Creator}!radius@{radius}}
+\index{radius@{radius}!Cylinder\+Creator@{Cylinder\+Creator}}
+\subsubsection[{\texorpdfstring{radius}{radius}}]{\setlength{\rightskip}{0pt plus 5cm}double Cylinder\+Creator\+::radius\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_cylinder_creator_a3558e3005e9567532b04a8f1d32ff4a4}{}\label{class_cylinder_creator_a3558e3005e9567532b04a8f1d32ff4a4}
+Radius of the cylinder base. \index{Cylinder\+Creator@{Cylinder\+Creator}!resolution@{resolution}}
+\index{resolution@{resolution}!Cylinder\+Creator@{Cylinder\+Creator}}
+\subsubsection[{\texorpdfstring{resolution}{resolution}}]{\setlength{\rightskip}{0pt plus 5cm}int Cylinder\+Creator\+::resolution\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_cylinder_creator_a9bb62db1072cadf1cce2962c7b954b9b}{}\label{class_cylinder_creator_a9bb62db1072cadf1cce2962c7b954b9b}
+Circumferential resolution. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+creators/Cylinder\+Creator.\+h\item 
+creators/Cylinder\+Creator.\+cpp\end{DoxyCompactItemize}

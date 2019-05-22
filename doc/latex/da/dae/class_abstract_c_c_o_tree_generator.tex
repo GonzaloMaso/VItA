@@ -1,0 +1,88 @@
+\hypertarget{class_abstract_c_c_o_tree_generator}{}\section{Abstract\+C\+C\+O\+Tree\+Generator Class Reference}
+\label{class_abstract_c_c_o_tree_generator}\index{Abstract\+C\+C\+O\+Tree\+Generator@{Abstract\+C\+C\+O\+Tree\+Generator}}
+
+
+{\ttfamily \#include $<$Abstract\+Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Generator.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a05e22c19531a6e6b385b93a5285e5ac4}\label{class_abstract_c_c_o_tree_generator_a05e22c19531a6e6b385b93a5285e5ac4}} 
+{\bfseries Abstract\+C\+C\+O\+Tree\+Generator} (\hyperlink{class_simple_domain}{Simple\+Domain} $\ast$domain, int n\+Trees, \hyperlink{structpoint}{point} $\ast$xi, double $\ast$root\+Radii, double $\ast$qi, double $\ast$dpi, int n\+Term, gamma\+Func gam, eps\+Lim\+Func eps\+Lim, nu\+Blood\+Func nu)
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a1429db3e7545f4004bdd04388bec9dbe}\label{class_abstract_c_c_o_tree_generator_a1429db3e7545f4004bdd04388bec9dbe}} 
+vector$<$ \hyperlink{class_fixed_radius_root_c_c_o_tree_legacy}{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy} $\ast$ $>$ {\bfseries generate} ()
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a05e22c19531a6e6b385b93a5285e5ac4}\label{class_abstract_c_c_o_tree_generator_a05e22c19531a6e6b385b93a5285e5ac4}} 
+{\bfseries Abstract\+C\+C\+O\+Tree\+Generator} (\hyperlink{class_simple_domain}{Simple\+Domain} $\ast$domain, int n\+Trees, \hyperlink{structpoint}{point} $\ast$xi, double $\ast$root\+Radii, double $\ast$qi, double $\ast$dpi, int n\+Term, gamma\+Func gam, eps\+Lim\+Func eps\+Lim, nu\+Blood\+Func nu)
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a23aec3b49cc8c1f19d7bb8af99ea8ece}\label{class_abstract_c_c_o_tree_generator_a23aec3b49cc8c1f19d7bb8af99ea8ece}} 
+vector$<$ Fixed\+Radius\+Root\+C\+C\+O\+Tree $\ast$ $>$ {\bfseries generate} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_ae692841a924a40eed1a4a23d3d9910cb}\label{class_abstract_c_c_o_tree_generator_ae692841a924a40eed1a4a23d3d9910cb}} 
+int {\bfseries is\+Valid\+Root\+Segment} (\hyperlink{structpoint}{point} x\+New, int i\+Try)
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a7e971a13795a519702083f1f199a8d97}\label{class_abstract_c_c_o_tree_generator_a7e971a13795a519702083f1f199a8d97}} 
+int {\bfseries is\+Valid\+Segment} (\hyperlink{structpoint}{point} x\+New, vector$<$ \hyperlink{class_fixed_radius_root_c_c_o_tree_legacy}{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy} $\ast$$>$ trees, int i\+Try)
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a2b1836a3d2c3eaf7ffb992ba485b139d}\label{class_abstract_c_c_o_tree_generator_a2b1836a3d2c3eaf7ffb992ba485b139d}} 
+virtual void {\bfseries add\+Root\+Segments} (vector$<$ \hyperlink{class_fixed_radius_root_c_c_o_tree_legacy}{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy} $\ast$$>$ trees, \hyperlink{structpoint}{point} x\+New)=0
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_ae692841a924a40eed1a4a23d3d9910cb}\label{class_abstract_c_c_o_tree_generator_ae692841a924a40eed1a4a23d3d9910cb}} 
+int {\bfseries is\+Valid\+Root\+Segment} (\hyperlink{structpoint}{point} x\+New, int i\+Try)
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a6061f7fc5a82d441355d88f246a067b9}\label{class_abstract_c_c_o_tree_generator_a6061f7fc5a82d441355d88f246a067b9}} 
+int {\bfseries is\+Valid\+Segment} (\hyperlink{structpoint}{point} x\+New, vector$<$ Fixed\+Radius\+Root\+C\+C\+O\+Tree $\ast$$>$ trees, int i\+Try)
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a2e659c45f1f8b26a8b216e83571e37a2}\label{class_abstract_c_c_o_tree_generator_a2e659c45f1f8b26a8b216e83571e37a2}} 
+virtual void {\bfseries add\+Root\+Segments} (vector$<$ Fixed\+Radius\+Root\+C\+C\+O\+Tree $\ast$$>$ trees, \hyperlink{structpoint}{point} x\+New)=0
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a1a64e181b858a9b9c68f555728b49286}\label{class_abstract_c_c_o_tree_generator_a1a64e181b858a9b9c68f555728b49286}} 
+int {\bfseries n\+Trees}
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_afa499e53d8f6a79f315407cc30d24c5e}\label{class_abstract_c_c_o_tree_generator_afa499e53d8f6a79f315407cc30d24c5e}} 
+int {\bfseries n\+Terminals}
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_aa2968e6e3025464c8ceb68877f59a3c3}\label{class_abstract_c_c_o_tree_generator_aa2968e6e3025464c8ceb68877f59a3c3}} 
+double {\bfseries d\+Lim}
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_af9b9975ef5b7ea1c15a26975d81ff5c2}\label{class_abstract_c_c_o_tree_generator_af9b9975ef5b7ea1c15a26975d81ff5c2}} 
+\hyperlink{class_simple_domain}{Simple\+Domain} $\ast$ {\bfseries domain}
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a7ee1b45a94b032b25920f0345e69d6bb}\label{class_abstract_c_c_o_tree_generator_a7ee1b45a94b032b25920f0345e69d6bb}} 
+vector$<$ \hyperlink{structpoint}{point} $>$ {\bfseries xi}
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a271b5922eb135eafc160660e47aefba6}\label{class_abstract_c_c_o_tree_generator_a271b5922eb135eafc160660e47aefba6}} 
+vector$<$ double $>$ {\bfseries root\+Radii}
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a0d92e6e53853118610eb26163500b6da}\label{class_abstract_c_c_o_tree_generator_a0d92e6e53853118610eb26163500b6da}} 
+vector$<$ double $>$ {\bfseries qi}
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_afc2fd7b21d2a1d1a78fe024fbe7aba1e}\label{class_abstract_c_c_o_tree_generator_afc2fd7b21d2a1d1a78fe024fbe7aba1e}} 
+vector$<$ double $>$ {\bfseries dpi}
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a693dab88752fa773857c594e2b8ed566}\label{class_abstract_c_c_o_tree_generator_a693dab88752fa773857c594e2b8ed566}} 
+gamma\+Func {\bfseries gam}
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a5b21a0170f60758ad6688b5e59f10532}\label{class_abstract_c_c_o_tree_generator_a5b21a0170f60758ad6688b5e59f10532}} 
+eps\+Lim\+Func {\bfseries eps\+Lim}
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a23e5bed25ee4b6ca7e77444973b28bb7}\label{class_abstract_c_c_o_tree_generator_a23e5bed25ee4b6ca7e77444973b28bb7}} 
+nu\+Blood\+Func {\bfseries nu}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract class that describe the workflow for a multiple C\+CO tree generation. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+tree\+Generator/Abstract\+C\+C\+O\+Tree\+Generator.\+h\item 
+tree\+Generator/Abstract\+Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Generator.\+h\item 
+tree\+Generator/Abstract\+C\+C\+O\+Tree\+Generator.\+cpp\end{DoxyCompactItemize}

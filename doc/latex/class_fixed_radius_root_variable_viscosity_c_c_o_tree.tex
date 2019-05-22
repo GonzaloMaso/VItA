@@ -1,0 +1,145 @@
+\hypertarget{class_fixed_radius_root_variable_viscosity_c_c_o_tree}{}\section{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree Class Reference}
+\label{class_fixed_radius_root_variable_viscosity_c_c_o_tree}\index{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}}
+
+
+{\ttfamily \#include $<$Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree.\+h$>$}
+
+Inheritance diagram for Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_fixed_radius_root_variable_viscosity_c_c_o_tree}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a7e22b5dfef66e92384c751b7911a84ab}\label{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a7e22b5dfef66e92384c751b7911a84ab}} 
+{\bfseries Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree} (\mbox{\hyperlink{structpoint}{point}} xi, double root\+Radius, double qi, gamma\+Func gam, eps\+Lim\+Func eps\+Lim, nu\+Blood\+Func nu, double min\+Angle, double resistance\+Variation\+Tolerance)
+\item 
+\mbox{\hyperlink{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a4c0d8b01e34db22d79faf4b4906e3c06}{$\sim$\+Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}} ()
+\item 
+\mbox{\hyperlink{class_fixed_radius_root_variable_viscosity_c_c_o_tree}{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}} $\ast$ \mbox{\hyperlink{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a0389e2b36c990dfa2cce140bc186b1f5}{clone}} ()
+\item 
+\mbox{\Hypertarget{class_fixed_radius_root_variable_viscosity_c_c_o_tree_aa3f90cff4eb94084830cf3fbabe8023b}\label{class_fixed_radius_root_variable_viscosity_c_c_o_tree_aa3f90cff4eb94084830cf3fbabe8023b}} 
+void {\bfseries get\+Closest\+Tree\+Point} (\mbox{\hyperlink{structpoint}{point}} x\+New, \mbox{\hyperlink{structpoint}{point}} $\ast$x\+Bif, double $\ast$dist)
+\item 
+vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$ $>$ \mbox{\hyperlink{class_fixed_radius_root_variable_viscosity_c_c_o_tree_ae7a54cd9971cea1ed9b94e2c5f874e78}{get\+Close\+Segments}} (\mbox{\hyperlink{structpoint}{point}} x\+New, \mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}} $\ast$domain, int $\ast$n\+Found)
+\item 
+void \mbox{\hyperlink{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a76edd9c8900d98ee4748c6449fe68a9e}{add\+Vessel}} (\mbox{\hyperlink{structpoint}{point}} x\+Prox, \mbox{\hyperlink{structpoint}{point}} x\+Dist, \mbox{\hyperlink{structvessel}{vessel}} $\ast$parent)
+\item 
+int \mbox{\hyperlink{class_fixed_radius_root_variable_viscosity_c_c_o_tree_ac2216604fbfd0a9e532cb01153a36af6}{test\+Vessel}} (\mbox{\hyperlink{structpoint}{point}} x\+New, \mbox{\hyperlink{structvessel}{vessel}} $\ast$parent, \mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}} $\ast$domain, vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$$>$ neighbors, double dlim, \mbox{\hyperlink{structpoint}{point}} $\ast$x\+Bif, double $\ast$cost)
+\item 
+void \mbox{\hyperlink{class_fixed_radius_root_variable_viscosity_c_c_o_tree_ace906f79ed34249637de23e3da9a6d7d}{print}} ()
+\item 
+void \mbox{\hyperlink{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a344bd0496ff1c71c7f4289e598ad6760}{store}} (string filename)
+\item 
+\mbox{\Hypertarget{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a2d2312cce810822fe7372157a187cb59}\label{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a2d2312cce810822fe7372157a187cb59}} 
+double {\bfseries get\+Root\+Radius} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Models a single C\+CO tree which contains the vessel\textquotesingle{}s data and connectivity. Specifications\+:
+\begin{DoxyItemize}
+\item Fixed domain;
+\item Given flux Q;
+\item Given pressure gradient;
+\item Given N terminals;
+\item Fixed symmetry;
+\item Constant Murray coefficient;
+\item Variable viscosity; 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a4c0d8b01e34db22d79faf4b4906e3c06}\label{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a4c0d8b01e34db22d79faf4b4906e3c06}} 
+\index{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}!````~Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{$\sim$\+Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}}
+\index{````~Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{$\sim$\+Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}!Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{$\sim$\+Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree()}{~FixedRadiusRootVariableViscosityCCOTree()}}
+{\footnotesize\ttfamily Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree\+::$\sim$\+Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Paramount importance for erasing cloned trees. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a76edd9c8900d98ee4748c6449fe68a9e}\label{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a76edd9c8900d98ee4748c6449fe68a9e}} 
+\index{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}!add\+Vessel@{add\+Vessel}}
+\index{add\+Vessel@{add\+Vessel}!Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{add\+Vessel()}{addVessel()}}
+{\footnotesize\ttfamily void Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree\+::add\+Vessel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+Prox,  }\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+Dist,  }\item[{\mbox{\hyperlink{structvessel}{vessel}} $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Adds a new vessel to the C\+CO tree.
+\begin{DoxyParams}{Parameters}
+{\em x\+Prox} & and\\
+\hline
+{\em x\+Dist} & are the proximal and distal nodes of the new vessel and\\
+\hline
+{\em parent} & is the attachment parent vessel.\\
+\hline
+{\em x\+Prox} & \\
+\hline
+{\em x\+Dist} & \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+\mbox{\Hypertarget{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a0389e2b36c990dfa2cce140bc186b1f5}\label{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a0389e2b36c990dfa2cce140bc186b1f5}} 
+\index{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}!clone@{clone}}
+\index{clone@{clone}!Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_fixed_radius_root_variable_viscosity_c_c_o_tree}{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}} $\ast$ Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a copy of this tree instance. // T\+O\+DO Improve performance \mbox{\Hypertarget{class_fixed_radius_root_variable_viscosity_c_c_o_tree_ae7a54cd9971cea1ed9b94e2c5f874e78}\label{class_fixed_radius_root_variable_viscosity_c_c_o_tree_ae7a54cd9971cea1ed9b94e2c5f874e78}} 
+\index{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}!get\+Close\+Segments@{get\+Close\+Segments}}
+\index{get\+Close\+Segments@{get\+Close\+Segments}!Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{get\+Close\+Segments()}{getCloseSegments()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$ $>$ Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree\+::get\+Close\+Segments (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+New,  }\item[{\mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}} $\ast$}]{domain,  }\item[{int $\ast$}]{n\+Found }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the closer cells of a boxed neighborhood centered in x\+New. It assumes a uniform distribution of the vessels in the domain and searches in a perfusion volume feeded by N\+\_\+\+C\+O\+N\+N\+E\+X\+I\+O\+NS. 
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+\mbox{\Hypertarget{class_fixed_radius_root_variable_viscosity_c_c_o_tree_ace906f79ed34249637de23e3da9a6d7d}\label{class_fixed_radius_root_variable_viscosity_c_c_o_tree_ace906f79ed34249637de23e3da9a6d7d}} 
+\index{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}!print@{print}}
+\index{print@{print}!Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Prints the tree structure attributes in the cout. 
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+\mbox{\Hypertarget{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a344bd0496ff1c71c7f4289e598ad6760}\label{class_fixed_radius_root_variable_viscosity_c_c_o_tree_a344bd0496ff1c71c7f4289e598ad6760}} 
+\index{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}!store@{store}}
+\index{store@{store}!Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{store()}{store()}}
+{\footnotesize\ttfamily void Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree\+::store (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Stores the tree as V\+TK file. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & Filename to strore the tree in .V\+TP format. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+\mbox{\Hypertarget{class_fixed_radius_root_variable_viscosity_c_c_o_tree_ac2216604fbfd0a9e532cb01153a36af6}\label{class_fixed_radius_root_variable_viscosity_c_c_o_tree_ac2216604fbfd0a9e532cb01153a36af6}} 
+\index{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}!test\+Vessel@{test\+Vessel}}
+\index{test\+Vessel@{test\+Vessel}!Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree@{Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree}}
+\subsubsection{\texorpdfstring{test\+Vessel()}{testVessel()}}
+{\footnotesize\ttfamily int Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree\+::test\+Vessel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{x\+New,  }\item[{\mbox{\hyperlink{structvessel}{vessel}} $\ast$}]{parent,  }\item[{\mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}} $\ast$}]{domain,  }\item[{vector$<$ \mbox{\hyperlink{structvessel}{vessel}} $\ast$$>$}]{neighbors,  }\item[{double}]{d\+Lim,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$}]{x\+Bif,  }\item[{double $\ast$}]{cost }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Tests N\+\_\+\+B\+I\+F\+\_\+\+T\+R\+I\+ES $\ast$ (N\+\_\+\+B\+I\+F\+\_\+\+T\+R\+I\+E\+S+1)/2 -\/ 3 possible positions for the bifurcation site in the triangle delineated by the triplet (x\+New, parent-\/$>$x\+Prox, parent-\/$>$x\+Dist). It returns the bifurcation site x\+Bif which corresponds to the minimum cost in terms of volumetric area of the tree. If all bifurcations are invalid, cost will be D\+B\+L\+\_\+\+M\+AX. 
+
+Implements \mbox{\hyperlink{class_abstract_c_c_o_tree}{Abstract\+C\+C\+O\+Tree}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree.\+h\item 
+structures/Fixed\+Radius\+Root\+Variable\+Viscosity\+C\+C\+O\+Tree.\+cpp\end{DoxyCompactItemize}

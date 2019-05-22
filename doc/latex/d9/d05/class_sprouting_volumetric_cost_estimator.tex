@@ -1,0 +1,173 @@
+\hypertarget{class_sprouting_volumetric_cost_estimator}{}\section{Sprouting\+Volumetric\+Cost\+Estimator Class Reference}
+\label{class_sprouting_volumetric_cost_estimator}\index{Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}}
+
+
+{\ttfamily \#include $<$Sprouting\+Volumetric\+Cost\+Estimator.\+h$>$}
+
+Inheritance diagram for Sprouting\+Volumetric\+Cost\+Estimator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d9/d05/class_sprouting_volumetric_cost_estimator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sprouting_volumetric_cost_estimator_ad6ad29e2e106454a64efa8d96451a1e7}{Sprouting\+Volumetric\+Cost\+Estimator} (double \hyperlink{class_sprouting_volumetric_cost_estimator_ae0a2bc9b3f1b08ff1b69367a638452fe}{volume\+Factor}, double \hyperlink{class_sprouting_volumetric_cost_estimator_a9bedc9f85b7b98700fd977bfbe956a33}{proteolytic\+Factor}, double \hyperlink{class_sprouting_volumetric_cost_estimator_afe49d902defafd1c47bd5c0ac39580cf}{diffusion\+Factor})
+\item 
+virtual \hyperlink{class_sprouting_volumetric_cost_estimator_a2931866fa094312a56209241970596fb}{$\sim$\+Sprouting\+Volumetric\+Cost\+Estimator} ()
+\item 
+\hyperlink{class_abstract_cost_estimator}{Abstract\+Cost\+Estimator} $\ast$ \hyperlink{class_sprouting_volumetric_cost_estimator_a9adf0950cceb8f82d66639bdabda6043}{clone} ()
+\item 
+void \hyperlink{class_sprouting_volumetric_cost_estimator_a712cbceabb8a8f63521af8d31010f955}{previous\+State} (\hyperlink{class_abstract_object_c_c_o_tree}{Abstract\+Object\+C\+C\+O\+Tree} $\ast$tree, \hyperlink{class_abstract_vascular_element}{Abstract\+Vascular\+Element} $\ast$parent, \hyperlink{structpoint}{point} i\+New, \hyperlink{structpoint}{point} i\+Test, double d\+Lim)
+\item 
+double \hyperlink{class_sprouting_volumetric_cost_estimator_ab301bfd1c1a93aa0f7535f268499dc63}{compute\+Cost} (\hyperlink{class_abstract_object_c_c_o_tree}{Abstract\+Object\+C\+C\+O\+Tree} $\ast$tree)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_sprouting_volumetric_cost_estimator_a0a8f5cb6b80ec26f6025c430372f58cf}{compute\+Tree\+Cost} (\hyperlink{class_abstract_vascular_element}{Abstract\+Vascular\+Element} $\ast$root)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_sprouting_volumetric_cost_estimator_af63fec9f1deab61aadd3f5f2889956a2}{previous\+Volume}
+\item 
+double \hyperlink{class_sprouting_volumetric_cost_estimator_a9bedc9f85b7b98700fd977bfbe956a33}{proteolytic\+Factor}
+\item 
+double \hyperlink{class_sprouting_volumetric_cost_estimator_afe49d902defafd1c47bd5c0ac39580cf}{diffusion\+Factor}
+\item 
+double \hyperlink{class_sprouting_volumetric_cost_estimator_ae0a2bc9b3f1b08ff1b69367a638452fe}{volume\+Factor}
+\item 
+double \hyperlink{class_sprouting_volumetric_cost_estimator_af607b0ebd1aad6a5106c24cbd4452bd5}{dist\+To\+Parent}
+\item 
+double \hyperlink{class_sprouting_volumetric_cost_estimator_a4244e87579d0ff6b989ef221fff16187}{parent\+Radius}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Cost estimator that considers diffusion and vessel wall degradation associated to sprouting angiogenesis and also weighs the variation of the tree volume. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}!Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}}
+\index{Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}!Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{Sprouting\+Volumetric\+Cost\+Estimator(double volume\+Factor, double proteolytic\+Factor, double diffusion\+Factor)}{SproutingVolumetricCostEstimator(double volumeFactor, double proteolyticFactor, double diffusionFactor)}}]{\setlength{\rightskip}{0pt plus 5cm}Sprouting\+Volumetric\+Cost\+Estimator\+::\+Sprouting\+Volumetric\+Cost\+Estimator (
+\begin{DoxyParamCaption}
+\item[{double}]{volume\+Factor, }
+\item[{double}]{proteolytic\+Factor, }
+\item[{double}]{diffusion\+Factor}
+\end{DoxyParamCaption}
+)}\hypertarget{class_sprouting_volumetric_cost_estimator_ad6ad29e2e106454a64efa8d96451a1e7}{}\label{class_sprouting_volumetric_cost_estimator_ad6ad29e2e106454a64efa8d96451a1e7}
+Common constructor. \index{Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}!````~Sprouting\+Volumetric\+Cost\+Estimator@{$\sim$\+Sprouting\+Volumetric\+Cost\+Estimator}}
+\index{````~Sprouting\+Volumetric\+Cost\+Estimator@{$\sim$\+Sprouting\+Volumetric\+Cost\+Estimator}!Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{$\sim$\+Sprouting\+Volumetric\+Cost\+Estimator()}{~SproutingVolumetricCostEstimator()}}]{\setlength{\rightskip}{0pt plus 5cm}Sprouting\+Volumetric\+Cost\+Estimator\+::$\sim$\+Sprouting\+Volumetric\+Cost\+Estimator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sprouting_volumetric_cost_estimator_a2931866fa094312a56209241970596fb}{}\label{class_sprouting_volumetric_cost_estimator_a2931866fa094312a56209241970596fb}
+Common destructor. 
+
+\subsection{Member Function Documentation}
+\index{Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}!clone@{clone}}
+\index{clone@{clone}!Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{clone()}{clone()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Abstract\+Cost\+Estimator} $\ast$ Sprouting\+Volumetric\+Cost\+Estimator\+::clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sprouting_volumetric_cost_estimator_a9adf0950cceb8f82d66639bdabda6043}{}\label{class_sprouting_volumetric_cost_estimator_a9adf0950cceb8f82d66639bdabda6043}
+Clones the current estimator instance. \begin{DoxyReturn}{Returns}
+Cloned instance. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_cost_estimator_a928e53418b17eb68c443e2a68fe5cbcf}{Abstract\+Cost\+Estimator}.
+
+\index{Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}!compute\+Cost@{compute\+Cost}}
+\index{compute\+Cost@{compute\+Cost}!Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{compute\+Cost(\+Abstract\+Object\+C\+C\+O\+Tree $\ast$tree)}{computeCost(AbstractObjectCCOTree *tree)}}]{\setlength{\rightskip}{0pt plus 5cm}double Sprouting\+Volumetric\+Cost\+Estimator\+::compute\+Cost (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\+Object\+C\+C\+O\+Tree} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sprouting_volumetric_cost_estimator_ab301bfd1c1a93aa0f7535f268499dc63}{}\label{class_sprouting_volumetric_cost_estimator_ab301bfd1c1a93aa0f7535f268499dc63}
+Computes the functional cost of the given tree. 
+\begin{DoxyParams}{Parameters}
+{\em tree} & Tree at the current step. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Cost of the given tree. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_cost_estimator_a2be0c6cc4aa6a73110c75ad903af428e}{Abstract\+Cost\+Estimator}.
+
+\index{Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}!compute\+Tree\+Cost@{compute\+Tree\+Cost}}
+\index{compute\+Tree\+Cost@{compute\+Tree\+Cost}!Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{compute\+Tree\+Cost(\+Abstract\+Vascular\+Element $\ast$root)}{computeTreeCost(AbstractVascularElement *root)}}]{\setlength{\rightskip}{0pt plus 5cm}double Sprouting\+Volumetric\+Cost\+Estimator\+::compute\+Tree\+Cost (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\+Vascular\+Element} $\ast$}]{root}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_sprouting_volumetric_cost_estimator_a0a8f5cb6b80ec26f6025c430372f58cf}{}\label{class_sprouting_volumetric_cost_estimator_a0a8f5cb6b80ec26f6025c430372f58cf}
+Computes the volume for the tree with root {\ttfamily root}. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Root of the tree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Volume of the tree. 
+\end{DoxyReturn}
+\index{Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}!previous\+State@{previous\+State}}
+\index{previous\+State@{previous\+State}!Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{previous\+State(\+Abstract\+Object\+C\+C\+O\+Tree $\ast$tree, Abstract\+Vascular\+Element $\ast$parent, point i\+New, point i\+Test, double d\+Lim)}{previousState(AbstractObjectCCOTree *tree, AbstractVascularElement *parent, point iNew, point iTest, double dLim)}}]{\setlength{\rightskip}{0pt plus 5cm}void Sprouting\+Volumetric\+Cost\+Estimator\+::previous\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\+Object\+C\+C\+O\+Tree} $\ast$}]{tree, }
+\item[{{\bf Abstract\+Vascular\+Element} $\ast$}]{parent, }
+\item[{{\bf point}}]{i\+New, }
+\item[{{\bf point}}]{i\+Test, }
+\item[{double}]{d\+Lim}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sprouting_volumetric_cost_estimator_a712cbceabb8a8f63521af8d31010f955}{}\label{class_sprouting_volumetric_cost_estimator_a712cbceabb8a8f63521af8d31010f955}
+Extracts information of the tree at the previous step. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Root of the tree at the previous step. \\
+\hline
+{\em parent} & Vascular element where the new vessel will be connected. \\
+\hline
+{\em i\+New} & Distal position of the new vessel. \\
+\hline
+{\em i\+Test} & Proximal position of the new vessel. \\
+\hline
+{\em d\+Lim} & Minimum radius distance from the new vessel to the tree. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_abstract_cost_estimator_a8a806c3e4537c6d4acc428b029fd60de}{Abstract\+Cost\+Estimator}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}!diffusion\+Factor@{diffusion\+Factor}}
+\index{diffusion\+Factor@{diffusion\+Factor}!Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{diffusion\+Factor}{diffusionFactor}}]{\setlength{\rightskip}{0pt plus 5cm}double Sprouting\+Volumetric\+Cost\+Estimator\+::diffusion\+Factor\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_sprouting_volumetric_cost_estimator_afe49d902defafd1c47bd5c0ac39580cf}{}\label{class_sprouting_volumetric_cost_estimator_afe49d902defafd1c47bd5c0ac39580cf}
+Factor of media diffusion of angiogenic growth factors. \index{Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}!dist\+To\+Parent@{dist\+To\+Parent}}
+\index{dist\+To\+Parent@{dist\+To\+Parent}!Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{dist\+To\+Parent}{distToParent}}]{\setlength{\rightskip}{0pt plus 5cm}double Sprouting\+Volumetric\+Cost\+Estimator\+::dist\+To\+Parent\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_sprouting_volumetric_cost_estimator_af607b0ebd1aad6a5106c24cbd4452bd5}{}\label{class_sprouting_volumetric_cost_estimator_af607b0ebd1aad6a5106c24cbd4452bd5}
+Distance between sprouting source and candidate parent vessel. \index{Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}!parent\+Radius@{parent\+Radius}}
+\index{parent\+Radius@{parent\+Radius}!Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{parent\+Radius}{parentRadius}}]{\setlength{\rightskip}{0pt plus 5cm}double Sprouting\+Volumetric\+Cost\+Estimator\+::parent\+Radius\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_sprouting_volumetric_cost_estimator_a4244e87579d0ff6b989ef221fff16187}{}\label{class_sprouting_volumetric_cost_estimator_a4244e87579d0ff6b989ef221fff16187}
+Radius of the candidate parent vessel. \index{Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}!previous\+Volume@{previous\+Volume}}
+\index{previous\+Volume@{previous\+Volume}!Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{previous\+Volume}{previousVolume}}]{\setlength{\rightskip}{0pt plus 5cm}double Sprouting\+Volumetric\+Cost\+Estimator\+::previous\+Volume\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_sprouting_volumetric_cost_estimator_af63fec9f1deab61aadd3f5f2889956a2}{}\label{class_sprouting_volumetric_cost_estimator_af63fec9f1deab61aadd3f5f2889956a2}
+Volume at the previous step. \index{Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}!proteolytic\+Factor@{proteolytic\+Factor}}
+\index{proteolytic\+Factor@{proteolytic\+Factor}!Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{proteolytic\+Factor}{proteolyticFactor}}]{\setlength{\rightskip}{0pt plus 5cm}double Sprouting\+Volumetric\+Cost\+Estimator\+::proteolytic\+Factor\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_sprouting_volumetric_cost_estimator_a9bedc9f85b7b98700fd977bfbe956a33}{}\label{class_sprouting_volumetric_cost_estimator_a9bedc9f85b7b98700fd977bfbe956a33}
+Vessel wall proteolytic degradation factor. \index{Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}!volume\+Factor@{volume\+Factor}}
+\index{volume\+Factor@{volume\+Factor}!Sprouting\+Volumetric\+Cost\+Estimator@{Sprouting\+Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{volume\+Factor}{volumeFactor}}]{\setlength{\rightskip}{0pt plus 5cm}double Sprouting\+Volumetric\+Cost\+Estimator\+::volume\+Factor\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_sprouting_volumetric_cost_estimator_ae0a2bc9b3f1b08ff1b69367a638452fe}{}\label{class_sprouting_volumetric_cost_estimator_ae0a2bc9b3f1b08ff1b69367a638452fe}
+Weigh for tree volume. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/tree/Sprouting\+Volumetric\+Cost\+Estimator.\+h\item 
+structures/tree/Sprouting\+Volumetric\+Cost\+Estimator.\+cpp\end{DoxyCompactItemize}

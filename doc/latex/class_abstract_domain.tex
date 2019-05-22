@@ -1,0 +1,48 @@
+\hypertarget{class_abstract_domain}{}\section{Abstract\+Domain Class Reference}
+\label{class_abstract_domain}\index{Abstract\+Domain@{Abstract\+Domain}}
+
+
+{\ttfamily \#include $<$Abstract\+Domain.\+h$>$}
+
+Inheritance diagram for Abstract\+Domain\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_abstract_domain}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_abstract_domain_a8544eef21fb6700ecc02e9cd50884efd}\label{class_abstract_domain_a8544eef21fb6700ecc02e9cd50884efd}} 
+virtual int {\bfseries is\+Segment\+Inside} (\mbox{\hyperlink{structpoint}{point}} xs, \mbox{\hyperlink{structpoint}{point}} xf)=0
+\item 
+\mbox{\Hypertarget{class_abstract_domain_a90ca3dff64bab2428da8ced24e16f4c3}\label{class_abstract_domain_a90ca3dff64bab2428da8ced24e16f4c3}} 
+virtual double {\bfseries get\+Characteristic\+Length} ()=0
+\item 
+\mbox{\Hypertarget{class_abstract_domain_a9a9fe5588652bd83041b7602ff3efd30}\label{class_abstract_domain_a9a9fe5588652bd83041b7602ff3efd30}} 
+virtual double {\bfseries get\+D\+Lim} (int n\+Vessels, double factor)=0
+\item 
+\mbox{\Hypertarget{class_abstract_domain_a5811a6a0af154e95c891a2bd4c8afd19}\label{class_abstract_domain_a5811a6a0af154e95c891a2bd4c8afd19}} 
+virtual double $\ast$ {\bfseries get\+Local\+Neighborhood} (\mbox{\hyperlink{structpoint}{point}} p, int n\+Vessels)=0
+\item 
+\mbox{\Hypertarget{class_abstract_domain_a049564d82f2c177c39834dfc8da143dc}\label{class_abstract_domain_a049564d82f2c177c39834dfc8da143dc}} 
+virtual double {\bfseries get\+Size} ()=0
+\item 
+\mbox{\Hypertarget{class_abstract_domain_ae31a5b26d1dc628abe24da7a4d375415}\label{class_abstract_domain_ae31a5b26d1dc628abe24da7a4d375415}} 
+virtual \mbox{\hyperlink{structpoint}{point}} {\bfseries get\+Random\+Point} ()=0
+\item 
+\mbox{\Hypertarget{class_abstract_domain_a73d2c0e7c670b007bb5dbbdab5ad6b1b}\label{class_abstract_domain_a73d2c0e7c670b007bb5dbbdab5ad6b1b}} 
+virtual deque$<$ \mbox{\hyperlink{structpoint}{point}} $>$ \& {\bfseries get\+Random\+Inner\+Points} ()=0
+\item 
+\mbox{\Hypertarget{class_abstract_domain_abb1e386d2899cb6b725509259a836cd0}\label{class_abstract_domain_abb1e386d2899cb6b725509259a836cd0}} 
+virtual vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ \& {\bfseries get\+Vtk\+Geometry} ()=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract domain class. Several domain methods guarantee the eficiency during the C\+CO generation, e.\+g., get\+Local\+Neighborhood and get\+D\+Lim, which models the perfusion area of certain terminal in order to establish the minimum length criterion for the new vessel and the local set of vessels where it can be attached to the tree. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/domain/Abstract\+Domain.\+h\item 
+structures/domain/Abstract\+Domain.\+cpp\end{DoxyCompactItemize}

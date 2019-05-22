@@ -1,0 +1,100 @@
+\hypertarget{structvessel}{}\section{vessel Struct Reference}
+\label{structvessel}\index{vessel@{vessel}}
+
+
+{\ttfamily \#include $<$C\+C\+O\+Common\+Structures.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \hyperlink{structvessel}{vessel} $\ast$ $>$ \hyperlink{structvessel_a621be11a4aabcc07863d07943060489e}{anastomose}
+\item 
+vtk\+Smart\+Pointer$<$ vtk\+Line $>$ \hyperlink{structvessel_a94ada1fa10871eef938547df1267d66e}{vtk\+Segment}
+\item 
+vtk\+Id\+Type \hyperlink{structvessel_a5a44bb20222578bb67bf051164db7aad}{vtk\+Segment\+Id}
+\item 
+\hyperlink{structpoint}{point} \hyperlink{structvessel_adc62693cc81142b471ec2aa525ba3bf5}{x\+Prox}
+\item 
+\hyperlink{structpoint}{point} \hyperlink{structvessel_a0e84e9c1ccb9da3aea7145d63e803a30}{x\+Dist}
+\item 
+int \hyperlink{structvessel_a40fb8bafbcd5654dc9bb48d49c97623a}{n\+Level}
+\item 
+double \hyperlink{structvessel_a9bbe9528519d0df7931d2d3665ba45a6}{radius}
+\item 
+double \hyperlink{structvessel_a46380f25d12bee7300dfa5ad38ba9b38}{beta}
+\item 
+double \hyperlink{structvessel_a1336113e8af54e746e2b57ea4b4055d2}{length}
+\item 
+double \hyperlink{structvessel_a86ef98b7df955a65573227a3cde46caf}{resistance}
+\item 
+double \hyperlink{structvessel_aecef2a9ca74e4f42446c97b1e2d5ba9f}{local\+Resistance}
+\item 
+double \hyperlink{structvessel_af3e4426db331f595682f9f1b3e4226c4}{viscosity}
+\item 
+double \hyperlink{structvessel_a48f09ecdb7e15a0194a76a83c540c55a}{flux}
+\item 
+double \hyperlink{structvessel_aa4e3a943682104860826bc33f582b2a1}{pressure}
+\item 
+long long int \hyperlink{structvessel_acf4d4ad91fbe09a5a5875b23b940c9ac}{ID}
+\item 
+double \hyperlink{structvessel_af3b90f07ee76daa83102037ce22a1b9e}{tree\+Volume}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Vessel structure for C\+CO trees. 
+
+\subsection{Member Data Documentation}
+\index{vessel@{vessel}!anastomose@{anastomose}}
+\index{anastomose@{anastomose}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{anastomose}{anastomose}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf vessel} $\ast$$>$ vessel\+::anastomose}\hypertarget{structvessel_a621be11a4aabcc07863d07943060489e}{}\label{structvessel_a621be11a4aabcc07863d07943060489e}
+Anastomose of the vessel. Position 0 is the parent vessel. \index{vessel@{vessel}!beta@{beta}}
+\index{beta@{beta}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{beta}{beta}}]{\setlength{\rightskip}{0pt plus 5cm}double vessel\+::beta}\hypertarget{structvessel_a46380f25d12bee7300dfa5ad38ba9b38}{}\label{structvessel_a46380f25d12bee7300dfa5ad38ba9b38}
+Radius relative to the parent vessel (i.\+e. radius/parent\+\_\+radius). For root, it is the radius value. \index{vessel@{vessel}!flux@{flux}}
+\index{flux@{flux}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{flux}{flux}}]{\setlength{\rightskip}{0pt plus 5cm}double vessel\+::flux}\hypertarget{structvessel_a48f09ecdb7e15a0194a76a83c540c55a}{}\label{structvessel_a48f09ecdb7e15a0194a76a83c540c55a}
+Flow in this vessel. \index{vessel@{vessel}!ID@{ID}}
+\index{ID@{ID}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{ID}{ID}}]{\setlength{\rightskip}{0pt plus 5cm}long long int vessel\+::\+ID}\hypertarget{structvessel_acf4d4ad91fbe09a5a5875b23b940c9ac}{}\label{structvessel_acf4d4ad91fbe09a5a5875b23b940c9ac}
+Generation step \index{vessel@{vessel}!length@{length}}
+\index{length@{length}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{length}{length}}]{\setlength{\rightskip}{0pt plus 5cm}double vessel\+::length}\hypertarget{structvessel_a1336113e8af54e746e2b57ea4b4055d2}{}\label{structvessel_a1336113e8af54e746e2b57ea4b4055d2}
+Distance between x\+Prox and x\+Dist. \index{vessel@{vessel}!local\+Resistance@{local\+Resistance}}
+\index{local\+Resistance@{local\+Resistance}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{local\+Resistance}{localResistance}}]{\setlength{\rightskip}{0pt plus 5cm}double vessel\+::local\+Resistance}\hypertarget{structvessel_aecef2a9ca74e4f42446c97b1e2d5ba9f}{}\label{structvessel_aecef2a9ca74e4f42446c97b1e2d5ba9f}
+Reduced fluid-\/dynamic resistance. \index{vessel@{vessel}!n\+Level@{n\+Level}}
+\index{n\+Level@{n\+Level}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{n\+Level}{nLevel}}]{\setlength{\rightskip}{0pt plus 5cm}int vessel\+::n\+Level}\hypertarget{structvessel_a40fb8bafbcd5654dc9bb48d49c97623a}{}\label{structvessel_a40fb8bafbcd5654dc9bb48d49c97623a}
+Bifurcation level from proximal to distal (Root is at level 0). \index{vessel@{vessel}!pressure@{pressure}}
+\index{pressure@{pressure}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{pressure}{pressure}}]{\setlength{\rightskip}{0pt plus 5cm}double vessel\+::pressure}\hypertarget{structvessel_aa4e3a943682104860826bc33f582b2a1}{}\label{structvessel_aa4e3a943682104860826bc33f582b2a1}
+Pressure in the vessel. \index{vessel@{vessel}!radius@{radius}}
+\index{radius@{radius}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{radius}{radius}}]{\setlength{\rightskip}{0pt plus 5cm}double vessel\+::radius}\hypertarget{structvessel_a9bbe9528519d0df7931d2d3665ba45a6}{}\label{structvessel_a9bbe9528519d0df7931d2d3665ba45a6}
+Vessel radius. \index{vessel@{vessel}!resistance@{resistance}}
+\index{resistance@{resistance}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{resistance}{resistance}}]{\setlength{\rightskip}{0pt plus 5cm}double vessel\+::resistance}\hypertarget{structvessel_a86ef98b7df955a65573227a3cde46caf}{}\label{structvessel_a86ef98b7df955a65573227a3cde46caf}
+Reduced fluid-\/dynamic resistance. \index{vessel@{vessel}!tree\+Volume@{tree\+Volume}}
+\index{tree\+Volume@{tree\+Volume}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{tree\+Volume}{treeVolume}}]{\setlength{\rightskip}{0pt plus 5cm}double vessel\+::tree\+Volume}\hypertarget{structvessel_af3b90f07ee76daa83102037ce22a1b9e}{}\label{structvessel_af3b90f07ee76daa83102037ce22a1b9e}
+Volume of this down tree branch. \index{vessel@{vessel}!viscosity@{viscosity}}
+\index{viscosity@{viscosity}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{viscosity}{viscosity}}]{\setlength{\rightskip}{0pt plus 5cm}double vessel\+::viscosity}\hypertarget{structvessel_af3e4426db331f595682f9f1b3e4226c4}{}\label{structvessel_af3e4426db331f595682f9f1b3e4226c4}
+Blood viscosity. \index{vessel@{vessel}!vtk\+Segment@{vtk\+Segment}}
+\index{vtk\+Segment@{vtk\+Segment}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{vtk\+Segment}{vtkSegment}}]{\setlength{\rightskip}{0pt plus 5cm}vtk\+Smart\+Pointer$<$vtk\+Line$>$ vessel\+::vtk\+Segment}\hypertarget{structvessel_a94ada1fa10871eef938547df1267d66e}{}\label{structvessel_a94ada1fa10871eef938547df1267d66e}
+V\+TK geomtric representation. \index{vessel@{vessel}!vtk\+Segment\+Id@{vtk\+Segment\+Id}}
+\index{vtk\+Segment\+Id@{vtk\+Segment\+Id}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{vtk\+Segment\+Id}{vtkSegmentId}}]{\setlength{\rightskip}{0pt plus 5cm}vtk\+Id\+Type vessel\+::vtk\+Segment\+Id}\hypertarget{structvessel_a5a44bb20222578bb67bf051164db7aad}{}\label{structvessel_a5a44bb20222578bb67bf051164db7aad}
+Unique identifier for the vessel. \index{vessel@{vessel}!x\+Dist@{x\+Dist}}
+\index{x\+Dist@{x\+Dist}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{x\+Dist}{xDist}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point} vessel\+::x\+Dist}\hypertarget{structvessel_a0e84e9c1ccb9da3aea7145d63e803a30}{}\label{structvessel_a0e84e9c1ccb9da3aea7145d63e803a30}
+Distal position of the vessel. \index{vessel@{vessel}!x\+Prox@{x\+Prox}}
+\index{x\+Prox@{x\+Prox}!vessel@{vessel}}
+\subsubsection[{\texorpdfstring{x\+Prox}{xProx}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point} vessel\+::x\+Prox}\hypertarget{structvessel_adc62693cc81142b471ec2aa525ba3bf5}{}\label{structvessel_adc62693cc81142b471ec2aa525ba3bf5}
+Proximal position of the vessel. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+structures/C\+C\+O\+Common\+Structures.\+h\end{DoxyCompactItemize}

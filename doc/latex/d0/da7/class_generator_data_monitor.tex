@@ -1,0 +1,103 @@
+\hypertarget{class_generator_data_monitor}{}\section{Generator\+Data\+Monitor Class Reference}
+\label{class_generator_data_monitor}\index{Generator\+Data\+Monitor@{Generator\+Data\+Monitor}}
+
+
+{\ttfamily \#include $<$Generator\+Data\+Monitor.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_generator_data_monitor_ad01741c9881ff6b0454de5767c862f8f}{Generator\+Data\+Monitor} (\hyperlink{class_abstract_domain}{Abstract\+Domain} $\ast$\hyperlink{class_generator_data_monitor_adb19db594dbfa2e5b5339c69a303e3ad}{domain})
+\item 
+void \hyperlink{class_generator_data_monitor_a1a7d8a72fed598adccbc9b7334e02884}{add\+D\+Lim\+Value} (double value, int n\+Vessel)
+\item 
+void \hyperlink{class_generator_data_monitor_a916af64c1cf8f44e24680e9e8313a11c}{set\+D\+Lim\+Observations} (int n\+Obs)
+\item 
+void \hyperlink{class_generator_data_monitor_a13afe7e8254e0ba2251ea5474102d693}{update} ()
+\item 
+void \hyperlink{class_generator_data_monitor_ac9c1f1e87e9dfe9248b326ac17a6cf3b}{reset} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+deque$<$ double $>$ \hyperlink{class_generator_data_monitor_a75372d1fc417bca41eb53895132cfc8c}{d\+Lim\+Ocurrencies}
+\item 
+int \hyperlink{class_generator_data_monitor_aa6d072da586a1f39d63cb3b5ce293d5a}{d\+Lim\+Observations}
+\item 
+\hyperlink{class_abstract_domain}{Abstract\+Domain} $\ast$ \hyperlink{class_generator_data_monitor_adb19db594dbfa2e5b5339c69a303e3ad}{domain}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Monitors the \hyperlink{class_generator_data}{Generator\+Data} in order to adjust parameters or take other actions. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Generator\+Data\+Monitor@{Generator\+Data\+Monitor}!Generator\+Data\+Monitor@{Generator\+Data\+Monitor}}
+\index{Generator\+Data\+Monitor@{Generator\+Data\+Monitor}!Generator\+Data\+Monitor@{Generator\+Data\+Monitor}}
+\subsubsection[{\texorpdfstring{Generator\+Data\+Monitor(\+Abstract\+Domain $\ast$domain)}{GeneratorDataMonitor(AbstractDomain *domain)}}]{\setlength{\rightskip}{0pt plus 5cm}Generator\+Data\+Monitor\+::\+Generator\+Data\+Monitor (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\+Domain} $\ast$}]{domain}
+\end{DoxyParamCaption}
+)}\hypertarget{class_generator_data_monitor_ad01741c9881ff6b0454de5767c862f8f}{}\label{class_generator_data_monitor_ad01741c9881ff6b0454de5767c862f8f}
+Constructor. 
+
+\subsection{Member Function Documentation}
+\index{Generator\+Data\+Monitor@{Generator\+Data\+Monitor}!add\+D\+Lim\+Value@{add\+D\+Lim\+Value}}
+\index{add\+D\+Lim\+Value@{add\+D\+Lim\+Value}!Generator\+Data\+Monitor@{Generator\+Data\+Monitor}}
+\subsubsection[{\texorpdfstring{add\+D\+Lim\+Value(double value, int n\+Vessel)}{addDLimValue(double value, int nVessel)}}]{\setlength{\rightskip}{0pt plus 5cm}void Generator\+Data\+Monitor\+::add\+D\+Lim\+Value (
+\begin{DoxyParamCaption}
+\item[{double}]{value, }
+\item[{int}]{n\+Vessel}
+\end{DoxyParamCaption}
+)}\hypertarget{class_generator_data_monitor_a1a7d8a72fed598adccbc9b7334e02884}{}\label{class_generator_data_monitor_a1a7d8a72fed598adccbc9b7334e02884}
+Adds a new ocurrence of d\+Lim. 
+\begin{DoxyParams}{Parameters}
+{\em value} & New ocurrence of d\+Lim. \\
+\hline
+{\em n\+Vessels} & Amount of terminals in the domain. \\
+\hline
+\end{DoxyParams}
+\index{Generator\+Data\+Monitor@{Generator\+Data\+Monitor}!reset@{reset}}
+\index{reset@{reset}!Generator\+Data\+Monitor@{Generator\+Data\+Monitor}}
+\subsubsection[{\texorpdfstring{reset()}{reset()}}]{\setlength{\rightskip}{0pt plus 5cm}void Generator\+Data\+Monitor\+::reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_generator_data_monitor_ac9c1f1e87e9dfe9248b326ac17a6cf3b}{}\label{class_generator_data_monitor_ac9c1f1e87e9dfe9248b326ac17a6cf3b}
+Resets the recorded history of the parameters. \index{Generator\+Data\+Monitor@{Generator\+Data\+Monitor}!set\+D\+Lim\+Observations@{set\+D\+Lim\+Observations}}
+\index{set\+D\+Lim\+Observations@{set\+D\+Lim\+Observations}!Generator\+Data\+Monitor@{Generator\+Data\+Monitor}}
+\subsubsection[{\texorpdfstring{set\+D\+Lim\+Observations(int n\+Obs)}{setDLimObservations(int nObs)}}]{\setlength{\rightskip}{0pt plus 5cm}void Generator\+Data\+Monitor\+::set\+D\+Lim\+Observations (
+\begin{DoxyParamCaption}
+\item[{int}]{n\+Obs}
+\end{DoxyParamCaption}
+)}\hypertarget{class_generator_data_monitor_a916af64c1cf8f44e24680e9e8313a11c}{}\label{class_generator_data_monitor_a916af64c1cf8f44e24680e9e8313a11c}
+Sets the amount of observations of d\+Lim values that are stored in {\ttfamily d\+Lim\+Ocurrencies}. 
+\begin{DoxyParams}{Parameters}
+{\em n\+Obs} & Amount of observations of d\+Lim values that are stored in {\ttfamily d\+Lim\+Ocurrencies}. \\
+\hline
+\end{DoxyParams}
+\index{Generator\+Data\+Monitor@{Generator\+Data\+Monitor}!update@{update}}
+\index{update@{update}!Generator\+Data\+Monitor@{Generator\+Data\+Monitor}}
+\subsubsection[{\texorpdfstring{update()}{update()}}]{\setlength{\rightskip}{0pt plus 5cm}void Generator\+Data\+Monitor\+::update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_generator_data_monitor_a13afe7e8254e0ba2251ea5474102d693}{}\label{class_generator_data_monitor_a13afe7e8254e0ba2251ea5474102d693}
+Perform adjustments over \hyperlink{class_generator_data}{Generator\+Data} based on the recorded history of the parameters. 
+
+\subsection{Member Data Documentation}
+\index{Generator\+Data\+Monitor@{Generator\+Data\+Monitor}!d\+Lim\+Observations@{d\+Lim\+Observations}}
+\index{d\+Lim\+Observations@{d\+Lim\+Observations}!Generator\+Data\+Monitor@{Generator\+Data\+Monitor}}
+\subsubsection[{\texorpdfstring{d\+Lim\+Observations}{dLimObservations}}]{\setlength{\rightskip}{0pt plus 5cm}int Generator\+Data\+Monitor\+::d\+Lim\+Observations\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_generator_data_monitor_aa6d072da586a1f39d63cb3b5ce293d5a}{}\label{class_generator_data_monitor_aa6d072da586a1f39d63cb3b5ce293d5a}
+Amount of observations stored for the d\+Lim value. \index{Generator\+Data\+Monitor@{Generator\+Data\+Monitor}!d\+Lim\+Ocurrencies@{d\+Lim\+Ocurrencies}}
+\index{d\+Lim\+Ocurrencies@{d\+Lim\+Ocurrencies}!Generator\+Data\+Monitor@{Generator\+Data\+Monitor}}
+\subsubsection[{\texorpdfstring{d\+Lim\+Ocurrencies}{dLimOcurrencies}}]{\setlength{\rightskip}{0pt plus 5cm}deque$<$double$>$ Generator\+Data\+Monitor\+::d\+Lim\+Ocurrencies\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_generator_data_monitor_a75372d1fc417bca41eb53895132cfc8c}{}\label{class_generator_data_monitor_a75372d1fc417bca41eb53895132cfc8c}
+Deque of the last {\ttfamily observations} ocurrences of Dlim values. \index{Generator\+Data\+Monitor@{Generator\+Data\+Monitor}!domain@{domain}}
+\index{domain@{domain}!Generator\+Data\+Monitor@{Generator\+Data\+Monitor}}
+\subsubsection[{\texorpdfstring{domain}{domain}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Abstract\+Domain}$\ast$ Generator\+Data\+Monitor\+::domain\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_generator_data_monitor_adb19db594dbfa2e5b5339c69a303e3ad}{}\label{class_generator_data_monitor_adb19db594dbfa2e5b5339c69a303e3ad}
+Perfusion domain. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+core/Generator\+Data\+Monitor.\+h\item 
+core/Generator\+Data\+Monitor.\+cpp\end{DoxyCompactItemize}
