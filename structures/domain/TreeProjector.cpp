@@ -105,7 +105,7 @@ void TreeProjector::projectVessel(vector<SingleVessel> vessels){
 			projectionDist = projectionDist - displacement * offset;
 			projectionProx = projectionProx - displacement * offset;
 		}
-		it->xDist = projectionDist;
-		it->xProx = projectionProx;
+		it->xDist = projectionDist;	//	Need to update the VTK segment!
+		it->xProx = projectionProx; //	Need to update the VTK segment!
 	}
 }
