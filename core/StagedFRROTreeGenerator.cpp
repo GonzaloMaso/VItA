@@ -37,7 +37,7 @@ StagedFRROTreeGenerator::StagedFRROTreeGenerator(
 	this->nus = nu;
 
 	this->tree = new SingleVesselCCOOTree(xi, rootRadii, qi, gam[stage], epsLim[stage],
-			nu[stage], minAngle, refPressure, viscosityTolerance, instanceData);
+			nu[stage], refPressure, viscosityTolerance, instanceData);
 
 	this->dLim = domain->getDLim(1, instanceData->perfusionAreaFactor);
 
@@ -67,6 +67,8 @@ StagedFRROTreeGenerator::StagedFRROTreeGenerator(
 	this->tree->setGam(gam[stage]);
 	this->tree->setEpsLim(epsLim[stage]);
 	this->tree->setNu(nu[stage]);
+
+	this->dLim = domain->getDLim(1, instanceData->perfusionAreaFactor);
 
 	this->isGeneratingConfFile = 0;
 	this->confFilename = "";
@@ -227,7 +229,6 @@ void StagedFRROTreeGenerator::generatesConfigurationFile(ios::openmode mode) {
 		confFile << "INPUT_POSITION " << this->tree->getXProx() << endl;
 		confFile << "INPUT_FLOW " << this->tree->getQProx() << endl;
 		confFile << "PRESSURE_DROP " << this->tree->getDp() << endl;
-		confFile << "MINIMUM_ANGLE " << this->tree->getMinAngle() << endl;
 		confFile << endl;
 
 		confFile << "*Timestamps" << endl;

@@ -32,7 +32,7 @@ AbstractObjectCCOTree::AbstractObjectCCOTree(GeneratorData *instanceData) {
 
 AbstractObjectCCOTree::AbstractObjectCCOTree(point xi, double qi, AbstractConstraintFunction<double, int> *gam,
 		AbstractConstraintFunction<double, int> *epsLim,
-		AbstractConstraintFunction<double, int> *nu, double minAngle, double refPressure, GeneratorData *instanceData) {
+		AbstractConstraintFunction<double, int> *nu, double refPressure, GeneratorData *instanceData) {
 
 	this->instanceData = instanceData;
 
@@ -45,7 +45,6 @@ AbstractObjectCCOTree::AbstractObjectCCOTree(point xi, double qi, AbstractConstr
 	this->gam = gam;
 	this->epsLim = epsLim;
 	this->nu = nu;
-	this->minAngle = minAngle;
 	this->refPressure = refPressure;
 
 	this->psiFactor = 0.0;
@@ -113,27 +112,51 @@ void AbstractObjectCCOTree::save(string filename) {
 
 	treeFile << "*Vessels" << endl << elements.size() << endl;
 
-	for (unsigned int i = 0; i < elements.size(); ++i) {
-		AbstractVascularElement *currentVessel = elements[i];
-		currentVessel->saveVesselData(&treeFile);
-		treeFile << endl;
-	}
+	saveVessels(this->root, &treeFile);
+//	for (unsigned int i = 0; i < elements.size(); ++i) {
+//		AbstractVascularElement *currentVessel = elements[i];
+//		currentVessel->saveVesselData(&treeFile);
+//		treeFile << endl;
+//	}
 	treeFile << endl;
 
 	treeFile << "*Connectivity" << endl;
-	for (unsigned int i = 0; i < elements.size(); ++i) {
-		AbstractVascularElement *currentVessel = elements[i];
-		currentVessel->saveVesselConnectivity(&treeFile);
-		treeFile << endl;
-	}
+	saveConnectivity(this->root, &treeFile);
+//	for (unsigned int i = 0; i < elements.size(); ++i) {
+//		AbstractVascularElement *currentVessel = elements[i];
+//		currentVessel->saveVesselConnectivity(&treeFile);
+//		treeFile << endl;
+//	}
 
 	treeFile.flush();
 	treeFile.close();
 }
 
+void AbstractObjectCCOTree::saveVessels(AbstractVascularElement * root, ofstream *treeFile){
+	if(!root){
+		return;
+	}
+	root->saveVesselData(treeFile);
+	*treeFile << endl;
+	for (std::vector<AbstractVascularElement *>::iterator it = root->children.begin(); it != root->children.end(); ++it) {
+		saveVessels(*it,treeFile);
+	}
+}
+
+void AbstractObjectCCOTree::saveConnectivity(AbstractVascularElement * root, ofstream *treeFile){
+	if(!root){
+		return;
+	}
+	root->saveVesselConnectivity(treeFile);
+	*treeFile << endl;
+	for (std::vector<AbstractVascularElement *>::iterator it = root->children.begin(); it != root->children.end(); ++it) {
+		saveConnectivity(*it,treeFile);
+	}
+}
+
 void AbstractObjectCCOTree::saveTree(ofstream* outFile) {
 
-	*outFile << xPerf.p[0] << " " << xPerf.p[1] << " " << xPerf.p[2] << " " << qProx << " " << minAngle << " " << psiFactor << " " << dp
+	*outFile << xPerf.p[0] << " " << xPerf.p[1] << " " << xPerf.p[2] << " " << qProx << " " << psiFactor << " " << dp
 			<< " " << nTerms << " " << refPressure << " "
 			<< (long long) pointCounter << " ";
 
@@ -143,20 +166,12 @@ double AbstractObjectCCOTree::getDp() const {
 	return dp;
 }
 
-double AbstractObjectCCOTree::getMinAngle() const {
-	return minAngle;
-}
-
 void AbstractObjectCCOTree::setEpsLim(AbstractConstraintFunction<double, int> *epsLim) {
 	this->epsLim = epsLim;
 }
 
 void AbstractObjectCCOTree::setGam(AbstractConstraintFunction<double, int> *gam) {
 	this->gam = gam;
-}
-
-void AbstractObjectCCOTree::setMinAngle(double minAngle) {
-	this->minAngle = minAngle;
 }
 
 void AbstractObjectCCOTree::setNu(AbstractConstraintFunction<double, int> *nu) {
@@ -322,4 +337,14 @@ vector<vector<int> > AbstractObjectCCOTree::getConnectivity() {
 		}
 	}
 	return lines;
+}
+
+vector<SingleVessel*> AbstractObjectCCOTree::getVessels(){
+	vector<SingleVessel *> allVessels;
+	for (std::vector<AbstractVascularElement *>::iterator it = elements.begin(); it != elements.end(); ++it) {
+		vector<SingleVessel *> currentVessels = (*it)->getVessels();
+		allVessels.insert(allVessels.end(),currentVessels.begin(),currentVessels.end());
+	}
+
+	return allVessels;
 }

@@ -54,6 +54,12 @@ public:
 	 */
 	int isSegmentInside(point xs, point xf);
 	/**
+	 * Returns if the vascular element is eligible to be a parent vessel.
+	 * @param element Vascular element.
+	 * @return 1 if it is eligible.
+	 */
+	int isValidElement(AbstractVascularElement *element);
+	/**
 	 * Estimates a characteristic length for the current domain. This length is useful to estimate the perfusion volume of the domain.
 	 * @return Chracteristic length.
 	 */
@@ -73,6 +79,11 @@ public:
 	 * @return Array of neighbor vessels.
 	 */
 	double *getLocalNeighborhood(point p, long long int nVessels);
+	/**
+	 * Returns the maximum opening angle that the hosted tree can generate.
+	 * @return Maximum bifurcation angle for vessels generated inside this domain.
+	 */
+	double getMinBifurcationAngle();
 	/**
 	 * Computes the size of the domain.
 	 * @return Size of the domain.

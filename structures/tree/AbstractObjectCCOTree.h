@@ -48,8 +48,6 @@ protected:
 	AbstractConstraintFunction<double, int> *epsLim;
 	/** Constraint for the vessel viscosity. */
 	AbstractConstraintFunction<double, int> *nu;
-	/** Minimum angle allowed between a new vessel and the pre-existent parent at a new bifurcations. */
-	double minAngle;
 	/** Distal reference pressure of the tree. */
 	double refPressure;
 	/**	Tree root. */
@@ -90,7 +88,7 @@ public:
 	 * @param refPressure	Distal reference pressure for the tree.
 	 * @param instanceData	Parameters for this stage generation.
 	 */
-	AbstractObjectCCOTree(point xi, double qi, AbstractConstraintFunction<double, int> *gam, AbstractConstraintFunction<double, int> *epsLim, AbstractConstraintFunction<double, int> *nu, double minAngle, double refPressure, GeneratorData *instanceData);
+	AbstractObjectCCOTree(point xi, double qi, AbstractConstraintFunction<double, int> *gam, AbstractConstraintFunction<double, int> *epsLim, AbstractConstraintFunction<double, int> *nu, double refPressure, GeneratorData *instanceData);
 	/**
 	 * Common destructor.
 	 */
@@ -228,15 +226,15 @@ public:
 	 */
 	vector<AbstractVascularElement *>& getSegments();
 	/**
+	 * Getter of vessels within @p elements.
+	 * @return @p elements.
+	 */
+	vector<SingleVessel *> getVessels();
+	/**
 	 * Getter of @p dp.
 	 * @return @p dp.
 	 */
 	double getDp() const;
-	/**
-	 * Getter of @p minAngle.
-	 * @return @p minAngle.
-	 */
-	double getMinAngle() const;
 	/**
 	 * Getter of @p instanceData.
 	 * @return @p instanceData.
@@ -268,11 +266,6 @@ public:
 	 * @param gam.
 	 */
 	void setGam(AbstractConstraintFunction<double, int> *gam);
-	/**
-	 * Setter of @p minAngle.
-	 * @param minAngle.
-	 */
-	void setMinAngle(double minAngle);
 	/**
 	 * Setter of @p nu.
 	 * @param nu.
@@ -330,6 +323,9 @@ protected:
 	 */
 	long long int countTerminals(AbstractVascularElement* root, AbstractVascularElement::TERMINAL_TYPE type);
 
+private:
+	void saveVessels(AbstractVascularElement *root, ofstream *treeFile);
+	void saveConnectivity(AbstractVascularElement *root, ofstream *treeFile);
 };
 
 #endif /* TREE_ABSTRACTOBJECTCCOTREE_H_ */

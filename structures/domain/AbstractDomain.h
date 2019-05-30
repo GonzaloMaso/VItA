@@ -13,9 +13,10 @@
 #include <vtkSmartPointer.h>
 #include <vtkPolyData.h>
 
+#include "../vascularElements/AbstractVascularElement.h"
 #include "../CCOCommonStructures.h"
 #include "../../core/GeneratorData.h"
-#include "../../structures/domain/IDomainObservable.h"
+#include "IDomainObservable.h"
 
 /**
  * Abstract domain class. Several domain methods guarantee
@@ -24,8 +25,11 @@
  * length criterion for the new vessel and the local set of vessels where it can be attached
  * to the tree.
  */
+
 class AbstractDomain : public IDomainObservable {
 protected:
+	/**	Vessels with stages contained in such list are allowed to grow. If empty, all vessels are allowed to grow. */
+	vector<int> growingStages;
 	/** Wrapper with parameters associated to a tree generation process. */
 	GeneratorData *instanceData;
 	/** Quantity of points that have been consumed. */
@@ -34,13 +38,20 @@ protected:
 	bool isConvexDomain;
 	/**	Vascular volume.	*/
 	double volume;
-
+	/**	Maximum bifurcation angle for vessels generated inside this domain */
+	double minAngle;
 public:
 	/**
 	 * Constructor.
 	 * @param instanceData Wrapper with parameters associated to a tree generation process.
 	 */
 	AbstractDomain(GeneratorData *instanceData);
+	/**
+	 * Constructor.
+	 * @param instanceData Wrapper with parameters associated to a tree generation process.
+	 * @param growingStages Stages allowed to grow.
+	 */
+	AbstractDomain(GeneratorData *instanceData, vector<int> growingStages);
 	/**
 	 * Destructor.
 	 */
@@ -53,6 +64,23 @@ public:
 	 * @return 1 if the segment defined by the vertexes @p xs and @p xf is inside the current domain otherwise 0.
 	 */
 	virtual int isSegmentInside(point xs, point xf) = 0;
+
+	/**
+	 * Returns if the vascular element is eligible to be a parent vessel.
+	 * @param element Vascular element.
+	 * @return 1 if it is eligible.
+	 */
+	virtual int isValidElement(AbstractVascularElement *element);
+	/**
+	 * Returns the maximum opening angle that the hosted tree can generate.
+	 * @return Maximum bifurcation angle for vessels generated inside this domain.
+	 */
+	virtual double getMinBifurcationAngle();
+	/**
+	 * Sets the maximum opening angle that the hosted tree can generate.
+	 * @param minAngle Maximum bifurcation angle for vessels generated inside this domain.
+	 */
+	virtual void setMinBifurcationAngle(double minAngle);
 	/**
 	 * Estimates a characteristic length for the current domain. This length is useful to estimate the perfusion volume of the domain.
 	 * @return Chracteristic length.
@@ -118,6 +146,8 @@ public:
 	 * @param instanceData Instance for @p instanceData.
 	 */
 	void setInstanceData(GeneratorData* instanceData);
+	const vector<int>& getGrowingStages() const;
+	void setGrowingStages(const vector<int>& growingStages);
 };
 
 #endif /* DOMAIN_ABSTRACTDOMAIN_H_ */

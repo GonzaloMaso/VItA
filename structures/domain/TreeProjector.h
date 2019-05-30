@@ -12,7 +12,7 @@
 
 #include "vtkSmartPointer.h"
 #include "vtkPolyData.h"
-#include "vtkOBBTree.h"
+#include "vtkCellLocator.h"
 
 #include "../vascularElements/SingleVessel.h"
 #include "../CCOCommonStructures.h"
@@ -26,7 +26,7 @@ class TreeProjector {
 	/** vtkPolydata description of the domain. */
 	vtkSmartPointer<vtkPolyData> vtkGeometry;
 	/** Cell locator responsible to determine if a segment is inside the domain. */
-	vtkSmartPointer<vtkOBBTree> locator;
+	vtkSmartPointer<vtkCellLocator> locator;
 	/**	Penetration offset for projected points */
 	double offset;
 public:
@@ -47,8 +47,8 @@ public:
 	 * Projects the terminals of the vessels list to the closest point within the domain.
 	 * @param vessels
 	 */
-	void projectTerminals(vector<SingleVessel> vessels);
-	void projectVessel(vector<SingleVessel> vessels);
+	void projectTerminals(vector<SingleVessel *> vessels);
+	void projectVessel(vector<SingleVessel *> vessels);
 
 };
 

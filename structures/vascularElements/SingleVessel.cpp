@@ -86,27 +86,55 @@ double SingleVessel::getProximalPressure() {
 	return pressure;
 }
 
+//	TODO update to support new features (maybe CCO Hemolab compatible?)
+//	treeFile >> v->vtkSegmentId;
+//	cout << v->vtkSegmentId << endl;
+//	treeFile >> v->xProx.p[0];
+//	treeFile >> v->xProx.p[1];
+//	treeFile >> v->xProx.p[2];
+//	treeFile >> v->xDist.p[0];
+//	treeFile >> v->xDist.p[1];
+//	treeFile >> v->xDist.p[2];
+//	treeFile >> token; 						//	Tappering
+//	treeFile >> token;						//	Proximal_Distal_Radius_switched
+//	treeFile >> token;						//	Regions
+//	treeFile >> currentReservedFlow;		//	Reserved fraction -> Ask Paulo if it is alright
+//	if(currentReservedFlow > 0.0){
+//		v->terminalType = AbstractVascularElement::TERMINAL_TYPE::RESERVED;
+//		v->qReservedFraction = currentReservedFlow;
+//		accReservedFlowFraction += currentReservedFlow;
+//	}
+//	treeFile >> branchingMode; 				//	Branching - 0:NO_BRANCHING, 1:RIGID_PARENT, 2:DEFORMABLE_PARENT, 3:DISTAL_BRANCHING, 4:ONLY_AT_PARENT_HOTSPOTS
+//	v->branchingMode = static_cast<AbstractVascularElement::BRANCHING_MODE>(branchingMode);
+//	treeFile >> v->radius;
+//	treeFile >> token;						//	Resistance 1
+//	treeFile >> token;						//	Resistance 2
+//	treeFile >> token;						//	Capacitance
+//	treeFile >> token;						//	Pressure
+//	treeFile >> vesselType;					//	Perforators - 0:DISTRIBUTION, 1:PERFORATOR, 2:TRANSPORT
+//	v->vesselFunction = static_cast<AbstractVascularElement::VESSEL_FUNCTION>(vesselType);
+//	treeFile >> token;						//	Heart
+//	treeFile >> token;						//	Valves_SResistors_codes
+//
+//	v->stage = -1;
+
 void SingleVessel::saveVesselData(ofstream* treeFile) {
-	*treeFile << vtkSegmentId << " " << xProx.p[0] << " " << xProx.p[1] << " " << xProx.p[2] << " " << xDist.p[0] << " " << xDist.p[1] << " " << xDist.p[2] << " " << nLevel << " " << radius << " "
-			<< beta << " " << length << " " << resistance << " " << flow << " " << pressure << " " << ID << " " << treeVolume << " " << viscosity << " " << stage;
+	*treeFile << vtkSegmentId << " " << xProx.p[0] << " " << xProx.p[1] << " " << xProx.p[2] << " " << xDist.p[0] << " " << xDist.p[1] << " " << xDist.p[2] << " "
+			<< "0.0 " << "0.0 " << "0.0 " << qReservedFraction << " " << branchingMode << " " << radius << " " << "0.0 " << "0.0 " << "0.0 " << "0.0 "
+			<< vesselFunction << " " << "0.0 " << "0.0 " << stage;
 }
 
 void SingleVessel::saveVesselConnectivity(ofstream* treeFile) {
 	*treeFile << vtkSegmentId << " ";
 
-	SingleVessel *parent = getParentVesselTo(this->xProx);
-	vector<SingleVessel *> *children = getChildrenVesselTo(this->xDist);
-
 	if (parent)
-		*treeFile << parent->vtkSegmentId << " ";
+		*treeFile << ((SingleVessel *) parent)->vtkSegmentId;
 	else
-		*treeFile << -1 << " ";
+		*treeFile << -1;
 
-	for (std::vector<SingleVessel *>::iterator it = children->begin(); it != children->end(); ++it) {
-		*treeFile << (*it)->vtkSegmentId << " ";
+	for (std::vector<AbstractVascularElement *>::iterator it = children.begin(); it != children.end(); ++it) {
+		*treeFile << " " << ((SingleVessel *) (*it))->vtkSegmentId;
 	}
-
-	delete children;
 
 }
 

@@ -10,6 +10,7 @@
 #include <vtkCellData.h>
 #include <vtkCellArray.h>
 #include <vtkDoubleArray.h>
+#include <vtkPolyDataNormals.h>
 
 TreeProjector::TreeProjector(string filename){
 	//	Read all the data from the file
@@ -19,8 +20,16 @@ TreeProjector::TreeProjector(string filename){
 	reader->Update();
 	vtkGeometry = reader->GetOutput();
 
+	//	Generate normals for the geometry
+	vtkSmartPointer<vtkPolyDataNormals> normalGenerator = vtkSmartPointer<vtkPolyDataNormals>::New();
+	normalGenerator->SetInputData(vtkGeometry);
+	normalGenerator->ComputePointNormalsOff();
+	normalGenerator->ComputeCellNormalsOn();
+	normalGenerator->Update();
+	vtkGeometry = normalGenerator->GetOutput();
+
 	//	Create the tree
-	locator = vtkSmartPointer<vtkOBBTree>::New();
+	locator = vtkSmartPointer<vtkCellLocator>::New();
 	locator->SetDataSet(vtkGeometry);
 	locator->BuildLocator();
 
@@ -36,8 +45,16 @@ TreeProjector::TreeProjector(string filename, double offset){
 	reader->Update();
 	vtkGeometry = reader->GetOutput();
 
+	//	Generate normals for the geometry
+	vtkSmartPointer<vtkPolyDataNormals> normalGenerator = vtkSmartPointer<vtkPolyDataNormals>::New();
+	normalGenerator->SetInputData(vtkGeometry);
+	normalGenerator->ComputePointNormalsOff();
+	normalGenerator->ComputeCellNormalsOn();
+	normalGenerator->Update();
+	vtkGeometry = normalGenerator->GetOutput();
+
 	//	Create the tree
-	locator = vtkSmartPointer<vtkOBBTree>::New();
+	locator = vtkSmartPointer<vtkCellLocator>::New();
 	locator->SetDataSet(vtkGeometry);
 	locator->BuildLocator();
 
@@ -48,9 +65,9 @@ TreeProjector::~TreeProjector(){
 	// TODO Auto-generated destructor stub
 }
 
-void TreeProjector::projectTerminals(vector<SingleVessel> vessels){
-	for (std::vector<SingleVessel>::iterator it = vessels.begin(); it != vessels.end(); ++it) {
-		point terminal = it->xDist;
+void TreeProjector::projectTerminals(vector<SingleVessel *> vessels){
+	for (std::vector<SingleVessel *>::iterator it = vessels.begin(); it != vessels.end(); ++it) {
+		point terminal = (*it)->xDist;
 		point projection,normal;
 		vtkIdType closeCellId;
 		int subId;
@@ -58,7 +75,7 @@ void TreeProjector::projectTerminals(vector<SingleVessel> vessels){
 		locator->FindClosestPoint(terminal.p,projection.p,closeCellId,subId,distance);
 
 		//	Get normal of the projected element - // TESTME
-		vtkSmartPointer<vtkDoubleArray> cellNormalsRetrieved = dynamic_cast<vtkDoubleArray*>(vtkGeometry->GetCellData()->GetNormals());
+		vtkSmartPointer<vtkDataArray> cellNormalsRetrieved = vtkGeometry->GetCellData()->GetNormals();
 		cellNormalsRetrieved->GetTuple(closeCellId,normal.p);
 
 		point displacement = projection-terminal;
@@ -69,14 +86,14 @@ void TreeProjector::projectTerminals(vector<SingleVessel> vessels){
 			projection = projection + displacement * offset;
 		else
 			projection = projection - displacement * offset;
-		it->xDist = projection;
+		(*it)->xDist = projection;	//	Need to update the VTK segment!
 	}
 }
 
-void TreeProjector::projectVessel(vector<SingleVessel> vessels){
-	for (std::vector<SingleVessel>::iterator it = vessels.begin(); it != vessels.end(); ++it) {
-		point distal = it->xDist;
-		point proximal = it->xProx;
+void TreeProjector::projectVessel(vector<SingleVessel *> vessels){
+	for (std::vector<SingleVessel *>::iterator it = vessels.begin(); it != vessels.end(); ++it) {
+		point distal = (*it)->xDist;
+		point proximal = (*it)->xProx;
 		point projectionProx, projectionDist, normalProx, normalDist,normal;
 		vtkIdType closeCellIdProx;
 		vtkIdType closeCellIdDist;
@@ -105,7 +122,7 @@ void TreeProjector::projectVessel(vector<SingleVessel> vessels){
 			projectionDist = projectionDist - displacement * offset;
 			projectionProx = projectionProx - displacement * offset;
 		}
-		it->xDist = projectionDist;	//	Need to update the VTK segment!
-		it->xProx = projectionProx; //	Need to update the VTK segment!
+		(*it)->xDist = projectionDist;	//	Need to update the VTK segment!
+		(*it)->xProx = projectionProx;  //	Need to update the VTK segment!
 	}
 }

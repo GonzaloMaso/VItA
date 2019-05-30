@@ -40,7 +40,8 @@ public:
 	 * @param minAngle	Minimum angle allowed.
 	 * @param resistanceVariationTolerance	Convergence tolerance for the iterative viscosity scheme.
 	 */
-	SingleVesselCCOOTree(point xi, double rootRadius, double qi, AbstractConstraintFunction<double,int> *gam, AbstractConstraintFunction<double,int> *epsLim, AbstractConstraintFunction<double,int> *nu, double minAngle, double refPressure, double resistanceVariationTolerance, GeneratorData *instanceData);
+	SingleVesselCCOOTree(point xi, double rootRadius, double qi, AbstractConstraintFunction<double,int> *gam, AbstractConstraintFunction<double,int> *epsLim,
+			AbstractConstraintFunction<double,int> *nu, double refPressure, double resistanceVariationTolerance, GeneratorData *instanceData);
 
 	/**
 	 * Creates a new tree from the .cco file @p filename. The obtained tree has not vtkLine objects of the vessels.
@@ -49,6 +50,15 @@ public:
 	 */
 	SingleVesselCCOOTree(string filenameCCO, string filenameVTK, GeneratorData *instanceData);
 
+	/**
+	 * Creates a new tree from the .cco file @p filename in VItA format.
+	 * @param filenameCCO Path to the .cco file.
+	 * @param gam	Murray law function.
+	 * @param epsLim	Sibling vessels ratio function.
+	 * @param nu	Viscosity function with respect to the tree level.
+	 */
+	SingleVesselCCOOTree(string filenameCCO, GeneratorData *instanceData, AbstractConstraintFunction<double, int> *gam, AbstractConstraintFunction<double, int> *epsLim,
+			AbstractConstraintFunction<double, int> *nu);
 	/**
 	 * Creates a new tree from the .cco file @p filename in HeMoLab format.
 	 * @param filenameCCO Path to the .cco file.
@@ -61,7 +71,7 @@ public:
 	 * @param viscosityTolerance	Convergence tolerance for the iterative viscosity scheme.
 	 */
 	SingleVesselCCOOTree(string filenameCCO, GeneratorData* instanceData, double qi, AbstractConstraintFunction<double, int> *gam, AbstractConstraintFunction<double, int> *epsLim,
-			AbstractConstraintFunction<double, int> *nu, double minAngle, double refPressure, double viscosityTolerance);
+			AbstractConstraintFunction<double, int> *nu, double refPressure, double viscosityTolerance);
 
 	/**
 	 * Common destructor.
@@ -223,9 +233,10 @@ private:
 	 * @param xBif	Bifurcation point between the new vessel and the distal part of the parent vessel (iCon).
 	 * @param xNew	Distal point of the new vessel.
 	 * @param parent	Parent vessel.
+	 * @param minAngle 	Minimum angle constraint.
 	 * @return	If the angles are higher than the minimum allowed.
 	 */
-	int areValidAngles(point xBif, point xNew, SingleVessel *parent);
+	int areValidAngles(point xBif, point xNew, SingleVessel *parent, double minAngle);
 	/**
 	 * It returns if the line @param p1 - @param p2 intersects any vessel of the tree beside parent.
 	 * @param p1	Extreme point 1 of the line.

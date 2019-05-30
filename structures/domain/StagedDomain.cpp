@@ -80,3 +80,11 @@ int StagedDomain::getCurrentStage() const
 {
 	return currentStage;
 }
+
+int StagedDomain::isValidElement(AbstractVascularElement* element){
+	return domainStage[currentStage]->isValidElement(element);
+}
+
+double StagedDomain::getMinBifurcationAngle(){
+	domainStage[currentStage]->getMinBifurcationAngle();
+}
