@@ -30,16 +30,18 @@ VTKObjectTreeElementalWriter::VTKObjectTreeElementalWriter()
 
 }
 
+/*
+ * This will not work when vtkIndexes are not consecutive and complete. Maybe use a map ordered.
+ */
 vector<SingleVessel*> VTKObjectTreeElementalWriter::createVTKIndex(AbstractObjectCCOTree* tree) {
 	unsigned long long int amount = 0;
-	for (vector<AbstractVascularElement *>::iterator it = tree->getSegments().begin(); it != tree->getSegments().end(); ++it) {
-		amount += (*it)->getVessels().size();
+	for (auto it = tree->getSegments().begin(); it != tree->getSegments().end(); ++it) {
+		amount += (it->second)->getVessels().size();
 	}
 	vector<SingleVessel *> index(amount, NULL);
-	for (unsigned long long int i = 0; i < tree->getSegments().size(); ++i) {
-		for (vector<SingleVessel *>::iterator it = tree->getSegments()[i]->getVessels().begin(); it != tree->getSegments()[i]->getVessels().end(); ++it) {
-			index[((SingleVessel *) (*it))->vtkSegmentId] = (SingleVessel *) (*it);
-		}
+	vector<SingleVessel *> vessels = tree->getVessels();
+	for (auto it = vessels.begin(); it != vessels.end(); ++it) {
+		index[(*it)->vtkSegmentId] = (*it);
 	}
 	return index;
 }

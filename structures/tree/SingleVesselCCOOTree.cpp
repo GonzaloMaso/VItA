@@ -116,7 +116,7 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData *in
 		treeFile >> token;						//	Heart
 		treeFile >> token;						//	Valves_SResistors_codes
 		treeFile >> v->stage;					//	Stage
-		this->elements.push_back(v);
+		this->elements[v->vtkSegmentId] = v;
 	}
 
 	this->qReservedFactor = accReservedFlowFraction;
@@ -143,10 +143,10 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData *in
 		ss >> parentId;
 		cout << " - P = " << parentId;
 		if (parentId == -1) {
-			elements[i]->parent = NULL;
-			rootIndex = i;
+			elements[vtkId]->parent = NULL;
+			rootIndex = vtkId;
 		} else {
-			elements[i]->parent = elements[parentId];
+			elements[vtkId]->parent = elements[parentId];
 		}
 
 		//	Children parsing
@@ -154,7 +154,7 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData *in
 		while (!ss.eof()) {
 			ss >> childId;
 			cout << childId << " " ;
-			elements[i]->addChild(elements[childId]);
+			elements[vtkId]->addChild(elements[childId]);
 //			ss >> childId;
 		}
 		cout << endl;
@@ -242,10 +242,8 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, string filenameVT
 		treeFile >> v->treeVolume;
 		treeFile >> v->viscosity;
 		treeFile >> v->stage;
-		this->elements.push_back(v);
+		this->elements[v->vtkSegmentId] = v;
 	}
-
-	this->root = elements[0];
 
 	//	Load connectivity among segments
 	treeFile >> token;
@@ -254,26 +252,31 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, string filenameVT
 	}
 	getline(treeFile, token);
 
+	long long rootId = 0;
 	for (long long i = 0; i < numVessels; ++i) {
+		long long vtkId, parentId, childId;
 		getline(treeFile, token);
 		stringstream ss;
 		ss << token;
-		int vtkId;
 		ss >> vtkId;
 
 		//	Parent parsing
-		ss >> vtkId;
-		if (vtkId == -1)
-			elements[i]->parent = NULL;
+		ss >> parentId;
+		if (vtkId == -1){
+			elements[vtkId]->parent = NULL;
+			rootId = vtkId;
+		}
 		else
-			elements[i]->parent = elements[vtkId];
+			elements[vtkId]->parent = elements[parentId];
 
 		//	Children parsing
 		while (!ss.eof()) {
-			ss >> vtkId;
-			elements[i]->addChild(elements[vtkId]);
+			ss >> childId;
+			elements[vtkId]->addChild(elements[childId]);
 		}
 	}
+
+	this->root = elements[rootId];
 	cout << "Tree successfully loaded" << endl;
 	cout << "Loading VTK structure..." << endl;
 
@@ -359,16 +362,10 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData* in
 		treeFile >> token;						//	Valves_SResistors_codes
 
 		v->stage = -1;
-		this->elements.push_back(v);
+		this->elements[v->vtkSegmentId] = v;
 	}
 
-//	cout << "Updating qReserved" << endl;
-//	this->qReservedFactor = accReservedFlow / qProx;
 	this->qReservedFactor = accReservedFlowFraction;
-//	for(std::vector<AbstractVascularElement *>::iterator it = elements.begin(); it != elements.end(); ++it) {
-//		((SingleVessel *)(*it))->qReservedFraction /= accReservedFlow;
-//		cout << "Dividing by " << accReservedFlow << endl;
-//	}
 
 	//	Load connectivity among segments
 	treeFile >> token;
@@ -378,7 +375,7 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData* in
 	}
 	getline(treeFile, token);
 
-	int rootIndex = 0;
+	long long rootId = 0;
 	for (long long i = 0; i < numVessels; ++i) {
 		getline(treeFile, token);
 		stringstream ss;
@@ -392,10 +389,10 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData* in
 		ss >> parentId;
 		cout << " - P = " << parentId;
 		if (parentId == -1) {
-			elements[i]->parent = NULL;
-			rootIndex = i;
+			elements[vtkId]->parent = NULL;
+			rootId = vtkId;
 		} else {
-			elements[i]->parent = elements[parentId];
+			elements[vtkId]->parent = elements[parentId];	//	BUG! vtkId is not the indexation of the vector
 		}
 
 		//	Children parsing
@@ -403,14 +400,14 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData* in
 		while (!ss.eof()) {
 			ss >> childId;
 			cout << childId << " " ;
-			elements[i]->addChild(elements[childId]);
+			elements[vtkId]->addChild(elements[childId]);
 //			ss >> childId;
 		}
 		cout << endl;
 	}
 
 	//	Tree values
-	this->root = elements[rootIndex];
+	this->root = elements[rootId];
 	this->xPerf = ((SingleVessel *) root)->xProx;
 	this->rootRadius = ((SingleVessel *) root)->radius;
 	this->qProx = qi;
@@ -506,7 +503,7 @@ void SingleVesselCCOOTree::addVessel(point xProx, point xDist, AbstractVascularE
 		vtkSmartPointer<vtkCellArray> lines = vtkSmartPointer<vtkCellArray>::New();
 		newRoot->vtkSegmentId = lines->InsertNextCell(newRoot->vtkSegment);
 		vtkTree->SetLines(lines);
-		elements.push_back(newRoot);
+		elements[newRoot->vtkSegmentId] = newRoot;
 
 		root = newRoot;
 
@@ -538,7 +535,6 @@ void SingleVesselCCOOTree::addVessel(point xProx, point xDist, AbstractVascularE
 		iNew->vesselFunction = vesselFunction;
 
 		parent->addChild(iNew);
-		elements.push_back(iNew);
 
 		//	Update post-order nLevel, flux, pressure and determine initial resistance and beta values.
 		updateTree(((SingleVessel *) root), this);
@@ -557,6 +553,7 @@ void SingleVesselCCOOTree::addVessel(point xProx, point xDist, AbstractVascularE
 		iNew->vtkSegment->GetPointIds()->SetId(1, idDist); // the second index is the global index of the mesh point
 
 		iNew->vtkSegmentId = vtkTree->GetLines()->InsertNextCell(iNew->vtkSegment);
+		elements[iNew->vtkSegmentId] = iNew;
 
 		vtkTree->BuildCells();
 		vtkTree->Modified();
@@ -612,8 +609,6 @@ void SingleVesselCCOOTree::addVessel(point xProx, point xDist, AbstractVascularE
 
 		((SingleVessel *) parent)->xDist = xProx;
 		((SingleVessel *) parent)->length = sqrt(dBif ^ dBif);
-		elements.push_back(iNew);
-		elements.push_back(iCon);
 
 		//	Update post-order nLevel, flux, pressure and determine initial resistance and beta values.
 		updateTree(((SingleVessel *) root), this);
@@ -638,6 +633,9 @@ void SingleVesselCCOOTree::addVessel(point xProx, point xDist, AbstractVascularE
 
 		iNew->vtkSegmentId = vtkTree->GetLines()->InsertNextCell(iNew->vtkSegment);
 		iCon->vtkSegmentId = vtkTree->GetLines()->InsertNextCell(iCon->vtkSegment);
+
+		elements[iNew->vtkSegmentId] = iNew;
+		elements[iCon->vtkSegmentId] = iCon;
 
 //		cout << "Parent VTK Cell ids : " << vtkTree->GetCell(parent->vtkSegmentId)->GetPointIds()->GetNumberOfIds() << endl;
 //		cout << "Intented modified id " << parent->vtkSegment->GetPointId(1) << endl;
@@ -698,7 +696,7 @@ void SingleVesselCCOOTree::addVessel(point xDist, AbstractVascularElement *paren
 		vtkSmartPointer<vtkCellArray> lines = vtkSmartPointer<vtkCellArray>::New();
 		newRoot->vtkSegmentId = lines->InsertNextCell(newRoot->vtkSegment);
 		vtkTree->SetLines(lines);
-		elements.push_back(newRoot);
+		elements[newRoot->vtkSegmentId] = newRoot;
 
 		root = newRoot;
 
@@ -729,7 +727,6 @@ void SingleVesselCCOOTree::addVessel(point xDist, AbstractVascularElement *paren
 		iNew->vesselFunction = vesselFunction;
 
 		parent->addChild(iNew);
-		elements.push_back(iNew);
 
 		nTerms = getNTerminals();
 		nCommonTerminals = getNTerminals(AbstractVascularElement::TERMINAL_TYPE::COMMON);
@@ -751,6 +748,8 @@ void SingleVesselCCOOTree::addVessel(point xDist, AbstractVascularElement *paren
 		iNew->vtkSegment->GetPointIds()->SetId(1, idDist); // the second index is the global index of the mesh point
 
 		iNew->vtkSegmentId = vtkTree->GetLines()->InsertNextCell(iNew->vtkSegment);
+
+		elements[iNew->vtkSegmentId] = iNew;
 
 		vtkTree->BuildCells();
 		vtkTree->Modified();
@@ -844,10 +843,10 @@ double SingleVesselCCOOTree::evaluate(point xNew, point xTest, SingleVessel *par
 	clonedTree->nCommonTerminals++;
 
 	//	Fast-forward until parent in the cloned tree
-	vector<AbstractVascularElement *>::iterator it = clonedTree->elements.begin();
-	for (; ((SingleVessel *) (*it))->vtkSegmentId != ((SingleVessel *) parent)->vtkSegmentId; ++it)
+	auto it = clonedTree->elements.begin();
+	for (; ((SingleVessel *) (it->second))->vtkSegmentId != ((SingleVessel *) parent)->vtkSegmentId; ++it)
 		;
-	SingleVessel *clonedParent = (SingleVessel *) (*it);
+	SingleVessel *clonedParent = (SingleVessel *) (it->second);
 
 	//	Add segment iNew, iCon and iBif in the cloned tree updating nLevel and lengths
 	point dNew = xNew - xTest;
@@ -878,8 +877,9 @@ double SingleVesselCCOOTree::evaluate(point xNew, point xTest, SingleVessel *par
 	clonedParent->addChild(iNew);
 	clonedParent->addChild(iCon);
 
-	clonedTree->elements.push_back(iNew);
-	clonedTree->elements.push_back(iCon);
+	//	Not needed because the updates use the tree structure to visit and update (not the element structure)
+//	clonedTree->elements.push_back(iNew);
+//	clonedTree->elements.push_back(iCon);
 
 	clonedParent->length = sqrt(dBif ^ dBif);
 
@@ -921,10 +921,10 @@ double SingleVesselCCOOTree::evaluate(point xNew, SingleVessel *parent, double d
 	}
 
 	//	Fast-forward until parent in the cloned tree
-	vector<AbstractVascularElement *>::iterator it = clonedTree->elements.begin();
-	for (; ((SingleVessel *) (*it))->vtkSegmentId != ((SingleVessel *) parent)->vtkSegmentId; ++it)
+	auto it = clonedTree->elements.begin();
+	for (; ((SingleVessel *) (it->second))->vtkSegmentId != ((SingleVessel *) parent)->vtkSegmentId; ++it)
 		;
-	SingleVessel *clonedParent = (SingleVessel *) (*it);
+	SingleVessel *clonedParent = (SingleVessel *) (it->second);
 
 	//	Add segment iNew, iCon and iBif in the cloned tree updating nLevel and lengths
 	point dNew = xNew - clonedParent->xDist;
@@ -939,7 +939,8 @@ double SingleVesselCCOOTree::evaluate(point xNew, SingleVessel *parent, double d
 	vector<AbstractVascularElement *> prevChildrenParent = clonedParent->getChildren();
 	clonedParent->addChild(iNew);
 
-	clonedTree->elements.push_back(iNew);
+	//	Same as in the other case, element structure is not needed for the following updates in the cloned tree.
+//	clonedTree->elements.push_back(iNew);
 
 	clonedParent->length = sqrt(dBif ^ dBif);
 
@@ -1023,7 +1024,7 @@ SingleVesselCCOOTree* SingleVesselCCOOTree::clone() {
 	return copy;
 }
 
-SingleVessel* SingleVesselCCOOTree::cloneTree(SingleVessel* root, vector<AbstractVascularElement *> *segments) {
+SingleVessel* SingleVesselCCOOTree::cloneTree(SingleVessel* root, unordered_map<long long, AbstractVascularElement *> *segments) {
 
 	SingleVessel *copy = new SingleVessel();
 
@@ -1040,7 +1041,7 @@ SingleVessel* SingleVesselCCOOTree::cloneTree(SingleVessel* root, vector<Abstrac
 	copy->viscosity = root->viscosity;
 	copy->treeVolume = root->treeVolume;
 
-	segments->push_back(copy);
+	(*segments)[copy->vtkSegmentId] = copy;
 
 	vector<AbstractVascularElement *> rootChildren = root->getChildren();
 	for (unsigned int i = 0; i < rootChildren.size(); ++i) {
@@ -1308,11 +1309,12 @@ void SingleVesselCCOOTree::createSegmentVtkLines(AbstractVascularElement *vessel
 }
 
 void SingleVesselCCOOTree::removeWitheredBranches(int stage) {
-	for (vector<AbstractVascularElement *>::iterator it = elements.begin(); it != elements.end(); ++it) {
-		SingleVessel *currentVessel = (SingleVessel *) (*it);
+	for (auto it = elements.begin(); it != elements.end(); ++it) {
+		SingleVessel *currentVessel = (SingleVessel *) (it->second);
 		if (currentVessel->stage == stage) {
 			if (isWithered(currentVessel)) {
 				this->remove(currentVessel);
+				elements.erase(it);
 			}
 		}
 	}

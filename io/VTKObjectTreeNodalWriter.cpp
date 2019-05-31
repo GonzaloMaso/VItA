@@ -76,8 +76,8 @@ void VTKObjectTreeNodalWriter::write(string filename, AbstractObjectCCOTree* tre
 	vtkSmartPointer<vtkDoubleArray> cellDataVesselFunction = vtkSmartPointer<vtkDoubleArray>::New();
 	cellDataVesselFunction->SetName("vesselFunction");
 
-	for (std::vector<AbstractVascularElement *>::iterator it = tree->getSegments().begin(); it != tree->getSegments().end(); ++it) {
-		for (vector<SingleVessel *>::iterator it2 = (*it)->getVessels().begin(); it2 != (*it)->getVessels().end(); ++it2) {
+	for (auto it = tree->getSegments().begin(); it != tree->getSegments().end(); ++it) {
+		for (vector<SingleVessel *>::iterator it2 = (it->second)->getVessels().begin(); it2 != (it->second)->getVessels().end(); ++it2) {
 			SingleVessel *currentSegment = *it2;
 
 			vtkIdType idProx = pts->InsertNextPoint(currentSegment->xProx.p);

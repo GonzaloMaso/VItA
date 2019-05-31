@@ -23,6 +23,7 @@
 #include <vector>
 #include <iomanip>
 #include <fstream>
+#include <unordered_map>
 
 using namespace std;
 
@@ -64,7 +65,7 @@ protected:
 	/**	VTK locator for the tree. */
 	vtkSmartPointer<vtkCellLocator> vtkTreeLocator;
 	/**	Vascular elements (vessels or set of vessels) of the tree. */
-	vector<AbstractVascularElement *> elements;
+	unordered_map<long long, AbstractVascularElement *> elements;
 
 	/**	Amount of points consumed since the beginning of the CCO generation. */
 	long long int pointCounter;
@@ -224,7 +225,7 @@ public:
 	 * Getter of @p elements.
 	 * @return @p elements.
 	 */
-	vector<AbstractVascularElement *>& getSegments();
+	unordered_map<long long, AbstractVascularElement*>& getSegments();
 	/**
 	 * Getter of vessels within @p elements.
 	 * @return @p elements.

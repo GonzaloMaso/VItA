@@ -61,8 +61,8 @@ AbstractObjectCCOTree::AbstractObjectCCOTree(point xi, double qi, AbstractConstr
 
 AbstractObjectCCOTree::~AbstractObjectCCOTree() {
 
-	for (unsigned long long int i = 0; i < elements.size(); ++i) {
-		delete elements[i];
+	for (auto it = elements.begin(); it != elements.end(); it++){
+		delete it->second;
 	}
 	elements.clear();
 }
@@ -87,7 +87,7 @@ AbstractVascularElement *AbstractObjectCCOTree::getRoot() {
 	return root;
 }
 
-vector<AbstractVascularElement*>& AbstractObjectCCOTree::getSegments() {
+unordered_map<long long, AbstractVascularElement*>& AbstractObjectCCOTree::getSegments() {
 	return elements;
 }
 
@@ -237,8 +237,8 @@ void AbstractObjectCCOTree::computePressure(AbstractVascularElement* root) {
 
 void AbstractObjectCCOTree::updateSegmentVtkLines() {
 	vtkTree->GetLines()->InitTraversal();
-	for (vector<AbstractVascularElement *>::iterator it = elements.begin(); it != elements.end(); ++it) {
-		for (vector<SingleVessel *>::iterator it2 = (*it)->getVessels().begin(); it2 != (*it)->getVessels().end(); ++it2) {
+	for (auto it = elements.begin(); it != elements.end(); ++it) {
+		for (auto it2 = (it->second)->getVessels().begin(); it2 != (it->second)->getVessels().end(); ++it2) {
 			(*it2)->vtkSegment = vtkSmartPointer<vtkLine>::New();
 			vtkSmartPointer<vtkIdList> pts = vtkSmartPointer<vtkIdList>::New();
 			vtkTree->GetLines()->GetNextCell(pts);
@@ -324,8 +324,8 @@ vector<vector<double> > AbstractObjectCCOTree::getVertices() {
 
 vector<vector<int> > AbstractObjectCCOTree::getConnectivity() {
 	vector<vector<int> > lines;
-	for (std::vector<AbstractVascularElement *>::iterator it = elements.begin(); it != elements.end(); ++it) {
-		for (vector<SingleVessel *>::iterator it2 = (*it)->getVessels().begin(); it2 != (*it)->getVessels().end(); ++it2) {
+	for (auto it = elements.begin(); it != elements.end(); ++it) {
+		for (vector<SingleVessel *>::iterator it2 = (it->second)->getVessels().begin(); it2 != (it->second)->getVessels().end(); ++it2) {
 			SingleVessel *currentSegment = *it2;
 			vector<int> line;
 			vector<double> radius;
@@ -341,8 +341,8 @@ vector<vector<int> > AbstractObjectCCOTree::getConnectivity() {
 
 vector<SingleVessel*> AbstractObjectCCOTree::getVessels(){
 	vector<SingleVessel *> allVessels;
-	for (std::vector<AbstractVascularElement *>::iterator it = elements.begin(); it != elements.end(); ++it) {
-		vector<SingleVessel *> currentVessels = (*it)->getVessels();
+	for (auto it = elements.begin(); it != elements.end(); ++it) {
+		vector<SingleVessel *> currentVessels = (it->second)->getVessels();
 		allVessels.insert(allVessels.end(),currentVessels.begin(),currentVessels.end());
 	}
 

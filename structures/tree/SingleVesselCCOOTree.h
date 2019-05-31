@@ -193,7 +193,7 @@ private:
 	 * @param segments	Segments of the tree.
 	 * @return Cloned subtree.
 	 */
-	SingleVessel *cloneTree(SingleVessel *root, vector<AbstractVascularElement *> *segments);
+	SingleVessel *cloneTree(SingleVessel *root, unordered_map<long long, AbstractVascularElement *> *segments);
 	/**
 	 * Returns a partial variation of the cost functional due to the new segment inclusion.
 	 * @param xNew	Proximal point of the new vessel.
