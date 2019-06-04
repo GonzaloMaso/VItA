@@ -11,6 +11,7 @@ StagedDomain::StagedDomain() : AbstractDomain(NULL){
 	currentTerminals = 0;
 	terminalAtPrevStage = 0;
 	currentStage = 0;
+	initialStage = 0;
 }
 
 void StagedDomain::addStage(long long int terminals, AbstractDomain* domain){
@@ -26,12 +27,12 @@ void StagedDomain::addStage(long long int terminals, AbstractDomain* domain){
 
 void StagedDomain::update(){
 	++currentTerminals;
-	if(currentTerminals > terminalsPerStage[currentStage]){
+	if(currentTerminals > terminalsPerStage[currentStage-initialStage]){
 		terminalAtPrevStage = currentTerminals - 1;
 		++currentStage;
-		if(!domainStage[currentStage]->getInstanceData()->resetsDLim)
-			domainStage[currentStage]->getInstanceData()->dLimCorrectionFactor = instanceData->dLimCorrectionFactor;
-		instanceData = domainStage[currentStage]->getInstanceData();
+		if(!domainStage[currentStage-initialStage]->getInstanceData()->resetsDLim)
+			domainStage[currentStage-initialStage]->getInstanceData()->dLimCorrectionFactor = instanceData->dLimCorrectionFactor;
+		instanceData = domainStage[currentStage-initialStage]->getInstanceData();
 		notifyObservers();
 	}
 }
@@ -41,39 +42,39 @@ long long int StagedDomain::getTerminalsAfterGeneration(){
 }
 
 int StagedDomain::isSegmentInside(point xs, point xf){
-	return domainStage[currentStage]->isSegmentInside(xs,xf);
+	return domainStage[currentStage-initialStage]->isSegmentInside(xs,xf);
 }
 
 double StagedDomain::getCharacteristicLength(){
-	return domainStage[currentStage]->getCharacteristicLength();
+	return domainStage[currentStage-initialStage]->getCharacteristicLength();
 }
 
 double StagedDomain::getDLim(long long int nVessels, double factor)	{
 	if(instanceData->resetsDLim)
-		return domainStage[currentStage]->getDLim(nVessels - terminalAtPrevStage,factor);
+		return domainStage[currentStage-initialStage]->getDLim(nVessels - terminalAtPrevStage,factor);
 	else
-		return domainStage[currentStage]->getDLim(nVessels,factor);
+		return domainStage[currentStage-initialStage]->getDLim(nVessels,factor);
 }
 
 double* StagedDomain::getLocalNeighborhood(point p, long long int nVessels)	{
-	return domainStage[currentStage]->getLocalNeighborhood(p,nVessels - terminalAtPrevStage);
+	return domainStage[currentStage-initialStage]->getLocalNeighborhood(p,nVessels - terminalAtPrevStage);
 }
 
 double StagedDomain::getSize(){
-	return domainStage[currentStage]->getSize();
+	return domainStage[currentStage-initialStage]->getSize();
 }
 
 point StagedDomain::getRandomPoint(){
 	++pointCounter;
-	return domainStage[currentStage]->getRandomPoint();
+	return domainStage[currentStage-initialStage]->getRandomPoint();
 }
 
 deque<point>& StagedDomain::getRandomInnerPoints(){
-	return domainStage[currentStage]->getRandomInnerPoints();
+	return domainStage[currentStage-initialStage]->getRandomInnerPoints();
 }
 
 vtkSmartPointer<vtkPolyData>& StagedDomain::getVtkGeometry(){
-	return domainStage[currentStage]->getVtkGeometry();
+	return domainStage[currentStage-initialStage]->getVtkGeometry();
 }
 
 int StagedDomain::getCurrentStage() const
@@ -82,9 +83,20 @@ int StagedDomain::getCurrentStage() const
 }
 
 int StagedDomain::isValidElement(AbstractVascularElement* element){
-	return domainStage[currentStage]->isValidElement(element);
+	return domainStage[currentStage-initialStage]->isValidElement(element);
 }
 
 double StagedDomain::getMinBifurcationAngle(){
-	domainStage[currentStage]->getMinBifurcationAngle();
+	return domainStage[currentStage-initialStage]->getMinBifurcationAngle();
+}
+
+void StagedDomain::setInitialStage(int currentStage){
+	try{
+		if(this->currentStage!=0)
+			throw 1;
+	} catch(int idxExeception){
+		cout << "Initial stage can only be done once and before execution" << endl;
+	}
+	this->initialStage = currentStage;
+	this->currentStage = this->initialStage;
 }

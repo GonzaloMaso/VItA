@@ -30,14 +30,15 @@ StagedFRROTreeGenerator::StagedFRROTreeGenerator(
 	this->instanceData = domain->getInstanceData();
 	SingleVessel::bifurcationTests = instanceData->nBifurcationTest;
 	this->nTerminals = nTerm;
-	this->stage = 0;
+	this->stage = domain->getCurrentStage();
+	this->tree->setCurrentStage(domain->getCurrentStage());
 
 	this->gams = gam;
 	this->epsLims = epsLim;
 	this->nus = nu;
 
-	this->tree = new SingleVesselCCOOTree(xi, rootRadii, qi, gam[stage], epsLim[stage],
-			nu[stage], refPressure, viscosityTolerance, instanceData);
+	this->tree = new SingleVesselCCOOTree(xi, rootRadii, qi, gam[0], epsLim[0],
+			nu[0], refPressure, viscosityTolerance, instanceData);
 
 	this->dLim = domain->getDLim(1, instanceData->perfusionAreaFactor);
 
@@ -58,15 +59,16 @@ StagedFRROTreeGenerator::StagedFRROTreeGenerator(
 	this->nTerminals = nTerm;
 	this->tree = tree;
 	//	Stage can be loaded from file
-	this->stage = 0;
+	this->stage = domain->getCurrentStage();
+	this->tree->setCurrentStage(domain->getCurrentStage());
 
 	this->gams = gam;
 	this->epsLims = epsLim;
 	this->nus = nu;
 
-	this->tree->setGam(gam[stage]);
-	this->tree->setEpsLim(epsLim[stage]);
-	this->tree->setNu(nu[stage]);
+	this->tree->setGam(gam[0]);
+	this->tree->setEpsLim(epsLim[0]);
+	this->tree->setNu(nu[0]);
 
 	this->dLim = domain->getDLim(1, instanceData->perfusionAreaFactor);
 

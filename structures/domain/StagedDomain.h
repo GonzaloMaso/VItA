@@ -25,6 +25,8 @@ class StagedDomain : public AbstractDomain {
 	long long int terminalAtPrevStage;
 	/**	Index of the current stage. */
 	int currentStage;
+
+	int initialStage;
 public:
 	/**
 	 * Constructor.
@@ -109,6 +111,11 @@ public:
 	 * @return Current stage number;
 	 */
 	int getCurrentStage() const;
+	/**
+	 * Sets the initial stage as @p currentStage.
+	 * @param currentStage Current stage.
+	 */
+	void setInitialStage(int currentStage);
 };
 
 #endif /* DOMAIN_STAGEDDOMAIN_H_ */

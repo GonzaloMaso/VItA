@@ -56,7 +56,8 @@ double AdimSproutingVolumetricCostEstimator::computeCost(AbstractObjectCCOTree* 
 	double proteolysisCost = proteolyticFactor * parentRadius / radiusRef; // 500.0
 	double parentLengthRatio = distToParent / lengthRef;
 	double stimulusCost = diffusionFactor * parentLengthRatio * parentLengthRatio;
-	cout << "Volumetric cost = " << volCost << ", Protease degradation cost = " << proteolysisCost << ", VEGF/FGF difussion cost = " << stimulusCost << endl;
+//	cout << "Volume ref = " << volumeRef << " - Radius ref = " << radiusRef << " - Length ref = " << lengthRef << endl;
+//	cout << "Volumetric cost = " << volCost << ", Protease degradation cost = " << proteolysisCost << ", VEGF/FGF difussion cost = " << stimulusCost << endl;
 	return volCost + proteolysisCost + stimulusCost ;
 }
 
