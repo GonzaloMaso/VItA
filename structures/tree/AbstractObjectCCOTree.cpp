@@ -24,6 +24,19 @@ AbstractObjectCCOTree::AbstractObjectCCOTree(GeneratorData *instanceData) {
 	this->refPressure = 0.0;
 	this->qReservedFactor = 0.0;
 
+	this->xPerf = {0.0,0.0,0.0};
+	this->qProx = 0;
+
+	this->gam = nullptr;
+	this->epsLim = nullptr;
+	this->nu = nullptr;
+
+	this->root = nullptr;
+
+	this->psiFactor = 0.0;
+	this->dp = 0.0;
+	this->nTerms = 0;
+
 	this->vtkTree = vtkSmartPointer<vtkPolyData>::New();
 	this->vtkTreeLocator = vtkSmartPointer<vtkCellLocator>::New();
 
