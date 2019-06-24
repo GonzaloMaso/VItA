@@ -71,6 +71,8 @@ protected:
 	long long int pointCounter;
 	/**	Stage actually being build. */
 	int currentStage;
+	/**	If the tree is in cm, otherwise is assumed that is in mm (default) */
+	int isInCm;
 
 public:
 	/**
@@ -187,6 +189,11 @@ public:
 	long long int getNTerminals(AbstractVascularElement::TERMINAL_TYPE type);
 
 	/**
+	 * Getter of @p nTerms.
+	 * @return @p nTerms
+	 */
+	long long int getNTerms();
+	/**
 	 * Getter of @p xProx.
 	 * @return @p xProx
 	 */
@@ -256,6 +263,11 @@ public:
 	 * @return @p qReservedFactor.
 	 */
 	double getReservedFactor() const;
+	/**
+	 * Getter of @p isInCm.
+	 * @return @p isInCm
+	 */
+	int getIsInCm() const;
 
 	/**
 	 * Setter of @p epsLim.
@@ -292,6 +304,11 @@ public:
 	 * @param qReservedFactor.
 	 */
 	void setReservedFactor(double reservedFactor);
+	/**
+	 * Setter of @p isInCm.
+	 * @param isInCm.
+	 */
+	void setIsInCm(int isInCm);
 
 protected:
 	/**

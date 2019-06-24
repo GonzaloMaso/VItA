@@ -46,6 +46,7 @@ StagedFRROTreeGenerator::StagedFRROTreeGenerator(
 	this->confFilename = "";
 
 	this->dataMonitor = new GeneratorDataMonitor(domain);
+	this->monitor = new MemoryMonitor(MemoryMonitor::MEGABYTE);
 }
 
 StagedFRROTreeGenerator::StagedFRROTreeGenerator(
@@ -76,16 +77,16 @@ StagedFRROTreeGenerator::StagedFRROTreeGenerator(
 	this->confFilename = "";
 
 	this->dataMonitor = new GeneratorDataMonitor(domain);
+	this->monitor = new MemoryMonitor(MemoryMonitor::MEGABYTE);
 }
 
 StagedFRROTreeGenerator::~StagedFRROTreeGenerator() {
+	delete monitor;
 }
 
 AbstractObjectCCOTree *StagedFRROTreeGenerator::generate(long long int saveInterval, string tempDirectory) {
 
-	MemoryMonitor *monitor = new MemoryMonitor(MemoryMonitor::MEGABYTE);
-	VTKObjectTreeElementalWriter *elemWriter = new VTKObjectTreeElementalWriter();
-	VTKObjectTreeSplinesNodalWriter *nodalWriter = new VTKObjectTreeSplinesNodalWriter();
+//	VTKObjectTreeSplinesNodalWriter *nodalWriter = new VTKObjectTreeSplinesNodalWriter();
 	generatesConfigurationFile(ios::out);
 
 	point xNew;
@@ -97,15 +98,12 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::generate(long long int saveInter
 
 	tree->addVessel(xNew, xNew, NULL, (AbstractVascularElement::VESSEL_FUNCTION) instanceData->vesselFunction);
 
-	for (long long i = 1; i < nTerminals; ++i) {
+	for (long long i = 0; i < nTerminals; i = tree->getNTerms()) {
 
 		dataMonitor->update();
 
-		if (i % saveInterval == 0  || i == 1) {
-			elemWriter->write(tempDirectory+"/step" + to_string(i) + "_struct.vtp",tree);
-			nodalWriter->write(tempDirectory+ "/step" + to_string(i) + "_view.vtp",tree);
-			markTimestampOnConfigurationFile("Generating vessel #" + to_string(i));
-			markTimestampOnConfigurationFile("Total RAM consumption: " + to_string(monitor->getProcessMemoryConsumption()) + " MB.");
+		if (i % saveInterval == 0 ) {
+			saveStatus(i);
 		}
 
 		int invalidTerminal = true;
@@ -155,10 +153,9 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::generate(long long int saveInter
 	tree->computePressure(tree->getRoot());
 	tree->setPointCounter(domain->getPointCounter());
 
+	saveStatus(nTerminals-1);
 	markTimestampOnConfigurationFile("Tree successfully generated.");
 	closeConfigurationFile();
-
-	delete monitor;
 
 	return tree;
 }
@@ -258,9 +255,7 @@ void StagedFRROTreeGenerator::closeConfigurationFile() {
 
 AbstractObjectCCOTree *StagedFRROTreeGenerator::resume(long long int saveInterval, string tempDirectory) {
 
-	MemoryMonitor *monitor = new MemoryMonitor(MemoryMonitor::MEGABYTE);
-	VTKObjectTreeElementalWriter *elemWriter = new VTKObjectTreeElementalWriter();
-	VTKObjectTreeSplinesNodalWriter *nodalWriter = new VTKObjectTreeSplinesNodalWriter();
+//	VTKObjectTreeSplinesNodalWriter *nodalWriter = new VTKObjectTreeSplinesNodalWriter();
 	generatesConfigurationFile(ios::out);
 
 	for (long long int j = 0; j < tree->getPointCounter(); ++j) {
@@ -268,19 +263,17 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::resume(long long int saveInterva
 	}
 
 	//	Compute current nTerm
-	long long currentTerminals = tree->getNTerminals();
+	long long currentTerminals = tree->getNTerms();
 	point xNew;
 
 	cout << "Generating from " << currentTerminals << " to " << nTerminals << "..." << endl;
-	for (long long i = currentTerminals; i < nTerminals; ++i) {
+	//	Be careful nTerminals may differ from the current amount of terminals since vessel-tip conexions are allowed in some cases.
+	for (long long i = currentTerminals; i < nTerminals; i = tree->getNTerms()) {
 
 		dataMonitor->update();
 
 		if (i % saveInterval == 0 || i == currentTerminals) {
-			elemWriter->write(tempDirectory+"/step" + to_string(i) + "_struct.vtp",tree);
-			nodalWriter->write(tempDirectory+ "/step" + to_string(i) + "_view.vtp",tree);
-			markTimestampOnConfigurationFile("Generating vessel #" + to_string(i));
-			markTimestampOnConfigurationFile("Total RAM consumption: " + to_string(monitor->getProcessMemoryConsumption()) + " MB.");
+			saveStatus(i);
 		}
 
 		int invalidTerminal = true;
@@ -330,10 +323,9 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::resume(long long int saveInterva
 	tree->computePressure(tree->getRoot());
 	tree->setPointCounter(domain->getPointCounter());
 
+	saveStatus(nTerminals-1);
 	markTimestampOnConfigurationFile("Tree successfully generated.");
 	closeConfigurationFile();
-
-	delete monitor;
 
 	return tree;
 
@@ -358,4 +350,19 @@ void StagedFRROTreeGenerator::observableModified(IDomainObservable* observableIn
 
 AbstractObjectCCOTree*& StagedFRROTreeGenerator::getTree() {
 	return tree;
+}
+
+void StagedFRROTreeGenerator::setSavingTasks(const vector<AbstractSavingTask*>& savingTasks)
+		{
+	this->savingTasks = savingTasks;
+}
+
+void StagedFRROTreeGenerator::saveStatus(long long int terminals){
+	tree->setPointCounter(domain->getPointCounter());
+	for (std::vector<AbstractSavingTask *>::iterator it = savingTasks.begin(); it != savingTasks.end(); ++it) {
+		(*it)->execute(terminals);
+	}
+//			nodalWriter->write(tempDirectory+ "/step" + to_string(i) + "_view.vtp",tree);
+	markTimestampOnConfigurationFile("Generating vessel #" + to_string(terminals));
+	markTimestampOnConfigurationFile("Total RAM consumption: " + to_string(monitor->getProcessMemoryConsumption()) + " MB.");
 }

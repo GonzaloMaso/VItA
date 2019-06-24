@@ -38,8 +38,13 @@ protected:
 	bool isConvexDomain;
 	/**	Vascular volume.	*/
 	double volume;
-	/**	Maximum bifurcation angle for vessels generated inside this domain */
+	/**	Minimum bifurcation angle for vessels generated inside this domain */
 	double minAngle;
+	/** Boolean value that models if the domain present any restriction regarding the opening angle between the bifurcation plane and a new daughter vessel. */
+	bool isBifPlaneContrained;
+	/**	Minimum angle between the bifurcation plane and a new daughter vessel. */
+	double minPlaneAngle;
+
 public:
 	/**
 	 * Constructor.
@@ -148,6 +153,10 @@ public:
 	void setInstanceData(GeneratorData* instanceData);
 	const vector<int>& getGrowingStages() const;
 	void setGrowingStages(const vector<int>& growingStages);
+	bool isIsBifPlaneContrained() const;
+	void setIsBifPlaneContrained(bool isBifPlaneContrained);
+	double getMinPlaneAngle();
+	void setMinPlaneAngle(double minPlaneAngle);
 };
 
 #endif /* DOMAIN_ABSTRACTDOMAIN_H_ */

@@ -82,10 +82,15 @@ public:
 	 */
 	double *getLocalNeighborhood(point p, long long int nVessels);
 	/**
-	 * Returns the maximum opening angle that the hosted tree can generate.
+	 * Returns the maximum angle that the hosted tree can generate.
 	 * @return Maximum bifurcation angle for vessels generated inside this domain.
 	 */
 	double getMinBifurcationAngle();
+	/**
+	 * Returns the maximum opening angle that the hosted tree can generate.
+	 * @return Maximum opening angle for vessels generated inside this domain.
+	 */
+	double getMinPlaneAngle();
 	/**
 	 * Computes the size of the domain.
 	 * @return Size of the domain.
@@ -101,6 +106,11 @@ public:
 	 * @return Set of inner domain points.
 	 */
 	deque<point>& getRandomInnerPoints();
+	/**
+	 * Returns the quantity of points that have been consumed.
+	 * @return Quantity of points consumed.
+	 */
+	long long int getPointCounter() const;
 	/**
 	 * Returns the vtkPolydata with the domain representation.
 	 * @return vtkPolydata with the domain representation.

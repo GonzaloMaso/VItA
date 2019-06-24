@@ -43,12 +43,12 @@ public:
 	SingleVesselCCOOTree(point xi, double rootRadius, double qi, AbstractConstraintFunction<double,int> *gam, AbstractConstraintFunction<double,int> *epsLim,
 			AbstractConstraintFunction<double,int> *nu, double refPressure, double resistanceVariationTolerance, GeneratorData *instanceData);
 
-	/**
-	 * Creates a new tree from the .cco file @p filename. The obtained tree has not vtkLine objects of the vessels.
-	 * @param filenameCCO Path to the .cco file.
-	 * @param filenameVTK Path to the .vtk file.
-	 */
-	SingleVesselCCOOTree(string filenameCCO, string filenameVTK, GeneratorData *instanceData);
+//	/**
+//	 * Creates a new tree from the .cco file @p filename. The obtained tree has not vtkLine objects of the vessels.
+//	 * @param filenameCCO Path to the .cco file.
+//	 * @param filenameVTK Path to the .vtk file.
+//	 */
+//	SingleVesselCCOOTree(string filenameCCO, string filenameVTK, GeneratorData *instanceData);
 
 	/**
 	 * Creates a new tree from the .cco file @p filename in VItA format.
@@ -110,15 +110,15 @@ public:
 	 */
 	void addVessel(point xProx, point xDist, AbstractVascularElement *parent, AbstractVascularElement::VESSEL_FUNCTION vesselFunction);
 
-	/**
-	 * Adds a new vessel to the CCO tree as continuation of the pre-existent vessel @p parent. @param xDist is the distal nodes of the new
-	 * vessel and @param parent is the proximal attachment parent vessel.
-	 * @param xDist Distal point of the new vessel.
-	 * @param parent Parent to the new vessel.
-	 * @param mode Branching mode of the added vessel.
-	 * @param vesselFunction Vessel function of the added vessel.
-	 */
-	void addVessel(point xDist, AbstractVascularElement *parent, AbstractVascularElement::BRANCHING_MODE mode, AbstractVascularElement::VESSEL_FUNCTION vesselFunction);
+//	/**
+//	 * Adds a new vessel to the CCO tree as continuation of the pre-existent vessel @p parent. @param xDist is the distal nodes of the new
+//	 * vessel and @param parent is the proximal attachment parent vessel.
+//	 * @param xDist Distal point of the new vessel.
+//	 * @param parent Parent to the new vessel.
+//	 * @param mode Branching mode of the added vessel.
+//	 * @param vesselFunction Vessel function of the added vessel.
+//	 */
+//	void addVessel(point xDist, AbstractVascularElement *parent, AbstractVascularElement::BRANCHING_MODE mode, AbstractVascularElement::VESSEL_FUNCTION vesselFunction);
 
 	/**
 	 * For a given spatial point @p xNew test its connection with @p parent vessel. It must evaluate if the restrictions
@@ -237,6 +237,15 @@ private:
 	 * @return	If the angles are higher than the minimum allowed.
 	 */
 	int areValidAngles(point xBif, point xNew, SingleVessel *parent, double minAngle);
+	/**
+	 * Checks if the angle between the plane of the parent and sibling vessel and the new vessel satisfies the opening angle constraint.
+	 * @param xBif	Bifurcation point between the new vessel and the distal part of the parent vessel (iCon).
+	 * @param xNew	Distal point of the new vessel.
+	 * @param parent	Parent vessel.
+	 * @param minPlaneAngle 	Minimum opening angle constraint.
+	 * @return	If the angles satisfies the minimum plane angle.
+	 */
+	int isValidOpeningAngle(point xBif, point xNew, SingleVessel *parent, double minPlaneAngle);
 	/**
 	 * It returns if the line @param p1 - @param p2 intersects any vessel of the tree beside parent.
 	 * @param p1	Extreme point 1 of the line.

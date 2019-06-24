@@ -14,7 +14,8 @@ AbstractDomain::AbstractDomain(GeneratorData *instanceData) {
 	pointCounter = 0;
 	isConvexDomain = false;
 	volume = 0.0;
-	minAngle = M_PI * 3. / 18.;
+	minAngle = M_PI * 1. / 18.;
+	minPlaneAngle = 0.0;
 }
 
 AbstractDomain::AbstractDomain(GeneratorData* instanceData, vector<int> growingStages){
@@ -22,8 +23,9 @@ AbstractDomain::AbstractDomain(GeneratorData* instanceData, vector<int> growingS
 	pointCounter = 0;
 	isConvexDomain = false;
 	volume = 0.0;
-	minAngle = M_PI * 3. / 18.;
+	minAngle = M_PI * 1. / 18.;
 	this->growingStages = growingStages;
+	minPlaneAngle = 0.0;
 }
 
 AbstractDomain::~AbstractDomain() {
@@ -68,4 +70,20 @@ double AbstractDomain::getMinBifurcationAngle(){
 
 void AbstractDomain::setMinBifurcationAngle(double minAngle){
 	this->minAngle = minAngle;
+}
+
+bool AbstractDomain::isIsBifPlaneContrained() const{
+	return isBifPlaneContrained;
+}
+
+void AbstractDomain::setIsBifPlaneContrained(bool isBifPlaneContrained){
+	this->isBifPlaneContrained = isBifPlaneContrained;
+}
+
+double AbstractDomain::getMinPlaneAngle(){
+	return minPlaneAngle;
+}
+
+void AbstractDomain::setMinPlaneAngle(double minPlaneAngle){
+	this->minPlaneAngle = minPlaneAngle;
 }

@@ -41,6 +41,7 @@ AbstractObjectCCOTree::AbstractObjectCCOTree(GeneratorData *instanceData) {
 	this->vtkTreeLocator = vtkSmartPointer<vtkCellLocator>::New();
 
 	this->currentStage = 0;
+	this->isInCm = 0;
 }
 
 AbstractObjectCCOTree::AbstractObjectCCOTree(point xi, double qi, AbstractConstraintFunction<double, int> *gam,
@@ -70,6 +71,7 @@ AbstractObjectCCOTree::AbstractObjectCCOTree(point xi, double qi, AbstractConstr
 	this->vtkTreeLocator = vtkSmartPointer<vtkCellLocator>::New();
 
 	this->currentStage = 0;
+	this->isInCm = 0;
 }
 
 AbstractObjectCCOTree::~AbstractObjectCCOTree() {
@@ -126,20 +128,10 @@ void AbstractObjectCCOTree::save(string filename) {
 	treeFile << "*Vessels" << endl << elements.size() << endl;
 
 	saveVessels(this->root, &treeFile);
-//	for (unsigned int i = 0; i < elements.size(); ++i) {
-//		AbstractVascularElement *currentVessel = elements[i];
-//		currentVessel->saveVesselData(&treeFile);
-//		treeFile << endl;
-//	}
 	treeFile << endl;
 
 	treeFile << "*Connectivity" << endl;
 	saveConnectivity(this->root, &treeFile);
-//	for (unsigned int i = 0; i < elements.size(); ++i) {
-//		AbstractVascularElement *currentVessel = elements[i];
-//		currentVessel->saveVesselConnectivity(&treeFile);
-//		treeFile << endl;
-//	}
 
 	treeFile.flush();
 	treeFile.close();
@@ -197,6 +189,10 @@ long long int AbstractObjectCCOTree::getPointCounter() const {
 
 void AbstractObjectCCOTree::setPointCounter(long long int pointCounter) {
 	this->pointCounter = pointCounter;
+}
+
+long long int AbstractObjectCCOTree::getNTerms() {
+	return this->nTerms;
 }
 
 long long int AbstractObjectCCOTree::getNTerminals() {
@@ -360,4 +356,14 @@ vector<SingleVessel*> AbstractObjectCCOTree::getVessels(){
 	}
 
 	return allVessels;
+}
+
+int AbstractObjectCCOTree::getIsInCm() const
+{
+	return isInCm;
+}
+
+void AbstractObjectCCOTree::setIsInCm(int isInCm)
+		{
+	this->isInCm = isInCm;
 }

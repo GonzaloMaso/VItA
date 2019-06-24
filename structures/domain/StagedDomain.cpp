@@ -65,7 +65,6 @@ double StagedDomain::getSize(){
 }
 
 point StagedDomain::getRandomPoint(){
-	++pointCounter;
 	return domainStage[currentStage-initialStage]->getRandomPoint();
 }
 
@@ -99,4 +98,12 @@ void StagedDomain::setInitialStage(int currentStage){
 	}
 	this->initialStage = currentStage;
 	this->currentStage = this->initialStage;
+}
+
+double StagedDomain::getMinPlaneAngle(){
+	return domainStage[currentStage-initialStage]->getMinPlaneAngle();
+}
+
+long long int StagedDomain::getPointCounter() const{
+	domainStage[currentStage-initialStage]->getPointCounter();
 }

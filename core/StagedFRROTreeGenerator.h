@@ -14,9 +14,11 @@
 #include <vector>
 
 #include "../constrains/AbstractConstraintFunction.h"
+#include "../io/task/AbstractSavingTask.h"
 #include "../structures/domain/IDomainObserver.h"
 #include "../structures/domain/StagedDomain.h"
 #include "../structures/tree/AbstractObjectCCOTree.h"
+#include "../utils/MemoryMonitor.h"
 
 #include "GeneratorDataMonitor.h"
 
@@ -30,6 +32,10 @@ class StagedFRROTreeGenerator : public IDomainObserver {
 	GeneratorData *instanceData;
 	/**	Monitor of the @p instanceData . */
 	GeneratorDataMonitor *dataMonitor;
+	/**	Monitors the memory usage. */
+	MemoryMonitor *monitor;
+	/**	Action executed at each save interval during generate and resume methods */
+	vector<AbstractSavingTask *> savingTasks;
 
 	/** Amount of terminals in the trees.*/
 	long long int nTerminals;
@@ -46,6 +52,7 @@ class StagedFRROTreeGenerator : public IDomainObserver {
 	vector<AbstractConstraintFunction<double,int> *> epsLims;
 	vector<AbstractConstraintFunction<double,int> *> nus;
 
+	/**	Current stage of generation.*/
 	int stage;
 	/**	If the current generation saves the configuration used.*/
 	int isGeneratingConfFile;
@@ -87,7 +94,7 @@ public:
 	 * @param tempDirectory Directory where intermediate solutions are saved.
 	 * @return	Perfusion tree.
 	 */
-	AbstractObjectCCOTree * generate(long long int saveInterval, string tempDirectory);
+	AbstractObjectCCOTree *generate(long long int saveInterval, string tempDirectory);
 	/**
 	 * Resumes the tree generation.
 	 * @param saveInterval Number of iterations performed between saved steps.
@@ -120,6 +127,16 @@ public:
 	 * @return Generated tree.
 	 */
 	AbstractObjectCCOTree*& getTree();
+	/**
+	 * Saves the current generation status using the @p savingTasks and the memory monitor.
+	 * @param terminals	Current iteration number.
+	 */
+	void saveStatus(long long int terminals);
+	/**
+	 * Sets a set of saving tasks to be produced each time the generation process saves.
+	 * @param savingTasks	Set of tasks to be performed each time that the tree is saved.
+	 */
+	void setSavingTasks(const vector<AbstractSavingTask*>& savingTasks);
 
 protected:
 	/**	Configuration file stream. */
