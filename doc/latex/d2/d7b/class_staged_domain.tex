@@ -23,11 +23,17 @@ long long int \hyperlink{class_staged_domain_ac179c1e1d0a2aac78093bd71d083811f}{
 \item 
 int \hyperlink{class_staged_domain_a2f13523c9e014efd270df926aabdbc76}{is\+Segment\+Inside} (\hyperlink{structpoint}{point} xs, \hyperlink{structpoint}{point} xf)
 \item 
+int \hyperlink{class_staged_domain_a083dae621ca3d910b23f5cd85ba23d65}{is\+Valid\+Element} (\hyperlink{class_abstract_vascular_element}{Abstract\+Vascular\+Element} $\ast$element)
+\item 
 double \hyperlink{class_staged_domain_aec389e04bcd549140b29dbc9c56cf29b}{get\+Characteristic\+Length} ()
 \item 
 double \hyperlink{class_staged_domain_a4bb50d4e92dc81e0c87aa0b4190138b3}{get\+D\+Lim} (long long int n\+Vessels, double factor)
 \item 
 double $\ast$ \hyperlink{class_staged_domain_ad8107b681fcba3794ea4cd9b1a5a2edd}{get\+Local\+Neighborhood} (\hyperlink{structpoint}{point} p, long long int n\+Vessels)
+\item 
+double \hyperlink{class_staged_domain_a139146506055f007980898b55fc894e0}{get\+Min\+Bifurcation\+Angle} ()
+\item 
+double \hyperlink{class_staged_domain_a211adf0d69765f74dc13c3219a670c00}{get\+Min\+Plane\+Angle} ()
 \item 
 double \hyperlink{class_staged_domain_a807d7b1c56b5a6ccce593513baebf3b1}{get\+Size} ()
 \item 
@@ -35,9 +41,13 @@ double \hyperlink{class_staged_domain_a807d7b1c56b5a6ccce593513baebf3b1}{get\+Si
 \item 
 deque$<$ \hyperlink{structpoint}{point} $>$ \& \hyperlink{class_staged_domain_a5a5398712e064cbd706f701c8294bbad}{get\+Random\+Inner\+Points} ()
 \item 
+long long int \hyperlink{class_staged_domain_ac794500d0ba6b4a21cd30eeda13c0b5c}{get\+Point\+Counter} () const 
+\item 
 vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ \& \hyperlink{class_staged_domain_a69530fd545f217410433367a7e219fbf}{get\+Vtk\+Geometry} ()
 \item 
 int \hyperlink{class_staged_domain_a9483ed1fc5df7381f739ade92c92444f}{get\+Current\+Stage} () const 
+\item 
+void \hyperlink{class_staged_domain_a58e3ccb3449324920bc187bf8921b238}{set\+Initial\+Stage} (int \hyperlink{class_staged_domain_a0fc23a88dcfb07e4a2b5d3899811a2a6}{current\+Stage})
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -51,6 +61,9 @@ long long int \hyperlink{class_staged_domain_a8383f99269b421f85b89c3aa847f91ce}{
 long long int \hyperlink{class_staged_domain_a94b7ffac4fc6e07fc14061cdf68475b7}{terminal\+At\+Prev\+Stage}
 \item 
 int \hyperlink{class_staged_domain_a0fc23a88dcfb07e4a2b5d3899811a2a6}{current\+Stage}
+\item 
+int {\bfseries initial\+Stage}\hypertarget{class_staged_domain_aeb7e7a081ce55e7d715e317bcd34fbf7}{}\label{class_staged_domain_aeb7e7a081ce55e7d715e317bcd34fbf7}
+
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -152,6 +165,40 @@ Array of neighbor vessels.
 
 Implements \hyperlink{class_abstract_domain_aee2b549d19062b261429f8a442fb4714}{Abstract\+Domain}.
 
+\index{Staged\+Domain@{Staged\+Domain}!get\+Min\+Bifurcation\+Angle@{get\+Min\+Bifurcation\+Angle}}
+\index{get\+Min\+Bifurcation\+Angle@{get\+Min\+Bifurcation\+Angle}!Staged\+Domain@{Staged\+Domain}}
+\subsubsection[{\texorpdfstring{get\+Min\+Bifurcation\+Angle()}{getMinBifurcationAngle()}}]{\setlength{\rightskip}{0pt plus 5cm}double Staged\+Domain\+::get\+Min\+Bifurcation\+Angle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_staged_domain_a139146506055f007980898b55fc894e0}{}\label{class_staged_domain_a139146506055f007980898b55fc894e0}
+Returns the maximum angle that the hosted tree can generate. \begin{DoxyReturn}{Returns}
+Maximum bifurcation angle for vessels generated inside this domain. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_abstract_domain_a434417bad2396a2ee600932d1d2ded89}{Abstract\+Domain}.
+
+\index{Staged\+Domain@{Staged\+Domain}!get\+Min\+Plane\+Angle@{get\+Min\+Plane\+Angle}}
+\index{get\+Min\+Plane\+Angle@{get\+Min\+Plane\+Angle}!Staged\+Domain@{Staged\+Domain}}
+\subsubsection[{\texorpdfstring{get\+Min\+Plane\+Angle()}{getMinPlaneAngle()}}]{\setlength{\rightskip}{0pt plus 5cm}double Staged\+Domain\+::get\+Min\+Plane\+Angle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_staged_domain_a211adf0d69765f74dc13c3219a670c00}{}\label{class_staged_domain_a211adf0d69765f74dc13c3219a670c00}
+Returns the maximum opening angle that the hosted tree can generate. \begin{DoxyReturn}{Returns}
+Maximum opening angle for vessels generated inside this domain. 
+\end{DoxyReturn}
+\index{Staged\+Domain@{Staged\+Domain}!get\+Point\+Counter@{get\+Point\+Counter}}
+\index{get\+Point\+Counter@{get\+Point\+Counter}!Staged\+Domain@{Staged\+Domain}}
+\subsubsection[{\texorpdfstring{get\+Point\+Counter() const }{getPointCounter() const }}]{\setlength{\rightskip}{0pt plus 5cm}long long int Staged\+Domain\+::get\+Point\+Counter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_staged_domain_ac794500d0ba6b4a21cd30eeda13c0b5c}{}\label{class_staged_domain_ac794500d0ba6b4a21cd30eeda13c0b5c}
+Returns the quantity of points that have been consumed. \begin{DoxyReturn}{Returns}
+Quantity of points consumed. 
+\end{DoxyReturn}
 \index{Staged\+Domain@{Staged\+Domain}!get\+Random\+Inner\+Points@{get\+Random\+Inner\+Points}}
 \index{get\+Random\+Inner\+Points@{get\+Random\+Inner\+Points}!Staged\+Domain@{Staged\+Domain}}
 \subsubsection[{\texorpdfstring{get\+Random\+Inner\+Points()}{getRandomInnerPoints()}}]{\setlength{\rightskip}{0pt plus 5cm}deque$<$ {\bf point} $>$ \& Staged\+Domain\+::get\+Random\+Inner\+Points (
@@ -240,6 +287,37 @@ Returns if the segment defined by the vertexes {\ttfamily xs} and {\ttfamily xf}
 
 Implements \hyperlink{class_abstract_domain_a8544eef21fb6700ecc02e9cd50884efd}{Abstract\+Domain}.
 
+\index{Staged\+Domain@{Staged\+Domain}!is\+Valid\+Element@{is\+Valid\+Element}}
+\index{is\+Valid\+Element@{is\+Valid\+Element}!Staged\+Domain@{Staged\+Domain}}
+\subsubsection[{\texorpdfstring{is\+Valid\+Element(\+Abstract\+Vascular\+Element $\ast$element)}{isValidElement(AbstractVascularElement *element)}}]{\setlength{\rightskip}{0pt plus 5cm}int Staged\+Domain\+::is\+Valid\+Element (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\+Vascular\+Element} $\ast$}]{element}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_staged_domain_a083dae621ca3d910b23f5cd85ba23d65}{}\label{class_staged_domain_a083dae621ca3d910b23f5cd85ba23d65}
+Returns if the vascular element is eligible to be a parent vessel. 
+\begin{DoxyParams}{Parameters}
+{\em element} & Vascular element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if it is eligible. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_abstract_domain_aa151f29002e590832be02829772d38e1}{Abstract\+Domain}.
+
+\index{Staged\+Domain@{Staged\+Domain}!set\+Initial\+Stage@{set\+Initial\+Stage}}
+\index{set\+Initial\+Stage@{set\+Initial\+Stage}!Staged\+Domain@{Staged\+Domain}}
+\subsubsection[{\texorpdfstring{set\+Initial\+Stage(int current\+Stage)}{setInitialStage(int currentStage)}}]{\setlength{\rightskip}{0pt plus 5cm}void Staged\+Domain\+::set\+Initial\+Stage (
+\begin{DoxyParamCaption}
+\item[{int}]{current\+Stage}
+\end{DoxyParamCaption}
+)}\hypertarget{class_staged_domain_a58e3ccb3449324920bc187bf8921b238}{}\label{class_staged_domain_a58e3ccb3449324920bc187bf8921b238}
+Sets the initial stage as {\ttfamily current\+Stage}. 
+\begin{DoxyParams}{Parameters}
+{\em current\+Stage} & Current stage. \\
+\hline
+\end{DoxyParams}
 \index{Staged\+Domain@{Staged\+Domain}!update@{update}}
 \index{update@{update}!Staged\+Domain@{Staged\+Domain}}
 \subsubsection[{\texorpdfstring{update()}{update()}}]{\setlength{\rightskip}{0pt plus 5cm}void Staged\+Domain\+::update (

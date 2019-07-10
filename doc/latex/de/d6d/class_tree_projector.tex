@@ -1,0 +1,93 @@
+\hypertarget{class_tree_projector}{}\section{Tree\+Projector Class Reference}
+\label{class_tree_projector}\index{Tree\+Projector@{Tree\+Projector}}
+
+
+{\ttfamily \#include $<$Tree\+Projector.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_tree_projector_a8a2c3b716ebb81e1bfbe7cbfe65a84de}{Tree\+Projector} (string filename)
+\item 
+\hyperlink{class_tree_projector_ae40d424550e6551e1f772fe65d223e95}{Tree\+Projector} (string filename, double \hyperlink{class_tree_projector_ab6db6b968e5dc88efc732ef928e0dadc}{offset})
+\item 
+void \hyperlink{class_tree_projector_a7dc95446e85e5169d5777af5abbcd9a7}{project\+Terminals} (vector$<$ \hyperlink{class_single_vessel}{Single\+Vessel} $\ast$ $>$ vessels)
+\item 
+void {\bfseries project\+Vessel} (vector$<$ \hyperlink{class_single_vessel}{Single\+Vessel} $\ast$ $>$ vessels)\hypertarget{class_tree_projector_a98e0394085cbb9698587cee8636cf56f}{}\label{class_tree_projector_a98e0394085cbb9698587cee8636cf56f}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ \hyperlink{class_tree_projector_aca0dc09b8d4f959028f28e13f10d09f6}{vtk\+Geometry}
+\item 
+vtk\+Smart\+Pointer$<$ vtk\+Cell\+Locator $>$ \hyperlink{class_tree_projector_af67b13f1149ad2ee0b265b09fe4c7e4f}{locator}
+\item 
+double \hyperlink{class_tree_projector_ab6db6b968e5dc88efc732ef928e0dadc}{offset}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Projects a tree over or into a geometry. Mesh describing the geometry should have outgoing normals for the offset functionality. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Tree\+Projector@{Tree\+Projector}!Tree\+Projector@{Tree\+Projector}}
+\index{Tree\+Projector@{Tree\+Projector}!Tree\+Projector@{Tree\+Projector}}
+\subsubsection[{\texorpdfstring{Tree\+Projector(string filename)}{TreeProjector(string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}Tree\+Projector\+::\+Tree\+Projector (
+\begin{DoxyParamCaption}
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)}\hypertarget{class_tree_projector_a8a2c3b716ebb81e1bfbe7cbfe65a84de}{}\label{class_tree_projector_a8a2c3b716ebb81e1bfbe7cbfe65a84de}
+Creates a projector associated to the geometrical domain described {\ttfamily filename}. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & V\+TK file which contains the surface of the projection domain. \\
+\hline
+\end{DoxyParams}
+\index{Tree\+Projector@{Tree\+Projector}!Tree\+Projector@{Tree\+Projector}}
+\index{Tree\+Projector@{Tree\+Projector}!Tree\+Projector@{Tree\+Projector}}
+\subsubsection[{\texorpdfstring{Tree\+Projector(string filename, double offset)}{TreeProjector(string filename, double offset)}}]{\setlength{\rightskip}{0pt plus 5cm}Tree\+Projector\+::\+Tree\+Projector (
+\begin{DoxyParamCaption}
+\item[{string}]{filename, }
+\item[{double}]{offset}
+\end{DoxyParamCaption}
+)}\hypertarget{class_tree_projector_ae40d424550e6551e1f772fe65d223e95}{}\label{class_tree_projector_ae40d424550e6551e1f772fe65d223e95}
+Creates a projector associated to the geometrical domain described {\ttfamily filename}. All projected points will be pushed inside 
+\begin{DoxyParams}{Parameters}
+{\em filename} & V\+TK file which contains the surface of the projection domain. \\
+\hline
+{\em offset} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Tree\+Projector@{Tree\+Projector}!project\+Terminals@{project\+Terminals}}
+\index{project\+Terminals@{project\+Terminals}!Tree\+Projector@{Tree\+Projector}}
+\subsubsection[{\texorpdfstring{project\+Terminals(vector$<$ Single\+Vessel $\ast$ $>$ vessels)}{projectTerminals(vector< SingleVessel * > vessels)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tree\+Projector\+::project\+Terminals (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Single\+Vessel} $\ast$ $>$}]{vessels}
+\end{DoxyParamCaption}
+)}\hypertarget{class_tree_projector_a7dc95446e85e5169d5777af5abbcd9a7}{}\label{class_tree_projector_a7dc95446e85e5169d5777af5abbcd9a7}
+Projects the terminals of the vessels list to the closest point within the domain. 
+\begin{DoxyParams}{Parameters}
+{\em vessels} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{Tree\+Projector@{Tree\+Projector}!locator@{locator}}
+\index{locator@{locator}!Tree\+Projector@{Tree\+Projector}}
+\subsubsection[{\texorpdfstring{locator}{locator}}]{\setlength{\rightskip}{0pt plus 5cm}vtk\+Smart\+Pointer$<$vtk\+Cell\+Locator$>$ Tree\+Projector\+::locator\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_tree_projector_af67b13f1149ad2ee0b265b09fe4c7e4f}{}\label{class_tree_projector_af67b13f1149ad2ee0b265b09fe4c7e4f}
+Cell locator responsible to determine if a segment is inside the domain. \index{Tree\+Projector@{Tree\+Projector}!offset@{offset}}
+\index{offset@{offset}!Tree\+Projector@{Tree\+Projector}}
+\subsubsection[{\texorpdfstring{offset}{offset}}]{\setlength{\rightskip}{0pt plus 5cm}double Tree\+Projector\+::offset\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_tree_projector_ab6db6b968e5dc88efc732ef928e0dadc}{}\label{class_tree_projector_ab6db6b968e5dc88efc732ef928e0dadc}
+Penetration offset for projected points \index{Tree\+Projector@{Tree\+Projector}!vtk\+Geometry@{vtk\+Geometry}}
+\index{vtk\+Geometry@{vtk\+Geometry}!Tree\+Projector@{Tree\+Projector}}
+\subsubsection[{\texorpdfstring{vtk\+Geometry}{vtkGeometry}}]{\setlength{\rightskip}{0pt plus 5cm}vtk\+Smart\+Pointer$<$vtk\+Poly\+Data$>$ Tree\+Projector\+::vtk\+Geometry\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_tree_projector_aca0dc09b8d4f959028f28e13f10d09f6}{}\label{class_tree_projector_aca0dc09b8d4f959028f28e13f10d09f6}
+vtk\+Polydata description of the domain. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/domain/Tree\+Projector.\+h\item 
+structures/domain/Tree\+Projector.\+cpp\end{DoxyCompactItemize}

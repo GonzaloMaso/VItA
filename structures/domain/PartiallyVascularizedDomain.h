@@ -142,8 +142,14 @@ public:
 	 * @return vtkPolydata with the domain representation.
 	 */
 	vtkSmartPointer<vtkPolyData>& getVtkGeometry();
+	/**
+	 * Saves the random generated points that have not been used yet.
+	 * @param filename Output file writen in VTK format.
+	 */
+	void savePoints(string filename);
 
 protected:
+	//	TODO This should be generalised in the AbstractDomain class
 	deque<point> randomInnerPoints;
 	void generateRandomPoints();
 	void removeRandomOuterPoints();

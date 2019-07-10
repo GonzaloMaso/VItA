@@ -56,6 +56,7 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData *in
 		treeFile >> token;
 	}
 
+	cout << "Reading tree data..." << endl;
 	//	Read tree
 	treeFile >> xPerf.p[0];
 	treeFile >> xPerf.p[1];
@@ -74,6 +75,7 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData *in
 		treeFile >> token;
 	}
 
+	cout << "Reading vessel data..." << endl;
 	//	Read each vessel
 	int numVessels;
 	treeFile >> numVessels;
@@ -129,6 +131,7 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData *in
 	}
 	getline(treeFile, token);
 
+	cout << "Reading connectivity data..." << endl;
 	int rootIndex = 0;
 	for (long long i = 0; i < numVessels; ++i) {
 		getline(treeFile, token);
@@ -160,6 +163,7 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData *in
 		cout << endl;
 	}
 
+	cout << "Assembling tree..." << endl;
 	//	Tree values
 	this->root = elements[rootIndex];
 	this->nTerms = this->getNTerminals();

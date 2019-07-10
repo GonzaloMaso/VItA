@@ -13,7 +13,7 @@
 
 //	Model
 #include "vtkPolyDataReader.h"
-
+#include "vtkXMLPolyDataWriter.h"
 #include "vtkSelectEnclosedPoints.h"
 #include "vtkPointData.h"
 #include "vtkPoints.h"
@@ -244,5 +244,24 @@ double* SimpleDomain::getLocalNeighborhood(point p, long long int nVessels) {
 	localBox[5] = p.p[2] + neighborhoodRadius;
 
 	return localBox;
+}
+
+void SimpleDomain::savePoints(string filename) {
+	// Create 10 points.
+	vtkSmartPointer<vtkPoints> points = vtkSmartPointer<vtkPoints>::New();
+
+	for (std::deque<point>::iterator it = randomInnerPoints.begin(); it != randomInnerPoints.end(); ++it) {
+		points->InsertNextPoint(it->p[0], it->p[1], it->p[2]);
+	}
+
+	// Create a polydata object and add the points to it.
+	vtkSmartPointer<vtkPolyData> polydata = vtkSmartPointer<vtkPolyData>::New();
+	polydata->SetPoints(points);
+	vtkSmartPointer<vtkXMLPolyDataWriter> writer = vtkSmartPointer<vtkXMLPolyDataWriter>::New();
+	writer->SetFileName(filename.c_str());
+	writer->SetInputData(polydata);
+
+	writer->SetDataModeToBinary();
+	writer->Write();
 }
 

@@ -18,6 +18,10 @@ var hierarchy =
     [ "AbstractObjectCCOTree", "d5/df4/class_abstract_object_c_c_o_tree.html", [
       [ "SingleVesselCCOOTree", "dc/d93/class_single_vessel_c_c_o_o_tree.html", null ]
     ] ],
+    [ "AbstractSavingTask", "d4/da2/class_abstract_saving_task.html", [
+      [ "CheckpointSavingTask", "d8/d08/class_checkpoint_saving_task.html", null ],
+      [ "VisualizationSavingTask", "df/d93/class_visualization_saving_task.html", null ]
+    ] ],
     [ "AbstractStatManipulator", "d7/d36/class_abstract_stat_manipulator.html", [
       [ "MeanStatManipulator", "d1/d8b/class_mean_stat_manipulator.html", null ],
       [ "PercentileStatManipulator", "d1/df3/class_percentile_stat_manipulator.html", null ],
@@ -32,7 +36,13 @@ var hierarchy =
       [ "MultiSegmentVessel", "d3/dac/class_multi_segment_vessel.html", null ],
       [ "SingleVessel", "da/d40/class_single_vessel.html", null ]
     ] ],
+    [ "AbstractVesselFilter", "d7/d7f/class_abstract_vessel_filter.html", [
+      [ "VesselFilterByBranchingMode", "d2/d26/class_vessel_filter_by_branching_mode.html", null ],
+      [ "VesselFilterByStage", "dc/df0/class_vessel_filter_by_stage.html", null ],
+      [ "VesselFilterComposite", "d9/d3b/class_vessel_filter_composite.html", null ]
+    ] ],
     [ "DistributionGenerator", "dc/dc8/class_distribution_generator.html", [
+      [ "CompositeDistributionGenerator", "d0/df2/class_composite_distribution_generator.html", null ],
       [ "NormalDistributionGenerator", "df/d2c/class_normal_distribution_generator.html", null ],
       [ "UniformDistributionGenerator", "db/d6b/class_uniform_distribution_generator.html", null ]
     ] ],
@@ -41,6 +51,7 @@ var hierarchy =
     [ "IDomainObservable", "d7/dc0/class_i_domain_observable.html", [
       [ "AbstractDomain", "d2/d71/class_abstract_domain.html", [
         [ "DomainNVR", "d0/d25/class_domain_n_v_r.html", null ],
+        [ "IntersectionVascularizedDomain", "d0/d59/class_intersection_vascularized_domain.html", null ],
         [ "PartiallyVascularizedDomain", "d0/d32/class_partially_vascularized_domain.html", null ],
         [ "SimpleDomain", "d2/d85/class_simple_domain.html", [
           [ "DummyDomain", "d6/d87/class_dummy_domain.html", null ]
@@ -59,6 +70,7 @@ var hierarchy =
     [ "MemoryMonitor", "d2/dca/class_memory_monitor.html", null ],
     [ "point", "d8/dae/structpoint.html", null ],
     [ "TreeIndexCreator", "d4/d07/class_tree_index_creator.html", null ],
+    [ "TreeProjector", "de/d6d/class_tree_projector.html", null ],
     [ "TreeStatsManager", "d6/d72/class_tree_stats_manager.html", null ],
     [ "vessel", "df/d29/structvessel.html", null ],
     [ "VesselHandler", "df/d6d/class_vessel_handler.html", null ],

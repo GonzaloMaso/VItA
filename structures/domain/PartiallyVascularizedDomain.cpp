@@ -11,6 +11,7 @@
 #include "omp.h"
 
 //	Model
+#include "vtkXMLPolyDataWriter.h"
 #include "vtkPolyDataReader.h"
 #include "vtkSelectEnclosedPoints.h"
 #include "vtkPointData.h"
@@ -288,9 +289,10 @@ int PartiallyVascularizedDomain::isSegmentInside(point xs, point xf) {
 
 double PartiallyVascularizedDomain::getSize() {
 
-	if(volume == 0.0){
+	if (volume == 0.0) {
 		vtkMassProperties *massProperty = vtkMassProperties::New();
-		for (std::vector<vtkSmartPointer<vtkPolyData> >::iterator it = vtkVascularizedRegions.begin(); it != vtkVascularizedRegions.end(); ++it) {
+		for (std::vector<vtkSmartPointer<vtkPolyData> >::iterator it = vtkVascularizedRegions.begin(); it != vtkVascularizedRegions.end();
+				++it) {
 			massProperty->SetInputData(*it);
 			massProperty->Update();
 			volume += massProperty->GetVolume();
@@ -339,4 +341,23 @@ double* PartiallyVascularizedDomain::getLocalNeighborhood(point p, long long int
 	localBox[5] = p.p[2] + size;
 
 	return localBox;
+}
+
+void PartiallyVascularizedDomain::savePoints(string filename) {
+	// Create 10 points.
+	vtkSmartPointer<vtkPoints> points = vtkSmartPointer<vtkPoints>::New();
+
+	for (std::deque<point>::iterator it = randomInnerPoints.begin(); it != randomInnerPoints.end(); ++it) {
+		points->InsertNextPoint(it->p[0], it->p[1], it->p[2]);
+	}
+
+	// Create a polydata object and add the points to it.
+	vtkSmartPointer<vtkPolyData> polydata = vtkSmartPointer<vtkPolyData>::New();
+	polydata->SetPoints(points);
+	vtkSmartPointer<vtkXMLPolyDataWriter> writer = vtkSmartPointer<vtkXMLPolyDataWriter>::New();
+	writer->SetFileName(filename.c_str());
+	writer->SetInputData(polydata);
+
+	writer->SetDataModeToBinary();
+	writer->Write();
 }
