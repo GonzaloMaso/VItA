@@ -73,7 +73,7 @@ public:
 	 * @param minAngle	Minimum allowed bifurcation angle.
 	 * @param viscosityTolerance	Convergence tolerance for the absolute beta variation in the viscosity iterative scheme.
 	 */
-	StagedFRROTreeGenerator(StagedDomain *domain, point xi, double rootRadii, double qi, long long int nTerm, vector<AbstractConstraintFunction<double,int> *>gam, vector<AbstractConstraintFunction<double,int> *>epsLim, vector<AbstractConstraintFunction<double,int> *>nu, double minAngle, double refPressure, double viscosityTolerance);
+	StagedFRROTreeGenerator(StagedDomain *domain, point xi, double rootRadii, double qi, long long int nTerm, vector<AbstractConstraintFunction<double,int> *>gam, vector<AbstractConstraintFunction<double,int> *>epsLim, vector<AbstractConstraintFunction<double,int> *>nu, double refPressure, double viscosityTolerance);
 	/**
 	 * Constructor to resume from a pre-existent tree.
 	 * @param domain	Perfusion domain.

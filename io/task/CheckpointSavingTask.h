@@ -9,13 +9,11 @@
 #define CHECKPOINTSAVINGTASK_H_
 
 #include "AbstractSavingTask.h"
-#include "../../structures/tree/SingleVesselCCOOTree.h"
 
 /**
  * Saves a SingleVesselCCOOTree structure in .cco format. Does not save dLim value, thus resume a generation process may differ from the original execution.
  */
 class CheckpointSavingTask: public AbstractSavingTask {
-	SingleVesselCCOOTree *tree;
 	string path;
 	string prefix;
 public:
@@ -23,15 +21,14 @@ public:
 	 * Saves the @p tree in the given path.
 	 * @param path	Output directory.
 	 * @param prefix	Prefix for the generated files.
-	 * @param tree	Tree to be stored in the generated files.
 	 */
-	CheckpointSavingTask(string path, string prefix, SingleVesselCCOOTree *tree);
+	CheckpointSavingTask(string path, string prefix);
 	virtual ~CheckpointSavingTask();
 
 	/**
 	 * Saves the tree in its current state in a .cco format.
 	 */
-	void execute(long long int terminals);
+	void execute(long long int terminals, AbstractObjectCCOTree *tree);
 };
 
 #endif /* CHECKPOINTSAVINGTASK_H_ */

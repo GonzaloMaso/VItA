@@ -1377,6 +1377,6 @@ int SingleVesselCCOOTree::isValidOpeningAngle(point xBif, point xNew, SingleVess
 	//	We're using the abs of the inner product since we are not interested in the orientation of the normal vector.
 	double openingAngle = M_PI/2 - acos( abs(iNew ^ planeNormal) / sqrt((iNew^iNew) * (planeNormal^planeNormal)) );
 
-	return minPlaneAngle < openingAngle;
+	return minPlaneAngle <= openingAngle;
 
 }

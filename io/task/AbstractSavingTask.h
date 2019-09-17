@@ -7,6 +7,7 @@
 
 #ifndef ABSTRACTSAVINGTASK_H_
 #define ABSTRACTSAVINGTASK_H_
+#include "../../structures/tree/AbstractObjectCCOTree.h"
 
 /**
  * Abstract class part of an executer design pattern. Each time a tree is saved a set of executers will write the tree content.
@@ -18,7 +19,7 @@ public:
 	AbstractSavingTask();
 	virtual ~AbstractSavingTask();
 
-	virtual void execute(long long int terminals) = 0;
+	virtual void execute(long long int terminals, AbstractObjectCCOTree *tree) = 0;
 };
 
 #endif /* ABSTRACTSAVINGTASK_H_ */

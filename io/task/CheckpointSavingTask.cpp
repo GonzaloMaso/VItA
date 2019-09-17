@@ -7,8 +7,7 @@
 
 #include "CheckpointSavingTask.h"
 
-CheckpointSavingTask::CheckpointSavingTask(string path, string prefix, SingleVesselCCOOTree *tree){
-	this->tree = tree;
+CheckpointSavingTask::CheckpointSavingTask(string path, string prefix){
 	this->path = path;
 	this->prefix = prefix;
 }
@@ -16,6 +15,6 @@ CheckpointSavingTask::CheckpointSavingTask(string path, string prefix, SingleVes
 CheckpointSavingTask::~CheckpointSavingTask(){
 }
 
-void CheckpointSavingTask::execute(long long int terminals){
+void CheckpointSavingTask::execute(long long int terminals, AbstractObjectCCOTree *tree){
 	tree->save(path + "/" + prefix + to_string(terminals) + ".cco");
 }

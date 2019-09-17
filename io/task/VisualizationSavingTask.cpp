@@ -7,8 +7,7 @@
 
 #include "VisualizationSavingTask.h"
 
-VisualizationSavingTask::VisualizationSavingTask(string path, string prefix, AbstractObjectCCOTree *tree){
-	this->tree = tree;
+VisualizationSavingTask::VisualizationSavingTask(string path, string prefix){
 	this->nodalWriter = new VTKObjectTreeSplinesNodalWriter();
 	this->path = path;
 	this->prefix = prefix;
@@ -19,6 +18,6 @@ VisualizationSavingTask::~VisualizationSavingTask()
 	delete nodalWriter;
 }
 
-void VisualizationSavingTask::execute(long long int terminals){
+void VisualizationSavingTask::execute(long long int terminals, AbstractObjectCCOTree *tree){
 	nodalWriter->write(path+ "/" + prefix + to_string(terminals) + "_view.vtp",tree);
 }

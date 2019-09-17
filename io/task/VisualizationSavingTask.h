@@ -15,7 +15,6 @@
  * Saves the tree in .vtk format using splines to smooth the vessels.
  */
 class VisualizationSavingTask: public AbstractSavingTask {
-	AbstractObjectCCOTree *tree;
 	VTKObjectTreeSplinesNodalWriter *nodalWriter;
 	string path;
 	string prefix;
@@ -24,15 +23,14 @@ public:
 	 * Saves the @p tree in the given path.
 	 * @param path	Output directory.
 	 * @param prefix	Prefix for the generated files.
-	 * @param tree	Tree to be stored in the generated files.
 	 */
-	VisualizationSavingTask(string path, string prefix, AbstractObjectCCOTree *tree);
+	VisualizationSavingTask(string path, string prefix);
 	virtual ~VisualizationSavingTask();
 
 	/**
 	 * Saves the tree in a visualization file using .vtk format.
 	 */
-	void execute(long long int terminals);
+	void execute(long long int terminals, AbstractObjectCCOTree *tree);
 
 };
 

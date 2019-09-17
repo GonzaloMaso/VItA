@@ -23,7 +23,7 @@
 StagedFRROTreeGenerator::StagedFRROTreeGenerator(
 		StagedDomain* domain, point xi, double rootRadii, double qi,
 		long long nTerm, vector<AbstractConstraintFunction<double,int> *>gam, vector<AbstractConstraintFunction<double,int> *>epsLim, vector<AbstractConstraintFunction<double,int> *>nu,
-		double minAngle, double refPressure, double viscosityTolerance) {
+		double refPressure, double viscosityTolerance) {
 
 	domain->registerObserver(this);
 	this->domain = domain;
@@ -31,7 +31,6 @@ StagedFRROTreeGenerator::StagedFRROTreeGenerator(
 	SingleVessel::bifurcationTests = instanceData->nBifurcationTest;
 	this->nTerminals = nTerm;
 	this->stage = domain->getCurrentStage();
-	this->tree->setCurrentStage(domain->getCurrentStage());
 
 	this->gams = gam;
 	this->epsLims = epsLim;
@@ -39,6 +38,7 @@ StagedFRROTreeGenerator::StagedFRROTreeGenerator(
 
 	this->tree = new SingleVesselCCOOTree(xi, rootRadii, qi, gam[0], epsLim[0],
 			nu[0], refPressure, viscosityTolerance, instanceData);
+	this->tree->setCurrentStage(stage);
 
 	this->dLim = domain->getDLim(1, instanceData->perfusionAreaFactor);
 
@@ -98,7 +98,7 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::generate(long long int saveInter
 
 	tree->addVessel(xNew, xNew, NULL, (AbstractVascularElement::VESSEL_FUNCTION) instanceData->vesselFunction);
 
-	for (long long i = 0; i < nTerminals; i = tree->getNTerms()) {
+	for (long long i = 1; i < nTerminals; i = tree->getNTerms()) {
 
 		dataMonitor->update();
 
@@ -352,15 +352,14 @@ AbstractObjectCCOTree*& StagedFRROTreeGenerator::getTree() {
 	return tree;
 }
 
-void StagedFRROTreeGenerator::setSavingTasks(const vector<AbstractSavingTask*>& savingTasks)
-		{
+void StagedFRROTreeGenerator::setSavingTasks(const vector<AbstractSavingTask*>& savingTasks){
 	this->savingTasks = savingTasks;
 }
 
 void StagedFRROTreeGenerator::saveStatus(long long int terminals){
 	tree->setPointCounter(domain->getPointCounter());
 	for (std::vector<AbstractSavingTask *>::iterator it = savingTasks.begin(); it != savingTasks.end(); ++it) {
-		(*it)->execute(terminals);
+		(*it)->execute(terminals,tree);
 	}
 //			nodalWriter->write(tempDirectory+ "/step" + to_string(i) + "_view.vtp",tree);
 	markTimestampOnConfigurationFile("Generating vessel #" + to_string(terminals));
