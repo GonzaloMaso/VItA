@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Copyright 2020 Gonzalo Maso Talou */
 /*
  * StdDiameterStatManipulator.cpp
  *
@@ -5,13 +7,13 @@
  *      Author: gonzalo
  */
 
-#include "StdStatManipulator.h"
+#include "StdStructStatManipulator.h"
 
-StdStatManipulator::StdStatManipulator(): AbstractStatManipulator(){
-	this->meanManipulator = new MeanStatManipulator();
+StdStructStatManipulator::StdStructStatManipulator() : AbstractStructuredStatManipulator(){
+	this->meanManipulator = new MeanStructStatManipulator();
 }
 
-double StdStatManipulator::compute(vector<vessel*> vessels, VesselHandler::ATTRIBUTE att)	{
+double StdStructStatManipulator::compute(vector<vessel *> vessels, VesselStructHandler::ATTRIBUTE att)	{
 
 	double mean = meanManipulator->compute(vessels,att);
 	double std = 0.0;

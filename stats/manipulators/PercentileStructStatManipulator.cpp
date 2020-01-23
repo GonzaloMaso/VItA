@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Copyright 2020 Gonzalo Maso Talou */
 /*
  * PercentileDiameterStatManipulator.cpp
  *
@@ -5,14 +7,14 @@
  *      Author: gonzalo
  */
 
-#include "PercentileStatManipulator.h"
+#include "PercentileStructStatManipulator.h"
 
-PercentileStatManipulator::PercentileStatManipulator(int numPercentile)
+PercentileStructStatManipulator::PercentileStructStatManipulator(int numPercentile) : AbstractStructuredStatManipulator()
 {
 	this->numPercentile = numPercentile;
 }
 
-double PercentileStatManipulator::compute(vector<vessel*> vessels, VesselHandler::ATTRIBUTE att){
+double PercentileStructStatManipulator::compute(vector<vessel *> vessels, VesselStructHandler::ATTRIBUTE att){
 	vector<double> values;
 	for (unsigned long long i = 0; i < vessels.size(); ++i) {
 		values[i] = handler->getVesselAttribute(vessels[i],att);

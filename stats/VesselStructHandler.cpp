@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Copyright 2020 Gonzalo Maso Talou */
 /*
  * VesselHandler.cpp
  *
@@ -5,14 +7,13 @@
  *      Author: gonzalo
  */
 
-#include "VesselHandler.h"
+#include "VesselStructHandler.h"
 
-VesselHandler::VesselHandler()
-{
+VesselStructHandler::VesselStructHandler(){
 
 }
 
-double VesselHandler::getVesselAttribute(vessel* v, ATTRIBUTE att){
+double VesselStructHandler::getVesselAttribute(vessel *v, ATTRIBUTE att){
 	switch (att) {
 	case DIAMETER:
 		return v->radius*2;

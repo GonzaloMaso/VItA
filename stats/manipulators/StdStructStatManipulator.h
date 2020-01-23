@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Copyright 2020 Gonzalo Maso Talou */
 /*
  * StdDiameterStatManipulator.h
  *
@@ -5,29 +7,29 @@
  *      Author: gonzalo
  */
 
-#ifndef STATS_STDSTATMANIPULATOR_H_
-#define STATS_STDSTATMANIPULATOR_H_
+#ifndef STATS_STDSTRUCTSTATMANIPULATOR_H_
+#define STATS_STDSTRUCTSTATMANIPULATOR_H_
 
-#include "AbstractStatManipulator.h"
-#include "MeanStatManipulator.h"
+#include "AbstractStructuredStatManipulator.h"
+#include "MeanStructStatManipulator.h"
 
 /**
  * Computes the standard deviation value of a specific attribute for an array of vessels.
  */
-class StdStatManipulator: public AbstractStatManipulator {
+class StdStructStatManipulator: public AbstractStructuredStatManipulator {
 	/**	Mean statistical manipulator used to compute the mean internally. */
-	MeanStatManipulator *meanManipulator;
+	MeanStructStatManipulator *meanManipulator;
 public:
 	/**
 	 * Constructor.
 	 */
-	StdStatManipulator();
+	StdStructStatManipulator();
 	/**
 	 * Computes the standard deviation of the attribute of interest among all @p vessels.
 	 * @param vessels Array of vessels from which the statistical function is computed.
 	 * @return Standard deviation value.
 	 */
-	double compute(vector<vessel *> vessels, VesselHandler::ATTRIBUTE att);
+	double compute(vector<vessel *> vessels, VesselStructHandler::ATTRIBUTE att);
 };
 
-#endif /* STATS_STDSTATMANIPULATOR_H_ */
+#endif /* STATS_STDSTRUCTSTATMANIPULATOR_H_ */

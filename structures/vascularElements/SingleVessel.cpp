@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Copyright 2020 Gonzalo Maso Talou */
 /*
  * SingleVessel.cpp
  *
@@ -88,8 +90,8 @@ double SingleVessel::getProximalPressure() {
 
 void SingleVessel::saveVesselData(ofstream* treeFile) {
 	*treeFile << vtkSegmentId << " " << xProx.p[0] << " " << xProx.p[1] << " " << xProx.p[2] << " " << xDist.p[0] << " " << xDist.p[1] << " " << xDist.p[2] << " "
-			<< "0.0 " << "0.0 " << "0.0 " << qReservedFraction << " " << branchingMode << " " << radius << " " << "0.0 " << "0.0 " << "0.0 " << "0.0 "
-			<< vesselFunction << " " << "0.0 " << "0.0 " << stage;
+			<< 0.0 << " " << 0.0 << " " << 0.0 << " " << qReservedFraction << " " << branchingMode << " " << radius << " " << 0.0 << " " << 0.0 << " " << 0.0 << " " << 0.0 << " "
+			<< vesselFunction << " " << 0.0 << " " << 0.0 << " " << stage;
 }
 
 void SingleVessel::saveVesselConnectivity(ofstream* treeFile) {

@@ -1,19 +1,21 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Copyright 2020 Gonzalo Maso Talou */
 /*
  * MeanStatManipulator.h
  *
  *  Created on: Feb 7, 2018
- *      Author: gonzalo
+ *      Author: Gonzalo D. Maso Talou
  */
 
 #ifndef STATS_PERCENTILESTATMANIPULATOR_H_
 #define STATS_PERCENTILESTATMANIPULATOR_H_
 
-#include "AbstractStatManipulator.h"
+#include "Abstract0DStatManipulator.h"
 
 /**
  * Computes the N-th percentile value of a specific attribute for an array of vessels.
  */
-class PercentileStatManipulator: public AbstractStatManipulator {
+class PercentileStatManipulator : public Abstract0DStatManipulator{
 	/**	Number of the percentile which the object computes. */
 	int numPercentile;
 public:
@@ -27,7 +29,7 @@ public:
 	 * @param vessels	Array of vessels from which the statistical function is computed.
 	 * @return	Value of the percentile.
 	 */
-	double compute(vector<vessel *> vessels, VesselHandler::ATTRIBUTE att);
+	double compute(vector<SingleVessel *> vessels, VesselObjectHandler::ATTRIBUTE att);
 };
 
 #endif /* STATS_PERCENTILESTATMANIPULATOR_H_ */

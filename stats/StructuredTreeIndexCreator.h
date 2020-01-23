@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Copyright 2020 Gonzalo Maso Talou */
 /*
  * TreeIndexCreator.h
  *
@@ -5,8 +7,8 @@
  *      Author: gonzalo
  */
 
-#ifndef STATS_TREEINDEXCREATOR_H_
-#define STATS_TREEINDEXCREATOR_H_
+#ifndef STATS_STRUCTUREDTREEINDEXCREATOR_H_
+#define STATS_STRUCTUREDTREEINDEXCREATOR_H_
 
 #include <vector>
 
@@ -16,7 +18,7 @@
 /**
  * Creates indexes for a given tree to ease the manipulation of its segments.
  */
-class TreeIndexCreator {
+class StructuredTreeIndexCreator {
 	/** Tree for which the indexes are created.	 */
 	AbstractStructuredCCOTree *tree;
 
@@ -25,7 +27,7 @@ public:
 	 * Constructor
 	 * @param tree Tree to index.
 	 */
-	TreeIndexCreator(AbstractStructuredCCOTree *tree);
+	StructuredTreeIndexCreator(AbstractStructuredCCOTree *tree);
 
 	/**
 	 * Returns all terminal segments of @p tree.
@@ -49,4 +51,4 @@ private:
 	void extractSegmentsByLevel(vessel *root, vector<vector<vessel *> > *extractedTerminals, unsigned level);
 };
 
-#endif /* STATS_TREEINDEXCREATOR_H_ */
+#endif /* STATS_STRUCTUREDTREEINDEXCREATOR_H_ */

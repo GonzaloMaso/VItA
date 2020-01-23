@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Copyright 2020 Gonzalo Maso Talou */
 /*
  * TreeIndexCreator.cpp
  *
@@ -5,13 +7,13 @@
  *      Author: gonzalo
  */
 
-#include "TreeIndexCreator.h"
+#include "StructuredTreeIndexCreator.h"
 
 /**
  * Creates an instance associated with @p tree .
  * @param tree Instance associated with the index creator.
  */
-TreeIndexCreator::TreeIndexCreator(AbstractStructuredCCOTree *tree){
+StructuredTreeIndexCreator::StructuredTreeIndexCreator(AbstractStructuredCCOTree *tree){
 
 	this->tree = tree;
 
@@ -21,7 +23,7 @@ TreeIndexCreator::TreeIndexCreator(AbstractStructuredCCOTree *tree){
  * Returns a vector with all the tree terminals.
  * @return vector with all the tree terminals.
  */
-vector<vessel*> TreeIndexCreator::getTerminals(){
+vector<vessel*> StructuredTreeIndexCreator::getTerminals(){
 	vector<vessel *> extractedTerminals;
 	extractTerminals(tree->getRoot(), &extractedTerminals);
 	return extractedTerminals;
@@ -31,7 +33,7 @@ vector<vessel*> TreeIndexCreator::getTerminals(){
  * Returns a vector with all the tree segments.
  * @return vector with all the tree segments.
  */
-vector<vessel*> TreeIndexCreator::getAllSegments(){
+vector<vessel*> StructuredTreeIndexCreator::getAllSegments(){
 	vector<vessel *> extractedSegments;
 	extractAllSegments(tree->getRoot(), &extractedSegments);
 	return extractedSegments;
@@ -41,7 +43,7 @@ vector<vessel*> TreeIndexCreator::getAllSegments(){
  * Returns a vector for which the i-th entry contains a vector with all segments at the i-th tree level.
  * @return vector for which the i-th entry contains a vector with all segments at the i-th tree level.
  */
-vector<vector<vessel*> > TreeIndexCreator::getSegmentsByLevel(){
+vector<vector<vessel*> > StructuredTreeIndexCreator::getSegmentsByLevel(){
 	vector<vector<vessel*> > extractedSegments;
 	extractSegmentsByLevel(tree->getRoot(), &extractedSegments, 0);
 	return extractedSegments;
@@ -52,7 +54,7 @@ vector<vector<vessel*> > TreeIndexCreator::getSegmentsByLevel(){
  * @param root Tree root.
  * @param extractedTerminals Extracted terminals.
  */
-void TreeIndexCreator::extractTerminals(vessel* root, vector<vessel*> *extractedTerminals){
+void StructuredTreeIndexCreator::extractTerminals(vessel* root, vector<vessel*> *extractedTerminals){
 
 	if(root->anastomose.size()>1){
 		extractTerminals(root->anastomose[1],extractedTerminals);
@@ -68,7 +70,7 @@ void TreeIndexCreator::extractTerminals(vessel* root, vector<vessel*> *extracted
  * @param root Tree root.
  * @param extractedSegments Extracted segments.
  */
-void TreeIndexCreator::extractAllSegments(vessel* root, vector<vessel*>* extractedSegments){
+void StructuredTreeIndexCreator::extractAllSegments(vessel* root, vector<vessel*>* extractedSegments){
 	if(root->anastomose.size()>1){
 		extractedSegments->push_back(root);
 		extractAllSegments(root->anastomose[1],extractedSegments);
@@ -84,7 +86,7 @@ void TreeIndexCreator::extractAllSegments(vessel* root, vector<vessel*>* extract
  * @param extractedSegments Extracted segments.
  * @param level Current deepness level in the tree.
  */
-void TreeIndexCreator::extractSegmentsByLevel(vessel* root, vector<vector<vessel*> >* extractedSegments, unsigned level){
+void StructuredTreeIndexCreator::extractSegmentsByLevel(vessel* root, vector<vector<vessel*> >* extractedSegments, unsigned level){
 
 	if(extractedSegments->size() == level){
 		vector<vessel *> levelVessels;

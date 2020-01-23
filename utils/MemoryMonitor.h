@@ -1,8 +1,10 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Copyright 2020 Gonzalo Maso Talou */
 /*
  * MemoryMonitor.h
  *
  *  Created on: Mar 9, 2018
- *      Author: gonzalo
+ *      Author: Gonzalo Maso Talou
  */
 
 #ifndef MEMORYMONITOR_H_

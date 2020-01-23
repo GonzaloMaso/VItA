@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Copyright 2020 Gonzalo Maso Talou */
 /*
  * VesselHandler.h
  *
@@ -5,23 +7,25 @@
  *      Author: gonzalo
  */
 
-#ifndef STATS_VESSELHANDLER_H_
-#define STATS_VESSELHANDLER_H_
+#ifndef STATS_VESSELOBJECTHANDLER_H_
+#define STATS_VESSELOBJECTHANDLER_H_
 
-#include "../structures/CCOCommonStructures.h"
+#include "../structures/vascularElements/SingleVessel.h"
+
 /**
  * Adapter class that allows data extraction from vessel structure by attribute in a dynamic
  * manner.
  */
-class VesselHandler {
+class VesselObjectHandler {
 public:
+
 	/** Fields of vessel structure. */
-	enum ATTRIBUTE {DIAMETER, RADIUS, FLOW, PRESSURE, RESISTANCE, LENGTH, LEVEL, BETA, VOLUME};
+	enum ATTRIBUTE {DIAMETER, RADIUS, FLOW, PRESSURE, RESISTANCE, LENGTH, LEVEL, BETA, VOLUME, STAGE};
 
 	/**
 	 * Dummy constructor.
 	 */
-	VesselHandler();
+	VesselObjectHandler();
 
 	/**
 	 * Returns the specific @p attribute of the @p v vessel.
@@ -29,7 +33,7 @@ public:
 	 * @param attribute	Field of interest.
 	 * @return Value of the field @p attribute in vessel @p v.
 	 */
-	double getVesselAttribute(vessel *v, ATTRIBUTE attribute);
+	double getVesselAttribute(SingleVessel *v, ATTRIBUTE attribute);
 };
 
-#endif /* STATS_VESSELHANDLER_H_ */
+#endif /* STATS_VESSELOBJECTHANDLER_H_ */

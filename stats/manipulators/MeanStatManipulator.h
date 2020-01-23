@@ -1,19 +1,22 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Copyright 2020 Gonzalo Maso Talou */
 /*
  * MeanStatManipulator.h
  *
  *  Created on: Feb 7, 2018
- *      Author: gonzalo
+ *      Author: Gonzalo D. Maso Talou
  */
 
 #ifndef STATS_MEANSTATMANIPULATOR_H_
 #define STATS_MEANSTATMANIPULATOR_H_
 
-#include "AbstractStatManipulator.h"
+#include "../../structures/vascularElements/SingleVessel.h"
+#include "Abstract0DStatManipulator.h"
 
 /**
  * Computes the mean of a specific attribute for an array of vessels.
  */
-class MeanStatManipulator: public AbstractStatManipulator {
+class MeanStatManipulator: public Abstract0DStatManipulator {
 public:
 	/**
 	 * Dummy constructor.
@@ -24,7 +27,7 @@ public:
 	 * @param vessels Array of vessels from which the statistical function is computed.
 	 * @return Mean value.
 	 */
-	double compute(vector<vessel *> vessels, VesselHandler::ATTRIBUTE att);
+	double compute(vector<SingleVessel *> vessels, VesselObjectHandler::ATTRIBUTE att);
 };
 
-#endif /* STATS_MEANDIAMETERSTATMANIPULATOR_H_ */
+#endif /* STATS_MEANSTATMANIPULATOR_H_ */

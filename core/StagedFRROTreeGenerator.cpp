@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Copyright 2020 Gonzalo Maso Talou */
 /*
  * StagedFRROTreeGenerator.cpp
  *
@@ -310,7 +312,7 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::resume(long long int saveInterva
 			//	end for trees
 
 			if (minCost < INFINITY) {
-				cout << "Added with a cost of " << minCost << endl;
+				cout << "Added with a cost of " << minCost << " with a total cost of " << ((SingleVessel *) tree->getRoot())->treeVolume << endl;
 				tree->addVessel(minBif, xNew, minParent, (AbstractVascularElement::VESSEL_FUNCTION) instanceData->vesselFunction);
 				invalidTerminal = false;
 			}
@@ -324,6 +326,7 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::resume(long long int saveInterva
 	tree->setPointCounter(domain->getPointCounter());
 
 	saveStatus(nTerminals-1);
+	markTimestampOnConfigurationFile("Final tree volume " + to_string(((SingleVessel *) tree->getRoot())->treeVolume));
 	markTimestampOnConfigurationFile("Tree successfully generated.");
 	closeConfigurationFile();
 
