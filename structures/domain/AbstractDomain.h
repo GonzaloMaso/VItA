@@ -11,6 +11,7 @@
 #define DOMAIN_ABSTRACTDOMAIN_H_
 
 #include <deque>
+#include <random>
 
 #include <vtkSmartPointer.h>
 #include <vtkPolyData.h>
