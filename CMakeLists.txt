@@ -39,9 +39,7 @@ file(GLOB_RECURSE HEADER_FILES
 add_library(VItA STATIC ${SOURCE_FILES} ${HEADER_FILES})
 
 #set_target_properties(VItA PROPERTIES PUBLIC_HEADER ${HEADER_FILES})
-target_link_libraries(VItA
-	${VTK_LIBRARIES}
-)
+target_link_libraries(VItA ${VTK_LIBRARIES})
 
 if(DOWNLOAD_DEPENDENCIES)
 	add_dependencies(VItA vtk)
@@ -49,5 +47,5 @@ endif()
 
 install(TARGETS VItA DESTINATION lib)
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} DESTINATION include
-        FILES_MATCHING PATTERN "*.h" EXCLUDE PATTERN "build/*")
+        FILES_MATCHING PATTERN "*.h" PATTERN "build/*" EXCLUDE PATTERN "doc/*" EXCLUDE)
 #install(FILES ${HEADER_FILES} DESTINATION include)
