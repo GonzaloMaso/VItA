@@ -276,6 +276,8 @@ private:
 	 */
 	void createSegmentVtkLines(AbstractVascularElement *rootVessel);
 
+	double getVariationTolerance();
+
 };
 
 #endif /* TREE_SINGLEVESSELCCOOTREE_H_ */

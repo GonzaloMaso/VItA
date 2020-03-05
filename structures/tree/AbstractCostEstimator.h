@@ -18,6 +18,13 @@
  */
 class AbstractCostEstimator {
 protected:
+	/**
+	 * This indicates what kind of estimator we're using. 
+	 * 0 is for VolumetricCostEstimator.
+	 * 1 is for SproutingVolumetricCostEstimator.
+	 * 2 is for AdimSproutingVolumetricCostEstimator.
+	 */
+	int which_estimator_;
 public:
 	/**
 	 * Common constructor.
@@ -49,6 +56,11 @@ public:
 	 * @return Cost of the given tree.
 	 */
 	virtual double computeCost(AbstractObjectCCOTree *tree) = 0;
+	/**
+	 * Returns what kind of estimator we're using.
+	 * @return @p which_estimator_
+	 */
+	int getWhichEstimator();
 };
 
 #endif /* TREE_ABSTRACTCOSTESTIMATOR_H_ */

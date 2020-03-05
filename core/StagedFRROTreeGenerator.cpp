@@ -368,3 +368,17 @@ void StagedFRROTreeGenerator::saveStatus(long long int terminals){
 	markTimestampOnConfigurationFile("Generating vessel #" + to_string(terminals));
 	markTimestampOnConfigurationFile("Total RAM consumption: " + to_string(monitor->getProcessMemoryConsumption()) + " MB.");
 }
+
+vector<AbstractConstraintFunction<double, int> *>* StagedFRROTreeGenerator::getGams()
+{
+	return &((*this).gams);
+}
+
+vector<AbstractConstraintFunction<double, int> *>* StagedFRROTreeGenerator::getEpsLims()
+{
+	return &((*this).epsLims);
+}
+vector<AbstractConstraintFunction<double, int> *>* StagedFRROTreeGenerator::getNus()
+{
+	return &((*this).nus);
+}

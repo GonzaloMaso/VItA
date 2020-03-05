@@ -139,6 +139,18 @@ public:
 	 * @param savingTasks	Set of tasks to be performed each time that the tree is saved.
 	 */
 	void setSavingTasks(const vector<AbstractSavingTask*>& savingTasks);
+	/**
+	 * Returns a pointer to the vector of gams.
+	 */
+	vector<AbstractConstraintFunction<double, int> *>* getGams();
+	/**
+	 * Returns a pointer to the vector of eps_lims.
+	 */
+	vector<AbstractConstraintFunction<double, int> *>* getEpsLims();
+	/**
+	 * Returns a pointer to the vector of nus.
+	 */
+	vector<AbstractConstraintFunction<double, int> *>* getNus();
 
 protected:
 	/**	Configuration file stream. */
@@ -172,7 +184,7 @@ protected:
 	 * Closes the configuration file for the current tree generation.
 	 */
 	void closeConfigurationFile();
-
+	
 };
 
 #endif /* STAGEDFRROTREEGENERATOR_H_ */

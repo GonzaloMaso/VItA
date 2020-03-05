@@ -1382,3 +1382,8 @@ int SingleVesselCCOOTree::isValidOpeningAngle(point xBif, point xNew, SingleVess
 	return minPlaneAngle <= openingAngle;
 
 }
+
+double SingleVesselCCOOTree::getVariationTolerance()
+{
+	return (*this).variationTolerance;
+}

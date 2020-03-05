@@ -153,6 +153,8 @@ public:
 	 * Default setter of @p instanceData.
 	 * @param instanceData Instance for @p instanceData.
 	 */
+	virtual int getDraw() = 0;
+	virtual int getSeed() = 0;
 	void setInstanceData(GeneratorData* instanceData);
 	const vector<int>& getGrowingStages() const;
 	void setGrowingStages(const vector<int>& growingStages);
