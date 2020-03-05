@@ -149,6 +149,11 @@ public:
 	 * @param filename Output file writen in VTK format.
 	 */
 	void savePoints(string filename);
+	/**
+	 * Returns random generator seed. 
+	 * @return @p seed
+	 */
+	int getSeed();
 
 protected:
 	//	TODO This should be generalised in the AbstractDomain class

@@ -9,7 +9,7 @@
 
 #include "AdimSproutingVolumetricCostEstimator.h"
 #include "../vascularElements/SingleVessel.h"
-#include "math.h"
+#include <math.h>
 
 AdimSproutingVolumetricCostEstimator::AdimSproutingVolumetricCostEstimator(double volumeFactor, double proteolyticFactor, double diffusionFactor, double volumeRef, double radiusRef): AbstractCostEstimator(){
 	this->previousVolume = 0.0;

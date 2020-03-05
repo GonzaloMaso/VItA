@@ -11,12 +11,12 @@
 
 #include "MemoryMonitor.h"
 
-#include "sys/types.h"
-#include "sys/sysinfo.h"
+#include <sys/types.h>
+#include <sys/sysinfo.h>
 
-#include "stdlib.h"
-#include "stdio.h"
-#include "string.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 struct sysinfo memInfo;
 

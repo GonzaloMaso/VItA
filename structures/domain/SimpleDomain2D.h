@@ -121,6 +121,11 @@ public:
 	 * @return vtkPolydata with the domain representation.
 	 */
 	vtkSmartPointer<vtkPolyData>& getVtkGeometry();
+	/**
+	 * Returns the random generator seed.
+	 * @return @p seed
+	 */
+	int getSeed();
 
 protected:
 	deque<point> randomInnerPoints;

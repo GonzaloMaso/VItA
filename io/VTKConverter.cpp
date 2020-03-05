@@ -9,10 +9,10 @@
 
 #include "VTKConverter.h"
 
-#include "vtkSmartPointer.h"
-#include "vtkSTLReader.h"
-#include "vtkOBJReader.h"
-#include "vtkPolyDataWriter.h"
+#include <vtkSmartPointer.h>
+#include <vtkSTLReader.h>
+#include <vtkOBJReader.h>
+#include <vtkPolyDataWriter.h>
 
 void VTKConverter::STL2VTKConverter(string stlFile, string vtkFile, int writeASCIIFormat){
 

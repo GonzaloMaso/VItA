@@ -9,11 +9,11 @@
 
 #include "AbstractStructuredCCOTree.h"
 
-#include "vtkCellData.h"
-#include "vtkPointData.h"
-#include "vtkXMLPolyDataWriter.h"
-#include "vtkSmartPointer.h"
-#include "vtkDoubleArray.h"
+#include <vtkCellData.h>
+#include <vtkPointData.h>
+#include <vtkXMLPolyDataWriter.h>
+#include <vtkSmartPointer.h>
+#include <vtkDoubleArray.h>
 
 AbstractStructuredCCOTree::AbstractStructuredCCOTree(GeneratorData *instanceData) {
 

@@ -10,14 +10,14 @@
 #include "PartiallyVascularizedDomain.h"
 
 #include <chrono>
-#include "omp.h"
+#include <omp.h>
 
 //	Model
-#include "vtkXMLPolyDataWriter.h"
-#include "vtkPolyDataReader.h"
-#include "vtkSelectEnclosedPoints.h"
-#include "vtkPointData.h"
-#include "vtkMassProperties.h"
+#include <vtkXMLPolyDataWriter.h>
+#include <vtkPolyDataReader.h>
+#include <vtkSelectEnclosedPoints.h>
+#include <vtkPointData.h>
+#include <vtkMassProperties.h>
 
 PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector<string> filenameVascularRegions,
 		vector<string> filenameNonVascularRegions, GeneratorData *instanceData) :
@@ -362,4 +362,9 @@ void PartiallyVascularizedDomain::savePoints(string filename) {
 
 	writer->SetDataModeToBinary();
 	writer->Write();
+}
+
+int PartiallyVascularizedDomain::getSeed()
+{
+	return (*this).seed;
 }

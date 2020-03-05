@@ -11,7 +11,7 @@
 #define DUMMYDOMAIN_H_
 
 #include "../CCOCommonStructures.h"
-#include "vector"
+#include <vector>
 #include "SimpleDomain.h"
 
 /**

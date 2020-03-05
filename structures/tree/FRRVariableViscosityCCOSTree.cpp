@@ -9,12 +9,12 @@
 
 #include "FRRVariableViscosityCCOSTree.h"
 
-#include "vtkCellData.h"
-#include "vtkXMLPolyDataWriter.h"
-#include "vtkSmartPointer.h"
-#include "vtkDoubleArray.h"
+#include <vtkCellData.h>
+#include <vtkXMLPolyDataWriter.h>
+#include <vtkSmartPointer.h>
+#include <vtkDoubleArray.h>
 
-#include "math.h"
+#include <math.h>
 #include <chrono>
 
 FRRVariableViscosityCCOSTree::FRRVariableViscosityCCOSTree(point xi,

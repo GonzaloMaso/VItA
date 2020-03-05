@@ -12,8 +12,8 @@
 
 #include <vector>
 
-#include "vtkSmartPointer.h"
-#include "vtkLine.h"
+#include <vtkSmartPointer.h>
+#include <vtkLine.h>
 
 using namespace std;
 

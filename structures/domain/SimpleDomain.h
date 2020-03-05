@@ -38,6 +38,8 @@ class SimpleDomain: public AbstractDomain {
 	double characteristicLength;
 	/**	Amount of points randomly generated when no more points are available. */
 	int nDraw;
+	/** Random generator seed.*/
+	int seed;
 	/** Point generator */
 	DistributionGenerator *distribution;
 public:
@@ -133,6 +135,11 @@ public:
 	 * @param filename Output file writen in VTK format.
 	 */
 	void savePoints(string filename);
+	/**
+	 * Returns random seed generator.
+	 * @return @p seed.
+	 */
+	int getSeed();
 
 protected:
 	deque<point> randomInnerPoints;

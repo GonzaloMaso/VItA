@@ -109,3 +109,13 @@ double StagedDomain::getMinPlaneAngle(){
 long long int StagedDomain::getPointCounter() const{
 	domainStage[currentStage-initialStage]->getPointCounter();
 }
+
+vector<AbstractDomain *> StagedDomain::getDomains()
+{
+	return (*this).domainStage;
+}
+
+vector<long long int> StagedDomain::getNTerminals()
+{
+	return (*this).terminalsPerStage;
+}

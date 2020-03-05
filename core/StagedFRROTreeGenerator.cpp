@@ -20,7 +20,7 @@
 #include "../structures/vascularElements/AbstractVascularElement.h"
 #include "../utils/MemoryMonitor.h"
 
-#include "omp.h"
+#include <omp.h>
 
 StagedFRROTreeGenerator::StagedFRROTreeGenerator(
 		StagedDomain* domain, point xi, double rootRadii, double qi,

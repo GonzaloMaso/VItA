@@ -10,13 +10,13 @@
 #include "IntersectionVascularizedDomain.h"
 
 #include <chrono>
-#include "omp.h"
+#include <omp.h>
 
 //	Model
-#include "vtkPolyDataReader.h"
-#include "vtkSelectEnclosedPoints.h"
-#include "vtkPointData.h"
-#include "vtkMassProperties.h"
+#include <vtkPolyDataReader.h>
+#include <vtkSelectEnclosedPoints.h>
+#include <vtkPointData.h>
+#include <vtkMassProperties.h>
 
 IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> filenameVascularRegions, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
@@ -304,4 +304,9 @@ double* IntersectionVascularizedDomain::getLocalNeighborhood(point p, long long 
 	localBox[5] = p.p[2] + size;
 
 	return localBox;
+}
+
+int IntersectionVascularizedDomain::getSeed()
+{
+	return (*this).seed;
 }

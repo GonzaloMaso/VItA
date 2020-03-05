@@ -11,13 +11,13 @@
 
 #include <chrono>
 #include <random>
-#include "omp.h"
+#include <omp.h>
 
 //	Model
-#include "vtkPolyDataReader.h"
-#include "vtkSelectEnclosedPoints.h"
-#include "vtkPointData.h"
-#include "vtkMassProperties.h"
+#include <vtkPolyDataReader.h>
+#include <vtkSelectEnclosedPoints.h>
+#include <vtkPointData.h>
+#include <vtkMassProperties.h>
 
 DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
@@ -365,4 +365,9 @@ double* DomainNVR::getLocalNeighborhood(point p, long long int nVessels) {
 	localBox[5] = p.p[2] + size;
 
 	return localBox;
+}
+
+int DomainNVR::getSeed()
+{
+	return (*this).seed;
 }

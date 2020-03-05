@@ -11,16 +11,16 @@
 
 #include <chrono>
 #include <random>
-#include "omp.h"
+#include <omp.h>
 
 //	Model
-#include "vtkPolyDataReader.h"
-#include "vtkXMLPolyDataWriter.h"
-#include "vtkSelectEnclosedPoints.h"
-#include "vtkPointData.h"
-#include "vtkPoints.h"
-#include "vtkMassProperties.h"
-#include "vtkSmartPointer.h"
+#include <vtkPolyDataReader.h>
+#include <vtkXMLPolyDataWriter.h>
+#include <vtkSelectEnclosedPoints.h>
+#include <vtkPointData.h>
+#include <vtkPoints.h>
+#include <vtkMassProperties.h>
+#include <vtkSmartPointer.h>
 
 #include "UniformDistributionGenerator.h"
 
@@ -88,6 +88,7 @@ SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData *inst
 	locator->BuildLocator();
 
 	nDraw = N;
+	(*this).seed = seed;
 
 	double *bb = vtkGeometry->GetBounds();
 	distribution = new UniformDistributionGenerator();
@@ -112,6 +113,7 @@ SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData* inst
 	locator->BuildLocator();
 
 	nDraw = N;
+	(*this).seed = seed;
 
 	double *bb = vtkGeometry->GetBounds();
 	this->distribution = distribution;
@@ -267,3 +269,7 @@ void SimpleDomain::savePoints(string filename) {
 	writer->Write();
 }
 
+int SimpleDomain::getSeed()
+{
+	return (*this).seed;
+}

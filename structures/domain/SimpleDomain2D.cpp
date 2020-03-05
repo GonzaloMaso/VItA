@@ -14,10 +14,10 @@
 #include <omp.h>
 
 //	Model
-#include "vtkPolyDataReader.h"
-#include "vtkSelectEnclosedPoints.h"
-#include "vtkPointData.h"
-#include "vtkMassProperties.h"
+#include <vtkPolyDataReader.h>
+#include <vtkSelectEnclosedPoints.h>
+#include <vtkPointData.h>
+#include <vtkMassProperties.h>
 
 SimpleDomain2D::SimpleDomain2D(string filename, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
@@ -267,4 +267,9 @@ double* SimpleDomain2D::getLocalNeighborhood(point p, long long int nVessels) {
 
 	return localBox;
 
+}
+
+int SimpleDomain2D::getSeed()
+{
+	return (*this).seed;
 }
