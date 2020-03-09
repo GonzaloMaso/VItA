@@ -252,8 +252,13 @@ set(VTK_INCLUDE /usr/local/include/vtk-8.1)
 target_include_directories(vita PUBLIC ${VTK_INCLUDE})
 target_link_libraries(vita PUBLIC ${VTK_LIBS} omp)
 
-set_target_properties(vita PROPERTIES PUBLIC_HEADER "${SOURCE_HPP}")
+# set_target_properties(vita PROPERTIES PUBLIC_HEADER "${SOURCE_HPP}")
 
 install(TARGETS vita
-        LIBRARY DESTINATION "${CMAKE_INSTALL_PREFIX}/lib"
-        PUBLIC_HEADER DESTINATION "${CMAKE_INSTALL_PREFIX}/include/vita")
+        LIBRARY DESTINATION "${CMAKE_INSTALL_PREFIX}/lib")
+install(DIRECTORY "${CMAKE_SOURCE_DIR}/"
+        DESTINATION "${CMAKE_INSTALL_PREFIX}/include/vita"
+        FILES_MATCHING PATTERN "*.h"
+        REGEX "doc/*" EXCLUDE
+        REGEX "build_/*" EXCLUDE
+        REGEX ".git/*" EXCLUDE)
