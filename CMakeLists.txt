@@ -250,7 +250,7 @@ set(VTK_LIBS
 set(VTK_INCLUDE /usr/local/include/vtk-8.1)
 
 target_include_directories(vita PUBLIC ${VTK_INCLUDE})
-target_link_libraries(vita PUBLIC ${VTK_LIBS} omp)
+# target_link_libraries(vita PUBLIC ${VTK_LIBS} omp)
 
 # set_target_properties(vita PROPERTIES PUBLIC_HEADER "${SOURCE_HPP}")
 

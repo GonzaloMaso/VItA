@@ -138,6 +138,14 @@ public:
 	 * @return  vector<long long int> n_term.
 	 */
 	vector<long long int>* getNTerminals();
+	/**
+	 * This function serves no purpose in StagedDomain.
+	 */
+	int getDraw();
+	/**
+	 * This function serves no purpose in StagedDomain.
+	 */
+	int getSeed();
 };
 
 #endif /* DOMAIN_STAGEDDOMAIN_H_ */
