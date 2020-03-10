@@ -29,9 +29,9 @@ void log_cost_estimator(FILE *fp, AbstractCostEstimator *cost_estimator)
         p_fac = (*sv_cost_estimator).getProteolyticFactor();
         d_fac = (*sv_cost_estimator).getDiffusionFactor();
         fprintf(fp, "This domain uses SproutingVolumetricCostEstimator.\n");
-        fprintf(fp, "Volume factor = %f", v_fac);
-        fprintf(fp, "Proteolytic factor = %f\n.", p_fac);
-        fprintf(fp, "Diffusion factor = %f\n.", d_fac);
+        fprintf(fp, "Volume factor = %f.\n", v_fac);
+        fprintf(fp, "Proteolytic factor = %f.\n", p_fac);
+        fprintf(fp, "Diffusion factor = %f.\n", d_fac);
     }
     else {
         double v_fac, p_fac, d_fac, v_ref, r_ref, l_ref;
@@ -43,9 +43,9 @@ void log_cost_estimator(FILE *fp, AbstractCostEstimator *cost_estimator)
         r_ref = (*asv_cost_estimator).getRadiusRef();
         l_ref = (*asv_cost_estimator).getLenghtRef();
         fprintf(fp, "This domain uses AdimSproutingVolumetricCost.\n");
-        fprintf(fp, "Volume factor = %f", v_fac);
-        fprintf(fp, "Proteolytic factor = %f\n.", p_fac);
-        fprintf(fp, "Diffusion factor = %f\n.", d_fac);
+        fprintf(fp, "Volume factor = %f.\n", v_fac);
+        fprintf(fp, "Proteolytic factor = %f.\n", p_fac);
+        fprintf(fp, "Diffusion factor = %f.\n", d_fac);
         fprintf(fp, "Reference volume = %f.\n", v_ref);
         fprintf(fp, "Reference radius = %f.\n", r_ref);
         fprintf(fp, "Reference lenght = %f.\n", l_ref);
