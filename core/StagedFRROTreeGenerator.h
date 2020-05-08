@@ -151,6 +151,14 @@ public:
 	 * Returns a pointer to the vector of nus.
 	 */
 	vector<AbstractConstraintFunction<double, int> *>* getNus();
+	/**
+	 * Returns the current DLim value.
+	 */
+	double getDLim();
+	/**
+	 * Set the DLim value. Use this only to resume process from a previous generation.
+	 */
+	void setDLim(double newDLim);
 
 protected:
 	/**	Configuration file stream. */

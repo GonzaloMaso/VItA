@@ -382,3 +382,11 @@ vector<AbstractConstraintFunction<double, int> *>* StagedFRROTreeGenerator::getN
 {
 	return &((*this).nus);
 }
+
+double StagedFRROTreeGenerator::getDLim() {
+	return (*this).dLim;
+}
+
+void StagedFRROTreeGenerator::setDLim(double newDLim) {
+	(*this).dLim = newDLim;
+}
