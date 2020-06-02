@@ -12,10 +12,10 @@ if(DOWNLOAD_DEPENDENCIES)
 	include(dependencies.cmake)
 	link_directories(${VTK_LIB_DIR})
 	include_directories(${VTK_INCLUDE_DIR})
-#else()
-#	set(VTK_DIR "/usr/local/VTK")
-#	find_package(VTK REQUIRED)
-#	include(${VTK_USE_FILE})
+else()
+	set(VTK_DIR "/usr/local/VTK")
+	find_package(VTK REQUIRED)
+	include(${VTK_USE_FILE})
 endif()
 
 file(GLOB_RECURSE SOURCE_FILES
@@ -27,16 +27,16 @@ file(GLOB_RECURSE HEADER_FILES
 )
 
 #	Fix this to allow shared libraries.
-#option(SHARED_LIBRARY "when ON generates a .so library." OFF)
-#if(SHARED_LIBRARY)
-#	add_library(VItA SHARED ${SOURCE_FILES} ${HEADER_FILES})
+option(SHARED_LIBRARY "when ON generates a .so library." OFF)
+if(SHARED_LIBRARY)
+	add_library(VItA SHARED ${SOURCE_FILES} ${HEADER_FILES})
 #	set_target_properties(VItA PROPERTIES LINK_FLAGS "-fPIC")
-#else()
-#    add_library(VItA STATIC ${SOURCE_FILES} ${HEADER_FILES})
+else()
+    add_library(VItA STATIC ${SOURCE_FILES} ${HEADER_FILES})
 #	set_target_properties(VItA PROPERTIES LINK_FLAGS "-Wl,--whole-archive")
-#endif()
+endif()
 
-add_library(VItA STATIC ${SOURCE_FILES} ${HEADER_FILES})
+#add_library(VItA STATIC ${SOURCE_FILES} ${HEADER_FILES})
 
 #set_target_properties(VItA PROPERTIES PUBLIC_HEADER ${HEADER_FILES})
 target_link_libraries(VItA ${VTK_LIBRARIES})

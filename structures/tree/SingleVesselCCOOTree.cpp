@@ -1321,6 +1321,7 @@ void SingleVesselCCOOTree::createSegmentVtkLines(AbstractVascularElement *vessel
 
 }
 
+//	NEVER TESTED
 void SingleVesselCCOOTree::removeWitheredBranches(int stage) {
 	for (auto it = elements.begin(); it != elements.end(); ++it) {
 		SingleVessel *currentVessel = (SingleVessel *) (it->second);
@@ -1350,6 +1351,7 @@ void SingleVesselCCOOTree::remove(SingleVessel* vessel) {
 	delete vessel;
 }
 
+//	NEVER TESTED
 bool SingleVesselCCOOTree::isWithered(SingleVessel* vessel) {
 	int currentStage = vessel->stage;
 	vector<AbstractVascularElement *> children = vessel->getChildren();
