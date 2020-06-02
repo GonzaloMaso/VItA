@@ -5,15 +5,15 @@
  *      Author: Gonzalo D. Maso Talou
  */
 
-#include "AbstractPrunningRule.h"
+#include "AbstractPruningRule.h"
 
-AbstractPrunningRule::AbstractPrunningRule()
+AbstractPruningRule::AbstractPruningRule()
 {
 	// TODO Auto-generated constructor stub
 
 }
 
-AbstractPrunningRule::~AbstractPrunningRule()
+AbstractPruningRule::~AbstractPruningRule()
 {
 	// TODO Auto-generated destructor stub
 }

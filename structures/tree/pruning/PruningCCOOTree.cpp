@@ -1,22 +1,22 @@
 /*
- * PrunningCCOOTree.cpp
+ * PruningCCOOTree.cpp
  *
  *  Created on: 2/06/2020
  *      Author: Gonzalo D. Maso Talou
  */
 
-#include "PrunningCCOOTree.h"
+#include "../pruning/PruningCCOOTree.h"
 
-PrunningCCOOTree::PrunningCCOOTree(SingleVesselCCOOTree *tree){
+PruningCCOOTree::PruningCCOOTree(SingleVesselCCOOTree *tree){
 	this->tree = tree;
 }
 
-PrunningCCOOTree::~PrunningCCOOTree(){
+PruningCCOOTree::~PruningCCOOTree(){
 }
 
-void PrunningCCOOTree::pruneTree(AbstractPrunningRule *rule, SingleVessel *root){
+void PruningCCOOTree::pruneTree(AbstractPruningRule *rule, SingleVessel *root){
 
-	if(root && rule->needsPrunning(root)){
+	if(root && rule->needsPruning(root)){
 		pruneBranch(root);
 	}
 	else{
@@ -27,7 +27,7 @@ void PrunningCCOOTree::pruneTree(AbstractPrunningRule *rule, SingleVessel *root)
 	}
 }
 
-void PrunningCCOOTree::pruneBranch(SingleVessel *branch){
+void PruningCCOOTree::pruneBranch(SingleVessel *branch){
 
 	this->tree->remove(branch);
 

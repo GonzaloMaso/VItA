@@ -5,16 +5,16 @@
  *      Author: Gonzalo D. Maso Talou
  */
 
-#include "OldLeavesPrunningRule.h"
+#include "OldLeavesPruningRule.h"
 
-OldLeavesPrunningRule::OldLeavesPrunningRule(int oldLeaveStage){
+OldLeavesPruningRule::OldLeavesPruningRule(int oldLeaveStage){
 	this->oldLeaveStage = oldLeaveStage
 }
 
-OldLeavesPrunningRule::~OldLeavesPrunningRule(){
+OldLeavesPruningRule::~OldLeavesPruningRule(){
 }
 
-bool OldLeavesPrunningRule::needsPrunning(SingleVessel *root){
+bool OldLeavesPruningRule::needsPruning(SingleVessel *root){
 
 	return root->getChildren().empty() && root->stage == this->oldLeaveStage;
 }
