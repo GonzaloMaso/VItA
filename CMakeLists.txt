@@ -237,6 +237,21 @@ endif()
 
 add_library(vita ${SOURCE_CPP})
 
+#[[
+set(VTK_LIBS 
+    vtkCommonCore-9.0
+    vtkCommonDataModel-9.0
+    vtkCommonExecutionModel-9.0
+    vtkFiltersFlowPaths-9.0
+    vtkFiltersModeling-9.0
+    vtkIOCore-9.0
+    vtkIOLegacy-9.0
+    vtkIOXML-9.0
+    vtkIOGeometry-9.0)
+
+set(VTK_INCLUDE /usr/local/include/vtk-9.0)
+]]
+
 set(VTK_LIBS 
     vtkCommonCore-8.1
     vtkCommonDataModel-8.1
