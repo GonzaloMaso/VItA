@@ -1,0 +1,73 @@
+\hypertarget{class_i_domain_observable}{}\section{I\+Domain\+Observable Class Reference}
+\label{class_i_domain_observable}\index{I\+Domain\+Observable@{I\+Domain\+Observable}}
+
+
+{\ttfamily \#include $<$I\+Domain\+Observable.\+h$>$}
+
+Inheritance diagram for I\+Domain\+Observable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.857380cm]{d7/dc0/class_i_domain_observable}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_i_domain_observable_a4cd5c27295964fdc8acbe37898dd03b6}{I\+Domain\+Observable} ()
+\item 
+void \hyperlink{class_i_domain_observable_abe01724459dac9d6d72e5acbd676010b}{register\+Observer} (\hyperlink{class_i_domain_observer}{I\+Domain\+Observer} $\ast$observer)
+\item 
+void \hyperlink{class_i_domain_observable_a4ec3241ab4a686dd015518e0339db0f0}{notify\+Observers} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \hyperlink{class_i_domain_observer}{I\+Domain\+Observer} $\ast$ $>$ \hyperlink{class_i_domain_observable_a0deaa551133a5b200a1127701440403d}{observers}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Observable class coplaint to observer/observable pattern. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{I\+Domain\+Observable@{I\+Domain\+Observable}!I\+Domain\+Observable@{I\+Domain\+Observable}}
+\index{I\+Domain\+Observable@{I\+Domain\+Observable}!I\+Domain\+Observable@{I\+Domain\+Observable}}
+\subsubsection[{\texorpdfstring{I\+Domain\+Observable()}{IDomainObservable()}}]{\setlength{\rightskip}{0pt plus 5cm}I\+Domain\+Observable\+::\+I\+Domain\+Observable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_i_domain_observable_a4cd5c27295964fdc8acbe37898dd03b6}{}\label{class_i_domain_observable_a4cd5c27295964fdc8acbe37898dd03b6}
+Constructor. 
+
+\subsection{Member Function Documentation}
+\index{I\+Domain\+Observable@{I\+Domain\+Observable}!notify\+Observers@{notify\+Observers}}
+\index{notify\+Observers@{notify\+Observers}!I\+Domain\+Observable@{I\+Domain\+Observable}}
+\subsubsection[{\texorpdfstring{notify\+Observers()}{notifyObservers()}}]{\setlength{\rightskip}{0pt plus 5cm}void I\+Domain\+Observable\+::notify\+Observers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_i_domain_observable_a4ec3241ab4a686dd015518e0339db0f0}{}\label{class_i_domain_observable_a4ec3241ab4a686dd015518e0339db0f0}
+Notify to all registrated observer executing the notified. \index{I\+Domain\+Observable@{I\+Domain\+Observable}!register\+Observer@{register\+Observer}}
+\index{register\+Observer@{register\+Observer}!I\+Domain\+Observable@{I\+Domain\+Observable}}
+\subsubsection[{\texorpdfstring{register\+Observer(\+I\+Domain\+Observer $\ast$observer)}{registerObserver(IDomainObserver *observer)}}]{\setlength{\rightskip}{0pt plus 5cm}void I\+Domain\+Observable\+::register\+Observer (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Domain\+Observer} $\ast$}]{observer}
+\end{DoxyParamCaption}
+)}\hypertarget{class_i_domain_observable_abe01724459dac9d6d72e5acbd676010b}{}\label{class_i_domain_observable_abe01724459dac9d6d72e5acbd676010b}
+Registrate a new observer in order to notify each time that the observable class is updated. 
+\begin{DoxyParams}{Parameters}
+{\em observer} & Observer class type \hyperlink{class_i_domain_observer}{I\+Domain\+Observer}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{I\+Domain\+Observable@{I\+Domain\+Observable}!observers@{observers}}
+\index{observers@{observers}!I\+Domain\+Observable@{I\+Domain\+Observable}}
+\subsubsection[{\texorpdfstring{observers}{observers}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf I\+Domain\+Observer} $\ast$$>$ I\+Domain\+Observable\+::observers\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_i_domain_observable_a0deaa551133a5b200a1127701440403d}{}\label{class_i_domain_observable_a0deaa551133a5b200a1127701440403d}
+List of observer objects. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/domain/I\+Domain\+Observable.\+h\item 
+structures/domain/I\+Domain\+Observable.\+cpp\end{DoxyCompactItemize}

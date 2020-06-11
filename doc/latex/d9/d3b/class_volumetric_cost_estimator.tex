@@ -1,0 +1,146 @@
+\hypertarget{class_volumetric_cost_estimator}{}\section{Volumetric\+Cost\+Estimator Class Reference}
+\label{class_volumetric_cost_estimator}\index{Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}}
+
+
+{\ttfamily \#include $<$Volumetric\+Cost\+Estimator.\+h$>$}
+
+Inheritance diagram for Volumetric\+Cost\+Estimator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d9/d3b/class_volumetric_cost_estimator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_volumetric_cost_estimator_a1d3943123036c047a546bf9f8c55535a}{Volumetric\+Cost\+Estimator} ()
+\item 
+virtual \hyperlink{class_volumetric_cost_estimator_a5ef83e9f4192bc4e358dfdb61fd4418e}{$\sim$\+Volumetric\+Cost\+Estimator} ()
+\item 
+\hyperlink{class_abstract_cost_estimator}{Abstract\+Cost\+Estimator} $\ast$ \hyperlink{class_volumetric_cost_estimator_a513b5fa164962f2761485aebf44072bf}{clone} ()
+\item 
+void \hyperlink{class_volumetric_cost_estimator_a0ff762e6a26e1c6937cc28e88d1dc24d}{previous\+State} (\hyperlink{class_abstract_object_c_c_o_tree}{Abstract\+Object\+C\+C\+O\+Tree} $\ast$tree, \hyperlink{class_abstract_vascular_element}{Abstract\+Vascular\+Element} $\ast$parent, \hyperlink{structpoint}{point} i\+New, \hyperlink{structpoint}{point} i\+Test, double d\+Lim)
+\item 
+double \hyperlink{class_volumetric_cost_estimator_aca3637b77cc6657e4c5f916f09fd38e3}{compute\+Cost} (\hyperlink{class_abstract_object_c_c_o_tree}{Abstract\+Object\+C\+C\+O\+Tree} $\ast$tree)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_volumetric_cost_estimator_a14ff0e932a5732dce0851e1279f42fb6}{compute\+Tree\+Cost} (\hyperlink{class_abstract_vascular_element}{Abstract\+Vascular\+Element} $\ast$root)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_volumetric_cost_estimator_a2671d960beddc83b44d1a8f65866e905}{previous\+Volume}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Cost estimator that computes the tree volume. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}!Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}}
+\index{Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}!Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{Volumetric\+Cost\+Estimator()}{VolumetricCostEstimator()}}]{\setlength{\rightskip}{0pt plus 5cm}Volumetric\+Cost\+Estimator\+::\+Volumetric\+Cost\+Estimator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_volumetric_cost_estimator_a1d3943123036c047a546bf9f8c55535a}{}\label{class_volumetric_cost_estimator_a1d3943123036c047a546bf9f8c55535a}
+Common constructor. \index{Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}!````~Volumetric\+Cost\+Estimator@{$\sim$\+Volumetric\+Cost\+Estimator}}
+\index{````~Volumetric\+Cost\+Estimator@{$\sim$\+Volumetric\+Cost\+Estimator}!Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{$\sim$\+Volumetric\+Cost\+Estimator()}{~VolumetricCostEstimator()}}]{\setlength{\rightskip}{0pt plus 5cm}Volumetric\+Cost\+Estimator\+::$\sim$\+Volumetric\+Cost\+Estimator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_volumetric_cost_estimator_a5ef83e9f4192bc4e358dfdb61fd4418e}{}\label{class_volumetric_cost_estimator_a5ef83e9f4192bc4e358dfdb61fd4418e}
+Common destructor. 
+
+\subsection{Member Function Documentation}
+\index{Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}!clone@{clone}}
+\index{clone@{clone}!Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{clone()}{clone()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Abstract\+Cost\+Estimator} $\ast$ Volumetric\+Cost\+Estimator\+::clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_volumetric_cost_estimator_a513b5fa164962f2761485aebf44072bf}{}\label{class_volumetric_cost_estimator_a513b5fa164962f2761485aebf44072bf}
+Clones the current estimator instance. \begin{DoxyReturn}{Returns}
+Cloned instance. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_cost_estimator_a928e53418b17eb68c443e2a68fe5cbcf}{Abstract\+Cost\+Estimator}.
+
+\index{Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}!compute\+Cost@{compute\+Cost}}
+\index{compute\+Cost@{compute\+Cost}!Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{compute\+Cost(\+Abstract\+Object\+C\+C\+O\+Tree $\ast$tree)}{computeCost(AbstractObjectCCOTree *tree)}}]{\setlength{\rightskip}{0pt plus 5cm}double Volumetric\+Cost\+Estimator\+::compute\+Cost (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\+Object\+C\+C\+O\+Tree} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_volumetric_cost_estimator_aca3637b77cc6657e4c5f916f09fd38e3}{}\label{class_volumetric_cost_estimator_aca3637b77cc6657e4c5f916f09fd38e3}
+Computes the functional cost of the given tree. 
+\begin{DoxyParams}{Parameters}
+{\em tree} & Tree at the current step. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Cost of the given tree. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_cost_estimator_a2be0c6cc4aa6a73110c75ad903af428e}{Abstract\+Cost\+Estimator}.
+
+\index{Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}!compute\+Tree\+Cost@{compute\+Tree\+Cost}}
+\index{compute\+Tree\+Cost@{compute\+Tree\+Cost}!Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{compute\+Tree\+Cost(\+Abstract\+Vascular\+Element $\ast$root)}{computeTreeCost(AbstractVascularElement *root)}}]{\setlength{\rightskip}{0pt plus 5cm}double Volumetric\+Cost\+Estimator\+::compute\+Tree\+Cost (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\+Vascular\+Element} $\ast$}]{root}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_volumetric_cost_estimator_a14ff0e932a5732dce0851e1279f42fb6}{}\label{class_volumetric_cost_estimator_a14ff0e932a5732dce0851e1279f42fb6}
+Computes the volume for the tree with root {\ttfamily root}. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Root of the tree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Volume of the tree. 
+\end{DoxyReturn}
+\index{Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}!previous\+State@{previous\+State}}
+\index{previous\+State@{previous\+State}!Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{previous\+State(\+Abstract\+Object\+C\+C\+O\+Tree $\ast$tree, Abstract\+Vascular\+Element $\ast$parent, point i\+New, point i\+Test, double d\+Lim)}{previousState(AbstractObjectCCOTree *tree, AbstractVascularElement *parent, point iNew, point iTest, double dLim)}}]{\setlength{\rightskip}{0pt plus 5cm}void Volumetric\+Cost\+Estimator\+::previous\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\+Object\+C\+C\+O\+Tree} $\ast$}]{tree, }
+\item[{{\bf Abstract\+Vascular\+Element} $\ast$}]{parent, }
+\item[{{\bf point}}]{i\+New, }
+\item[{{\bf point}}]{i\+Test, }
+\item[{double}]{d\+Lim}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_volumetric_cost_estimator_a0ff762e6a26e1c6937cc28e88d1dc24d}{}\label{class_volumetric_cost_estimator_a0ff762e6a26e1c6937cc28e88d1dc24d}
+Extracts information of the tree at the previous step. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Root of the tree at the previous step. \\
+\hline
+{\em parent} & Vascular element where the new vessel will be connected. \\
+\hline
+{\em i\+New} & Distal position of the new vessel. \\
+\hline
+{\em i\+Test} & Proximal position of the new vessel. \\
+\hline
+{\em d\+Lim} & Minimum radius distance from the new vessel to the tree. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_abstract_cost_estimator_a8a806c3e4537c6d4acc428b029fd60de}{Abstract\+Cost\+Estimator}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}!previous\+Volume@{previous\+Volume}}
+\index{previous\+Volume@{previous\+Volume}!Volumetric\+Cost\+Estimator@{Volumetric\+Cost\+Estimator}}
+\subsubsection[{\texorpdfstring{previous\+Volume}{previousVolume}}]{\setlength{\rightskip}{0pt plus 5cm}double Volumetric\+Cost\+Estimator\+::previous\+Volume\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_volumetric_cost_estimator_a2671d960beddc83b44d1a8f65866e905}{}\label{class_volumetric_cost_estimator_a2671d960beddc83b44d1a8f65866e905}
+Volume at the previous step. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/tree/Volumetric\+Cost\+Estimator.\+h\item 
+structures/tree/Volumetric\+Cost\+Estimator.\+cpp\end{DoxyCompactItemize}

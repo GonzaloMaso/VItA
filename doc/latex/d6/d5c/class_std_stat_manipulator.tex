@@ -1,0 +1,73 @@
+\hypertarget{class_std_stat_manipulator}{}\section{Std\+Stat\+Manipulator Class Reference}
+\label{class_std_stat_manipulator}\index{Std\+Stat\+Manipulator@{Std\+Stat\+Manipulator}}
+
+
+{\ttfamily \#include $<$Std\+Stat\+Manipulator.\+h$>$}
+
+Inheritance diagram for Std\+Stat\+Manipulator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d6/d5c/class_std_stat_manipulator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_std_stat_manipulator_a9964b2c7f0912fec9f0671196594eafc}{Std\+Stat\+Manipulator} ()
+\item 
+double \hyperlink{class_std_stat_manipulator_a8b09c42b54d14322e805d153d8dfc028}{compute} (vector$<$ \hyperlink{structvessel}{vessel} $\ast$ $>$ vessels, \hyperlink{class_vessel_handler_a6cc775e9a5bcbe69ef381f56b52982e7}{Vessel\+Handler\+::\+A\+T\+T\+R\+I\+B\+U\+TE} att)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_mean_stat_manipulator}{Mean\+Stat\+Manipulator} $\ast$ \hyperlink{class_std_stat_manipulator_aa14f0467d5a1ce40bfd78b3d39db54a1}{mean\+Manipulator}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Computes the standard deviation value of a specific attribute for an array of vessels. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Std\+Stat\+Manipulator@{Std\+Stat\+Manipulator}!Std\+Stat\+Manipulator@{Std\+Stat\+Manipulator}}
+\index{Std\+Stat\+Manipulator@{Std\+Stat\+Manipulator}!Std\+Stat\+Manipulator@{Std\+Stat\+Manipulator}}
+\subsubsection[{\texorpdfstring{Std\+Stat\+Manipulator()}{StdStatManipulator()}}]{\setlength{\rightskip}{0pt plus 5cm}Std\+Stat\+Manipulator\+::\+Std\+Stat\+Manipulator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_std_stat_manipulator_a9964b2c7f0912fec9f0671196594eafc}{}\label{class_std_stat_manipulator_a9964b2c7f0912fec9f0671196594eafc}
+Constructor. 
+
+\subsection{Member Function Documentation}
+\index{Std\+Stat\+Manipulator@{Std\+Stat\+Manipulator}!compute@{compute}}
+\index{compute@{compute}!Std\+Stat\+Manipulator@{Std\+Stat\+Manipulator}}
+\subsubsection[{\texorpdfstring{compute(vector$<$ vessel $\ast$ $>$ vessels, Vessel\+Handler\+::\+A\+T\+T\+R\+I\+B\+U\+T\+E att)}{compute(vector< vessel * > vessels, VesselHandler::ATTRIBUTE att)}}]{\setlength{\rightskip}{0pt plus 5cm}double Std\+Stat\+Manipulator\+::compute (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf vessel} $\ast$ $>$}]{vessels, }
+\item[{{\bf Vessel\+Handler\+::\+A\+T\+T\+R\+I\+B\+U\+TE}}]{att}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_std_stat_manipulator_a8b09c42b54d14322e805d153d8dfc028}{}\label{class_std_stat_manipulator_a8b09c42b54d14322e805d153d8dfc028}
+Computes the standard deviation of the attribute of interest among all {\ttfamily vessels}. 
+\begin{DoxyParams}{Parameters}
+{\em vessels} & Array of vessels from which the statistical function is computed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Standard deviation value. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_stat_manipulator_a8ae1dd190a2c85ff4e219a48f92763b7}{Abstract\+Stat\+Manipulator}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Std\+Stat\+Manipulator@{Std\+Stat\+Manipulator}!mean\+Manipulator@{mean\+Manipulator}}
+\index{mean\+Manipulator@{mean\+Manipulator}!Std\+Stat\+Manipulator@{Std\+Stat\+Manipulator}}
+\subsubsection[{\texorpdfstring{mean\+Manipulator}{meanManipulator}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mean\+Stat\+Manipulator}$\ast$ Std\+Stat\+Manipulator\+::mean\+Manipulator\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_std_stat_manipulator_aa14f0467d5a1ce40bfd78b3d39db54a1}{}\label{class_std_stat_manipulator_aa14f0467d5a1ce40bfd78b3d39db54a1}
+Mean statistical manipulator used to compute the mean internally. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+stats/Std\+Stat\+Manipulator.\+h\item 
+stats/Std\+Stat\+Manipulator.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,76 @@
+\hypertarget{class_vessel_handler}{}\section{Vessel\+Handler Class Reference}
+\label{class_vessel_handler}\index{Vessel\+Handler@{Vessel\+Handler}}
+
+
+{\ttfamily \#include $<$Vessel\+Handler.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_vessel_handler_a6cc775e9a5bcbe69ef381f56b52982e7}{A\+T\+T\+R\+I\+B\+U\+TE} \{ \\*
+{\bfseries D\+I\+A\+M\+E\+T\+ER}, 
+{\bfseries R\+A\+D\+I\+US}, 
+{\bfseries F\+L\+OW}, 
+{\bfseries P\+R\+E\+S\+S\+U\+RE}, 
+\\*
+{\bfseries R\+E\+S\+I\+S\+T\+A\+N\+CE}, 
+{\bfseries L\+E\+N\+G\+TH}, 
+{\bfseries L\+E\+V\+EL}, 
+{\bfseries B\+E\+TA}, 
+\\*
+{\bfseries V\+O\+L\+U\+ME}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_vessel_handler_afb4f79fe57971a6c27f70343bffe6104}{Vessel\+Handler} ()
+\item 
+double \hyperlink{class_vessel_handler_ab372d746a0206ef2660970d0666b7633}{get\+Vessel\+Attribute} (\hyperlink{structvessel}{vessel} $\ast$v, \hyperlink{class_vessel_handler_a6cc775e9a5bcbe69ef381f56b52982e7}{A\+T\+T\+R\+I\+B\+U\+TE} attribute)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Adapter class that allows data extraction from vessel structure by attribute in a dynamic manner. 
+
+\subsection{Member Enumeration Documentation}
+\index{Vessel\+Handler@{Vessel\+Handler}!A\+T\+T\+R\+I\+B\+U\+TE@{A\+T\+T\+R\+I\+B\+U\+TE}}
+\index{A\+T\+T\+R\+I\+B\+U\+TE@{A\+T\+T\+R\+I\+B\+U\+TE}!Vessel\+Handler@{Vessel\+Handler}}
+\subsubsection[{\texorpdfstring{A\+T\+T\+R\+I\+B\+U\+TE}{ATTRIBUTE}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Vessel\+Handler\+::\+A\+T\+T\+R\+I\+B\+U\+TE}}\hypertarget{class_vessel_handler_a6cc775e9a5bcbe69ef381f56b52982e7}{}\label{class_vessel_handler_a6cc775e9a5bcbe69ef381f56b52982e7}
+Fields of vessel structure. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Vessel\+Handler@{Vessel\+Handler}!Vessel\+Handler@{Vessel\+Handler}}
+\index{Vessel\+Handler@{Vessel\+Handler}!Vessel\+Handler@{Vessel\+Handler}}
+\subsubsection[{\texorpdfstring{Vessel\+Handler()}{VesselHandler()}}]{\setlength{\rightskip}{0pt plus 5cm}Vessel\+Handler\+::\+Vessel\+Handler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_vessel_handler_afb4f79fe57971a6c27f70343bffe6104}{}\label{class_vessel_handler_afb4f79fe57971a6c27f70343bffe6104}
+Dummy constructor. 
+
+\subsection{Member Function Documentation}
+\index{Vessel\+Handler@{Vessel\+Handler}!get\+Vessel\+Attribute@{get\+Vessel\+Attribute}}
+\index{get\+Vessel\+Attribute@{get\+Vessel\+Attribute}!Vessel\+Handler@{Vessel\+Handler}}
+\subsubsection[{\texorpdfstring{get\+Vessel\+Attribute(vessel $\ast$v, A\+T\+T\+R\+I\+B\+U\+T\+E attribute)}{getVesselAttribute(vessel *v, ATTRIBUTE attribute)}}]{\setlength{\rightskip}{0pt plus 5cm}double Vessel\+Handler\+::get\+Vessel\+Attribute (
+\begin{DoxyParamCaption}
+\item[{{\bf vessel} $\ast$}]{v, }
+\item[{{\bf A\+T\+T\+R\+I\+B\+U\+TE}}]{attribute}
+\end{DoxyParamCaption}
+)}\hypertarget{class_vessel_handler_ab372d746a0206ef2660970d0666b7633}{}\label{class_vessel_handler_ab372d746a0206ef2660970d0666b7633}
+Returns the specific {\ttfamily attribute} of the {\ttfamily v} vessel. 
+\begin{DoxyParams}{Parameters}
+{\em v} & Vessel of interest. \\
+\hline
+{\em attribute} & Field of interest. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value of the field {\ttfamily attribute} in vessel {\ttfamily v}. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+stats/Vessel\+Handler.\+h\item 
+stats/Vessel\+Handler.\+cpp\end{DoxyCompactItemize}

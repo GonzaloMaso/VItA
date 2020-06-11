@@ -1,0 +1,116 @@
+\hypertarget{class_normal_distribution_generator}{}\section{Normal\+Distribution\+Generator Class Reference}
+\label{class_normal_distribution_generator}\index{Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}}
+Inheritance diagram for Normal\+Distribution\+Generator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{df/d2c/class_normal_distribution_generator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_normal_distribution_generator_af87979852ba8370cdb2d368077246038}{Normal\+Distribution\+Generator} (vector$<$ double $>$ \hyperlink{class_normal_distribution_generator_a64b8ae4a574846641023d954e3143ce9}{mean}, vector$<$ double $>$ \hyperlink{class_normal_distribution_generator_ab41e9da41497d0f6491064f4b27f5123}{std})
+\item 
+virtual \hyperlink{class_normal_distribution_generator_ac52595dc2f9f25083e8a6b6878df3d5d}{$\sim$\+Normal\+Distribution\+Generator} ()
+\item 
+virtual void \hyperlink{class_normal_distribution_generator_a858dfdfc16ab4367bf41ed76831eae45}{initialize} (int seed, double $\ast$\hyperlink{class_distribution_generator_abbb670b1d48a4820559097b85bf6ee2d}{bounding\+Box})
+\item 
+vector$<$ \hyperlink{structpoint}{point} $>$ \hyperlink{class_normal_distribution_generator_abad3d89c150cf60744bab34dba3b3367}{get\+N\+Points} (int n)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+normal\+\_\+distribution$<$ double $>$ \hyperlink{class_normal_distribution_generator_aec239e19cb64a14f812b4d70bb1d3c38}{distX}
+\item 
+normal\+\_\+distribution$<$ double $>$ \hyperlink{class_normal_distribution_generator_aeb225a80caf342a1cf198a8550fecd7c}{distY}
+\item 
+normal\+\_\+distribution$<$ double $>$ \hyperlink{class_normal_distribution_generator_a266178f74bb9983818a05edec742717e}{distZ}
+\item 
+vector$<$ double $>$ \hyperlink{class_normal_distribution_generator_a64b8ae4a574846641023d954e3143ce9}{mean}
+\item 
+vector$<$ double $>$ \hyperlink{class_normal_distribution_generator_ab41e9da41497d0f6491064f4b27f5123}{std}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}!Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}}
+\index{Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}!Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{Normal\+Distribution\+Generator(vector$<$ double $>$ mean, vector$<$ double $>$ std)}{NormalDistributionGenerator(vector< double > mean, vector< double > std)}}]{\setlength{\rightskip}{0pt plus 5cm}Normal\+Distribution\+Generator\+::\+Normal\+Distribution\+Generator (
+\begin{DoxyParamCaption}
+\item[{vector$<$ double $>$}]{mean, }
+\item[{vector$<$ double $>$}]{std}
+\end{DoxyParamCaption}
+)}\hypertarget{class_normal_distribution_generator_af87979852ba8370cdb2d368077246038}{}\label{class_normal_distribution_generator_af87979852ba8370cdb2d368077246038}
+Constructor. 
+\begin{DoxyParams}{Parameters}
+{\em mean} & Three component vector containing the means for each point component. \\
+\hline
+{\em std} & Three component vector containing the standard deviation for each point component. \\
+\hline
+\end{DoxyParams}
+\index{Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}!````~Normal\+Distribution\+Generator@{$\sim$\+Normal\+Distribution\+Generator}}
+\index{````~Normal\+Distribution\+Generator@{$\sim$\+Normal\+Distribution\+Generator}!Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{$\sim$\+Normal\+Distribution\+Generator()}{~NormalDistributionGenerator()}}]{\setlength{\rightskip}{0pt plus 5cm}Normal\+Distribution\+Generator\+::$\sim$\+Normal\+Distribution\+Generator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_normal_distribution_generator_ac52595dc2f9f25083e8a6b6878df3d5d}{}\label{class_normal_distribution_generator_ac52595dc2f9f25083e8a6b6878df3d5d}
+Destructor. 
+
+\subsection{Member Function Documentation}
+\index{Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}!get\+N\+Points@{get\+N\+Points}}
+\index{get\+N\+Points@{get\+N\+Points}!Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{get\+N\+Points(int n)}{getNPoints(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf point} $>$ Normal\+Distribution\+Generator\+::get\+N\+Points (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_normal_distribution_generator_abad3d89c150cf60744bab34dba3b3367}{}\label{class_normal_distribution_generator_abad3d89c150cf60744bab34dba3b3367}
+Return a vector of {\ttfamily n} points of the distribution. 
+\begin{DoxyParams}{Parameters}
+{\em n} & Amount of output points. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of distribution points. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_distribution_generator_a777dcdfd3dee93cfcbcc00969f42ca29}{Distribution\+Generator}.
+
+\index{Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}!initialize@{initialize}}
+\index{initialize@{initialize}!Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{initialize(int seed, double $\ast$bounding\+Box)}{initialize(int seed, double *boundingBox)}}]{\setlength{\rightskip}{0pt plus 5cm}void Normal\+Distribution\+Generator\+::initialize (
+\begin{DoxyParamCaption}
+\item[{int}]{seed, }
+\item[{double $\ast$}]{bounding\+Box}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_normal_distribution_generator_a858dfdfc16ab4367bf41ed76831eae45}{}\label{class_normal_distribution_generator_a858dfdfc16ab4367bf41ed76831eae45}
+Initializer of the generator. Execute it before any getter call is performed. 
+
+Reimplemented from \hyperlink{class_distribution_generator_ae4fa2d599942539e4b1971b0a8d5f8ba}{Distribution\+Generator}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}!distX@{distX}}
+\index{distX@{distX}!Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{distX}{distX}}]{\setlength{\rightskip}{0pt plus 5cm}normal\+\_\+distribution$<$double$>$ Normal\+Distribution\+Generator\+::distX\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_normal_distribution_generator_aec239e19cb64a14f812b4d70bb1d3c38}{}\label{class_normal_distribution_generator_aec239e19cb64a14f812b4d70bb1d3c38}
+Generator for X component \index{Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}!distY@{distY}}
+\index{distY@{distY}!Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{distY}{distY}}]{\setlength{\rightskip}{0pt plus 5cm}normal\+\_\+distribution$<$double$>$ Normal\+Distribution\+Generator\+::distY\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_normal_distribution_generator_aeb225a80caf342a1cf198a8550fecd7c}{}\label{class_normal_distribution_generator_aeb225a80caf342a1cf198a8550fecd7c}
+Generator for Y component \index{Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}!distZ@{distZ}}
+\index{distZ@{distZ}!Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{distZ}{distZ}}]{\setlength{\rightskip}{0pt plus 5cm}normal\+\_\+distribution$<$double$>$ Normal\+Distribution\+Generator\+::distZ\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_normal_distribution_generator_a266178f74bb9983818a05edec742717e}{}\label{class_normal_distribution_generator_a266178f74bb9983818a05edec742717e}
+Generator for Z component \index{Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}!mean@{mean}}
+\index{mean@{mean}!Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{mean}{mean}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ Normal\+Distribution\+Generator\+::mean\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_normal_distribution_generator_a64b8ae4a574846641023d954e3143ce9}{}\label{class_normal_distribution_generator_a64b8ae4a574846641023d954e3143ce9}
+Distribution mean \index{Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}!std@{std}}
+\index{std@{std}!Normal\+Distribution\+Generator@{Normal\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{std}{std}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ Normal\+Distribution\+Generator\+::std\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_normal_distribution_generator_ab41e9da41497d0f6491064f4b27f5123}{}\label{class_normal_distribution_generator_ab41e9da41497d0f6491064f4b27f5123}
+Distribution std 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/domain/Normal\+Distribution\+Generator.\+h\item 
+structures/domain/Normal\+Distribution\+Generator.\+cpp\end{DoxyCompactItemize}

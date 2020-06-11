@@ -1,0 +1,156 @@
+\hypertarget{class_tree_index_creator}{}\section{Tree\+Index\+Creator Class Reference}
+\label{class_tree_index_creator}\index{Tree\+Index\+Creator@{Tree\+Index\+Creator}}
+
+
+{\ttfamily \#include $<$Tree\+Index\+Creator.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_tree_index_creator_ad1a0863cd227cbe780c3effc04b88e23}{Tree\+Index\+Creator} (\hyperlink{class_abstract_structured_c_c_o_tree}{Abstract\+Structured\+C\+C\+O\+Tree} $\ast$\hyperlink{class_tree_index_creator_ac3046a68c0fee8e750fecb785d47b08e}{tree})
+\item 
+vector$<$ \hyperlink{structvessel}{vessel} $\ast$ $>$ \hyperlink{class_tree_index_creator_aaa96f17bfc82043b0ab3f78f9bdce9b5}{get\+Terminals} ()
+\item 
+vector$<$ \hyperlink{structvessel}{vessel} $\ast$ $>$ \hyperlink{class_tree_index_creator_aad7cac2dec20987a7099b1e62e5d89e9}{get\+All\+Segments} ()
+\item 
+vector$<$ vector$<$ \hyperlink{structvessel}{vessel} $\ast$ $>$ $>$ \hyperlink{class_tree_index_creator_a19b04a2a699a2dc613c7a8c1aef204b9}{get\+Segments\+By\+Level} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_tree_index_creator_abb5e5caf92646f7b5ea4208ac8cec91c}{extract\+Terminals} (\hyperlink{structvessel}{vessel} $\ast$root, vector$<$ \hyperlink{structvessel}{vessel} $\ast$ $>$ $\ast$extracted\+Terminals)
+\item 
+void \hyperlink{class_tree_index_creator_a24896e87becf6b07f62e7335bf15a527}{extract\+All\+Segments} (\hyperlink{structvessel}{vessel} $\ast$root, vector$<$ \hyperlink{structvessel}{vessel} $\ast$ $>$ $\ast$extracted\+Terminals)
+\item 
+void \hyperlink{class_tree_index_creator_ac313beab57c3f74ae4ff4215950551d9}{extract\+Segments\+By\+Level} (\hyperlink{structvessel}{vessel} $\ast$root, vector$<$ vector$<$ \hyperlink{structvessel}{vessel} $\ast$ $>$ $>$ $\ast$extracted\+Terminals, unsigned level)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_abstract_structured_c_c_o_tree}{Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ \hyperlink{class_tree_index_creator_ac3046a68c0fee8e750fecb785d47b08e}{tree}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Creates indexes for a given tree to ease the manipulation of its segments. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Tree\+Index\+Creator@{Tree\+Index\+Creator}!Tree\+Index\+Creator@{Tree\+Index\+Creator}}
+\index{Tree\+Index\+Creator@{Tree\+Index\+Creator}!Tree\+Index\+Creator@{Tree\+Index\+Creator}}
+\subsubsection[{\texorpdfstring{Tree\+Index\+Creator(\+Abstract\+Structured\+C\+C\+O\+Tree $\ast$tree)}{TreeIndexCreator(AbstractStructuredCCOTree *tree)}}]{\setlength{\rightskip}{0pt plus 5cm}Tree\+Index\+Creator\+::\+Tree\+Index\+Creator (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\+Structured\+C\+C\+O\+Tree} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)}\hypertarget{class_tree_index_creator_ad1a0863cd227cbe780c3effc04b88e23}{}\label{class_tree_index_creator_ad1a0863cd227cbe780c3effc04b88e23}
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em tree} & Tree to index.\\
+\hline
+\end{DoxyParams}
+Creates an instance associated with {\ttfamily tree} . 
+\begin{DoxyParams}{Parameters}
+{\em tree} & Instance associated with the index creator. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Tree\+Index\+Creator@{Tree\+Index\+Creator}!extract\+All\+Segments@{extract\+All\+Segments}}
+\index{extract\+All\+Segments@{extract\+All\+Segments}!Tree\+Index\+Creator@{Tree\+Index\+Creator}}
+\subsubsection[{\texorpdfstring{extract\+All\+Segments(vessel $\ast$root, vector$<$ vessel $\ast$ $>$ $\ast$extracted\+Terminals)}{extractAllSegments(vessel *root, vector< vessel * > *extractedTerminals)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tree\+Index\+Creator\+::extract\+All\+Segments (
+\begin{DoxyParamCaption}
+\item[{{\bf vessel} $\ast$}]{root, }
+\item[{vector$<$ {\bf vessel} $\ast$ $>$ $\ast$}]{extracted\+Segments}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_tree_index_creator_a24896e87becf6b07f62e7335bf15a527}{}\label{class_tree_index_creator_a24896e87becf6b07f62e7335bf15a527}
+Recursively in pre-\/order, adds all tree segments to the vector {\ttfamily extracted\+Segments}. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Tree root. \\
+\hline
+{\em extracted\+Segments} & Extracted segments. \\
+\hline
+\end{DoxyParams}
+\index{Tree\+Index\+Creator@{Tree\+Index\+Creator}!extract\+Segments\+By\+Level@{extract\+Segments\+By\+Level}}
+\index{extract\+Segments\+By\+Level@{extract\+Segments\+By\+Level}!Tree\+Index\+Creator@{Tree\+Index\+Creator}}
+\subsubsection[{\texorpdfstring{extract\+Segments\+By\+Level(vessel $\ast$root, vector$<$ vector$<$ vessel $\ast$ $>$ $>$ $\ast$extracted\+Terminals, unsigned level)}{extractSegmentsByLevel(vessel *root, vector< vector< vessel * > > *extractedTerminals, unsigned level)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tree\+Index\+Creator\+::extract\+Segments\+By\+Level (
+\begin{DoxyParamCaption}
+\item[{{\bf vessel} $\ast$}]{root, }
+\item[{vector$<$ vector$<$ {\bf vessel} $\ast$ $>$ $>$ $\ast$}]{extracted\+Segments, }
+\item[{unsigned}]{level}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_tree_index_creator_ac313beab57c3f74ae4ff4215950551d9}{}\label{class_tree_index_creator_ac313beab57c3f74ae4ff4215950551d9}
+Recursively in pre-\/order, adds all tree segments to the vector {\ttfamily extracted\+Segments} in the entry corresponding to their bifurcation level. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Tree root. \\
+\hline
+{\em extracted\+Segments} & Extracted segments. \\
+\hline
+{\em level} & Current deepness level in the tree. \\
+\hline
+\end{DoxyParams}
+\index{Tree\+Index\+Creator@{Tree\+Index\+Creator}!extract\+Terminals@{extract\+Terminals}}
+\index{extract\+Terminals@{extract\+Terminals}!Tree\+Index\+Creator@{Tree\+Index\+Creator}}
+\subsubsection[{\texorpdfstring{extract\+Terminals(vessel $\ast$root, vector$<$ vessel $\ast$ $>$ $\ast$extracted\+Terminals)}{extractTerminals(vessel *root, vector< vessel * > *extractedTerminals)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tree\+Index\+Creator\+::extract\+Terminals (
+\begin{DoxyParamCaption}
+\item[{{\bf vessel} $\ast$}]{root, }
+\item[{vector$<$ {\bf vessel} $\ast$ $>$ $\ast$}]{extracted\+Terminals}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_tree_index_creator_abb5e5caf92646f7b5ea4208ac8cec91c}{}\label{class_tree_index_creator_abb5e5caf92646f7b5ea4208ac8cec91c}
+Recursively adds the tree terminals to the given vector {\ttfamily extracted\+Terminals}. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Tree root. \\
+\hline
+{\em extracted\+Terminals} & Extracted terminals. \\
+\hline
+\end{DoxyParams}
+\index{Tree\+Index\+Creator@{Tree\+Index\+Creator}!get\+All\+Segments@{get\+All\+Segments}}
+\index{get\+All\+Segments@{get\+All\+Segments}!Tree\+Index\+Creator@{Tree\+Index\+Creator}}
+\subsubsection[{\texorpdfstring{get\+All\+Segments()}{getAllSegments()}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf vessel} $\ast$ $>$ Tree\+Index\+Creator\+::get\+All\+Segments (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_tree_index_creator_aad7cac2dec20987a7099b1e62e5d89e9}{}\label{class_tree_index_creator_aad7cac2dec20987a7099b1e62e5d89e9}
+Returns all segments of {\ttfamily tree}. \begin{DoxyReturn}{Returns}
+Vector of segments.
+\end{DoxyReturn}
+Returns a vector with all the tree segments. \begin{DoxyReturn}{Returns}
+vector with all the tree segments. 
+\end{DoxyReturn}
+\index{Tree\+Index\+Creator@{Tree\+Index\+Creator}!get\+Segments\+By\+Level@{get\+Segments\+By\+Level}}
+\index{get\+Segments\+By\+Level@{get\+Segments\+By\+Level}!Tree\+Index\+Creator@{Tree\+Index\+Creator}}
+\subsubsection[{\texorpdfstring{get\+Segments\+By\+Level()}{getSegmentsByLevel()}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector$<$ {\bf vessel} $\ast$ $>$ $>$ Tree\+Index\+Creator\+::get\+Segments\+By\+Level (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_tree_index_creator_a19b04a2a699a2dc613c7a8c1aef204b9}{}\label{class_tree_index_creator_a19b04a2a699a2dc613c7a8c1aef204b9}
+Returns a vector for each tree bifurcation level, containing the segments of {\ttfamily tree} for such level. \begin{DoxyReturn}{Returns}
+Vector of vectors of segments.
+\end{DoxyReturn}
+Returns a vector for which the i-\/th entry contains a vector with all segments at the i-\/th tree level. \begin{DoxyReturn}{Returns}
+vector for which the i-\/th entry contains a vector with all segments at the i-\/th tree level. 
+\end{DoxyReturn}
+\index{Tree\+Index\+Creator@{Tree\+Index\+Creator}!get\+Terminals@{get\+Terminals}}
+\index{get\+Terminals@{get\+Terminals}!Tree\+Index\+Creator@{Tree\+Index\+Creator}}
+\subsubsection[{\texorpdfstring{get\+Terminals()}{getTerminals()}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf vessel} $\ast$ $>$ Tree\+Index\+Creator\+::get\+Terminals (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_tree_index_creator_aaa96f17bfc82043b0ab3f78f9bdce9b5}{}\label{class_tree_index_creator_aaa96f17bfc82043b0ab3f78f9bdce9b5}
+Returns all terminal segments of {\ttfamily tree}. \begin{DoxyReturn}{Returns}
+Vector of terminal segments.
+\end{DoxyReturn}
+Returns a vector with all the tree terminals. \begin{DoxyReturn}{Returns}
+vector with all the tree terminals. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Tree\+Index\+Creator@{Tree\+Index\+Creator}!tree@{tree}}
+\index{tree@{tree}!Tree\+Index\+Creator@{Tree\+Index\+Creator}}
+\subsubsection[{\texorpdfstring{tree}{tree}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Abstract\+Structured\+C\+C\+O\+Tree}$\ast$ Tree\+Index\+Creator\+::tree\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_tree_index_creator_ac3046a68c0fee8e750fecb785d47b08e}{}\label{class_tree_index_creator_ac3046a68c0fee8e750fecb785d47b08e}
+Tree for which the indexes are created. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+stats/Tree\+Index\+Creator.\+h\item 
+stats/Tree\+Index\+Creator.\+cpp\end{DoxyCompactItemize}

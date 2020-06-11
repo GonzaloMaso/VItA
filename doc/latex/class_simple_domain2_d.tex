@@ -1,0 +1,105 @@
+\hypertarget{class_simple_domain2_d}{}\section{Simple\+Domain2D Class Reference}
+\label{class_simple_domain2_d}\index{Simple\+Domain2D@{Simple\+Domain2D}}
+
+
+{\ttfamily \#include $<$Simple\+Domain2\+D.\+h$>$}
+
+Inheritance diagram for Simple\+Domain2D\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_simple_domain2_d}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_ab3dbf074d26b0c2eff95b1193fd391d6}\label{class_simple_domain2_d_ab3dbf074d26b0c2eff95b1193fd391d6}} 
+{\bfseries Simple\+Domain2D} (string filename)
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_a7ca5e6511dc12cc39374d75a8170267a}\label{class_simple_domain2_d_a7ca5e6511dc12cc39374d75a8170267a}} 
+{\bfseries Simple\+Domain2D} (string filename, int n\+Draw)
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_a4c1bd4f8795cab0aaa3a8290f841c1d2}\label{class_simple_domain2_d_a4c1bd4f8795cab0aaa3a8290f841c1d2}} 
+{\bfseries Simple\+Domain2D} (string filename, int n\+Draw, int seed)
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_a18706cdbe4f61a71eceb7257fd4ec6dd}\label{class_simple_domain2_d_a18706cdbe4f61a71eceb7257fd4ec6dd}} 
+int {\bfseries is\+Segment\+Inside} (\mbox{\hyperlink{structpoint}{point}} xs, \mbox{\hyperlink{structpoint}{point}} xf)
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_a5bf4df64fe80dae1e394b2f2c73c3d05}\label{class_simple_domain2_d_a5bf4df64fe80dae1e394b2f2c73c3d05}} 
+double {\bfseries get\+Characteristic\+Length} ()
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_a8541d458432cb0952245e1b09310043c}\label{class_simple_domain2_d_a8541d458432cb0952245e1b09310043c}} 
+double {\bfseries get\+D\+Lim} (int n\+Vessels, double factor)
+\item 
+double $\ast$ \mbox{\hyperlink{class_simple_domain2_d_a63d4331fa6256143607785bef3c83edf}{get\+Local\+Neighborhood}} (\mbox{\hyperlink{structpoint}{point}} p, int n\+Vessels)
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_ad5e1ba1529fd8088f64af603cc5c18a3}\label{class_simple_domain2_d_ad5e1ba1529fd8088f64af603cc5c18a3}} 
+double {\bfseries get\+Size} ()
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_a8b19e2fa69a0f13813b0296f270f11e9}\label{class_simple_domain2_d_a8b19e2fa69a0f13813b0296f270f11e9}} 
+virtual \mbox{\hyperlink{structpoint}{point}} {\bfseries get\+Random\+Point} ()
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_acd933370c22531a7aaabaadc7e4419f7}\label{class_simple_domain2_d_acd933370c22531a7aaabaadc7e4419f7}} 
+vtk\+Smart\+Pointer$<$ vtk\+Cell\+Locator $>$ \& {\bfseries get\+Locator} ()
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_a15b519453137710f0c8897a4eda7c25d}\label{class_simple_domain2_d_a15b519453137710f0c8897a4eda7c25d}} 
+int {\bfseries get\+Draw} ()
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_a08eddf131c1ed43cf7cc34e347fd372f}\label{class_simple_domain2_d_a08eddf131c1ed43cf7cc34e347fd372f}} 
+deque$<$ \mbox{\hyperlink{structpoint}{point}} $>$ \& {\bfseries get\+Random\+Inner\+Points} ()
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_a0c4505e70d9530586bcb0ab943bb9a9a}\label{class_simple_domain2_d_a0c4505e70d9530586bcb0ab943bb9a9a}} 
+vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ \& {\bfseries get\+Vtk\+Geometry} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_aeeb59155f6dec3e57e515c4b3a703e08}\label{class_simple_domain2_d_aeeb59155f6dec3e57e515c4b3a703e08}} 
+void {\bfseries generate\+Random\+Points} ()
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_af1cab33fce288f46723cb7860f7ed8bb}\label{class_simple_domain2_d_af1cab33fce288f46723cb7860f7ed8bb}} 
+void {\bfseries remove\+Random\+Outer\+Points\+Serial} ()
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_af4f587398d458be9dfb09e47abfc3ad9}\label{class_simple_domain2_d_af4f587398d458be9dfb09e47abfc3ad9}} 
+void {\bfseries remove\+Random\+Outer\+Points} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_simple_domain2_d_a3baccded48c6c2d227c86938639c7e3b}\label{class_simple_domain2_d_a3baccded48c6c2d227c86938639c7e3b}} 
+deque$<$ \mbox{\hyperlink{structpoint}{point}} $>$ {\bfseries random\+Inner\+Points}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Mesh that describes a domain for the C\+C\+O\+Tree. It deals with geometrical issues such as identify inner/outer points, resolver area or volume computation, generation of inner random points or any field modeling across the domain (e.\+g. V\+E\+GF). 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_simple_domain2_d_a63d4331fa6256143607785bef3c83edf}\label{class_simple_domain2_d_a63d4331fa6256143607785bef3c83edf}} 
+\index{Simple\+Domain2D@{Simple\+Domain2D}!get\+Local\+Neighborhood@{get\+Local\+Neighborhood}}
+\index{get\+Local\+Neighborhood@{get\+Local\+Neighborhood}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection{\texorpdfstring{get\+Local\+Neighborhood()}{getLocalNeighborhood()}}
+{\footnotesize\ttfamily double $\ast$ Simple\+Domain2\+D\+::get\+Local\+Neighborhood (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{p,  }\item[{int}]{n\+Vessels }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the bounding box that enclose the perfusion volume of the p scaled times factor. 
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+{\em n\+Vessels} & \\
+\hline
+{\em factor} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/domain/Simple\+Domain2\+D.\+h\item 
+structures/domain/Simple\+Domain2\+D.\+cpp\end{DoxyCompactItemize}

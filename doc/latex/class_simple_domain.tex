@@ -1,0 +1,102 @@
+\hypertarget{class_simple_domain}{}\section{Simple\+Domain Class Reference}
+\label{class_simple_domain}\index{Simple\+Domain@{Simple\+Domain}}
+
+
+{\ttfamily \#include $<$Simple\+Domain.\+h$>$}
+
+Inheritance diagram for Simple\+Domain\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_simple_domain}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_simple_domain_a75ad930e0927e7472834561bdde58a0f}\label{class_simple_domain_a75ad930e0927e7472834561bdde58a0f}} 
+{\bfseries Simple\+Domain} (string filename)
+\item 
+\mbox{\Hypertarget{class_simple_domain_aa98ca68b90e658ea2da4b7f097b2a089}\label{class_simple_domain_aa98ca68b90e658ea2da4b7f097b2a089}} 
+{\bfseries Simple\+Domain} (string filename, int n\+Draw)
+\item 
+\mbox{\Hypertarget{class_simple_domain_a1bb1a2b9e766a230f7075784765db93d}\label{class_simple_domain_a1bb1a2b9e766a230f7075784765db93d}} 
+{\bfseries Simple\+Domain} (string filename, int n\+Draw, int seed)
+\item 
+\mbox{\Hypertarget{class_simple_domain_ab1e60afe4302149098b11631d20aebb7}\label{class_simple_domain_ab1e60afe4302149098b11631d20aebb7}} 
+int {\bfseries is\+Segment\+Inside} (\mbox{\hyperlink{structpoint}{point}} xs, \mbox{\hyperlink{structpoint}{point}} xf)
+\item 
+\mbox{\Hypertarget{class_simple_domain_a2a7e2919f633368b85aa3e9cfd0e57ab}\label{class_simple_domain_a2a7e2919f633368b85aa3e9cfd0e57ab}} 
+double {\bfseries get\+Characteristic\+Length} ()
+\item 
+\mbox{\Hypertarget{class_simple_domain_a1a893631be7a86959363ac338d47d155}\label{class_simple_domain_a1a893631be7a86959363ac338d47d155}} 
+double {\bfseries get\+D\+Lim} (int n\+Vessels, double factor)
+\item 
+double $\ast$ \mbox{\hyperlink{class_simple_domain_ab15fbbfdc57f70582355bb25c6a4bec6}{get\+Local\+Neighborhood}} (\mbox{\hyperlink{structpoint}{point}} p, int n\+Vessels)
+\item 
+\mbox{\Hypertarget{class_simple_domain_a0a05345c81234a3e616447a16e9150c0}\label{class_simple_domain_a0a05345c81234a3e616447a16e9150c0}} 
+double {\bfseries get\+Size} ()
+\item 
+\mbox{\Hypertarget{class_simple_domain_afcf98b009584217d8ab03e0dbfa86839}\label{class_simple_domain_afcf98b009584217d8ab03e0dbfa86839}} 
+virtual \mbox{\hyperlink{structpoint}{point}} {\bfseries get\+Random\+Point} ()
+\item 
+\mbox{\Hypertarget{class_simple_domain_aff393038753eb445c2acc416fe72910b}\label{class_simple_domain_aff393038753eb445c2acc416fe72910b}} 
+vtk\+Smart\+Pointer$<$ vtk\+Cell\+Locator $>$ \& {\bfseries get\+Locator} ()
+\item 
+\mbox{\Hypertarget{class_simple_domain_a25b8e92e59ae6ec5b5a463caf4d19882}\label{class_simple_domain_a25b8e92e59ae6ec5b5a463caf4d19882}} 
+int {\bfseries get\+Draw} ()
+\item 
+\mbox{\Hypertarget{class_simple_domain_acfe3e4aeaea246579b6102707d050bf0}\label{class_simple_domain_acfe3e4aeaea246579b6102707d050bf0}} 
+deque$<$ \mbox{\hyperlink{structpoint}{point}} $>$ \& {\bfseries get\+Random\+Inner\+Points} ()
+\item 
+\mbox{\Hypertarget{class_simple_domain_a13f9ab047e641a022648ca6468651f9f}\label{class_simple_domain_a13f9ab047e641a022648ca6468651f9f}} 
+vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ \& {\bfseries get\+Vtk\+Geometry} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_simple_domain_a47fede50eae6301d9aab0024d0cc32fa}\label{class_simple_domain_a47fede50eae6301d9aab0024d0cc32fa}} 
+void {\bfseries generate\+Random\+Points} ()
+\item 
+\mbox{\Hypertarget{class_simple_domain_a2d3e15dd1f43edaffc0cc11376fd4d81}\label{class_simple_domain_a2d3e15dd1f43edaffc0cc11376fd4d81}} 
+void {\bfseries remove\+Random\+Outer\+Points} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_simple_domain_a7b180aaf731d5809daf149025fb553d0}\label{class_simple_domain_a7b180aaf731d5809daf149025fb553d0}} 
+deque$<$ \mbox{\hyperlink{structpoint}{point}} $>$ {\bfseries random\+Inner\+Points}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Mesh that describes a domain for the C\+C\+O\+Tree. It deals with geometrical issues such as identify inner/outer points, resolver area or volume computation, generation of inner random points or any field modeling across the domain (e.\+g. V\+E\+GF). 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_simple_domain_ab15fbbfdc57f70582355bb25c6a4bec6}\label{class_simple_domain_ab15fbbfdc57f70582355bb25c6a4bec6}} 
+\index{Simple\+Domain@{Simple\+Domain}!get\+Local\+Neighborhood@{get\+Local\+Neighborhood}}
+\index{get\+Local\+Neighborhood@{get\+Local\+Neighborhood}!Simple\+Domain@{Simple\+Domain}}
+\subsubsection{\texorpdfstring{get\+Local\+Neighborhood()}{getLocalNeighborhood()}}
+{\footnotesize\ttfamily double $\ast$ Simple\+Domain\+::get\+Local\+Neighborhood (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}}}]{p,  }\item[{int}]{n\+Vessels }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the bounding box that enclose the perfusion volume of the p scaled times factor. 
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+{\em n\+Vessels} & \\
+\hline
+{\em factor} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_abstract_domain}{Abstract\+Domain}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/domain/Simple\+Domain.\+h\item 
+structures/domain/Simple\+Domain.\+cpp\end{DoxyCompactItemize}

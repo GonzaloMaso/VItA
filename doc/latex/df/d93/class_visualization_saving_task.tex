@@ -1,0 +1,78 @@
+\hypertarget{class_visualization_saving_task}{}\section{Visualization\+Saving\+Task Class Reference}
+\label{class_visualization_saving_task}\index{Visualization\+Saving\+Task@{Visualization\+Saving\+Task}}
+
+
+{\ttfamily \#include $<$Visualization\+Saving\+Task.\+h$>$}
+
+Inheritance diagram for Visualization\+Saving\+Task\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{df/d93/class_visualization_saving_task}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_visualization_saving_task_ab1b9318d4f8629a2d0f37355af3b9666}{Visualization\+Saving\+Task} (string path, string prefix, \hyperlink{class_abstract_object_c_c_o_tree}{Abstract\+Object\+C\+C\+O\+Tree} $\ast$tree)
+\item 
+void \hyperlink{class_visualization_saving_task_ac778c955205908fe4d5299b024fa2e6b}{execute} (long long int terminals)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_abstract_object_c_c_o_tree}{Abstract\+Object\+C\+C\+O\+Tree} $\ast$ {\bfseries tree}\hypertarget{class_visualization_saving_task_adee46d7131ba48c77b94078be56eb0a9}{}\label{class_visualization_saving_task_adee46d7131ba48c77b94078be56eb0a9}
+
+\item 
+\hyperlink{class_v_t_k_object_tree_splines_nodal_writer}{V\+T\+K\+Object\+Tree\+Splines\+Nodal\+Writer} $\ast$ {\bfseries nodal\+Writer}\hypertarget{class_visualization_saving_task_ad84e3ab76408fb38372c274152f3fe10}{}\label{class_visualization_saving_task_ad84e3ab76408fb38372c274152f3fe10}
+
+\item 
+string {\bfseries path}\hypertarget{class_visualization_saving_task_afc36a4bf258c35bf97653dfd8e07bf29}{}\label{class_visualization_saving_task_afc36a4bf258c35bf97653dfd8e07bf29}
+
+\item 
+string {\bfseries prefix}\hypertarget{class_visualization_saving_task_a24bc1b701fcf209b4458f8fc5c988c10}{}\label{class_visualization_saving_task_a24bc1b701fcf209b4458f8fc5c988c10}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Saves the tree in .vtk format using splines to smooth the vessels. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Visualization\+Saving\+Task@{Visualization\+Saving\+Task}!Visualization\+Saving\+Task@{Visualization\+Saving\+Task}}
+\index{Visualization\+Saving\+Task@{Visualization\+Saving\+Task}!Visualization\+Saving\+Task@{Visualization\+Saving\+Task}}
+\subsubsection[{\texorpdfstring{Visualization\+Saving\+Task(string path, string prefix, Abstract\+Object\+C\+C\+O\+Tree $\ast$tree)}{VisualizationSavingTask(string path, string prefix, AbstractObjectCCOTree *tree)}}]{\setlength{\rightskip}{0pt plus 5cm}Visualization\+Saving\+Task\+::\+Visualization\+Saving\+Task (
+\begin{DoxyParamCaption}
+\item[{string}]{path, }
+\item[{string}]{prefix, }
+\item[{{\bf Abstract\+Object\+C\+C\+O\+Tree} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)}\hypertarget{class_visualization_saving_task_ab1b9318d4f8629a2d0f37355af3b9666}{}\label{class_visualization_saving_task_ab1b9318d4f8629a2d0f37355af3b9666}
+Saves the {\ttfamily tree} in the given path. 
+\begin{DoxyParams}{Parameters}
+{\em path} & Output directory. \\
+\hline
+{\em prefix} & Prefix for the generated files. \\
+\hline
+{\em tree} & Tree to be stored in the generated files. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Visualization\+Saving\+Task@{Visualization\+Saving\+Task}!execute@{execute}}
+\index{execute@{execute}!Visualization\+Saving\+Task@{Visualization\+Saving\+Task}}
+\subsubsection[{\texorpdfstring{execute(long long int terminals)}{execute(long long int terminals)}}]{\setlength{\rightskip}{0pt plus 5cm}void Visualization\+Saving\+Task\+::execute (
+\begin{DoxyParamCaption}
+\item[{long long int}]{terminals}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_visualization_saving_task_ac778c955205908fe4d5299b024fa2e6b}{}\label{class_visualization_saving_task_ac778c955205908fe4d5299b024fa2e6b}
+Saves the tree in a visualization file using .vtk format. 
+
+Implements \hyperlink{class_abstract_saving_task}{Abstract\+Saving\+Task}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+io/task/Visualization\+Saving\+Task.\+h\item 
+io/task/Visualization\+Saving\+Task.\+cpp\end{DoxyCompactItemize}

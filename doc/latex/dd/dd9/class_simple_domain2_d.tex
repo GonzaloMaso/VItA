@@ -1,0 +1,314 @@
+\hypertarget{class_simple_domain2_d}{}\section{Simple\+Domain2D Class Reference}
+\label{class_simple_domain2_d}\index{Simple\+Domain2D@{Simple\+Domain2D}}
+
+
+{\ttfamily \#include $<$Simple\+Domain2\+D.\+h$>$}
+
+Inheritance diagram for Simple\+Domain2D\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{dd/dd9/class_simple_domain2_d}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_simple_domain2_d_a08c1cec51a7bc1d3cc7e65f8f1346bef}{Simple\+Domain2D} (string filename, \hyperlink{class_generator_data}{Generator\+Data} $\ast$\hyperlink{class_abstract_domain_aa37fbabc2bfa92c574f7db7544016b53}{instance\+Data})
+\item 
+\hyperlink{class_simple_domain2_d_a52afa98107cdf2888d4ce006354b53d9}{Simple\+Domain2D} (string filename, int \hyperlink{class_simple_domain2_d_ad541f350ae7423116545f4363f8d0715}{n\+Draw}, \hyperlink{class_generator_data}{Generator\+Data} $\ast$\hyperlink{class_abstract_domain_aa37fbabc2bfa92c574f7db7544016b53}{instance\+Data})
+\item 
+\hyperlink{class_simple_domain2_d_ad36b389b52d7341010d181986de0b9a0}{Simple\+Domain2D} (string filename, int \hyperlink{class_simple_domain2_d_ad541f350ae7423116545f4363f8d0715}{n\+Draw}, int \hyperlink{class_simple_domain2_d_abca10a88602d74c02d5d94651d9fc8bd}{seed}, \hyperlink{class_generator_data}{Generator\+Data} $\ast$\hyperlink{class_abstract_domain_aa37fbabc2bfa92c574f7db7544016b53}{instance\+Data})
+\item 
+int \hyperlink{class_simple_domain2_d_a18706cdbe4f61a71eceb7257fd4ec6dd}{is\+Segment\+Inside} (\hyperlink{structpoint}{point} xs, \hyperlink{structpoint}{point} xf)
+\item 
+double \hyperlink{class_simple_domain2_d_a5bf4df64fe80dae1e394b2f2c73c3d05}{get\+Characteristic\+Length} ()
+\item 
+double \hyperlink{class_simple_domain2_d_a60dbee1351f604d7ee61121d923de823}{get\+D\+Lim} (long long int n\+Vessels, double factor)
+\item 
+double $\ast$ \hyperlink{class_simple_domain2_d_a5c7eaa0e32e25950149c4735bd02c671}{get\+Local\+Neighborhood} (\hyperlink{structpoint}{point} p, long long int n\+Vessels)
+\item 
+double \hyperlink{class_simple_domain2_d_ad5e1ba1529fd8088f64af603cc5c18a3}{get\+Size} ()
+\item 
+virtual \hyperlink{structpoint}{point} \hyperlink{class_simple_domain2_d_a8b19e2fa69a0f13813b0296f270f11e9}{get\+Random\+Point} ()
+\item 
+vtk\+Smart\+Pointer$<$ vtk\+O\+B\+B\+Tree $>$ \& \hyperlink{class_simple_domain2_d_a09fc603691f205b49d975aab902cdef4}{get\+Locator} ()
+\item 
+int \hyperlink{class_simple_domain2_d_a15b519453137710f0c8897a4eda7c25d}{get\+Draw} ()
+\item 
+deque$<$ \hyperlink{structpoint}{point} $>$ \& \hyperlink{class_simple_domain2_d_a08eddf131c1ed43cf7cc34e347fd372f}{get\+Random\+Inner\+Points} ()
+\item 
+vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ \& \hyperlink{class_simple_domain2_d_a0c4505e70d9530586bcb0ab943bb9a9a}{get\+Vtk\+Geometry} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries generate\+Random\+Points} ()\hypertarget{class_simple_domain2_d_aeeb59155f6dec3e57e515c4b3a703e08}{}\label{class_simple_domain2_d_aeeb59155f6dec3e57e515c4b3a703e08}
+
+\item 
+void {\bfseries remove\+Random\+Outer\+Points\+Serial} ()\hypertarget{class_simple_domain2_d_af1cab33fce288f46723cb7860f7ed8bb}{}\label{class_simple_domain2_d_af1cab33fce288f46723cb7860f7ed8bb}
+
+\item 
+void {\bfseries remove\+Random\+Outer\+Points} ()\hypertarget{class_simple_domain2_d_af4f587398d458be9dfb09e47abfc3ad9}{}\label{class_simple_domain2_d_af4f587398d458be9dfb09e47abfc3ad9}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+deque$<$ \hyperlink{structpoint}{point} $>$ {\bfseries random\+Inner\+Points}\hypertarget{class_simple_domain2_d_a3baccded48c6c2d227c86938639c7e3b}{}\label{class_simple_domain2_d_a3baccded48c6c2d227c86938639c7e3b}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ \hyperlink{class_simple_domain2_d_a2acccf092aaaccfc4fabcd7668a4cc32}{vtk\+Geometry}
+\item 
+vtk\+Smart\+Pointer$<$ vtk\+O\+B\+B\+Tree $>$ \hyperlink{class_simple_domain2_d_a663886e5e4f47a4d1cec260c93b2498b}{locator}
+\item 
+double \hyperlink{class_simple_domain2_d_a3504bd60c2e2585bd28f9bac63e6eee7}{characteristic\+Length}
+\item 
+int \hyperlink{class_simple_domain2_d_ad541f350ae7423116545f4363f8d0715}{n\+Draw}
+\item 
+int \hyperlink{class_simple_domain2_d_abca10a88602d74c02d5d94651d9fc8bd}{seed} = -\/1
+\item 
+mt19937 \hyperlink{class_simple_domain2_d_a752e854a584a9bc6476903d639d8c0ed}{generator}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that model 2D (sheet-\/like) domains with homogeneous perfusion characteristics. It deals with geometrical issues such as identify inner/outer points and segments, estimation of area/volume computation, generation of inner random points and computation of perfusion volume. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Simple\+Domain2D@{Simple\+Domain2D}!Simple\+Domain2D@{Simple\+Domain2D}}
+\index{Simple\+Domain2D@{Simple\+Domain2D}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{Simple\+Domain2\+D(string filename, Generator\+Data $\ast$instance\+Data)}{SimpleDomain2D(string filename, GeneratorData *instanceData)}}]{\setlength{\rightskip}{0pt plus 5cm}Simple\+Domain2\+D\+::\+Simple\+Domain2D (
+\begin{DoxyParamCaption}
+\item[{string}]{filename, }
+\item[{{\bf Generator\+Data} $\ast$}]{instance\+Data}
+\end{DoxyParamCaption}
+)}\hypertarget{class_simple_domain2_d_a08c1cec51a7bc1d3cc7e65f8f1346bef}{}\label{class_simple_domain2_d_a08c1cec51a7bc1d3cc7e65f8f1346bef}
+Constructs a domain shaped by the vtk\+Polydata within {\ttfamily filename}. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & File of the domain representation. \\
+\hline
+\end{DoxyParams}
+\index{Simple\+Domain2D@{Simple\+Domain2D}!Simple\+Domain2D@{Simple\+Domain2D}}
+\index{Simple\+Domain2D@{Simple\+Domain2D}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{Simple\+Domain2\+D(string filename, int n\+Draw, Generator\+Data $\ast$instance\+Data)}{SimpleDomain2D(string filename, int nDraw, GeneratorData *instanceData)}}]{\setlength{\rightskip}{0pt plus 5cm}Simple\+Domain2\+D\+::\+Simple\+Domain2D (
+\begin{DoxyParamCaption}
+\item[{string}]{filename, }
+\item[{int}]{n\+Draw, }
+\item[{{\bf Generator\+Data} $\ast$}]{instance\+Data}
+\end{DoxyParamCaption}
+)}\hypertarget{class_simple_domain2_d_a52afa98107cdf2888d4ce006354b53d9}{}\label{class_simple_domain2_d_a52afa98107cdf2888d4ce006354b53d9}
+Constructs a domain shaped by the vtk\+Polydata within {\ttfamily filename} which generates batches of {\ttfamily n\+Draw} random points each time that the domain is with no more points. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & File of the domain representation. \\
+\hline
+{\em n\+Draw} & Random points generated at each batch. \\
+\hline
+\end{DoxyParams}
+\index{Simple\+Domain2D@{Simple\+Domain2D}!Simple\+Domain2D@{Simple\+Domain2D}}
+\index{Simple\+Domain2D@{Simple\+Domain2D}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{Simple\+Domain2\+D(string filename, int n\+Draw, int seed, Generator\+Data $\ast$instance\+Data)}{SimpleDomain2D(string filename, int nDraw, int seed, GeneratorData *instanceData)}}]{\setlength{\rightskip}{0pt plus 5cm}Simple\+Domain2\+D\+::\+Simple\+Domain2D (
+\begin{DoxyParamCaption}
+\item[{string}]{filename, }
+\item[{int}]{n\+Draw, }
+\item[{int}]{seed, }
+\item[{{\bf Generator\+Data} $\ast$}]{instance\+Data}
+\end{DoxyParamCaption}
+)}\hypertarget{class_simple_domain2_d_ad36b389b52d7341010d181986de0b9a0}{}\label{class_simple_domain2_d_ad36b389b52d7341010d181986de0b9a0}
+Constructs a domain shaped by the vtk\+Polydata within {\ttfamily filename} which generates batches of {\ttfamily n\+Draw} random points each time that the domain is with no more points. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & File of the domain representation. \\
+\hline
+{\em n\+Draw} & Random points generated at each batch. \\
+\hline
+{\em seed} & Seed that determine a specific random instance for the generation of points. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Simple\+Domain2D@{Simple\+Domain2D}!get\+Characteristic\+Length@{get\+Characteristic\+Length}}
+\index{get\+Characteristic\+Length@{get\+Characteristic\+Length}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{get\+Characteristic\+Length()}{getCharacteristicLength()}}]{\setlength{\rightskip}{0pt plus 5cm}double Simple\+Domain2\+D\+::get\+Characteristic\+Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_simple_domain2_d_a5bf4df64fe80dae1e394b2f2c73c3d05}{}\label{class_simple_domain2_d_a5bf4df64fe80dae1e394b2f2c73c3d05}
+Estimates a characteristic length for the current domain. This length is useful to estimate the perfusion volume of the domain. \begin{DoxyReturn}{Returns}
+Chracteristic length. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_a90ca3dff64bab2428da8ced24e16f4c3}{Abstract\+Domain}.
+
+\index{Simple\+Domain2D@{Simple\+Domain2D}!get\+D\+Lim@{get\+D\+Lim}}
+\index{get\+D\+Lim@{get\+D\+Lim}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{get\+D\+Lim(long long int n\+Vessels, double factor)}{getDLim(long long int nVessels, double factor)}}]{\setlength{\rightskip}{0pt plus 5cm}double Simple\+Domain2\+D\+::get\+D\+Lim (
+\begin{DoxyParamCaption}
+\item[{long long int}]{n\+Vessels, }
+\item[{double}]{factor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_simple_domain2_d_a60dbee1351f604d7ee61121d923de823}{}\label{class_simple_domain2_d_a60dbee1351f604d7ee61121d923de823}
+Minimum distance between a new vessel terminal and the tree based on the current terminal perfusion. This is lower bound criteria for the vessel length and also aids toward a spatially homogeneous terminal distribution. 
+\begin{DoxyParams}{Parameters}
+{\em n\+Vessels} & Quantity of terminals in the current tree. \\
+\hline
+{\em factor} & Factor used to scale a perfusion measure in order to estimate the D\+Lim value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+D\+Lim value. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_ac9f39c12182608eb704c051e5d1cbc55}{Abstract\+Domain}.
+
+\index{Simple\+Domain2D@{Simple\+Domain2D}!get\+Draw@{get\+Draw}}
+\index{get\+Draw@{get\+Draw}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{get\+Draw()}{getDraw()}}]{\setlength{\rightskip}{0pt plus 5cm}int Simple\+Domain2\+D\+::get\+Draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_simple_domain2_d_a15b519453137710f0c8897a4eda7c25d}{}\label{class_simple_domain2_d_a15b519453137710f0c8897a4eda7c25d}
+Returns the number of random points created in each batch of random generations. \begin{DoxyReturn}{Returns}
+Number of random points created in each batch of random generations. 
+\end{DoxyReturn}
+\index{Simple\+Domain2D@{Simple\+Domain2D}!get\+Local\+Neighborhood@{get\+Local\+Neighborhood}}
+\index{get\+Local\+Neighborhood@{get\+Local\+Neighborhood}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{get\+Local\+Neighborhood(point p, long long int n\+Vessels)}{getLocalNeighborhood(point p, long long int nVessels)}}]{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ Simple\+Domain2\+D\+::get\+Local\+Neighborhood (
+\begin{DoxyParamCaption}
+\item[{{\bf point}}]{p, }
+\item[{long long int}]{n\+Vessels}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_simple_domain2_d_a5c7eaa0e32e25950149c4735bd02c671}{}\label{class_simple_domain2_d_a5c7eaa0e32e25950149c4735bd02c671}
+Returns the local neighbors to the {\ttfamily p} point locus. The amount of neighbors is estimated based on the current terminal perfusion. 
+\begin{DoxyParams}{Parameters}
+{\em p} & Central point of the neighborhood. \\
+\hline
+{\em n\+Vessels} & Amount of terminals in the tree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array of neighbor vessels. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_aee2b549d19062b261429f8a442fb4714}{Abstract\+Domain}.
+
+\index{Simple\+Domain2D@{Simple\+Domain2D}!get\+Locator@{get\+Locator}}
+\index{get\+Locator@{get\+Locator}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{get\+Locator()}{getLocator()}}]{\setlength{\rightskip}{0pt plus 5cm}vtk\+Smart\+Pointer$<$ vtk\+O\+B\+B\+Tree $>$ \& Simple\+Domain2\+D\+::get\+Locator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_simple_domain2_d_a09fc603691f205b49d975aab902cdef4}{}\label{class_simple_domain2_d_a09fc603691f205b49d975aab902cdef4}
+Returns the locator used to test inside segments. \begin{DoxyReturn}{Returns}
+Locator used to test inside segments. 
+\end{DoxyReturn}
+\index{Simple\+Domain2D@{Simple\+Domain2D}!get\+Random\+Inner\+Points@{get\+Random\+Inner\+Points}}
+\index{get\+Random\+Inner\+Points@{get\+Random\+Inner\+Points}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{get\+Random\+Inner\+Points()}{getRandomInnerPoints()}}]{\setlength{\rightskip}{0pt plus 5cm}deque$<$ {\bf point} $>$ \& Simple\+Domain2\+D\+::get\+Random\+Inner\+Points (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_simple_domain2_d_a08eddf131c1ed43cf7cc34e347fd372f}{}\label{class_simple_domain2_d_a08eddf131c1ed43cf7cc34e347fd372f}
+Return a set of inner domain points. \begin{DoxyReturn}{Returns}
+Set of inner domain points. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_a73d2c0e7c670b007bb5dbbdab5ad6b1b}{Abstract\+Domain}.
+
+\index{Simple\+Domain2D@{Simple\+Domain2D}!get\+Random\+Point@{get\+Random\+Point}}
+\index{get\+Random\+Point@{get\+Random\+Point}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{get\+Random\+Point()}{getRandomPoint()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point} Simple\+Domain2\+D\+::get\+Random\+Point (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_simple_domain2_d_a8b19e2fa69a0f13813b0296f270f11e9}{}\label{class_simple_domain2_d_a8b19e2fa69a0f13813b0296f270f11e9}
+Return a random point inside the domain. \begin{DoxyReturn}{Returns}
+Point inside the domain. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_ae31a5b26d1dc628abe24da7a4d375415}{Abstract\+Domain}.
+
+\index{Simple\+Domain2D@{Simple\+Domain2D}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{get\+Size()}{getSize()}}]{\setlength{\rightskip}{0pt plus 5cm}double Simple\+Domain2\+D\+::get\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_simple_domain2_d_ad5e1ba1529fd8088f64af603cc5c18a3}{}\label{class_simple_domain2_d_ad5e1ba1529fd8088f64af603cc5c18a3}
+Computes the size of the domain. \begin{DoxyReturn}{Returns}
+Size of the domain. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_a049564d82f2c177c39834dfc8da143dc}{Abstract\+Domain}.
+
+\index{Simple\+Domain2D@{Simple\+Domain2D}!get\+Vtk\+Geometry@{get\+Vtk\+Geometry}}
+\index{get\+Vtk\+Geometry@{get\+Vtk\+Geometry}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{get\+Vtk\+Geometry()}{getVtkGeometry()}}]{\setlength{\rightskip}{0pt plus 5cm}vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ \& Simple\+Domain2\+D\+::get\+Vtk\+Geometry (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_simple_domain2_d_a0c4505e70d9530586bcb0ab943bb9a9a}{}\label{class_simple_domain2_d_a0c4505e70d9530586bcb0ab943bb9a9a}
+Returns the vtk\+Polydata with the domain representation. \begin{DoxyReturn}{Returns}
+vtk\+Polydata with the domain representation. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_abb1e386d2899cb6b725509259a836cd0}{Abstract\+Domain}.
+
+\index{Simple\+Domain2D@{Simple\+Domain2D}!is\+Segment\+Inside@{is\+Segment\+Inside}}
+\index{is\+Segment\+Inside@{is\+Segment\+Inside}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{is\+Segment\+Inside(point xs, point xf)}{isSegmentInside(point xs, point xf)}}]{\setlength{\rightskip}{0pt plus 5cm}int Simple\+Domain2\+D\+::is\+Segment\+Inside (
+\begin{DoxyParamCaption}
+\item[{{\bf point}}]{xs, }
+\item[{{\bf point}}]{xf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_simple_domain2_d_a18706cdbe4f61a71eceb7257fd4ec6dd}{}\label{class_simple_domain2_d_a18706cdbe4f61a71eceb7257fd4ec6dd}
+Returns if the segment defined by the vertexes {\ttfamily xs} and {\ttfamily xf} is inside the current domain. 
+\begin{DoxyParams}{Parameters}
+{\em xs} & Start point of the segment. \\
+\hline
+{\em xf} & End point of the segment. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the segment defined by the vertexes {\ttfamily xs} and {\ttfamily xf} is inside the current domain otherwise 0. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_a8544eef21fb6700ecc02e9cd50884efd}{Abstract\+Domain}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Simple\+Domain2D@{Simple\+Domain2D}!characteristic\+Length@{characteristic\+Length}}
+\index{characteristic\+Length@{characteristic\+Length}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{characteristic\+Length}{characteristicLength}}]{\setlength{\rightskip}{0pt plus 5cm}double Simple\+Domain2\+D\+::characteristic\+Length\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_simple_domain2_d_a3504bd60c2e2585bd28f9bac63e6eee7}{}\label{class_simple_domain2_d_a3504bd60c2e2585bd28f9bac63e6eee7}
+Characteristic length for the domain. \index{Simple\+Domain2D@{Simple\+Domain2D}!generator@{generator}}
+\index{generator@{generator}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{generator}{generator}}]{\setlength{\rightskip}{0pt plus 5cm}mt19937 Simple\+Domain2\+D\+::generator\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_simple_domain2_d_a752e854a584a9bc6476903d639d8c0ed}{}\label{class_simple_domain2_d_a752e854a584a9bc6476903d639d8c0ed}
+Random generator. \index{Simple\+Domain2D@{Simple\+Domain2D}!locator@{locator}}
+\index{locator@{locator}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{locator}{locator}}]{\setlength{\rightskip}{0pt plus 5cm}vtk\+Smart\+Pointer$<$vtk\+O\+B\+B\+Tree$>$ Simple\+Domain2\+D\+::locator\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_simple_domain2_d_a663886e5e4f47a4d1cec260c93b2498b}{}\label{class_simple_domain2_d_a663886e5e4f47a4d1cec260c93b2498b}
+Cell locator responsible to determine if a segment is inside the domain. \index{Simple\+Domain2D@{Simple\+Domain2D}!n\+Draw@{n\+Draw}}
+\index{n\+Draw@{n\+Draw}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{n\+Draw}{nDraw}}]{\setlength{\rightskip}{0pt plus 5cm}int Simple\+Domain2\+D\+::n\+Draw\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_simple_domain2_d_ad541f350ae7423116545f4363f8d0715}{}\label{class_simple_domain2_d_ad541f350ae7423116545f4363f8d0715}
+Amount of points randomly generated when no more points are available. \index{Simple\+Domain2D@{Simple\+Domain2D}!seed@{seed}}
+\index{seed@{seed}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{seed}{seed}}]{\setlength{\rightskip}{0pt plus 5cm}int Simple\+Domain2\+D\+::seed = -\/1\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_simple_domain2_d_abca10a88602d74c02d5d94651d9fc8bd}{}\label{class_simple_domain2_d_abca10a88602d74c02d5d94651d9fc8bd}
+Random instance seed. \index{Simple\+Domain2D@{Simple\+Domain2D}!vtk\+Geometry@{vtk\+Geometry}}
+\index{vtk\+Geometry@{vtk\+Geometry}!Simple\+Domain2D@{Simple\+Domain2D}}
+\subsubsection[{\texorpdfstring{vtk\+Geometry}{vtkGeometry}}]{\setlength{\rightskip}{0pt plus 5cm}vtk\+Smart\+Pointer$<$vtk\+Poly\+Data$>$ Simple\+Domain2\+D\+::vtk\+Geometry\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_simple_domain2_d_a2acccf092aaaccfc4fabcd7668a4cc32}{}\label{class_simple_domain2_d_a2acccf092aaaccfc4fabcd7668a4cc32}
+vtk\+Polydata description of the domain. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/domain/Simple\+Domain2\+D.\+h\item 
+structures/domain/Simple\+Domain2\+D.\+cpp\end{DoxyCompactItemize}

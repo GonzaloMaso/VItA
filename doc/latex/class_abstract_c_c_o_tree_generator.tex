@@ -1,0 +1,36 @@
+\hypertarget{class_abstract_c_c_o_tree_generator}{}\section{Abstract\+C\+C\+O\+Tree\+Generator Class Reference}
+\label{class_abstract_c_c_o_tree_generator}\index{Abstract\+C\+C\+O\+Tree\+Generator@{Abstract\+C\+C\+O\+Tree\+Generator}}
+
+
+{\ttfamily \#include $<$Abstract\+C\+C\+O\+Tree\+Generator.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a05e22c19531a6e6b385b93a5285e5ac4}\label{class_abstract_c_c_o_tree_generator_a05e22c19531a6e6b385b93a5285e5ac4}} 
+{\bfseries Abstract\+C\+C\+O\+Tree\+Generator} (\mbox{\hyperlink{class_simple_domain}{Simple\+Domain}} $\ast$domain, int n\+Trees, \mbox{\hyperlink{structpoint}{point}} $\ast$xi, double $\ast$root\+Radii, double $\ast$qi, double $\ast$dpi, int n\+Term, gamma\+Func gam, eps\+Lim\+Func eps\+Lim, nu\+Blood\+Func nu)
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a1429db3e7545f4004bdd04388bec9dbe}\label{class_abstract_c_c_o_tree_generator_a1429db3e7545f4004bdd04388bec9dbe}} 
+vector$<$ \mbox{\hyperlink{class_fixed_radius_root_c_c_o_tree_legacy}{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}} $\ast$ $>$ {\bfseries generate} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_ae692841a924a40eed1a4a23d3d9910cb}\label{class_abstract_c_c_o_tree_generator_ae692841a924a40eed1a4a23d3d9910cb}} 
+int {\bfseries is\+Valid\+Root\+Segment} (\mbox{\hyperlink{structpoint}{point}} x\+New, int i\+Try)
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a7e971a13795a519702083f1f199a8d97}\label{class_abstract_c_c_o_tree_generator_a7e971a13795a519702083f1f199a8d97}} 
+int {\bfseries is\+Valid\+Segment} (\mbox{\hyperlink{structpoint}{point}} x\+New, vector$<$ \mbox{\hyperlink{class_fixed_radius_root_c_c_o_tree_legacy}{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}} $\ast$$>$ trees, int i\+Try)
+\item 
+\mbox{\Hypertarget{class_abstract_c_c_o_tree_generator_a2b1836a3d2c3eaf7ffb992ba485b139d}\label{class_abstract_c_c_o_tree_generator_a2b1836a3d2c3eaf7ffb992ba485b139d}} 
+virtual void {\bfseries add\+Root\+Segments} (vector$<$ \mbox{\hyperlink{class_fixed_radius_root_c_c_o_tree_legacy}{Fixed\+Radius\+Root\+C\+C\+O\+Tree\+Legacy}} $\ast$$>$ trees, \mbox{\hyperlink{structpoint}{point}} x\+New)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract class that describe the workflow for a multiple C\+CO tree generation. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+tree\+Generator/Abstract\+C\+C\+O\+Tree\+Generator.\+h\item 
+tree\+Generator/Abstract\+C\+C\+O\+Tree\+Generator.\+cpp\end{DoxyCompactItemize}

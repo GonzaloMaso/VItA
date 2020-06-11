@@ -403,8 +403,13 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData* in
 
 		//	Children parsing
 		cout << " - Children : ";
+<<<<<<< HEAD
 		// Hey, I modified this bit.
 		while (ss >> childId) {
+=======
+		while (!ss.eof()) {
+			ss >> childId;
+>>>>>>> lfmc-gitlab/master
 			cout << childId << " " ;
 			elements[vtkId]->addChild(elements[childId]);
 //			ss >> childId;
@@ -1321,6 +1326,10 @@ void SingleVesselCCOOTree::createSegmentVtkLines(AbstractVascularElement *vessel
 
 }
 
+<<<<<<< HEAD
+=======
+//	NEVER TESTED
+>>>>>>> lfmc-gitlab/master
 void SingleVesselCCOOTree::removeWitheredBranches(int stage) {
 	for (auto it = elements.begin(); it != elements.end(); ++it) {
 		SingleVessel *currentVessel = (SingleVessel *) (it->second);
@@ -1350,6 +1359,10 @@ void SingleVesselCCOOTree::remove(SingleVessel* vessel) {
 	delete vessel;
 }
 
+<<<<<<< HEAD
+=======
+//	NEVER TESTED
+>>>>>>> lfmc-gitlab/master
 bool SingleVesselCCOOTree::isWithered(SingleVessel* vessel) {
 	int currentStage = vessel->stage;
 	vector<AbstractVascularElement *> children = vessel->getChildren();

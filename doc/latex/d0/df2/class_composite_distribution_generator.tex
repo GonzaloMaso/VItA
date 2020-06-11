@@ -1,0 +1,100 @@
+\hypertarget{class_composite_distribution_generator}{}\section{Composite\+Distribution\+Generator Class Reference}
+\label{class_composite_distribution_generator}\index{Composite\+Distribution\+Generator@{Composite\+Distribution\+Generator}}
+
+
+{\ttfamily \#include $<$Composite\+Distribution\+Generator.\+h$>$}
+
+Inheritance diagram for Composite\+Distribution\+Generator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d0/df2/class_composite_distribution_generator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_composite_distribution_generator_afdeeb68400f21cb63d4f8fe194ed7e7f}{Composite\+Distribution\+Generator} (vector$<$ \hyperlink{class_distribution_generator}{Distribution\+Generator} $\ast$ $>$ \hyperlink{class_composite_distribution_generator_a9f89632c997c30324e4652ea8bc6d761}{distributions})
+\item 
+virtual \hyperlink{class_composite_distribution_generator_afdb870d99c1a6fee740abdcc9f4e1c8e}{$\sim$\+Composite\+Distribution\+Generator} ()
+\item 
+virtual void \hyperlink{class_composite_distribution_generator_a799c7a57b895245c81a9492ddff63384}{initialize} (int seed, double $\ast$\hyperlink{class_distribution_generator_abbb670b1d48a4820559097b85bf6ee2d}{bounding\+Box})
+\item 
+vector$<$ \hyperlink{structpoint}{point} $>$ \hyperlink{class_composite_distribution_generator_ac5aaadd082a0df0bda42cc8768ecc8d2}{get\+N\+Points} (int n)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \hyperlink{class_distribution_generator}{Distribution\+Generator} $\ast$ $>$ \hyperlink{class_composite_distribution_generator_a9f89632c997c30324e4652ea8bc6d761}{distributions}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Generate points as the union of several generators. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Composite\+Distribution\+Generator@{Composite\+Distribution\+Generator}!Composite\+Distribution\+Generator@{Composite\+Distribution\+Generator}}
+\index{Composite\+Distribution\+Generator@{Composite\+Distribution\+Generator}!Composite\+Distribution\+Generator@{Composite\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{Composite\+Distribution\+Generator(vector$<$ Distribution\+Generator $\ast$ $>$ distributions)}{CompositeDistributionGenerator(vector< DistributionGenerator * > distributions)}}]{\setlength{\rightskip}{0pt plus 5cm}Composite\+Distribution\+Generator\+::\+Composite\+Distribution\+Generator (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Distribution\+Generator} $\ast$ $>$}]{distributions}
+\end{DoxyParamCaption}
+)}\hypertarget{class_composite_distribution_generator_afdeeb68400f21cb63d4f8fe194ed7e7f}{}\label{class_composite_distribution_generator_afdeeb68400f21cb63d4f8fe194ed7e7f}
+Constructor. 
+\begin{DoxyParams}{Parameters}
+{\em distributions} & \\
+\hline
+\end{DoxyParams}
+\index{Composite\+Distribution\+Generator@{Composite\+Distribution\+Generator}!````~Composite\+Distribution\+Generator@{$\sim$\+Composite\+Distribution\+Generator}}
+\index{````~Composite\+Distribution\+Generator@{$\sim$\+Composite\+Distribution\+Generator}!Composite\+Distribution\+Generator@{Composite\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{$\sim$\+Composite\+Distribution\+Generator()}{~CompositeDistributionGenerator()}}]{\setlength{\rightskip}{0pt plus 5cm}Composite\+Distribution\+Generator\+::$\sim$\+Composite\+Distribution\+Generator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_composite_distribution_generator_afdb870d99c1a6fee740abdcc9f4e1c8e}{}\label{class_composite_distribution_generator_afdb870d99c1a6fee740abdcc9f4e1c8e}
+Destructor. 
+
+\subsection{Member Function Documentation}
+\index{Composite\+Distribution\+Generator@{Composite\+Distribution\+Generator}!get\+N\+Points@{get\+N\+Points}}
+\index{get\+N\+Points@{get\+N\+Points}!Composite\+Distribution\+Generator@{Composite\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{get\+N\+Points(int n)}{getNPoints(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf point} $>$ Composite\+Distribution\+Generator\+::get\+N\+Points (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_composite_distribution_generator_ac5aaadd082a0df0bda42cc8768ecc8d2}{}\label{class_composite_distribution_generator_ac5aaadd082a0df0bda42cc8768ecc8d2}
+Return a vector of {\ttfamily n} points of the distribution. 
+\begin{DoxyParams}{Parameters}
+{\em n} & Amount of output points. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of distribution points. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_distribution_generator_a777dcdfd3dee93cfcbcc00969f42ca29}{Distribution\+Generator}.
+
+\index{Composite\+Distribution\+Generator@{Composite\+Distribution\+Generator}!initialize@{initialize}}
+\index{initialize@{initialize}!Composite\+Distribution\+Generator@{Composite\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{initialize(int seed, double $\ast$bounding\+Box)}{initialize(int seed, double *boundingBox)}}]{\setlength{\rightskip}{0pt plus 5cm}void Composite\+Distribution\+Generator\+::initialize (
+\begin{DoxyParamCaption}
+\item[{int}]{seed, }
+\item[{double $\ast$}]{bounding\+Box}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_composite_distribution_generator_a799c7a57b895245c81a9492ddff63384}{}\label{class_composite_distribution_generator_a799c7a57b895245c81a9492ddff63384}
+Initializer of the generator. Execute it before any getter call is performed. 
+
+Reimplemented from \hyperlink{class_distribution_generator_ae4fa2d599942539e4b1971b0a8d5f8ba}{Distribution\+Generator}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Composite\+Distribution\+Generator@{Composite\+Distribution\+Generator}!distributions@{distributions}}
+\index{distributions@{distributions}!Composite\+Distribution\+Generator@{Composite\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{distributions}{distributions}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Distribution\+Generator} $\ast$$>$ Composite\+Distribution\+Generator\+::distributions\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_composite_distribution_generator_a9f89632c997c30324e4652ea8bc6d761}{}\label{class_composite_distribution_generator_a9f89632c997c30324e4652ea8bc6d761}
+Generators 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/domain/Composite\+Distribution\+Generator.\+h\item 
+structures/domain/Composite\+Distribution\+Generator.\+cpp\end{DoxyCompactItemize}

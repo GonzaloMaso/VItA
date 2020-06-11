@@ -1,0 +1,357 @@
+\hypertarget{class_fixed_perfusion_radius_tree_generator}{}\section{Fixed\+Perfusion\+Radius\+Tree\+Generator Class Reference}
+\label{class_fixed_perfusion_radius_tree_generator}\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+
+
+{\ttfamily \#include $<$Fixed\+Perfusion\+Radius\+Tree\+Generator.\+h$>$}
+
+Inheritance diagram for Fixed\+Perfusion\+Radius\+Tree\+Generator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d4/dce/class_fixed_perfusion_radius_tree_generator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_fixed_perfusion_radius_tree_generator_a970125bd4e62f257d646c0ef3e0e7db6}{Fixed\+Perfusion\+Radius\+Tree\+Generator} (\hyperlink{class_abstract_domain}{Abstract\+Domain} $\ast$\hyperlink{class_fixed_perfusion_radius_tree_generator_a3f613d457aa40ecbec9c61b0fd559764}{domain}, \hyperlink{structpoint}{point} xi, double root\+Radii, double qi, long long int n\+Term, \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$gam, \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$eps\+Lim, \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$nu, double min\+Angle, double ref\+Pressure)
+\item 
+\hyperlink{class_fixed_perfusion_radius_tree_generator_a00a16101933078dfdcf037ef149348d9}{Fixed\+Perfusion\+Radius\+Tree\+Generator} (\hyperlink{class_abstract_domain}{Abstract\+Domain} $\ast$\hyperlink{class_fixed_perfusion_radius_tree_generator_a3f613d457aa40ecbec9c61b0fd559764}{domain}, \hyperlink{structpoint}{point} xi, double root\+Radii, double qi, long long int n\+Term, \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$gam, \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$eps\+Lim, \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$nu, double min\+Angle, double ref\+Pressure, double viscosity\+Tolerance, int optimized)
+\item 
+\hyperlink{class_fixed_perfusion_radius_tree_generator_a415ddd819e62f818b91bc40612ba1a7f}{Fixed\+Perfusion\+Radius\+Tree\+Generator} (\hyperlink{class_abstract_domain}{Abstract\+Domain} $\ast$\hyperlink{class_fixed_perfusion_radius_tree_generator_a3f613d457aa40ecbec9c61b0fd559764}{domain}, \hyperlink{class_abstract_structured_c_c_o_tree}{Abstract\+Structured\+C\+C\+O\+Tree} $\ast$\hyperlink{class_fixed_perfusion_radius_tree_generator_a79a3059e0c4555a2008829d5a51803dd}{tree}, long long int n\+Term, \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$gam, \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$eps\+Lim, \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$nu)
+\item 
+\hyperlink{class_abstract_structured_c_c_o_tree}{Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ \hyperlink{class_fixed_perfusion_radius_tree_generator_abfe5fdcf60f2a7b2b900ae493a882ea4}{generate} ()
+\item 
+\hyperlink{class_abstract_structured_c_c_o_tree}{Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ \hyperlink{class_fixed_perfusion_radius_tree_generator_a9feeb40ddba160de4499f435b129dc83}{resume} ()
+\item 
+\hyperlink{class_abstract_domain}{Abstract\+Domain} $\ast$ \hyperlink{class_fixed_perfusion_radius_tree_generator_ab5f60bf11b980a83faccdd3a667c6bf0}{get\+Domain} ()
+\item 
+vector$<$ \hyperlink{class_abstract_structured_c_c_o_tree}{Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ $>$ \hyperlink{class_fixed_perfusion_radius_tree_generator_a5964f771575677452fbae6c21a7470e6}{get\+Trees} ()
+\item 
+void \hyperlink{class_fixed_perfusion_radius_tree_generator_a6aee969aaac8fc014accbb360d4fd306}{enable\+Configuration\+File} (string filename)
+\item 
+void \hyperlink{class_fixed_perfusion_radius_tree_generator_add5bd06f4fe8a15529084f6d78e71b44}{observable\+Modified} (\hyperlink{class_i_domain_observable}{I\+Domain\+Observable} $\ast$observable\+Instance)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_fixed_perfusion_radius_tree_generator_ae7a7f4b87282f81b141377032a537e08}{is\+Valid\+Root\+Segment} (\hyperlink{structpoint}{point} x\+New, int i\+Try)
+\item 
+int \hyperlink{class_fixed_perfusion_radius_tree_generator_a306a08e5b09ced0a19fcfae49c7e7399}{is\+Valid\+Segment} (\hyperlink{structpoint}{point} x\+New, int i\+Try)
+\item 
+void \hyperlink{class_fixed_perfusion_radius_tree_generator_a091f126a38dd910df10b81d7c8dee4b9}{generates\+Configuration\+File} (ios\+::openmode mode)
+\item 
+void \hyperlink{class_fixed_perfusion_radius_tree_generator_af82dbe3c22454f0b1e09be7e77ac8118}{mark\+Timestamp\+On\+Configuration\+File} (string label)
+\item 
+void \hyperlink{class_fixed_perfusion_radius_tree_generator_aa705213dee8c0e4679cae60d05510ffc}{close\+Configuration\+File} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ofstream \hyperlink{class_fixed_perfusion_radius_tree_generator_acccbb50a7aa221b58e80e47515650a5a}{conf\+File}
+\item 
+chrono\+::steady\+\_\+clock\+::time\+\_\+point \hyperlink{class_fixed_perfusion_radius_tree_generator_ab1945f73c7d8ac571c34b68792d5d317}{beginning\+Time}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_generator_data}{Generator\+Data} $\ast$ \hyperlink{class_fixed_perfusion_radius_tree_generator_a00f2d253632c5188a13576d614586d02}{instance\+Data}
+\item 
+\hyperlink{class_generator_data_monitor}{Generator\+Data\+Monitor} $\ast$ \hyperlink{class_fixed_perfusion_radius_tree_generator_a431e0e44437bc9cbee263ab316c8ed60}{data\+Monitor}
+\item 
+long long int \hyperlink{class_fixed_perfusion_radius_tree_generator_a7f47f9518335cd88504f2575d75a6935}{n\+Terminals}
+\item 
+double \hyperlink{class_fixed_perfusion_radius_tree_generator_ae14a2fd89b3e87d51d8d304abab238be}{d\+Lim}
+\item 
+\hyperlink{class_abstract_domain}{Abstract\+Domain} $\ast$ \hyperlink{class_fixed_perfusion_radius_tree_generator_a3f613d457aa40ecbec9c61b0fd559764}{domain}
+\item 
+\hyperlink{class_abstract_structured_c_c_o_tree}{Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ \hyperlink{class_fixed_perfusion_radius_tree_generator_a79a3059e0c4555a2008829d5a51803dd}{tree}
+\item 
+int \hyperlink{class_fixed_perfusion_radius_tree_generator_aa4e8b9db77041b6981d1747835faaafe}{is\+Generating\+Conf\+File}
+\item 
+string \hyperlink{class_fixed_perfusion_radius_tree_generator_a429c60ad818d28d0a50167beaecf60b9}{conf\+Filename}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generator for a single fixed perfusion tree. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{Fixed\+Perfusion\+Radius\+Tree\+Generator(\+Abstract\+Domain $\ast$domain, point xi, double root\+Radii, double qi, long long int n\+Term, Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$gam, Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$eps\+Lim, Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$nu, double min\+Angle, double ref\+Pressure)}{FixedPerfusionRadiusTreeGenerator(AbstractDomain *domain, point xi, double rootRadii, double qi, long long int nTerm, AbstractConstraintFunction< double, int > *gam, AbstractConstraintFunction< double, int > *epsLim, AbstractConstraintFunction< double, int > *nu, double minAngle, double refPressure)}}]{\setlength{\rightskip}{0pt plus 5cm}Fixed\+Perfusion\+Radius\+Tree\+Generator\+::\+Fixed\+Perfusion\+Radius\+Tree\+Generator (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\+Domain} $\ast$}]{domain, }
+\item[{{\bf point}}]{xi, }
+\item[{double}]{root\+Radii, }
+\item[{double}]{qi, }
+\item[{long long int}]{n\+Term, }
+\item[{{\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$}]{gam, }
+\item[{{\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$}]{eps\+Lim, }
+\item[{{\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$}]{nu, }
+\item[{double}]{min\+Angle, }
+\item[{double}]{ref\+Pressure}
+\end{DoxyParamCaption}
+)}\hypertarget{class_fixed_perfusion_radius_tree_generator_a970125bd4e62f257d646c0ef3e0e7db6}{}\label{class_fixed_perfusion_radius_tree_generator_a970125bd4e62f257d646c0ef3e0e7db6}
+Constructor for non-\/optimized and constant viscosity tree. 
+\begin{DoxyParams}{Parameters}
+{\em domain} & Perfusion domain. \\
+\hline
+{\em xi} & Root proximal position. \\
+\hline
+{\em root\+Radii} & Root radius. \\
+\hline
+{\em qi} & Inflow for the perfusion domain. \\
+\hline
+{\em n\+Term} & Total number of tree terminals. \\
+\hline
+{\em gam} & Murray\textquotesingle{}s power law function. \\
+\hline
+{\em eps\+Lim} & Symmetry constraint function. \\
+\hline
+{\em nu} & Viscosity function. \\
+\hline
+{\em min\+Angle} & Minimum allowed bifurcation angle. \\
+\hline
+\end{DoxyParams}
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{Fixed\+Perfusion\+Radius\+Tree\+Generator(\+Abstract\+Domain $\ast$domain, point xi, double root\+Radii, double qi, long long int n\+Term, Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$gam, Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$eps\+Lim, Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$nu, double min\+Angle, double ref\+Pressure, double viscosity\+Tolerance, int optimized)}{FixedPerfusionRadiusTreeGenerator(AbstractDomain *domain, point xi, double rootRadii, double qi, long long int nTerm, AbstractConstraintFunction< double, int > *gam, AbstractConstraintFunction< double, int > *epsLim, AbstractConstraintFunction< double, int > *nu, double minAngle, double refPressure, double viscosityTolerance, int optimized)}}]{\setlength{\rightskip}{0pt plus 5cm}Fixed\+Perfusion\+Radius\+Tree\+Generator\+::\+Fixed\+Perfusion\+Radius\+Tree\+Generator (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\+Domain} $\ast$}]{domain, }
+\item[{{\bf point}}]{xi, }
+\item[{double}]{root\+Radii, }
+\item[{double}]{qi, }
+\item[{long long int}]{n\+Term, }
+\item[{{\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$}]{gam, }
+\item[{{\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$}]{eps\+Lim, }
+\item[{{\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$}]{nu, }
+\item[{double}]{min\+Angle, }
+\item[{double}]{ref\+Pressure, }
+\item[{double}]{viscosity\+Tolerance, }
+\item[{int}]{optimized}
+\end{DoxyParamCaption}
+)}\hypertarget{class_fixed_perfusion_radius_tree_generator_a00a16101933078dfdcf037ef149348d9}{}\label{class_fixed_perfusion_radius_tree_generator_a00a16101933078dfdcf037ef149348d9}
+Constructor for tree with Fahraeus-\/\+Lindquist viscosity model. 
+\begin{DoxyParams}{Parameters}
+{\em domain} & Perfusion domain. \\
+\hline
+{\em xi} & Root proximal position. \\
+\hline
+{\em root\+Radii} & Root radius. \\
+\hline
+{\em qi} & Inflow for the perfusion domain. \\
+\hline
+{\em n\+Term} & Total number of tree terminals. \\
+\hline
+{\em gam} & Murray\textquotesingle{}s power law function. \\
+\hline
+{\em eps\+Lim} & Symmetry constraint function. \\
+\hline
+{\em nu} & Viscosity function. \\
+\hline
+{\em min\+Angle} & Minimum allowed bifurcation angle. \\
+\hline
+{\em viscosity\+Tolerance} & Convergence tolerance for the absolute beta variation in the viscosity iterative scheme. \\
+\hline
+{\em optimized} & If it is optimized with partial tree scaling. \\
+\hline
+\end{DoxyParams}
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{Fixed\+Perfusion\+Radius\+Tree\+Generator(\+Abstract\+Domain $\ast$domain, Abstract\+Structured\+C\+C\+O\+Tree $\ast$tree, long long int n\+Term, Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$gam, Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$eps\+Lim, Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$nu)}{FixedPerfusionRadiusTreeGenerator(AbstractDomain *domain, AbstractStructuredCCOTree *tree, long long int nTerm, AbstractConstraintFunction< double, int > *gam, AbstractConstraintFunction< double, int > *epsLim, AbstractConstraintFunction< double, int > *nu)}}]{\setlength{\rightskip}{0pt plus 5cm}Fixed\+Perfusion\+Radius\+Tree\+Generator\+::\+Fixed\+Perfusion\+Radius\+Tree\+Generator (
+\begin{DoxyParamCaption}
+\item[{{\bf Abstract\+Domain} $\ast$}]{domain, }
+\item[{{\bf Abstract\+Structured\+C\+C\+O\+Tree} $\ast$}]{tree, }
+\item[{long long int}]{n\+Term, }
+\item[{{\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$}]{gam, }
+\item[{{\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$}]{eps\+Lim, }
+\item[{{\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$}]{nu}
+\end{DoxyParamCaption}
+)}\hypertarget{class_fixed_perfusion_radius_tree_generator_a415ddd819e62f818b91bc40612ba1a7f}{}\label{class_fixed_perfusion_radius_tree_generator_a415ddd819e62f818b91bc40612ba1a7f}
+Constructor to resume from a pre-\/existent tree. 
+\begin{DoxyParams}{Parameters}
+{\em domain} & Perfusion domain. \\
+\hline
+{\em tree} & Pre-\/existent tree. \\
+\hline
+{\em n\+Term} & Total number of tree terminals. \\
+\hline
+{\em gam} & Murray\textquotesingle{}s power law function. \\
+\hline
+{\em eps\+Lim} & Symmetry constraint function. \\
+\hline
+{\em nu} & Viscosity function. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!close\+Configuration\+File@{close\+Configuration\+File}}
+\index{close\+Configuration\+File@{close\+Configuration\+File}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{close\+Configuration\+File()}{closeConfigurationFile()}}]{\setlength{\rightskip}{0pt plus 5cm}void Fixed\+Perfusion\+Radius\+Tree\+Generator\+::close\+Configuration\+File (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_aa705213dee8c0e4679cae60d05510ffc}{}\label{class_fixed_perfusion_radius_tree_generator_aa705213dee8c0e4679cae60d05510ffc}
+Closes the configuration file for the current tree generation. \index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!enable\+Configuration\+File@{enable\+Configuration\+File}}
+\index{enable\+Configuration\+File@{enable\+Configuration\+File}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{enable\+Configuration\+File(string filename)}{enableConfigurationFile(string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}void Fixed\+Perfusion\+Radius\+Tree\+Generator\+::enable\+Configuration\+File (
+\begin{DoxyParamCaption}
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)}\hypertarget{class_fixed_perfusion_radius_tree_generator_a6aee969aaac8fc014accbb360d4fd306}{}\label{class_fixed_perfusion_radius_tree_generator_a6aee969aaac8fc014accbb360d4fd306}
+Enables the configuration file generation capabilities. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & File name where the generator stores the configuration data. \\
+\hline
+\end{DoxyParams}
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!generate@{generate}}
+\index{generate@{generate}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{generate()}{generate()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ Fixed\+Perfusion\+Radius\+Tree\+Generator\+::generate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_fixed_perfusion_radius_tree_generator_abfe5fdcf60f2a7b2b900ae493a882ea4}{}\label{class_fixed_perfusion_radius_tree_generator_abfe5fdcf60f2a7b2b900ae493a882ea4}
+Generates the specified tree. \begin{DoxyReturn}{Returns}
+Perfusion tree. 
+\end{DoxyReturn}
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!generates\+Configuration\+File@{generates\+Configuration\+File}}
+\index{generates\+Configuration\+File@{generates\+Configuration\+File}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{generates\+Configuration\+File(ios\+::openmode mode)}{generatesConfigurationFile(ios::openmode mode)}}]{\setlength{\rightskip}{0pt plus 5cm}void Fixed\+Perfusion\+Radius\+Tree\+Generator\+::generates\+Configuration\+File (
+\begin{DoxyParamCaption}
+\item[{ios\+::openmode}]{mode}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_a091f126a38dd910df10b81d7c8dee4b9}{}\label{class_fixed_perfusion_radius_tree_generator_a091f126a38dd910df10b81d7c8dee4b9}
+Generates the configuration file for the current tree generation. 
+\begin{DoxyParams}{Parameters}
+{\em mode} & Is the openmode used for the generated file (ios\+::out for generation, ios\+::app for resume). \\
+\hline
+\end{DoxyParams}
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!get\+Domain@{get\+Domain}}
+\index{get\+Domain@{get\+Domain}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{get\+Domain()}{getDomain()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Abstract\+Domain} $\ast$ Fixed\+Perfusion\+Radius\+Tree\+Generator\+::get\+Domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_fixed_perfusion_radius_tree_generator_ab5f60bf11b980a83faccdd3a667c6bf0}{}\label{class_fixed_perfusion_radius_tree_generator_ab5f60bf11b980a83faccdd3a667c6bf0}
+Returns the perfusion domain. \begin{DoxyReturn}{Returns}
+Perfusion domain. 
+\end{DoxyReturn}
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!get\+Trees@{get\+Trees}}
+\index{get\+Trees@{get\+Trees}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{get\+Trees()}{getTrees()}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ $>$ Fixed\+Perfusion\+Radius\+Tree\+Generator\+::get\+Trees (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_fixed_perfusion_radius_tree_generator_a5964f771575677452fbae6c21a7470e6}{}\label{class_fixed_perfusion_radius_tree_generator_a5964f771575677452fbae6c21a7470e6}
+Returns the generated tree. \begin{DoxyReturn}{Returns}
+Generated tree. 
+\end{DoxyReturn}
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!is\+Valid\+Root\+Segment@{is\+Valid\+Root\+Segment}}
+\index{is\+Valid\+Root\+Segment@{is\+Valid\+Root\+Segment}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{is\+Valid\+Root\+Segment(point x\+New, int i\+Try)}{isValidRootSegment(point xNew, int iTry)}}]{\setlength{\rightskip}{0pt plus 5cm}int Fixed\+Perfusion\+Radius\+Tree\+Generator\+::is\+Valid\+Root\+Segment (
+\begin{DoxyParamCaption}
+\item[{{\bf point}}]{x\+New, }
+\item[{int}]{i\+Try}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_ae7a7f4b87282f81b141377032a537e08}{}\label{class_fixed_perfusion_radius_tree_generator_ae7a7f4b87282f81b141377032a537e08}
+Returns if the length of the segment defined by x\+Prox and x\+New is higher than d\+Lim (distance criterion). 
+\begin{DoxyParams}{Parameters}
+{\em x\+New} & Proposed distal point. \\
+\hline
+{\em i\+Try} & Number of trial. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the root segment is valid. 
+\end{DoxyReturn}
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!is\+Valid\+Segment@{is\+Valid\+Segment}}
+\index{is\+Valid\+Segment@{is\+Valid\+Segment}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{is\+Valid\+Segment(point x\+New, int i\+Try)}{isValidSegment(point xNew, int iTry)}}]{\setlength{\rightskip}{0pt plus 5cm}int Fixed\+Perfusion\+Radius\+Tree\+Generator\+::is\+Valid\+Segment (
+\begin{DoxyParamCaption}
+\item[{{\bf point}}]{x\+New, }
+\item[{int}]{i\+Try}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_a306a08e5b09ced0a19fcfae49c7e7399}{}\label{class_fixed_perfusion_radius_tree_generator_a306a08e5b09ced0a19fcfae49c7e7399}
+Returns if the closest point to the whole try is greater than d\+Lim (distance criterion for a new segment). 
+\begin{DoxyParams}{Parameters}
+{\em x\+New} & Proposed distal point. \\
+\hline
+{\em i\+Try} & Number of trial. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the segment is valid. 
+\end{DoxyReturn}
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!mark\+Timestamp\+On\+Configuration\+File@{mark\+Timestamp\+On\+Configuration\+File}}
+\index{mark\+Timestamp\+On\+Configuration\+File@{mark\+Timestamp\+On\+Configuration\+File}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{mark\+Timestamp\+On\+Configuration\+File(string label)}{markTimestampOnConfigurationFile(string label)}}]{\setlength{\rightskip}{0pt plus 5cm}void Fixed\+Perfusion\+Radius\+Tree\+Generator\+::mark\+Timestamp\+On\+Configuration\+File (
+\begin{DoxyParamCaption}
+\item[{string}]{label}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_af82dbe3c22454f0b1e09be7e77ac8118}{}\label{class_fixed_perfusion_radius_tree_generator_af82dbe3c22454f0b1e09be7e77ac8118}
+Saves the timestamp for event {\ttfamily label}. \index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!observable\+Modified@{observable\+Modified}}
+\index{observable\+Modified@{observable\+Modified}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{observable\+Modified(\+I\+Domain\+Observable $\ast$observable\+Instance)}{observableModified(IDomainObservable *observableInstance)}}]{\setlength{\rightskip}{0pt plus 5cm}void Fixed\+Perfusion\+Radius\+Tree\+Generator\+::observable\+Modified (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Domain\+Observable} $\ast$}]{observable\+Instance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_add5bd06f4fe8a15529084f6d78e71b44}{}\label{class_fixed_perfusion_radius_tree_generator_add5bd06f4fe8a15529084f6d78e71b44}
+Updates internal data from this instance after the domain has been modified. 
+\begin{DoxyParams}{Parameters}
+{\em observable\+Instance} & Domain instance modified. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_i_domain_observer_aee18640c20a6feaa16e4bf3bdde887a3}{I\+Domain\+Observer}.
+
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!resume@{resume}}
+\index{resume@{resume}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{resume()}{resume()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ Fixed\+Perfusion\+Radius\+Tree\+Generator\+::resume (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_fixed_perfusion_radius_tree_generator_a9feeb40ddba160de4499f435b129dc83}{}\label{class_fixed_perfusion_radius_tree_generator_a9feeb40ddba160de4499f435b129dc83}
+Resumes the tree generation. \begin{DoxyReturn}{Returns}
+Perfusion tree. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!beginning\+Time@{beginning\+Time}}
+\index{beginning\+Time@{beginning\+Time}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{beginning\+Time}{beginningTime}}]{\setlength{\rightskip}{0pt plus 5cm}chrono\+::steady\+\_\+clock\+::time\+\_\+point Fixed\+Perfusion\+Radius\+Tree\+Generator\+::beginning\+Time\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_ab1945f73c7d8ac571c34b68792d5d317}{}\label{class_fixed_perfusion_radius_tree_generator_ab1945f73c7d8ac571c34b68792d5d317}
+Initial timestamp of the generation process. \index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!conf\+File@{conf\+File}}
+\index{conf\+File@{conf\+File}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{conf\+File}{confFile}}]{\setlength{\rightskip}{0pt plus 5cm}ofstream Fixed\+Perfusion\+Radius\+Tree\+Generator\+::conf\+File\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_acccbb50a7aa221b58e80e47515650a5a}{}\label{class_fixed_perfusion_radius_tree_generator_acccbb50a7aa221b58e80e47515650a5a}
+Configuration file stream. \index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!conf\+Filename@{conf\+Filename}}
+\index{conf\+Filename@{conf\+Filename}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{conf\+Filename}{confFilename}}]{\setlength{\rightskip}{0pt plus 5cm}string Fixed\+Perfusion\+Radius\+Tree\+Generator\+::conf\+Filename\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_a429c60ad818d28d0a50167beaecf60b9}{}\label{class_fixed_perfusion_radius_tree_generator_a429c60ad818d28d0a50167beaecf60b9}
+File name for the configuration file. \index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!data\+Monitor@{data\+Monitor}}
+\index{data\+Monitor@{data\+Monitor}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{data\+Monitor}{dataMonitor}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Generator\+Data\+Monitor}$\ast$ Fixed\+Perfusion\+Radius\+Tree\+Generator\+::data\+Monitor\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_a431e0e44437bc9cbee263ab316c8ed60}{}\label{class_fixed_perfusion_radius_tree_generator_a431e0e44437bc9cbee263ab316c8ed60}
+Monitor of the {\ttfamily instance\+Data} . \index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!d\+Lim@{d\+Lim}}
+\index{d\+Lim@{d\+Lim}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{d\+Lim}{dLim}}]{\setlength{\rightskip}{0pt plus 5cm}double Fixed\+Perfusion\+Radius\+Tree\+Generator\+::d\+Lim\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_ae14a2fd89b3e87d51d8d304abab238be}{}\label{class_fixed_perfusion_radius_tree_generator_ae14a2fd89b3e87d51d8d304abab238be}
+Perfusion volume. \index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!domain@{domain}}
+\index{domain@{domain}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{domain}{domain}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Abstract\+Domain}$\ast$ Fixed\+Perfusion\+Radius\+Tree\+Generator\+::domain\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_a3f613d457aa40ecbec9c61b0fd559764}{}\label{class_fixed_perfusion_radius_tree_generator_a3f613d457aa40ecbec9c61b0fd559764}
+Perfusion domain. \index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!instance\+Data@{instance\+Data}}
+\index{instance\+Data@{instance\+Data}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{instance\+Data}{instanceData}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Generator\+Data}$\ast$ Fixed\+Perfusion\+Radius\+Tree\+Generator\+::instance\+Data\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_a00f2d253632c5188a13576d614586d02}{}\label{class_fixed_perfusion_radius_tree_generator_a00f2d253632c5188a13576d614586d02}
+Wrapper with parameters associated to a tree generation process. \index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!is\+Generating\+Conf\+File@{is\+Generating\+Conf\+File}}
+\index{is\+Generating\+Conf\+File@{is\+Generating\+Conf\+File}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{is\+Generating\+Conf\+File}{isGeneratingConfFile}}]{\setlength{\rightskip}{0pt plus 5cm}int Fixed\+Perfusion\+Radius\+Tree\+Generator\+::is\+Generating\+Conf\+File\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_aa4e8b9db77041b6981d1747835faaafe}{}\label{class_fixed_perfusion_radius_tree_generator_aa4e8b9db77041b6981d1747835faaafe}
+If the current generation saves the configuration used. \index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!n\+Terminals@{n\+Terminals}}
+\index{n\+Terminals@{n\+Terminals}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{n\+Terminals}{nTerminals}}]{\setlength{\rightskip}{0pt plus 5cm}long long int Fixed\+Perfusion\+Radius\+Tree\+Generator\+::n\+Terminals\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_a7f47f9518335cd88504f2575d75a6935}{}\label{class_fixed_perfusion_radius_tree_generator_a7f47f9518335cd88504f2575d75a6935}
+Amount of terminals in the trees. \index{Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}!tree@{tree}}
+\index{tree@{tree}!Fixed\+Perfusion\+Radius\+Tree\+Generator@{Fixed\+Perfusion\+Radius\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{tree}{tree}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Abstract\+Structured\+C\+C\+O\+Tree}$\ast$ Fixed\+Perfusion\+Radius\+Tree\+Generator\+::tree\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_fixed_perfusion_radius_tree_generator_a79a3059e0c4555a2008829d5a51803dd}{}\label{class_fixed_perfusion_radius_tree_generator_a79a3059e0c4555a2008829d5a51803dd}
+Generated trees. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+core/Fixed\+Perfusion\+Radius\+Tree\+Generator.\+h\item 
+core/Fixed\+Perfusion\+Radius\+Tree\+Generator.\+cpp\end{DoxyCompactItemize}

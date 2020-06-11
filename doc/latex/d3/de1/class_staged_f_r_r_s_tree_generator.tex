@@ -1,0 +1,369 @@
+\hypertarget{class_staged_f_r_r_s_tree_generator}{}\section{Staged\+F\+R\+R\+S\+Tree\+Generator Class Reference}
+\label{class_staged_f_r_r_s_tree_generator}\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+
+
+{\ttfamily \#include $<$Staged\+F\+R\+R\+S\+Tree\+Generator.\+h$>$}
+
+Inheritance diagram for Staged\+F\+R\+R\+S\+Tree\+Generator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d3/de1/class_staged_f_r_r_s_tree_generator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_staged_f_r_r_s_tree_generator_a41ad2975c756af1dbbd3e59ebcdf458b}{Staged\+F\+R\+R\+S\+Tree\+Generator} (\hyperlink{class_staged_domain}{Staged\+Domain} $\ast$\hyperlink{class_staged_f_r_r_s_tree_generator_adc8ddbcf948810b70a7f9b59237a36e2}{domain}, \hyperlink{structpoint}{point} xi, double root\+Radii, double qi, long long int n\+Term, vector$<$ \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$gam, vector$<$ \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$eps\+Lim, vector$<$ \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$nu, double min\+Angle, double ref\+Pressure)
+\item 
+\hyperlink{class_staged_f_r_r_s_tree_generator_a69a07c273b05c768888c5691d393efc0}{Staged\+F\+R\+R\+S\+Tree\+Generator} (\hyperlink{class_staged_domain}{Staged\+Domain} $\ast$\hyperlink{class_staged_f_r_r_s_tree_generator_adc8ddbcf948810b70a7f9b59237a36e2}{domain}, \hyperlink{structpoint}{point} xi, double root\+Radii, double qi, long long int n\+Term, vector$<$ \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$gam, vector$<$ \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$eps\+Lim, vector$<$ \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$nu, double min\+Angle, double ref\+Pressure, double viscosity\+Tolerance, int optimized)
+\item 
+\hyperlink{class_staged_f_r_r_s_tree_generator_a6e558409d89c7ce682d98f217955ba77}{Staged\+F\+R\+R\+S\+Tree\+Generator} (\hyperlink{class_staged_domain}{Staged\+Domain} $\ast$\hyperlink{class_staged_f_r_r_s_tree_generator_adc8ddbcf948810b70a7f9b59237a36e2}{domain}, \hyperlink{class_abstract_structured_c_c_o_tree}{Abstract\+Structured\+C\+C\+O\+Tree} $\ast$\hyperlink{class_staged_f_r_r_s_tree_generator_a584a1e0e109ac6bdeae996178f8d8646}{tree}, long long int n\+Term, vector$<$ \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$gam, vector$<$ \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$eps\+Lim, vector$<$ \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$nu)
+\item 
+\hyperlink{class_abstract_structured_c_c_o_tree}{Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ \hyperlink{class_staged_f_r_r_s_tree_generator_a86dde9bdc838234e1e88a52fdfd4c6c2}{generate} ()
+\item 
+\hyperlink{class_abstract_structured_c_c_o_tree}{Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ \hyperlink{class_staged_f_r_r_s_tree_generator_a8a61382d3442b29f63f8b1cf5f3e8092}{resume} ()
+\item 
+\hyperlink{class_staged_domain}{Staged\+Domain} $\ast$ \hyperlink{class_staged_f_r_r_s_tree_generator_a3cc900c34c4324210a3e732d674e5ff0}{get\+Domain} ()
+\item 
+vector$<$ \hyperlink{class_abstract_structured_c_c_o_tree}{Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ $>$ \hyperlink{class_staged_f_r_r_s_tree_generator_ac1296de9b742a6a0de36be4d094afd70}{get\+Trees} ()
+\item 
+void \hyperlink{class_staged_f_r_r_s_tree_generator_ac78a1dadc8a9eb640520d03d415db12b}{enable\+Configuration\+File} (string filename)
+\item 
+void \hyperlink{class_staged_f_r_r_s_tree_generator_a6f7629b00510e27edddced056e6fa1a1}{observable\+Modified} (\hyperlink{class_i_domain_observable}{I\+Domain\+Observable} $\ast$observable\+Instance)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_staged_f_r_r_s_tree_generator_aab108e277110635297d2d8cd95c4cd1d}{is\+Valid\+Root\+Segment} (\hyperlink{structpoint}{point} x\+New, int i\+Try)
+\item 
+int \hyperlink{class_staged_f_r_r_s_tree_generator_ac78cabfc8a80b398c4daa0d86a38f872}{is\+Valid\+Segment} (\hyperlink{structpoint}{point} x\+New, int i\+Try)
+\item 
+void \hyperlink{class_staged_f_r_r_s_tree_generator_aabba68aefd4f5786afa4460fdeb9519c}{generates\+Configuration\+File} (ios\+::openmode mode)
+\item 
+void \hyperlink{class_staged_f_r_r_s_tree_generator_a303c648e7d6d5df8e55c8263865be7e5}{mark\+Timestamp\+On\+Configuration\+File} (string label)
+\item 
+void \hyperlink{class_staged_f_r_r_s_tree_generator_acfdaf03eea5350e0fd2f59a5a76f6b23}{close\+Configuration\+File} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ofstream \hyperlink{class_staged_f_r_r_s_tree_generator_a764313586a157f7194ae945e76024e1f}{conf\+File}
+\item 
+chrono\+::steady\+\_\+clock\+::time\+\_\+point \hyperlink{class_staged_f_r_r_s_tree_generator_ae3f8c8407c40b6fac229574fcc8106d4}{beginning\+Time}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_generator_data}{Generator\+Data} $\ast$ \hyperlink{class_staged_f_r_r_s_tree_generator_a8df19e56e9037a0f012cbaa6beb171ca}{instance\+Data}
+\item 
+\hyperlink{class_generator_data_monitor}{Generator\+Data\+Monitor} $\ast$ \hyperlink{class_staged_f_r_r_s_tree_generator_ad408787a8ec7350e68f00924ad6e8075}{data\+Monitor}
+\item 
+long long int \hyperlink{class_staged_f_r_r_s_tree_generator_a9ac1eafca6caa14601df23da77cfa565}{n\+Terminals}
+\item 
+double \hyperlink{class_staged_f_r_r_s_tree_generator_add278e195be9de240c8460e6480f0a44}{d\+Lim}
+\item 
+\hyperlink{class_staged_domain}{Staged\+Domain} $\ast$ \hyperlink{class_staged_f_r_r_s_tree_generator_adc8ddbcf948810b70a7f9b59237a36e2}{domain}
+\item 
+\hyperlink{class_abstract_structured_c_c_o_tree}{Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ \hyperlink{class_staged_f_r_r_s_tree_generator_a584a1e0e109ac6bdeae996178f8d8646}{tree}
+\item 
+vector$<$ \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$ {\bfseries gams}\hypertarget{class_staged_f_r_r_s_tree_generator_a24e70672271f24d8a45d0a055202cb92}{}\label{class_staged_f_r_r_s_tree_generator_a24e70672271f24d8a45d0a055202cb92}
+
+\item 
+vector$<$ \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$ {\bfseries eps\+Lims}\hypertarget{class_staged_f_r_r_s_tree_generator_a40bf32899a1b6348a8808c8179074785}{}\label{class_staged_f_r_r_s_tree_generator_a40bf32899a1b6348a8808c8179074785}
+
+\item 
+vector$<$ \hyperlink{class_abstract_constraint_function}{Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$ {\bfseries nus}\hypertarget{class_staged_f_r_r_s_tree_generator_a8c5c7c43ff7483da4f2076debbf95217}{}\label{class_staged_f_r_r_s_tree_generator_a8c5c7c43ff7483da4f2076debbf95217}
+
+\item 
+int {\bfseries stage}\hypertarget{class_staged_f_r_r_s_tree_generator_a18fa6a223b79f35d001274c5fc9f8934}{}\label{class_staged_f_r_r_s_tree_generator_a18fa6a223b79f35d001274c5fc9f8934}
+
+\item 
+int \hyperlink{class_staged_f_r_r_s_tree_generator_ae6ab29d9d31103363d0f46e163f9e0cd}{is\+Generating\+Conf\+File}
+\item 
+string \hyperlink{class_staged_f_r_r_s_tree_generator_a051e558bc25271921834c40ff399a66b}{conf\+Filename}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generator for a single fixed perfusion tree with many stages. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{Staged\+F\+R\+R\+S\+Tree\+Generator(\+Staged\+Domain $\ast$domain, point xi, double root\+Radii, double qi, long long int n\+Term, vector$<$ Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$ $>$gam, vector$<$ Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$ $>$eps\+Lim, vector$<$ Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$ $>$nu, double min\+Angle, double ref\+Pressure)}{StagedFRRSTreeGenerator(StagedDomain *domain, point xi, double rootRadii, double qi, long long int nTerm, vector< AbstractConstraintFunction< double, int > * >gam, vector< AbstractConstraintFunction< double, int > * >epsLim, vector< AbstractConstraintFunction< double, int > * >nu, double minAngle, double refPressure)}}]{\setlength{\rightskip}{0pt plus 5cm}Staged\+F\+R\+R\+S\+Tree\+Generator\+::\+Staged\+F\+R\+R\+S\+Tree\+Generator (
+\begin{DoxyParamCaption}
+\item[{{\bf Staged\+Domain} $\ast$}]{domain, }
+\item[{{\bf point}}]{xi, }
+\item[{double}]{root\+Radii, }
+\item[{double}]{qi, }
+\item[{long long int}]{n\+Term, }
+\item[{vector$<$ {\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$}]{gam, }
+\item[{vector$<$ {\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$}]{eps\+Lim, }
+\item[{vector$<$ {\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$}]{nu, }
+\item[{double}]{min\+Angle, }
+\item[{double}]{ref\+Pressure}
+\end{DoxyParamCaption}
+)}\hypertarget{class_staged_f_r_r_s_tree_generator_a41ad2975c756af1dbbd3e59ebcdf458b}{}\label{class_staged_f_r_r_s_tree_generator_a41ad2975c756af1dbbd3e59ebcdf458b}
+Constructor for non-\/optimized and constant viscosity tree. 
+\begin{DoxyParams}{Parameters}
+{\em domain} & Perfusion domain. \\
+\hline
+{\em xi} & Root proximal position. \\
+\hline
+{\em root\+Radii} & Root radius. \\
+\hline
+{\em qi} & Inflow for the perfusion domain. \\
+\hline
+{\em n\+Term} & Total number of tree terminals. \\
+\hline
+{\em gam} & Murray\textquotesingle{}s power law function. \\
+\hline
+{\em eps\+Lim} & Symmetry constraint function. \\
+\hline
+{\em nu} & Viscosity function. \\
+\hline
+{\em min\+Angle} & Minimum allowed bifurcation angle. \\
+\hline
+\end{DoxyParams}
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{Staged\+F\+R\+R\+S\+Tree\+Generator(\+Staged\+Domain $\ast$domain, point xi, double root\+Radii, double qi, long long int n\+Term, vector$<$ Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$ $>$gam, vector$<$ Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$ $>$eps\+Lim, vector$<$ Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$ $>$nu, double min\+Angle, double ref\+Pressure, double viscosity\+Tolerance, int optimized)}{StagedFRRSTreeGenerator(StagedDomain *domain, point xi, double rootRadii, double qi, long long int nTerm, vector< AbstractConstraintFunction< double, int > * >gam, vector< AbstractConstraintFunction< double, int > * >epsLim, vector< AbstractConstraintFunction< double, int > * >nu, double minAngle, double refPressure, double viscosityTolerance, int optimized)}}]{\setlength{\rightskip}{0pt plus 5cm}Staged\+F\+R\+R\+S\+Tree\+Generator\+::\+Staged\+F\+R\+R\+S\+Tree\+Generator (
+\begin{DoxyParamCaption}
+\item[{{\bf Staged\+Domain} $\ast$}]{domain, }
+\item[{{\bf point}}]{xi, }
+\item[{double}]{root\+Radii, }
+\item[{double}]{qi, }
+\item[{long long int}]{n\+Term, }
+\item[{vector$<$ {\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$}]{gam, }
+\item[{vector$<$ {\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$}]{eps\+Lim, }
+\item[{vector$<$ {\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$}]{nu, }
+\item[{double}]{min\+Angle, }
+\item[{double}]{ref\+Pressure, }
+\item[{double}]{viscosity\+Tolerance, }
+\item[{int}]{optimized}
+\end{DoxyParamCaption}
+)}\hypertarget{class_staged_f_r_r_s_tree_generator_a69a07c273b05c768888c5691d393efc0}{}\label{class_staged_f_r_r_s_tree_generator_a69a07c273b05c768888c5691d393efc0}
+Constructor for tree with Fahraeus-\/\+Lindquist viscosity model. 
+\begin{DoxyParams}{Parameters}
+{\em domain} & Perfusion domain. \\
+\hline
+{\em xi} & Root proximal position. \\
+\hline
+{\em root\+Radii} & Root radius. \\
+\hline
+{\em qi} & Inflow for the perfusion domain. \\
+\hline
+{\em n\+Term} & Total number of tree terminals. \\
+\hline
+{\em gam} & Murray\textquotesingle{}s power law function. \\
+\hline
+{\em eps\+Lim} & Symmetry constraint function. \\
+\hline
+{\em nu} & Viscosity function. \\
+\hline
+{\em min\+Angle} & Minimum allowed bifurcation angle. \\
+\hline
+{\em viscosity\+Tolerance} & Convergence tolerance for the absolute beta variation in the viscosity iterative scheme. \\
+\hline
+{\em optimized} & If it is optimized with partial tree scaling. \\
+\hline
+\end{DoxyParams}
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{Staged\+F\+R\+R\+S\+Tree\+Generator(\+Staged\+Domain $\ast$domain, Abstract\+Structured\+C\+C\+O\+Tree $\ast$tree, long long int n\+Term, vector$<$ Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$ $>$gam, vector$<$ Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$ $>$eps\+Lim, vector$<$ Abstract\+Constraint\+Function$<$ double, int $>$ $\ast$ $>$nu)}{StagedFRRSTreeGenerator(StagedDomain *domain, AbstractStructuredCCOTree *tree, long long int nTerm, vector< AbstractConstraintFunction< double, int > * >gam, vector< AbstractConstraintFunction< double, int > * >epsLim, vector< AbstractConstraintFunction< double, int > * >nu)}}]{\setlength{\rightskip}{0pt plus 5cm}Staged\+F\+R\+R\+S\+Tree\+Generator\+::\+Staged\+F\+R\+R\+S\+Tree\+Generator (
+\begin{DoxyParamCaption}
+\item[{{\bf Staged\+Domain} $\ast$}]{domain, }
+\item[{{\bf Abstract\+Structured\+C\+C\+O\+Tree} $\ast$}]{tree, }
+\item[{long long int}]{n\+Term, }
+\item[{vector$<$ {\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$}]{gam, }
+\item[{vector$<$ {\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$}]{eps\+Lim, }
+\item[{vector$<$ {\bf Abstract\+Constraint\+Function}$<$ double, int $>$ $\ast$ $>$}]{nu}
+\end{DoxyParamCaption}
+)}\hypertarget{class_staged_f_r_r_s_tree_generator_a6e558409d89c7ce682d98f217955ba77}{}\label{class_staged_f_r_r_s_tree_generator_a6e558409d89c7ce682d98f217955ba77}
+Constructor to resume from a pre-\/existent tree. 
+\begin{DoxyParams}{Parameters}
+{\em domain} & Perfusion domain. \\
+\hline
+{\em tree} & Pre-\/existent tree. \\
+\hline
+{\em n\+Term} & Total number of tree terminals. \\
+\hline
+{\em gam} & Murray\textquotesingle{}s power law function. \\
+\hline
+{\em eps\+Lim} & Symmetry constraint function. \\
+\hline
+{\em nu} & Viscosity function. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!close\+Configuration\+File@{close\+Configuration\+File}}
+\index{close\+Configuration\+File@{close\+Configuration\+File}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{close\+Configuration\+File()}{closeConfigurationFile()}}]{\setlength{\rightskip}{0pt plus 5cm}void Staged\+F\+R\+R\+S\+Tree\+Generator\+::close\+Configuration\+File (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_staged_f_r_r_s_tree_generator_acfdaf03eea5350e0fd2f59a5a76f6b23}{}\label{class_staged_f_r_r_s_tree_generator_acfdaf03eea5350e0fd2f59a5a76f6b23}
+Closes the configuration file for the current tree generation. \index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!enable\+Configuration\+File@{enable\+Configuration\+File}}
+\index{enable\+Configuration\+File@{enable\+Configuration\+File}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{enable\+Configuration\+File(string filename)}{enableConfigurationFile(string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}void Staged\+F\+R\+R\+S\+Tree\+Generator\+::enable\+Configuration\+File (
+\begin{DoxyParamCaption}
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)}\hypertarget{class_staged_f_r_r_s_tree_generator_ac78a1dadc8a9eb640520d03d415db12b}{}\label{class_staged_f_r_r_s_tree_generator_ac78a1dadc8a9eb640520d03d415db12b}
+Enables the configuration file generation capabilities. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & File name where the generator stores the configuration data. \\
+\hline
+\end{DoxyParams}
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!generate@{generate}}
+\index{generate@{generate}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{generate()}{generate()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ Staged\+F\+R\+R\+S\+Tree\+Generator\+::generate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_staged_f_r_r_s_tree_generator_a86dde9bdc838234e1e88a52fdfd4c6c2}{}\label{class_staged_f_r_r_s_tree_generator_a86dde9bdc838234e1e88a52fdfd4c6c2}
+Generates the specified tree. \begin{DoxyReturn}{Returns}
+Perfusion tree. 
+\end{DoxyReturn}
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!generates\+Configuration\+File@{generates\+Configuration\+File}}
+\index{generates\+Configuration\+File@{generates\+Configuration\+File}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{generates\+Configuration\+File(ios\+::openmode mode)}{generatesConfigurationFile(ios::openmode mode)}}]{\setlength{\rightskip}{0pt plus 5cm}void Staged\+F\+R\+R\+S\+Tree\+Generator\+::generates\+Configuration\+File (
+\begin{DoxyParamCaption}
+\item[{ios\+::openmode}]{mode}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_staged_f_r_r_s_tree_generator_aabba68aefd4f5786afa4460fdeb9519c}{}\label{class_staged_f_r_r_s_tree_generator_aabba68aefd4f5786afa4460fdeb9519c}
+Generates the configuration file for the current tree generation. 
+\begin{DoxyParams}{Parameters}
+{\em mode} & Is the openmode used for the generated file (ios\+::out for generation, ios\+::app for resume). \\
+\hline
+\end{DoxyParams}
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!get\+Domain@{get\+Domain}}
+\index{get\+Domain@{get\+Domain}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{get\+Domain()}{getDomain()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Staged\+Domain} $\ast$ Staged\+F\+R\+R\+S\+Tree\+Generator\+::get\+Domain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_staged_f_r_r_s_tree_generator_a3cc900c34c4324210a3e732d674e5ff0}{}\label{class_staged_f_r_r_s_tree_generator_a3cc900c34c4324210a3e732d674e5ff0}
+Returns the perfusion domain. \begin{DoxyReturn}{Returns}
+Perfusion domain. 
+\end{DoxyReturn}
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!get\+Trees@{get\+Trees}}
+\index{get\+Trees@{get\+Trees}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{get\+Trees()}{getTrees()}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ $>$ Staged\+F\+R\+R\+S\+Tree\+Generator\+::get\+Trees (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_staged_f_r_r_s_tree_generator_ac1296de9b742a6a0de36be4d094afd70}{}\label{class_staged_f_r_r_s_tree_generator_ac1296de9b742a6a0de36be4d094afd70}
+Returns the generated tree. \begin{DoxyReturn}{Returns}
+Generated tree. 
+\end{DoxyReturn}
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!is\+Valid\+Root\+Segment@{is\+Valid\+Root\+Segment}}
+\index{is\+Valid\+Root\+Segment@{is\+Valid\+Root\+Segment}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{is\+Valid\+Root\+Segment(point x\+New, int i\+Try)}{isValidRootSegment(point xNew, int iTry)}}]{\setlength{\rightskip}{0pt plus 5cm}int Staged\+F\+R\+R\+S\+Tree\+Generator\+::is\+Valid\+Root\+Segment (
+\begin{DoxyParamCaption}
+\item[{{\bf point}}]{x\+New, }
+\item[{int}]{i\+Try}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_staged_f_r_r_s_tree_generator_aab108e277110635297d2d8cd95c4cd1d}{}\label{class_staged_f_r_r_s_tree_generator_aab108e277110635297d2d8cd95c4cd1d}
+Returns if the length of the segment defined by x\+Prox and x\+New is higher than d\+Lim (distance criterion). 
+\begin{DoxyParams}{Parameters}
+{\em x\+New} & Proposed distal point. \\
+\hline
+{\em i\+Try} & Number of trial. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the root segment is valid. 
+\end{DoxyReturn}
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!is\+Valid\+Segment@{is\+Valid\+Segment}}
+\index{is\+Valid\+Segment@{is\+Valid\+Segment}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{is\+Valid\+Segment(point x\+New, int i\+Try)}{isValidSegment(point xNew, int iTry)}}]{\setlength{\rightskip}{0pt plus 5cm}int Staged\+F\+R\+R\+S\+Tree\+Generator\+::is\+Valid\+Segment (
+\begin{DoxyParamCaption}
+\item[{{\bf point}}]{x\+New, }
+\item[{int}]{i\+Try}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_staged_f_r_r_s_tree_generator_ac78cabfc8a80b398c4daa0d86a38f872}{}\label{class_staged_f_r_r_s_tree_generator_ac78cabfc8a80b398c4daa0d86a38f872}
+Returns if the closest point to the whole try is greater than d\+Lim (distance criterion for a new segment). 
+\begin{DoxyParams}{Parameters}
+{\em x\+New} & Proposed distal point. \\
+\hline
+{\em i\+Try} & Number of trial. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the segment is valid. 
+\end{DoxyReturn}
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!mark\+Timestamp\+On\+Configuration\+File@{mark\+Timestamp\+On\+Configuration\+File}}
+\index{mark\+Timestamp\+On\+Configuration\+File@{mark\+Timestamp\+On\+Configuration\+File}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{mark\+Timestamp\+On\+Configuration\+File(string label)}{markTimestampOnConfigurationFile(string label)}}]{\setlength{\rightskip}{0pt plus 5cm}void Staged\+F\+R\+R\+S\+Tree\+Generator\+::mark\+Timestamp\+On\+Configuration\+File (
+\begin{DoxyParamCaption}
+\item[{string}]{label}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_staged_f_r_r_s_tree_generator_a303c648e7d6d5df8e55c8263865be7e5}{}\label{class_staged_f_r_r_s_tree_generator_a303c648e7d6d5df8e55c8263865be7e5}
+Saves the timestamp for event {\ttfamily label}. \index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!observable\+Modified@{observable\+Modified}}
+\index{observable\+Modified@{observable\+Modified}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{observable\+Modified(\+I\+Domain\+Observable $\ast$observable\+Instance)}{observableModified(IDomainObservable *observableInstance)}}]{\setlength{\rightskip}{0pt plus 5cm}void Staged\+F\+R\+R\+S\+Tree\+Generator\+::observable\+Modified (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Domain\+Observable} $\ast$}]{observable\+Instance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_staged_f_r_r_s_tree_generator_a6f7629b00510e27edddced056e6fa1a1}{}\label{class_staged_f_r_r_s_tree_generator_a6f7629b00510e27edddced056e6fa1a1}
+Updates internal data from this instance after the domain has been modified. 
+\begin{DoxyParams}{Parameters}
+{\em observable\+Instance} & Domain instance modified. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_i_domain_observer_aee18640c20a6feaa16e4bf3bdde887a3}{I\+Domain\+Observer}.
+
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!resume@{resume}}
+\index{resume@{resume}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{resume()}{resume()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Abstract\+Structured\+C\+C\+O\+Tree} $\ast$ Staged\+F\+R\+R\+S\+Tree\+Generator\+::resume (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_staged_f_r_r_s_tree_generator_a8a61382d3442b29f63f8b1cf5f3e8092}{}\label{class_staged_f_r_r_s_tree_generator_a8a61382d3442b29f63f8b1cf5f3e8092}
+Resumes the tree generation. \begin{DoxyReturn}{Returns}
+Perfusion tree. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!beginning\+Time@{beginning\+Time}}
+\index{beginning\+Time@{beginning\+Time}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{beginning\+Time}{beginningTime}}]{\setlength{\rightskip}{0pt plus 5cm}chrono\+::steady\+\_\+clock\+::time\+\_\+point Staged\+F\+R\+R\+S\+Tree\+Generator\+::beginning\+Time\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_staged_f_r_r_s_tree_generator_ae3f8c8407c40b6fac229574fcc8106d4}{}\label{class_staged_f_r_r_s_tree_generator_ae3f8c8407c40b6fac229574fcc8106d4}
+Initial timestamp of the generation process. \index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!conf\+File@{conf\+File}}
+\index{conf\+File@{conf\+File}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{conf\+File}{confFile}}]{\setlength{\rightskip}{0pt plus 5cm}ofstream Staged\+F\+R\+R\+S\+Tree\+Generator\+::conf\+File\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_staged_f_r_r_s_tree_generator_a764313586a157f7194ae945e76024e1f}{}\label{class_staged_f_r_r_s_tree_generator_a764313586a157f7194ae945e76024e1f}
+Configuration file stream. \index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!conf\+Filename@{conf\+Filename}}
+\index{conf\+Filename@{conf\+Filename}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{conf\+Filename}{confFilename}}]{\setlength{\rightskip}{0pt plus 5cm}string Staged\+F\+R\+R\+S\+Tree\+Generator\+::conf\+Filename\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_staged_f_r_r_s_tree_generator_a051e558bc25271921834c40ff399a66b}{}\label{class_staged_f_r_r_s_tree_generator_a051e558bc25271921834c40ff399a66b}
+File name for the configuration file. \index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!data\+Monitor@{data\+Monitor}}
+\index{data\+Monitor@{data\+Monitor}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{data\+Monitor}{dataMonitor}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Generator\+Data\+Monitor}$\ast$ Staged\+F\+R\+R\+S\+Tree\+Generator\+::data\+Monitor\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_staged_f_r_r_s_tree_generator_ad408787a8ec7350e68f00924ad6e8075}{}\label{class_staged_f_r_r_s_tree_generator_ad408787a8ec7350e68f00924ad6e8075}
+Monitor of the {\ttfamily instance\+Data} . \index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!d\+Lim@{d\+Lim}}
+\index{d\+Lim@{d\+Lim}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{d\+Lim}{dLim}}]{\setlength{\rightskip}{0pt plus 5cm}double Staged\+F\+R\+R\+S\+Tree\+Generator\+::d\+Lim\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_staged_f_r_r_s_tree_generator_add278e195be9de240c8460e6480f0a44}{}\label{class_staged_f_r_r_s_tree_generator_add278e195be9de240c8460e6480f0a44}
+Perfusion volume. \index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!domain@{domain}}
+\index{domain@{domain}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{domain}{domain}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Staged\+Domain}$\ast$ Staged\+F\+R\+R\+S\+Tree\+Generator\+::domain\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_staged_f_r_r_s_tree_generator_adc8ddbcf948810b70a7f9b59237a36e2}{}\label{class_staged_f_r_r_s_tree_generator_adc8ddbcf948810b70a7f9b59237a36e2}
+Perfusion domain. \index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!instance\+Data@{instance\+Data}}
+\index{instance\+Data@{instance\+Data}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{instance\+Data}{instanceData}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Generator\+Data}$\ast$ Staged\+F\+R\+R\+S\+Tree\+Generator\+::instance\+Data\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_staged_f_r_r_s_tree_generator_a8df19e56e9037a0f012cbaa6beb171ca}{}\label{class_staged_f_r_r_s_tree_generator_a8df19e56e9037a0f012cbaa6beb171ca}
+Wrapper with parameters associated to a tree generation process. \index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!is\+Generating\+Conf\+File@{is\+Generating\+Conf\+File}}
+\index{is\+Generating\+Conf\+File@{is\+Generating\+Conf\+File}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{is\+Generating\+Conf\+File}{isGeneratingConfFile}}]{\setlength{\rightskip}{0pt plus 5cm}int Staged\+F\+R\+R\+S\+Tree\+Generator\+::is\+Generating\+Conf\+File\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_staged_f_r_r_s_tree_generator_ae6ab29d9d31103363d0f46e163f9e0cd}{}\label{class_staged_f_r_r_s_tree_generator_ae6ab29d9d31103363d0f46e163f9e0cd}
+If the current generation saves the configuration used. \index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!n\+Terminals@{n\+Terminals}}
+\index{n\+Terminals@{n\+Terminals}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{n\+Terminals}{nTerminals}}]{\setlength{\rightskip}{0pt plus 5cm}long long int Staged\+F\+R\+R\+S\+Tree\+Generator\+::n\+Terminals\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_staged_f_r_r_s_tree_generator_a9ac1eafca6caa14601df23da77cfa565}{}\label{class_staged_f_r_r_s_tree_generator_a9ac1eafca6caa14601df23da77cfa565}
+Amount of terminals in the trees. \index{Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}!tree@{tree}}
+\index{tree@{tree}!Staged\+F\+R\+R\+S\+Tree\+Generator@{Staged\+F\+R\+R\+S\+Tree\+Generator}}
+\subsubsection[{\texorpdfstring{tree}{tree}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Abstract\+Structured\+C\+C\+O\+Tree}$\ast$ Staged\+F\+R\+R\+S\+Tree\+Generator\+::tree\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_staged_f_r_r_s_tree_generator_a584a1e0e109ac6bdeae996178f8d8646}{}\label{class_staged_f_r_r_s_tree_generator_a584a1e0e109ac6bdeae996178f8d8646}
+Generated trees. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+core/Staged\+F\+R\+R\+S\+Tree\+Generator.\+h\item 
+core/Staged\+F\+R\+R\+S\+Tree\+Generator.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,344 @@
+\hypertarget{class_partially_vascularized_domain}{}\section{Partially\+Vascularized\+Domain Class Reference}
+\label{class_partially_vascularized_domain}\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+
+
+{\ttfamily \#include $<$Partially\+Vascularized\+Domain.\+h$>$}
+
+Inheritance diagram for Partially\+Vascularized\+Domain\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{d0/d32/class_partially_vascularized_domain}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_partially_vascularized_domain_a98e6ef8e987c36fda10852347433ac3e}{Partially\+Vascularized\+Domain} (string filename\+Hull, vector$<$ string $>$ filename\+Vascular\+Regions, vector$<$ string $>$ filename\+Non\+Vascular\+Regions, \hyperlink{class_generator_data}{Generator\+Data} $\ast$\hyperlink{class_abstract_domain_aa37fbabc2bfa92c574f7db7544016b53}{instance\+Data})
+\item 
+\hyperlink{class_partially_vascularized_domain_a8da1612c7f4a4599659b9683e1f6da0f}{Partially\+Vascularized\+Domain} (string filename\+Hull, vector$<$ string $>$ filename\+Vascular\+Regions, vector$<$ string $>$ filename\+Non\+Vascular\+Regions, int \hyperlink{class_partially_vascularized_domain_ae88320ec5cef5465ad2c74ce201d5131}{n\+Draw}, \hyperlink{class_generator_data}{Generator\+Data} $\ast$\hyperlink{class_abstract_domain_aa37fbabc2bfa92c574f7db7544016b53}{instance\+Data})
+\item 
+\hyperlink{class_partially_vascularized_domain_a430194cae85988ff828b8d5deb46e7bc}{Partially\+Vascularized\+Domain} (string filename\+Hull, vector$<$ string $>$ filename\+Vascular\+Regions, vector$<$ string $>$ filename\+Non\+Vascular\+Regions, int \hyperlink{class_partially_vascularized_domain_ae88320ec5cef5465ad2c74ce201d5131}{n\+Draw}, int \hyperlink{class_partially_vascularized_domain_a443b5b60ce756ea5bfb05c628ed4af0d}{seed}, \hyperlink{class_generator_data}{Generator\+Data} $\ast$\hyperlink{class_abstract_domain_aa37fbabc2bfa92c574f7db7544016b53}{instance\+Data})
+\item 
+int \hyperlink{class_partially_vascularized_domain_a485e0e573369f76ef59477fc5ac8ea9b}{is\+Segment\+Inside} (\hyperlink{structpoint}{point} xs, \hyperlink{structpoint}{point} xf)
+\item 
+double \hyperlink{class_partially_vascularized_domain_a1ec0827e05801a1a3219cbd4e87ac64c}{get\+Characteristic\+Length} ()
+\item 
+double \hyperlink{class_partially_vascularized_domain_a7cfa7a304d236b933311f8ac5149662e}{get\+D\+Lim} (long long int n\+Vessels, double factor)
+\item 
+double $\ast$ \hyperlink{class_partially_vascularized_domain_a379893eff3b1612932f4689a478e73ee}{get\+Local\+Neighborhood} (\hyperlink{structpoint}{point} p, long long int n\+Vessels)
+\item 
+double \hyperlink{class_partially_vascularized_domain_a88c04b73a8ffd9e8ddbc4a1c118a1795}{get\+Size} ()
+\item 
+virtual \hyperlink{structpoint}{point} \hyperlink{class_partially_vascularized_domain_a817dcd8122892b14ed112135aa4a1fe0}{get\+Random\+Point} ()
+\item 
+vtk\+Smart\+Pointer$<$ vtk\+O\+B\+B\+Tree $>$ \& \hyperlink{class_partially_vascularized_domain_aaa408e316948645dd383abfdd327c733}{get\+Locator} ()
+\item 
+int \hyperlink{class_partially_vascularized_domain_aefb222fe10e4691e965b3a2035e0b119}{get\+Draw} ()
+\item 
+deque$<$ \hyperlink{structpoint}{point} $>$ \& \hyperlink{class_partially_vascularized_domain_abbfb8f486b00e62117b564874a454395}{get\+Random\+Inner\+Points} ()
+\item 
+vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ \& \hyperlink{class_partially_vascularized_domain_aa2acdedb98eb9cd168b9ab4cfa38c485}{get\+Vtk\+Geometry} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries generate\+Random\+Points} ()\hypertarget{class_partially_vascularized_domain_a2cd16ecba9744376ed887ac5c384f8d6}{}\label{class_partially_vascularized_domain_a2cd16ecba9744376ed887ac5c384f8d6}
+
+\item 
+void {\bfseries remove\+Random\+Outer\+Points} ()\hypertarget{class_partially_vascularized_domain_af607ad95d6ee6f3642d53cef956c22d2}{}\label{class_partially_vascularized_domain_af607ad95d6ee6f3642d53cef956c22d2}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+deque$<$ \hyperlink{structpoint}{point} $>$ {\bfseries random\+Inner\+Points}\hypertarget{class_partially_vascularized_domain_abe9eaae7ebdf88e4bb1f9389d697c5c3}{}\label{class_partially_vascularized_domain_abe9eaae7ebdf88e4bb1f9389d697c5c3}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ \hyperlink{class_partially_vascularized_domain_af4d0cd0bc35113adccb312f4b07dcd72}{vtk\+Transport\+Region}
+\item 
+vector$<$ vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ $>$ \hyperlink{class_partially_vascularized_domain_aeacff4635f73c185d8a83a3a824b49cb}{vtk\+Vascularized\+Regions}
+\item 
+vector$<$ vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ $>$ \hyperlink{class_partially_vascularized_domain_a725b3a41a8c28011def02f193121b99b}{vtk\+Hollow\+Regions}
+\item 
+vtk\+Smart\+Pointer$<$ vtk\+O\+B\+B\+Tree $>$ \hyperlink{class_partially_vascularized_domain_a3e4d13820b8ed9beea9bf9d3bfc807a2}{locator}
+\item 
+vector$<$ vtk\+Smart\+Pointer$<$ vtk\+O\+B\+B\+Tree $>$ $>$ \hyperlink{class_partially_vascularized_domain_abce195c2c0bd9f52cf932560539aec57}{hollow\+Locators}
+\item 
+double \hyperlink{class_partially_vascularized_domain_ac79741173831cc9628ccf7ad193f2812}{characteristic\+Length}
+\item 
+int \hyperlink{class_partially_vascularized_domain_ae88320ec5cef5465ad2c74ce201d5131}{n\+Draw}
+\item 
+int \hyperlink{class_partially_vascularized_domain_a443b5b60ce756ea5bfb05c628ed4af0d}{seed} = -\/1
+\item 
+mt19937 \hyperlink{class_partially_vascularized_domain_a78f13fd2210c58eae813d057b580c3cc}{generator}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This domain features three different type of volumes\+: (i) transport volume; (ii) vascularized volumes; (iii) non-\/vascularized volumes. A transport volume allows that existent vessels within it, create terminals to vascularized volumes. Thus, its space may prone anastomose from existent arteries to vascularized regions, but no terminals can be created in it. A vascularized volume allowed the anastomose in its existent vessels and the creation of terminals within it. Lastly, non-\/vascularized volumes do not allowed vessels to enter exit nor generate terminals. It is mandatory that vascularized regions be within the transport volume. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{Partially\+Vascularized\+Domain(string filename\+Hull, vector$<$ string $>$ filename\+Vascular\+Regions, vector$<$ string $>$ filename\+Non\+Vascular\+Regions, Generator\+Data $\ast$instance\+Data)}{PartiallyVascularizedDomain(string filenameHull, vector< string > filenameVascularRegions, vector< string > filenameNonVascularRegions, GeneratorData *instanceData)}}]{\setlength{\rightskip}{0pt plus 5cm}Partially\+Vascularized\+Domain\+::\+Partially\+Vascularized\+Domain (
+\begin{DoxyParamCaption}
+\item[{string}]{filename\+Hull, }
+\item[{vector$<$ string $>$}]{filename\+Vascular\+Regions, }
+\item[{vector$<$ string $>$}]{filename\+Non\+Vascular\+Regions, }
+\item[{{\bf Generator\+Data} $\ast$}]{instance\+Data}
+\end{DoxyParamCaption}
+)}\hypertarget{class_partially_vascularized_domain_a98e6ef8e987c36fda10852347433ac3e}{}\label{class_partially_vascularized_domain_a98e6ef8e987c36fda10852347433ac3e}
+Constructs a domain shaped by {\ttfamily filename\+Hull} (transport domain) with vascularized and non-\/vascularized regions contained in {\ttfamily filename\+Vascular\+Regions} and {\ttfamily filename\+Non\+Vascular\+Regions} respectively. 
+\begin{DoxyParams}{Parameters}
+{\em filename\+Hull} & Domain description. \\
+\hline
+{\em filename\+Vascular\+Regions} & Vascularized regions descriptions. \\
+\hline
+{\em filename\+Non\+Vascular\+Regions} & Non-\/vascularized regions descriptions. \\
+\hline
+\end{DoxyParams}
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{Partially\+Vascularized\+Domain(string filename\+Hull, vector$<$ string $>$ filename\+Vascular\+Regions, vector$<$ string $>$ filename\+Non\+Vascular\+Regions, int n\+Draw, Generator\+Data $\ast$instance\+Data)}{PartiallyVascularizedDomain(string filenameHull, vector< string > filenameVascularRegions, vector< string > filenameNonVascularRegions, int nDraw, GeneratorData *instanceData)}}]{\setlength{\rightskip}{0pt plus 5cm}Partially\+Vascularized\+Domain\+::\+Partially\+Vascularized\+Domain (
+\begin{DoxyParamCaption}
+\item[{string}]{filename\+Hull, }
+\item[{vector$<$ string $>$}]{filename\+Vascular\+Regions, }
+\item[{vector$<$ string $>$}]{filename\+Non\+Vascular\+Regions, }
+\item[{int}]{n\+Draw, }
+\item[{{\bf Generator\+Data} $\ast$}]{instance\+Data}
+\end{DoxyParamCaption}
+)}\hypertarget{class_partially_vascularized_domain_a8da1612c7f4a4599659b9683e1f6da0f}{}\label{class_partially_vascularized_domain_a8da1612c7f4a4599659b9683e1f6da0f}
+Constructs a domain shaped by {\ttfamily filename\+Hull} (transport domain) with vascularized and non-\/vascularized regions contained in {\ttfamily filename\+Vascular\+Regions} and {\ttfamily filename\+Non\+Vascular\+Regions} respectively. Also, itgenerates batches of {\ttfamily n\+Draw} random points each time that the domain is with no more points. 
+\begin{DoxyParams}{Parameters}
+{\em filename\+Hull} & Domain description. \\
+\hline
+{\em filename\+Vascular\+Regions} & Vascularized regions descriptions. \\
+\hline
+{\em filename\+Non\+Vascular\+Regions} & Non-\/vascularized regions descriptions. \\
+\hline
+{\em n\+Draw} & Random points generated at each batch. \\
+\hline
+\end{DoxyParams}
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{Partially\+Vascularized\+Domain(string filename\+Hull, vector$<$ string $>$ filename\+Vascular\+Regions, vector$<$ string $>$ filename\+Non\+Vascular\+Regions, int n\+Draw, int seed, Generator\+Data $\ast$instance\+Data)}{PartiallyVascularizedDomain(string filenameHull, vector< string > filenameVascularRegions, vector< string > filenameNonVascularRegions, int nDraw, int seed, GeneratorData *instanceData)}}]{\setlength{\rightskip}{0pt plus 5cm}Partially\+Vascularized\+Domain\+::\+Partially\+Vascularized\+Domain (
+\begin{DoxyParamCaption}
+\item[{string}]{filename\+Hull, }
+\item[{vector$<$ string $>$}]{filename\+Vascular\+Regions, }
+\item[{vector$<$ string $>$}]{filename\+Non\+Vascular\+Regions, }
+\item[{int}]{n\+Draw, }
+\item[{int}]{seed, }
+\item[{{\bf Generator\+Data} $\ast$}]{instance\+Data}
+\end{DoxyParamCaption}
+)}\hypertarget{class_partially_vascularized_domain_a430194cae85988ff828b8d5deb46e7bc}{}\label{class_partially_vascularized_domain_a430194cae85988ff828b8d5deb46e7bc}
+Constructs a domain shaped by {\ttfamily filename\+Hull} (transport domain) with vascularized and non-\/vascularized regions contained in {\ttfamily filename\+Vascular\+Regions} and {\ttfamily filename\+Non\+Vascular\+Regions} respectively. Also, itgenerates batches of {\ttfamily n\+Draw} random points each time that the domain is with no more points. 
+\begin{DoxyParams}{Parameters}
+{\em filename\+Hull} & Domain description. \\
+\hline
+{\em filename\+Vascular\+Regions} & Vascularized regions descriptions. \\
+\hline
+{\em filename\+Non\+Vascular\+Regions} & Non-\/vascularized regions descriptions. \\
+\hline
+{\em n\+Draw} & Random points generated at each batch. \\
+\hline
+{\em seed} & Seed for random points generation. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!get\+Characteristic\+Length@{get\+Characteristic\+Length}}
+\index{get\+Characteristic\+Length@{get\+Characteristic\+Length}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{get\+Characteristic\+Length()}{getCharacteristicLength()}}]{\setlength{\rightskip}{0pt plus 5cm}double Partially\+Vascularized\+Domain\+::get\+Characteristic\+Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_partially_vascularized_domain_a1ec0827e05801a1a3219cbd4e87ac64c}{}\label{class_partially_vascularized_domain_a1ec0827e05801a1a3219cbd4e87ac64c}
+Estimates a characteristic length for the current domain. This length is useful to estimate the perfusion volume of the domain. \begin{DoxyReturn}{Returns}
+Chracteristic length. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_a90ca3dff64bab2428da8ced24e16f4c3}{Abstract\+Domain}.
+
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!get\+D\+Lim@{get\+D\+Lim}}
+\index{get\+D\+Lim@{get\+D\+Lim}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{get\+D\+Lim(long long int n\+Vessels, double factor)}{getDLim(long long int nVessels, double factor)}}]{\setlength{\rightskip}{0pt plus 5cm}double Partially\+Vascularized\+Domain\+::get\+D\+Lim (
+\begin{DoxyParamCaption}
+\item[{long long int}]{n\+Vessels, }
+\item[{double}]{factor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_partially_vascularized_domain_a7cfa7a304d236b933311f8ac5149662e}{}\label{class_partially_vascularized_domain_a7cfa7a304d236b933311f8ac5149662e}
+Minimum distance between a new vessel terminal and the tree based on the current terminal perfusion. This is lower bound criteria for the vessel length and also aids toward a spatially homogeneous terminal distribution. 
+\begin{DoxyParams}{Parameters}
+{\em n\+Vessels} & Quantity of terminals in the current tree. \\
+\hline
+{\em factor} & Factor used to scale a perfusion measure in order to estimate the D\+Lim value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+D\+Lim value. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_ac9f39c12182608eb704c051e5d1cbc55}{Abstract\+Domain}.
+
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!get\+Draw@{get\+Draw}}
+\index{get\+Draw@{get\+Draw}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{get\+Draw()}{getDraw()}}]{\setlength{\rightskip}{0pt plus 5cm}int Partially\+Vascularized\+Domain\+::get\+Draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_partially_vascularized_domain_aefb222fe10e4691e965b3a2035e0b119}{}\label{class_partially_vascularized_domain_aefb222fe10e4691e965b3a2035e0b119}
+Returns the number of random points created in each batch of random generations. \begin{DoxyReturn}{Returns}
+Number of random points created in each batch of random generations. 
+\end{DoxyReturn}
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!get\+Local\+Neighborhood@{get\+Local\+Neighborhood}}
+\index{get\+Local\+Neighborhood@{get\+Local\+Neighborhood}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{get\+Local\+Neighborhood(point p, long long int n\+Vessels)}{getLocalNeighborhood(point p, long long int nVessels)}}]{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ Partially\+Vascularized\+Domain\+::get\+Local\+Neighborhood (
+\begin{DoxyParamCaption}
+\item[{{\bf point}}]{p, }
+\item[{long long int}]{n\+Vessels}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_partially_vascularized_domain_a379893eff3b1612932f4689a478e73ee}{}\label{class_partially_vascularized_domain_a379893eff3b1612932f4689a478e73ee}
+Returns the local neighbors to the {\ttfamily p} point locus. The amount of neighbors is estimated based on the current terminal perfusion. 
+\begin{DoxyParams}{Parameters}
+{\em p} & Central point of the neighborhood. \\
+\hline
+{\em n\+Vessels} & Amount of terminals in the tree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array of neighbor vessels. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_aee2b549d19062b261429f8a442fb4714}{Abstract\+Domain}.
+
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!get\+Locator@{get\+Locator}}
+\index{get\+Locator@{get\+Locator}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{get\+Locator()}{getLocator()}}]{\setlength{\rightskip}{0pt plus 5cm}vtk\+Smart\+Pointer$<$ vtk\+O\+B\+B\+Tree $>$ \& Partially\+Vascularized\+Domain\+::get\+Locator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_partially_vascularized_domain_aaa408e316948645dd383abfdd327c733}{}\label{class_partially_vascularized_domain_aaa408e316948645dd383abfdd327c733}
+Returns the locator used to test inside segments. \begin{DoxyReturn}{Returns}
+Locator used to test inside segments. 
+\end{DoxyReturn}
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!get\+Random\+Inner\+Points@{get\+Random\+Inner\+Points}}
+\index{get\+Random\+Inner\+Points@{get\+Random\+Inner\+Points}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{get\+Random\+Inner\+Points()}{getRandomInnerPoints()}}]{\setlength{\rightskip}{0pt plus 5cm}deque$<$ {\bf point} $>$ \& Partially\+Vascularized\+Domain\+::get\+Random\+Inner\+Points (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_partially_vascularized_domain_abbfb8f486b00e62117b564874a454395}{}\label{class_partially_vascularized_domain_abbfb8f486b00e62117b564874a454395}
+Return a set of inner domain points. \begin{DoxyReturn}{Returns}
+Set of inner domain points. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_a73d2c0e7c670b007bb5dbbdab5ad6b1b}{Abstract\+Domain}.
+
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!get\+Random\+Point@{get\+Random\+Point}}
+\index{get\+Random\+Point@{get\+Random\+Point}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{get\+Random\+Point()}{getRandomPoint()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point} Partially\+Vascularized\+Domain\+::get\+Random\+Point (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_partially_vascularized_domain_a817dcd8122892b14ed112135aa4a1fe0}{}\label{class_partially_vascularized_domain_a817dcd8122892b14ed112135aa4a1fe0}
+Return a random point inside the domain. \begin{DoxyReturn}{Returns}
+Point inside the domain. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_ae31a5b26d1dc628abe24da7a4d375415}{Abstract\+Domain}.
+
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{get\+Size()}{getSize()}}]{\setlength{\rightskip}{0pt plus 5cm}double Partially\+Vascularized\+Domain\+::get\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_partially_vascularized_domain_a88c04b73a8ffd9e8ddbc4a1c118a1795}{}\label{class_partially_vascularized_domain_a88c04b73a8ffd9e8ddbc4a1c118a1795}
+Computes the size of the domain. \begin{DoxyReturn}{Returns}
+Size of the domain. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_a049564d82f2c177c39834dfc8da143dc}{Abstract\+Domain}.
+
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!get\+Vtk\+Geometry@{get\+Vtk\+Geometry}}
+\index{get\+Vtk\+Geometry@{get\+Vtk\+Geometry}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{get\+Vtk\+Geometry()}{getVtkGeometry()}}]{\setlength{\rightskip}{0pt plus 5cm}vtk\+Smart\+Pointer$<$ vtk\+Poly\+Data $>$ \& Partially\+Vascularized\+Domain\+::get\+Vtk\+Geometry (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_partially_vascularized_domain_aa2acdedb98eb9cd168b9ab4cfa38c485}{}\label{class_partially_vascularized_domain_aa2acdedb98eb9cd168b9ab4cfa38c485}
+Returns the vtk\+Polydata with the domain representation. \begin{DoxyReturn}{Returns}
+vtk\+Polydata with the domain representation. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_abb1e386d2899cb6b725509259a836cd0}{Abstract\+Domain}.
+
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!is\+Segment\+Inside@{is\+Segment\+Inside}}
+\index{is\+Segment\+Inside@{is\+Segment\+Inside}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{is\+Segment\+Inside(point xs, point xf)}{isSegmentInside(point xs, point xf)}}]{\setlength{\rightskip}{0pt plus 5cm}int Partially\+Vascularized\+Domain\+::is\+Segment\+Inside (
+\begin{DoxyParamCaption}
+\item[{{\bf point}}]{xs, }
+\item[{{\bf point}}]{xf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_partially_vascularized_domain_a485e0e573369f76ef59477fc5ac8ea9b}{}\label{class_partially_vascularized_domain_a485e0e573369f76ef59477fc5ac8ea9b}
+Returns if the segment defined by the vertexes {\ttfamily xs} and {\ttfamily xf} is inside the current transport domain without intersecting non-\/vascularized regions. 
+\begin{DoxyParams}{Parameters}
+{\em xs} & Start point of the segment. \\
+\hline
+{\em xf} & End point of the segment. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the segment defined by the vertexes {\ttfamily xs} and {\ttfamily xf} is inside the current domain otherwise 0. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_abstract_domain_a8544eef21fb6700ecc02e9cd50884efd}{Abstract\+Domain}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!characteristic\+Length@{characteristic\+Length}}
+\index{characteristic\+Length@{characteristic\+Length}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{characteristic\+Length}{characteristicLength}}]{\setlength{\rightskip}{0pt plus 5cm}double Partially\+Vascularized\+Domain\+::characteristic\+Length\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_partially_vascularized_domain_ac79741173831cc9628ccf7ad193f2812}{}\label{class_partially_vascularized_domain_ac79741173831cc9628ccf7ad193f2812}
+Characteristic length for the domain. \index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!generator@{generator}}
+\index{generator@{generator}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{generator}{generator}}]{\setlength{\rightskip}{0pt plus 5cm}mt19937 Partially\+Vascularized\+Domain\+::generator\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_partially_vascularized_domain_a78f13fd2210c58eae813d057b580c3cc}{}\label{class_partially_vascularized_domain_a78f13fd2210c58eae813d057b580c3cc}
+Random generator. \index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!hollow\+Locators@{hollow\+Locators}}
+\index{hollow\+Locators@{hollow\+Locators}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{hollow\+Locators}{hollowLocators}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$vtk\+Smart\+Pointer$<$vtk\+O\+B\+B\+Tree$>$ $>$ Partially\+Vascularized\+Domain\+::hollow\+Locators\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_partially_vascularized_domain_abce195c2c0bd9f52cf932560539aec57}{}\label{class_partially_vascularized_domain_abce195c2c0bd9f52cf932560539aec57}
+Cell locator responsible to determine if a segment is inside a non-\/vascularized region. \index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!locator@{locator}}
+\index{locator@{locator}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{locator}{locator}}]{\setlength{\rightskip}{0pt plus 5cm}vtk\+Smart\+Pointer$<$vtk\+O\+B\+B\+Tree$>$ Partially\+Vascularized\+Domain\+::locator\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_partially_vascularized_domain_a3e4d13820b8ed9beea9bf9d3bfc807a2}{}\label{class_partially_vascularized_domain_a3e4d13820b8ed9beea9bf9d3bfc807a2}
+Cell locator responsible to determine if a segment is inside the domain. \index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!n\+Draw@{n\+Draw}}
+\index{n\+Draw@{n\+Draw}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{n\+Draw}{nDraw}}]{\setlength{\rightskip}{0pt plus 5cm}int Partially\+Vascularized\+Domain\+::n\+Draw\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_partially_vascularized_domain_ae88320ec5cef5465ad2c74ce201d5131}{}\label{class_partially_vascularized_domain_ae88320ec5cef5465ad2c74ce201d5131}
+Amount of points randomly generated when no more points are available. \index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!seed@{seed}}
+\index{seed@{seed}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{seed}{seed}}]{\setlength{\rightskip}{0pt plus 5cm}int Partially\+Vascularized\+Domain\+::seed = -\/1\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_partially_vascularized_domain_a443b5b60ce756ea5bfb05c628ed4af0d}{}\label{class_partially_vascularized_domain_a443b5b60ce756ea5bfb05c628ed4af0d}
+Random instance seed. \index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!vtk\+Hollow\+Regions@{vtk\+Hollow\+Regions}}
+\index{vtk\+Hollow\+Regions@{vtk\+Hollow\+Regions}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{vtk\+Hollow\+Regions}{vtkHollowRegions}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$vtk\+Smart\+Pointer$<$vtk\+Poly\+Data$>$ $>$ Partially\+Vascularized\+Domain\+::vtk\+Hollow\+Regions\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_partially_vascularized_domain_a725b3a41a8c28011def02f193121b99b}{}\label{class_partially_vascularized_domain_a725b3a41a8c28011def02f193121b99b}
+Non-\/vascularized subdomains represented by vtk\+Polydata. \index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!vtk\+Transport\+Region@{vtk\+Transport\+Region}}
+\index{vtk\+Transport\+Region@{vtk\+Transport\+Region}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{vtk\+Transport\+Region}{vtkTransportRegion}}]{\setlength{\rightskip}{0pt plus 5cm}vtk\+Smart\+Pointer$<$vtk\+Poly\+Data$>$ Partially\+Vascularized\+Domain\+::vtk\+Transport\+Region\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_partially_vascularized_domain_af4d0cd0bc35113adccb312f4b07dcd72}{}\label{class_partially_vascularized_domain_af4d0cd0bc35113adccb312f4b07dcd72}
+vtk\+Polydata description of the transport domain. \index{Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}!vtk\+Vascularized\+Regions@{vtk\+Vascularized\+Regions}}
+\index{vtk\+Vascularized\+Regions@{vtk\+Vascularized\+Regions}!Partially\+Vascularized\+Domain@{Partially\+Vascularized\+Domain}}
+\subsubsection[{\texorpdfstring{vtk\+Vascularized\+Regions}{vtkVascularizedRegions}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$vtk\+Smart\+Pointer$<$vtk\+Poly\+Data$>$ $>$ Partially\+Vascularized\+Domain\+::vtk\+Vascularized\+Regions\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_partially_vascularized_domain_aeacff4635f73c185d8a83a3a824b49cb}{}\label{class_partially_vascularized_domain_aeacff4635f73c185d8a83a3a824b49cb}
+Vascularized subdomains represented by vtk\+Polydata. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/domain/Partially\+Vascularized\+Domain.\+h\item 
+structures/domain/Partially\+Vascularized\+Domain.\+cpp\end{DoxyCompactItemize}

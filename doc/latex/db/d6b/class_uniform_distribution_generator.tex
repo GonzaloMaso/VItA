@@ -1,0 +1,98 @@
+\hypertarget{class_uniform_distribution_generator}{}\section{Uniform\+Distribution\+Generator Class Reference}
+\label{class_uniform_distribution_generator}\index{Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}}
+Inheritance diagram for Uniform\+Distribution\+Generator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{db/d6b/class_uniform_distribution_generator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_uniform_distribution_generator_ad736197918a5a3693b9f3dc820896ebb}{Uniform\+Distribution\+Generator} ()
+\item 
+virtual \hyperlink{class_uniform_distribution_generator_afa568e9c2fa1842b1e7aecd8dee8be85}{$\sim$\+Uniform\+Distribution\+Generator} ()
+\item 
+virtual void \hyperlink{class_uniform_distribution_generator_a9f40ba5dca7db03833f00a846218ae68}{initialize} (int seed, double $\ast$\hyperlink{class_distribution_generator_abbb670b1d48a4820559097b85bf6ee2d}{bounding\+Box})
+\item 
+vector$<$ \hyperlink{structpoint}{point} $>$ \hyperlink{class_uniform_distribution_generator_a3628de975c16748b69b5838e4b02ea41}{get\+N\+Points} (int n)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uniform\+\_\+real\+\_\+distribution$<$ double $>$ \hyperlink{class_uniform_distribution_generator_a1e5c1a311993315dd08d2ef17e74e84d}{distX}
+\item 
+uniform\+\_\+real\+\_\+distribution$<$ double $>$ \hyperlink{class_uniform_distribution_generator_ada3c6906156a827e079a8085546a27c8}{distY}
+\item 
+uniform\+\_\+real\+\_\+distribution$<$ double $>$ \hyperlink{class_uniform_distribution_generator_ad5b89c08f50e76a4827af2e6eb9c5df8}{distZ}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}!Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}}
+\index{Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}!Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{Uniform\+Distribution\+Generator()}{UniformDistributionGenerator()}}]{\setlength{\rightskip}{0pt plus 5cm}Uniform\+Distribution\+Generator\+::\+Uniform\+Distribution\+Generator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_uniform_distribution_generator_ad736197918a5a3693b9f3dc820896ebb}{}\label{class_uniform_distribution_generator_ad736197918a5a3693b9f3dc820896ebb}
+Constructor. \index{Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}!````~Uniform\+Distribution\+Generator@{$\sim$\+Uniform\+Distribution\+Generator}}
+\index{````~Uniform\+Distribution\+Generator@{$\sim$\+Uniform\+Distribution\+Generator}!Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{$\sim$\+Uniform\+Distribution\+Generator()}{~UniformDistributionGenerator()}}]{\setlength{\rightskip}{0pt plus 5cm}Uniform\+Distribution\+Generator\+::$\sim$\+Uniform\+Distribution\+Generator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_uniform_distribution_generator_afa568e9c2fa1842b1e7aecd8dee8be85}{}\label{class_uniform_distribution_generator_afa568e9c2fa1842b1e7aecd8dee8be85}
+Destructor. 
+
+\subsection{Member Function Documentation}
+\index{Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}!get\+N\+Points@{get\+N\+Points}}
+\index{get\+N\+Points@{get\+N\+Points}!Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{get\+N\+Points(int n)}{getNPoints(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf point} $>$ Uniform\+Distribution\+Generator\+::get\+N\+Points (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_uniform_distribution_generator_a3628de975c16748b69b5838e4b02ea41}{}\label{class_uniform_distribution_generator_a3628de975c16748b69b5838e4b02ea41}
+Return a vector of {\ttfamily n} points of the distribution. 
+\begin{DoxyParams}{Parameters}
+{\em n} & Amount of output points. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of distribution points. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_distribution_generator_a777dcdfd3dee93cfcbcc00969f42ca29}{Distribution\+Generator}.
+
+\index{Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}!initialize@{initialize}}
+\index{initialize@{initialize}!Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{initialize(int seed, double $\ast$bounding\+Box)}{initialize(int seed, double *boundingBox)}}]{\setlength{\rightskip}{0pt plus 5cm}void Uniform\+Distribution\+Generator\+::initialize (
+\begin{DoxyParamCaption}
+\item[{int}]{seed, }
+\item[{double $\ast$}]{bounding\+Box}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_uniform_distribution_generator_a9f40ba5dca7db03833f00a846218ae68}{}\label{class_uniform_distribution_generator_a9f40ba5dca7db03833f00a846218ae68}
+Initializer of the generator. Execute it before any getter call is performed. 
+
+Reimplemented from \hyperlink{class_distribution_generator_ae4fa2d599942539e4b1971b0a8d5f8ba}{Distribution\+Generator}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}!distX@{distX}}
+\index{distX@{distX}!Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{distX}{distX}}]{\setlength{\rightskip}{0pt plus 5cm}uniform\+\_\+real\+\_\+distribution$<$double$>$ Uniform\+Distribution\+Generator\+::distX\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_uniform_distribution_generator_a1e5c1a311993315dd08d2ef17e74e84d}{}\label{class_uniform_distribution_generator_a1e5c1a311993315dd08d2ef17e74e84d}
+Generator for X component \index{Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}!distY@{distY}}
+\index{distY@{distY}!Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{distY}{distY}}]{\setlength{\rightskip}{0pt plus 5cm}uniform\+\_\+real\+\_\+distribution$<$double$>$ Uniform\+Distribution\+Generator\+::distY\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_uniform_distribution_generator_ada3c6906156a827e079a8085546a27c8}{}\label{class_uniform_distribution_generator_ada3c6906156a827e079a8085546a27c8}
+Generator for Y component \index{Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}!distZ@{distZ}}
+\index{distZ@{distZ}!Uniform\+Distribution\+Generator@{Uniform\+Distribution\+Generator}}
+\subsubsection[{\texorpdfstring{distZ}{distZ}}]{\setlength{\rightskip}{0pt plus 5cm}uniform\+\_\+real\+\_\+distribution$<$double$>$ Uniform\+Distribution\+Generator\+::distZ\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_uniform_distribution_generator_ad5b89c08f50e76a4827af2e6eb9c5df8}{}\label{class_uniform_distribution_generator_ad5b89c08f50e76a4827af2e6eb9c5df8}
+Generator for Z component 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+structures/domain/Uniform\+Distribution\+Generator.\+h\item 
+structures/domain/Uniform\+Distribution\+Generator.\+cpp\end{DoxyCompactItemize}

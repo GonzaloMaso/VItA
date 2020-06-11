@@ -1,0 +1,28 @@
+var class_f_r_r_va_vi_opt_c_c_o_s_tree =
+[
+    [ "FRRVaViOptCCOSTree", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#ae9de8306c3492b1b59df21e1aa39a2ec", null ],
+    [ "FRRVaViOptCCOSTree", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#acb93586a162c23493347db65deae06df", null ],
+    [ "~FRRVaViOptCCOSTree", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#a50692a5fade1f64055872e81705198e5", null ],
+    [ "addVessel", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#a95c4523a6c2ed20c16d83b62ec6b5873", null ],
+    [ "areValidAngles", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#a55d5c516893c2ac1875be023548e568b", null ],
+    [ "clone", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#acddc90c3f029e2c3f359e4529aa0fc3b", null ],
+    [ "cloneTree", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#ac0e29742975e8046b571d6d18dbd6aa3", null ],
+    [ "cloneUpTo", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#af632401d7f152f10e1bcbb0d712a7b74", null ],
+    [ "evaluate", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#ad2e4435cea4b58085a9c7fc391490e8c", null ],
+    [ "getCloseSegments", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#a88826c9f37705bcce03374d920eff19a", null ],
+    [ "getClosestTreePoint", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#a8360ecbbf60ee0e52d4a83f40a3f0154", null ],
+    [ "getNuFL", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#a05093832a77a583f373747ac4787808d", null ],
+    [ "getRootRadius", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#ae86b6d6890262180b555166853190dd1", null ],
+    [ "getTreeName", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#a3c7f7ca4242f71697c421298b3ab968b", null ],
+    [ "isIntersectingVessels", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#acfbd6fe1356a89831bfc1cc137473455", null ],
+    [ "isOverlapped", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#a92eb08cc90eab3a24397efce436ebaec", null ],
+    [ "isSymmetricallyValid", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#a1988a62d4a8f82c547e241dc80a14fba", null ],
+    [ "print", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#a3e332df98c4a3fc66455aea22d563cf8", null ],
+    [ "saveTree", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#af4d961db2a4b60ea9bafde5cbf6758c6", null ],
+    [ "testVessel", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#adb9397798ff7ca8cecbab33245e7fe2a", null ],
+    [ "updateTree", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#a5f6953a55f1539ac4899e9a2e4f2ad7f", null ],
+    [ "updateTreeViscositiesBeta", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#acd9ceb8141bb7df82101a33ae5180b63", null ],
+    [ "updateTreeViscositiesResistance", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#ac07772412c7554ae527a756ec652a44f", null ],
+    [ "rootRadius", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#a459526bb36610ba6131cdfd788f9025b", null ],
+    [ "variationTolerance", "d9/dde/class_f_r_r_va_vi_opt_c_c_o_s_tree.html#a3652da4e84bd04dcde60101b06f2cc08", null ]
+];
