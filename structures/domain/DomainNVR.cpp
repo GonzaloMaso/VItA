@@ -21,7 +21,9 @@
 
 DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->whichDomain = 2;
+	this->filenameHull = filename;
+	this->filenameNVR = filenameNonVascularRegions;
 	//	Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -59,7 +61,9 @@ DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions,
 
 DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions, int N, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->whichDomain = 2;
+	this->filenameHull = filename;
+	this->filenameNVR = filenameNonVascularRegions;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -97,7 +101,9 @@ DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions,
 
 DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions, int N, int seed, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->whichDomain = 2;
+	this->filenameHull = filename;
+	this->filenameNVR = filenameNonVascularRegions;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -371,3 +377,12 @@ int DomainNVR::getSeed()
 {
 	return (*this).seed;
 }
+
+string DomainNVR::getFilenameHull() {
+	return this->filenameHull;
+}
+
+vector<string> DomainNVR::getFilenameNVR() {
+	return this->filenameNVR;
+}
+

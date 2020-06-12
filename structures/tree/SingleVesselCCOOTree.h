@@ -24,6 +24,7 @@ using namespace std;
  * N-furcation tree with only SingleVessel elements as vascular elements.
  */
 class SingleVesselCCOOTree: public AbstractObjectCCOTree {
+	string filenameCCO;
 	/**	Root radius. */
 	double rootRadius;
 	/** Convergence tolerance. */
@@ -173,6 +174,8 @@ public:
 	 * @return If it is withered or not.
 	 */
 	bool isWithered(SingleVessel *vessel);
+
+	string getFilenameCCO();
 
 protected:
 	/**

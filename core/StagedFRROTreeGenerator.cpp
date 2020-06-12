@@ -88,6 +88,9 @@ StagedFRROTreeGenerator::~StagedFRROTreeGenerator() {
 
 AbstractObjectCCOTree *StagedFRROTreeGenerator::generate(long long int saveInterval, string tempDirectory) {
 
+	this->beginTime = time(nullptr);
+	this->dLimInitial = this->dLim;
+
 //	VTKObjectTreeSplinesNodalWriter *nodalWriter = new VTKObjectTreeSplinesNodalWriter();
 	generatesConfigurationFile(ios::out);
 
@@ -154,6 +157,9 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::generate(long long int saveInter
 	}
 	tree->computePressure(tree->getRoot());
 	tree->setPointCounter(domain->getPointCounter());
+
+	this->endTime = time(nullptr);
+	this->dLimLast = this->dLim;
 
 	saveStatus(nTerminals-1);
 	markTimestampOnConfigurationFile("Tree successfully generated.");
@@ -257,6 +263,9 @@ void StagedFRROTreeGenerator::closeConfigurationFile() {
 
 AbstractObjectCCOTree *StagedFRROTreeGenerator::resume(long long int saveInterval, string tempDirectory) {
 
+	this->beginTime = time(nullptr);
+	this->dLimInitial = this->dLim;
+
 //	VTKObjectTreeSplinesNodalWriter *nodalWriter = new VTKObjectTreeSplinesNodalWriter();
 	generatesConfigurationFile(ios::out);
 
@@ -325,6 +334,9 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::resume(long long int saveInterva
 	tree->computePressure(tree->getRoot());
 	tree->setPointCounter(domain->getPointCounter());
 
+	this->endTime = time(nullptr);
+	this->dLimLast = this->dLim;
+
 	saveStatus(nTerminals-1);
 	markTimestampOnConfigurationFile("Final tree volume " + to_string(((SingleVessel *) tree->getRoot())->treeVolume));
 	markTimestampOnConfigurationFile("Tree successfully generated.");
@@ -389,4 +401,20 @@ double StagedFRROTreeGenerator::getDLim() {
 
 void StagedFRROTreeGenerator::setDLim(double newDLim) {
 	(*this).dLim = newDLim;
+}
+
+double StagedFRROTreeGenerator::getDLimInitial() {
+	return this->dLimInitial;
+}
+
+double StagedFRROTreeGenerator::getDLimLast() {
+	return this->dLimLast;
+}
+
+time_t StagedFRROTreeGenerator::getBeginTime() {
+	return this->beginTime;
+}
+
+time_t StagedFRROTreeGenerator::getEndTime() {
+	return this->endTime;
 }

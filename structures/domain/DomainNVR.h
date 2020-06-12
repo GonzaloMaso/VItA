@@ -27,6 +27,8 @@ using namespace std;
  * Domain with non-vascularized regions.
  */
 class DomainNVR: public AbstractDomain {
+	string filenameHull;
+	vector<string> filenameNVR;
 	/** vtkPolydata description of the domain. */
 	vtkSmartPointer<vtkPolyData> vtkGeometry;
 	/** Non-vascularized subdomains represented by vtkPolydata. */
@@ -133,6 +135,10 @@ public:
 	 * @return @p seed
 	 */
 	int getSeed();
+
+	string getFilenameHull();
+
+	vector<string> getFilenameNVR();
 
 protected:
 	deque<point> randomInnerPoints;

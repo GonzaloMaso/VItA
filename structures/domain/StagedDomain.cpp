@@ -10,6 +10,7 @@
 #include "StagedDomain.h"
 
 StagedDomain::StagedDomain() : AbstractDomain(NULL){
+	this->whichDomain = 6;
 	currentTerminals = 0;
 	terminalAtPrevStage = 0;
 	currentStage = 0;

@@ -28,6 +28,7 @@ using namespace std;
  * This domain vascularises just the intersection between all vascularised regions.
  */
 class IntersectionVascularizedDomain : public AbstractDomain {
+	vector<string> filenameVR;
 	/** Vascularized subdomains represented by vtkPolydata. */
 	vector<vtkSmartPointer<vtkPolyData> > vtkVascularizedRegions;
 	/** Cell locators responsible to determine if a segment is inside of each domain. */
@@ -132,6 +133,8 @@ public:
 	 * @return @p seed
 	 */
 	int getSeed();
+
+	vector<string> getFilenameVR();
 
 protected:
 	deque<point> randomInnerPoints;

@@ -9,6 +9,13 @@
 #include"../structures/tree/SproutingVolumetricCostEstimator.h"
 #include"../structures/tree/AdimSproutingVolumetricCostEstimator.h"
 #include"../structures/domain/AbstractDomain.h"
+#include"../structures/domain/SimpleDomain2D.h"
+#include"../structures/domain/SimpleDomain.h"
+#include"../structures/domain/IntersectionVascularizedDomain.h"
+#include"../structures/domain/DomainNVR.h"
+#include"../structures/domain/PartiallyVascularizedDomain.h"
+#include"../structures/domain/DummyDomain.h"
+#include"../structures/domain/StagedDomain.h"
 #include"../constrains/AbstractConstraintFunction.h"
 #include"../structures/tree/AbstractObjectCCOTree.h"
 #include"../structures/tree/SingleVesselCCOOTree.h"
@@ -16,6 +23,69 @@
 
 // This class interface
 #include"StagedFRROTreeGeneratorLogger.h"
+
+void log_domain_files(FILE *fp, AbstractDomain *domain) 
+{   
+    int whichDomain = domain->getWhichDomain();
+    if(whichDomain == 0) {
+        SimpleDomain2D* typed_domain = (SimpleDomain2D *) domain;
+        fprintf(fp, "SimpleDomain2D\n");
+        fprintf(fp, "filename = %s\n", typed_domain->getFilename().c_str());
+    }
+    else if (whichDomain == 1) {
+        SimpleDomain* typed_domain = (SimpleDomain *) domain;
+        fprintf(fp, "SimpleDomain\n");
+        fprintf(fp, "filename = %s\n", typed_domain->getFilename().c_str());
+    }
+    else if (whichDomain == 2) {
+        DomainNVR* typed_domain = (DomainNVR *) domain;
+        fprintf(fp, "DomainNVR\n");
+        fprintf(fp, "filenameHull = %s\n", typed_domain->getFilenameHull().c_str());
+        vector<string> filenameNVR = typed_domain->getFilenameNVR();
+        int size = filenameNVR.size();
+        for (int i = 0; i < size; ++i) {
+            fprintf(fp, "filenameNVR[%d] = %s\n", i, filenameNVR[i].c_str());
+        }
+    }
+    else if (whichDomain == 3) {
+        IntersectionVascularizedDomain* typed_domain = (IntersectionVascularizedDomain *) domain;
+        fprintf(fp, "IntersectionVascularizedDomain\n");
+        vector<string> filenameVR = typed_domain->getFilenameVR();
+        int size = filenameVR.size();
+        for (int i = 0; i < size; ++i) {
+            fprintf(fp, "filenameVR[%d] = %s\n", i, filenameVR[i].c_str());
+        }
+    }
+    else if (whichDomain == 4) {
+        PartiallyVascularizedDomain* typed_domain = (PartiallyVascularizedDomain *) domain;
+        string filenameHull = typed_domain->getFilenameHull();
+        vector<string> filenameVR = typed_domain->getFilenameVR();
+        int size_vr = filenameVR.size();
+        vector<string> filenameNVR = typed_domain->getFilenameNVR();
+        int size_nvr = filenameNVR.size();
+        fprintf(fp, "PartiallyVascularizedDomain\n");
+        fprintf(fp, "filenameHull = %s\n", filenameHull.c_str());
+        for (int i = 0; i < size_vr; ++i) {
+            fprintf(fp, "filenameVR[%d] = %s\n", i, filenameVR[i].c_str());
+        }
+        for (int i = 0; i < size_nvr; ++i) {
+            fprintf(fp, "filenameNVR[%d] = %s\n", i, filenameNVR[i].c_str());
+        }
+    }
+    else if (whichDomain == 5) {
+        DummyDomain* typed_domain = (DummyDomain *) domain;
+        fprintf(fp, "DummyDomain\n");
+        fprintf(fp, "filename = %s\n", typed_domain->getFilename().c_str());
+    }
+    else if (whichDomain == 6) {
+        // StagedDomain* typed_domain = (StagedDomain *) domain;
+        fprintf(fp, "StagedDomain\n");
+    }
+    else {
+        fprintf(stderr, "This is not a valid domain!\n");
+        exit(EXIT_FAILURE);
+    }
+}
 
 void log_cost_estimator(FILE *fp, AbstractCostEstimator *cost_estimator)
 {
@@ -103,8 +173,6 @@ void StagedFRROTreeGeneratorLogger::write()
     FILE *fp = (*this).file_;
     StagedFRROTreeGenerator *generator = (*this).tree_generator_;
     SingleVesselCCOOTree *tree = (SingleVesselCCOOTree *) (*generator).getTree();
-    point x0 = (*tree).getXProx();
-    double r0 = (*tree).getRootRadius();
     double q0 = (*tree).getQProx();
     StagedDomain* staged_domain = (*(*this).tree_generator_).getDomain();
     vector<AbstractDomain *> *domains = (*staged_domain).getDomains();
@@ -113,12 +181,38 @@ void StagedFRROTreeGeneratorLogger::write()
     vector<AbstractConstraintFunction<double, int> *> *epsLims = (*generator).getEpsLims();
     vector<AbstractConstraintFunction<double, int> *> *nus = (*generator).getNus();
     int size = (*domains).size();
-    fprintf(fp, "Root position = (%f, %f, %f).\n", x0.p[0], x0.p[1], x0.p[2]);
-    fprintf(fp, "Root radius = %f.\n", r0);
-    fprintf(fp, "Root influx = %f.\n", q0);
+    string filenameCCO = tree->getFilenameCCO();
+    if(filenameCCO.empty()) {
+        point x0 = (*tree).getXProx();
+        double r0 = (*tree).getRootRadius();
+        fprintf(fp, "Root position = (%f, %f, %f).\n", x0.p[0], x0.p[1], x0.p[2]);
+        fprintf(fp, "Root radius = %f.\n", r0);
+        fprintf(fp, "Root influx = %f.\n", q0);
+    }
+    else {
+        fprintf(fp, "Input CCO filename = %s\n", filenameCCO.c_str());
+        fprintf(fp, "Root influx = %f.\n", q0);
+    }
+    
     for (int i = 0; i < size; ++i) {
         fprintf(fp, "\n");
-        fprintf(fp, "---Stage[%d]---\n", i);
+        fprintf(fp, "Stage[%d]\n", i);
+        log_domain_files(fp, (*domains)[i]);
         log_domain(fp, (*domains)[i], (*n_terms)[i], (*gams)[0], (*epsLims)[0], (*nus)[0]);
     }
+    
+    fprintf(fp, "\n");
+    fprintf(fp, "Initial dLim = %f.\n", generator->getDLimInitial());
+    fprintf(fp, "Last dLim = %f.\n", generator->getDLimLast());
+    time_t begin_time = generator->getBeginTime();
+    time_t end_time = generator->getEndTime();
+    struct tm *initial_tm = localtime(&begin_time);
+    struct tm *last_tm = localtime(&end_time);
+    char time_initial_c_string[21];
+    char time_last_c_string[21];
+    strftime(time_initial_c_string, 20, "%d_%m_%Y_%H_%M_%S", initial_tm);
+    strftime(time_last_c_string, 20, "%d_%m_%Y_%H_%M_%S", last_tm);
+    fprintf(fp, "\n");
+    fprintf(fp, "Beginning of generation time = %s\n", time_initial_c_string);
+    fprintf(fp, "End of generation time = %s\n", time_last_c_string);
 }

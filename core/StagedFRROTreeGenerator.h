@@ -14,6 +14,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include<ctime>
 
 #include "../constrains/AbstractConstraintFunction.h"
 #include "../io/task/AbstractSavingTask.h"
@@ -30,6 +31,10 @@ using namespace std;
  */
 class StagedFRROTreeGenerator : public IDomainObserver {
 
+	/** Time of the beggining of the tree generation process*/
+	time_t beginTime;
+	/** Time of the end of the tree generation process*/
+	time_t endTime;
 	/** Wrapper with parameters associated to a tree generation process. */
 	GeneratorData *instanceData;
 	/**	Monitor of the @p instanceData . */
@@ -43,7 +48,10 @@ class StagedFRROTreeGenerator : public IDomainObserver {
 	long long int nTerminals;
 	/** Perfusion volume.*/
 	double dLim;
-
+	/** Initial dLim value*/
+	double dLimInitial;
+	/** Final dLim value*/
+	double dLimLast;
 	/** Perfusion domain. */
 	StagedDomain *domain;
 
@@ -159,7 +167,16 @@ public:
 	 * Set the DLim value. Use this only to resume process from a previous generation.
 	 */
 	void setDLim(double newDLim);
+	
+	time_t getBeginTime();
 
+	time_t getEndTime();
+
+	double getDLimInitial();
+
+	double getDLimLast();
+	 
+	
 protected:
 	/**	Configuration file stream. */
 	ofstream confFile;

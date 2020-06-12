@@ -20,7 +20,8 @@
 
 IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> filenameVascularRegions, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->whichDomain = 3;
+	this->filenameVR = filenameVascularRegions;
 	boundingBox = new double[6];
 
 	//	Read all the data from the vascularized files
@@ -63,7 +64,8 @@ IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> fi
 
 IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> filenameVascularRegions,
 		int N, GeneratorData *instanceData) : AbstractDomain(instanceData) {
-
+	this->whichDomain = 3;
+	this->filenameVR = filenameVascularRegions;
 	boundingBox = new double[6];
 
 	//	Read all the data from the vascularized files
@@ -106,7 +108,8 @@ IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> fi
 
 IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> filenameVascularRegions,
 		int N, int seed, GeneratorData *instanceData) : AbstractDomain(instanceData) {
-
+	this->whichDomain = 3;
+	this->filenameVR = filenameVascularRegions;
 	boundingBox = new double[6];
 
 	//	Read all the data from the vascularized files
@@ -309,4 +312,8 @@ double* IntersectionVascularizedDomain::getLocalNeighborhood(point p, long long 
 int IntersectionVascularizedDomain::getSeed()
 {
 	return (*this).seed;
+}
+
+vector<string> IntersectionVascularizedDomain::getFilenameVR() {
+	return this->filenameVR;
 }

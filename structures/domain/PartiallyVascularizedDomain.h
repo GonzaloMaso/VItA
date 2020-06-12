@@ -35,6 +35,9 @@ using namespace std;
  * It is mandatory that vascularized regions be within the transport volume.
  */
 class PartiallyVascularizedDomain : public AbstractDomain {
+	string filenameHull;
+	vector<string> filenameVR;
+	vector<string> filenameNVR;
 	/** vtkPolydata description of the transport domain. */
 	vtkSmartPointer<vtkPolyData> vtkTransportRegion;
 	/** Vascularized subdomains represented by vtkPolydata. */
@@ -154,6 +157,12 @@ public:
 	 * @return @p seed
 	 */
 	int getSeed();
+
+	string getFilenameHull();
+
+	vector<string> getFilenameVR();
+
+	vector<string> getFilenameNVR();
 
 protected:
 	//	TODO This should be generalised in the AbstractDomain class
