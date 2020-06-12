@@ -41,6 +41,7 @@
 SingleVesselCCOOTree::SingleVesselCCOOTree(point xi, double rootRadius, double qi, AbstractConstraintFunction<double, int> *gam, AbstractConstraintFunction<double, int> *epsLim,
 		AbstractConstraintFunction<double, int> *nu, double refPressure, double resistanceVariationTolerance, GeneratorData *instanceData) :
 		AbstractObjectCCOTree(xi, qi, gam, epsLim, nu, refPressure, instanceData) {
+	this->filenameCCO = "";
 	this->rootRadius = rootRadius;
 	this->variationTolerance = resistanceVariationTolerance;
 	this->nCommonTerminals = 0;
@@ -49,6 +50,7 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(point xi, double rootRadius, double q
 SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData *instanceData, AbstractConstraintFunction<double, int> *gam, AbstractConstraintFunction<double, int> *epsLim,
 		AbstractConstraintFunction<double, int> *nu) :
 		AbstractObjectCCOTree(instanceData) {
+	this->filenameCCO = filenameCCO;
 	ifstream treeFile;
 
 	treeFile.open(filenameCCO.c_str(), ios::in);
@@ -314,6 +316,8 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData *in
 SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData* instanceData, double qi, AbstractConstraintFunction<double, int> *gam, AbstractConstraintFunction<double, int> *epsLim,
 		AbstractConstraintFunction<double, int> *nu, double refPressure, double viscosityTolerance) :
 		AbstractObjectCCOTree(instanceData) {
+
+	this->filenameCCO = filenameCCO;
 
 	ifstream treeFile;
 
@@ -1394,4 +1398,13 @@ int SingleVesselCCOOTree::isValidOpeningAngle(point xBif, point xNew, SingleVess
 
 	return minPlaneAngle <= openingAngle;
 
+}
+
+double SingleVesselCCOOTree::getVariationTolerance()
+{
+	return (*this).variationTolerance;
+}
+
+string SingleVesselCCOOTree::getFilenameCCO() {
+	return this->filenameCCO;
 }

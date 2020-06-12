@@ -11,6 +11,7 @@
 #include "../vascularElements/SingleVessel.h"
 
 VolumetricCostEstimator::VolumetricCostEstimator() : AbstractCostEstimator(){
+	(*this).which_estimator_ = 0;
 	previousVolume = 0.0;
 }
 

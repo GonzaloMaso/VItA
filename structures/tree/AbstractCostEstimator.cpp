@@ -15,3 +15,7 @@ AbstractCostEstimator::AbstractCostEstimator(){
 AbstractCostEstimator::~AbstractCostEstimator(){
 }
 
+int AbstractCostEstimator::getWhichEstimator()
+{
+    return (*this).which_estimator_;
+}

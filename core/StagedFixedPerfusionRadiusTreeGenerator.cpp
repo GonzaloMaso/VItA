@@ -11,8 +11,8 @@
 
 #include "../utils/MemoryMonitor.h"
 
-#include "climits"
-#include "omp.h"
+#include <climits>
+#include <omp.h>
 
 #include "../structures/tree/FRRCCOSTree.h"
 #include "../structures/tree/FRRVariableViscosityCCOSTree.h"

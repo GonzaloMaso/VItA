@@ -20,7 +20,7 @@
 #include "../structures/vascularElements/AbstractVascularElement.h"
 #include "../utils/MemoryMonitor.h"
 
-#include "omp.h"
+#include <omp.h>
 
 StagedFRROTreeGenerator::StagedFRROTreeGenerator(
 		StagedDomain* domain, point xi, double rootRadii, double qi,
@@ -88,6 +88,9 @@ StagedFRROTreeGenerator::~StagedFRROTreeGenerator() {
 
 AbstractObjectCCOTree *StagedFRROTreeGenerator::generate(long long int saveInterval, string tempDirectory) {
 
+	this->beginTime = time(nullptr);
+	this->dLimInitial = this->dLim;
+
 //	VTKObjectTreeSplinesNodalWriter *nodalWriter = new VTKObjectTreeSplinesNodalWriter();
 	generatesConfigurationFile(ios::out);
 
@@ -154,6 +157,9 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::generate(long long int saveInter
 	}
 	tree->computePressure(tree->getRoot());
 	tree->setPointCounter(domain->getPointCounter());
+
+	this->endTime = time(nullptr);
+	this->dLimLast = this->dLim;
 
 	saveStatus(nTerminals-1);
 	markTimestampOnConfigurationFile("Tree successfully generated.");
@@ -257,6 +263,9 @@ void StagedFRROTreeGenerator::closeConfigurationFile() {
 
 AbstractObjectCCOTree *StagedFRROTreeGenerator::resume(long long int saveInterval, string tempDirectory) {
 
+	this->beginTime = time(nullptr);
+	this->dLimInitial = this->dLim;
+
 //	VTKObjectTreeSplinesNodalWriter *nodalWriter = new VTKObjectTreeSplinesNodalWriter();
 	generatesConfigurationFile(ios::out);
 
@@ -325,6 +334,9 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::resume(long long int saveInterva
 	tree->computePressure(tree->getRoot());
 	tree->setPointCounter(domain->getPointCounter());
 
+	this->endTime = time(nullptr);
+	this->dLimLast = this->dLim;
+
 	saveStatus(nTerminals-1);
 	markTimestampOnConfigurationFile("Final tree volume " + to_string(((SingleVessel *) tree->getRoot())->treeVolume));
 	markTimestampOnConfigurationFile("Tree successfully generated.");
@@ -367,4 +379,42 @@ void StagedFRROTreeGenerator::saveStatus(long long int terminals){
 //			nodalWriter->write(tempDirectory+ "/step" + to_string(i) + "_view.vtp",tree);
 	markTimestampOnConfigurationFile("Generating vessel #" + to_string(terminals));
 	markTimestampOnConfigurationFile("Total RAM consumption: " + to_string(monitor->getProcessMemoryConsumption()) + " MB.");
+}
+
+vector<AbstractConstraintFunction<double, int> *>* StagedFRROTreeGenerator::getGams()
+{
+	return &((*this).gams);
+}
+
+vector<AbstractConstraintFunction<double, int> *>* StagedFRROTreeGenerator::getEpsLims()
+{
+	return &((*this).epsLims);
+}
+vector<AbstractConstraintFunction<double, int> *>* StagedFRROTreeGenerator::getNus()
+{
+	return &((*this).nus);
+}
+
+double StagedFRROTreeGenerator::getDLim() {
+	return (*this).dLim;
+}
+
+void StagedFRROTreeGenerator::setDLim(double newDLim) {
+	(*this).dLim = newDLim;
+}
+
+double StagedFRROTreeGenerator::getDLimInitial() {
+	return this->dLimInitial;
+}
+
+double StagedFRROTreeGenerator::getDLimLast() {
+	return this->dLimLast;
+}
+
+time_t StagedFRROTreeGenerator::getBeginTime() {
+	return this->beginTime;
+}
+
+time_t StagedFRROTreeGenerator::getEndTime() {
+	return this->endTime;
 }

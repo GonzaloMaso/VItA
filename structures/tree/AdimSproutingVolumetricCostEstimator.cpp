@@ -9,9 +9,10 @@
 
 #include "AdimSproutingVolumetricCostEstimator.h"
 #include "../vascularElements/SingleVessel.h"
-#include "math.h"
+#include <math.h>
 
 AdimSproutingVolumetricCostEstimator::AdimSproutingVolumetricCostEstimator(double volumeFactor, double proteolyticFactor, double diffusionFactor, double volumeRef, double radiusRef): AbstractCostEstimator(){
+	(*this).which_estimator_ = 2;
 	this->previousVolume = 0.0;
 	this->proteolyticFactor = proteolyticFactor;
 	this->diffusionFactor = diffusionFactor;
@@ -74,4 +75,34 @@ double AdimSproutingVolumetricCostEstimator::computeTreeCost(AbstractVascularEle
 
 AbstractCostEstimator* AdimSproutingVolumetricCostEstimator::clone(){
 	return (new AdimSproutingVolumetricCostEstimator(volumeFactor, proteolyticFactor, diffusionFactor, volumeRef, radiusRef));
+}
+
+double AdimSproutingVolumetricCostEstimator::getVolumeFactor()
+{
+	return (*this).volumeFactor;
+}
+
+double AdimSproutingVolumetricCostEstimator::getProteolyticFactor()
+{
+	return (*this).proteolyticFactor;
+}
+
+double AdimSproutingVolumetricCostEstimator::getDiffusionFactor()
+{
+	return (*this).diffusionFactor;
+}
+
+double AdimSproutingVolumetricCostEstimator::getVolumeRef()
+{
+	return (*this).volumeRef;
+}
+
+double AdimSproutingVolumetricCostEstimator::getRadiusRef()
+{
+	return (*this).radiusRef;
+}
+
+double AdimSproutingVolumetricCostEstimator::getLenghtRef()
+{
+	return (*this).lengthRef;
 }

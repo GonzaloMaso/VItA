@@ -11,17 +11,19 @@
 
 #include <chrono>
 #include <random>
-#include "omp.h"
+#include <omp.h>
 
 //	Model
-#include "vtkPolyDataReader.h"
-#include "vtkSelectEnclosedPoints.h"
-#include "vtkPointData.h"
-#include "vtkMassProperties.h"
+#include <vtkPolyDataReader.h>
+#include <vtkSelectEnclosedPoints.h>
+#include <vtkPointData.h>
+#include <vtkMassProperties.h>
 
 DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->whichDomain = 2;
+	this->filenameHull = filename;
+	this->filenameNVR = filenameNonVascularRegions;
 	//	Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -59,7 +61,9 @@ DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions,
 
 DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions, int N, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->whichDomain = 2;
+	this->filenameHull = filename;
+	this->filenameNVR = filenameNonVascularRegions;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -97,7 +101,9 @@ DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions,
 
 DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions, int N, int seed, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->whichDomain = 2;
+	this->filenameHull = filename;
+	this->filenameNVR = filenameNonVascularRegions;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -366,3 +372,17 @@ double* DomainNVR::getLocalNeighborhood(point p, long long int nVessels) {
 
 	return localBox;
 }
+
+int DomainNVR::getSeed()
+{
+	return (*this).seed;
+}
+
+string DomainNVR::getFilenameHull() {
+	return this->filenameHull;
+}
+
+vector<string> DomainNVR::getFilenameNVR() {
+	return this->filenameNVR;
+}
+

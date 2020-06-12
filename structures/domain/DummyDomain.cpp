@@ -17,6 +17,7 @@
  */
 DummyDomain::DummyDomain(string filename, vector<point> points,GeneratorData *instanceData) : SimpleDomain(filename,instanceData)
 {
+	this->whichDomain = 5;
 	for(vector<point>::iterator it = points.begin(); it != points.end(); ++it)
 		randomInnerPoints.push_back(*it);
 }

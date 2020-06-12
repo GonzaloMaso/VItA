@@ -8,7 +8,7 @@
  */
 
 #include "TreeProjector.h"
-#include "vtkPolyDataReader.h"
+#include <vtkPolyDataReader.h>
 #include <vtkCellData.h>
 #include <vtkCellArray.h>
 #include <vtkDoubleArray.h>

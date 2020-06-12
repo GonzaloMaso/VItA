@@ -10,17 +10,18 @@
 #include "IntersectionVascularizedDomain.h"
 
 #include <chrono>
-#include "omp.h"
+#include <omp.h>
 
 //	Model
-#include "vtkPolyDataReader.h"
-#include "vtkSelectEnclosedPoints.h"
-#include "vtkPointData.h"
-#include "vtkMassProperties.h"
+#include <vtkPolyDataReader.h>
+#include <vtkSelectEnclosedPoints.h>
+#include <vtkPointData.h>
+#include <vtkMassProperties.h>
 
 IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> filenameVascularRegions, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->whichDomain = 3;
+	this->filenameVR = filenameVascularRegions;
 	boundingBox = new double[6];
 
 	//	Read all the data from the vascularized files
@@ -63,7 +64,8 @@ IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> fi
 
 IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> filenameVascularRegions,
 		int N, GeneratorData *instanceData) : AbstractDomain(instanceData) {
-
+	this->whichDomain = 3;
+	this->filenameVR = filenameVascularRegions;
 	boundingBox = new double[6];
 
 	//	Read all the data from the vascularized files
@@ -106,7 +108,8 @@ IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> fi
 
 IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> filenameVascularRegions,
 		int N, int seed, GeneratorData *instanceData) : AbstractDomain(instanceData) {
-
+	this->whichDomain = 3;
+	this->filenameVR = filenameVascularRegions;
 	boundingBox = new double[6];
 
 	//	Read all the data from the vascularized files
@@ -304,4 +307,13 @@ double* IntersectionVascularizedDomain::getLocalNeighborhood(point p, long long 
 	localBox[5] = p.p[2] + size;
 
 	return localBox;
+}
+
+int IntersectionVascularizedDomain::getSeed()
+{
+	return (*this).seed;
+}
+
+vector<string> IntersectionVascularizedDomain::getFilenameVR() {
+	return this->filenameVR;
 }

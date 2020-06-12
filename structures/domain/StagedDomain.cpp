@@ -10,6 +10,7 @@
 #include "StagedDomain.h"
 
 StagedDomain::StagedDomain() : AbstractDomain(NULL){
+	this->whichDomain = 6;
 	currentTerminals = 0;
 	terminalAtPrevStage = 0;
 	currentStage = 0;
@@ -107,5 +108,25 @@ double StagedDomain::getMinPlaneAngle(){
 }
 
 long long int StagedDomain::getPointCounter() const{
-	domainStage[currentStage-initialStage]->getPointCounter();
+	return domainStage[currentStage-initialStage]->getPointCounter();
+}
+
+vector<AbstractDomain *>* StagedDomain::getDomains()
+{
+	return &((*this).domainStage);
+}
+
+vector<long long int>* StagedDomain::getNTerminals()
+{
+	return &((*this).terminalsPerStage);
+}
+
+int StagedDomain::getDraw()
+{
+	return -1;
+}
+
+int StagedDomain::getSeed()
+{
+	return -1;
 }

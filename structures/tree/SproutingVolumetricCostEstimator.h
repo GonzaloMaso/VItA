@@ -60,6 +60,18 @@ public:
 	 * @return Cost of the given tree.
 	 */
 	double computeCost(AbstractObjectCCOTree* tree);
+	/**
+	 * @return @p volumeFactor
+	 */
+	double getVolumeFactor();
+	/**
+	 * @return @p proteolyticFactor
+	 */
+	double getProteolyticFactor();
+	/**
+	 * @return @p diffusionFactor
+	 */
+	double getDiffusionFactor();
 private:
 	/**
 	 * Computes the volume for the tree with root @p root.

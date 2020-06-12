@@ -128,6 +128,24 @@ public:
 	 * @param currentStage Current stage.
 	 */
 	void setInitialStage(int currentStage);
+	/**
+	 * Returns the domains in the StagedDomain.
+	 * @return vector<AbstractDomain *> domains.
+	 */
+	vector< AbstractDomain *>* getDomains();
+	/**
+	 * Returns the number of terminals in each stage.
+	 * @return  vector<long long int> n_term.
+	 */
+	vector<long long int>* getNTerminals();
+	/**
+	 * This function serves no purpose in StagedDomain.
+	 */
+	int getDraw();
+	/**
+	 * This function serves no purpose in StagedDomain.
+	 */
+	int getSeed();
 };
 
 #endif /* DOMAIN_STAGEDDOMAIN_H_ */

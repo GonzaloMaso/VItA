@@ -11,6 +11,7 @@
 #include "../vascularElements/SingleVessel.h"
 
 SproutingVolumetricCostEstimator::SproutingVolumetricCostEstimator(double volumeFactor, double proteolyticFactor, double diffusionFactor): AbstractCostEstimator(){
+	(*this).which_estimator_ = 1;
 	previousVolume = 0.0;
 	this->proteolyticFactor = proteolyticFactor;
 	this->diffusionFactor = diffusionFactor;
@@ -65,4 +66,19 @@ double SproutingVolumetricCostEstimator::computeTreeCost(AbstractVascularElement
 
 AbstractCostEstimator* SproutingVolumetricCostEstimator::clone(){
 	return (new SproutingVolumetricCostEstimator(volumeFactor, proteolyticFactor, diffusionFactor));
+}
+
+double SproutingVolumetricCostEstimator::getVolumeFactor()
+{
+	return (*this).volumeFactor;
+}
+
+double SproutingVolumetricCostEstimator::getProteolyticFactor()
+{
+	return (*this).proteolyticFactor;
+}
+
+double SproutingVolumetricCostEstimator::getDiffusionFactor()
+{
+	return (*this).diffusionFactor;
 }

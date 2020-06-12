@@ -10,19 +10,22 @@
 #include "PartiallyVascularizedDomain.h"
 
 #include <chrono>
-#include "omp.h"
+#include <omp.h>
 
 //	Model
-#include "vtkXMLPolyDataWriter.h"
-#include "vtkPolyDataReader.h"
-#include "vtkSelectEnclosedPoints.h"
-#include "vtkPointData.h"
-#include "vtkMassProperties.h"
+#include <vtkXMLPolyDataWriter.h>
+#include <vtkPolyDataReader.h>
+#include <vtkSelectEnclosedPoints.h>
+#include <vtkPointData.h>
+#include <vtkMassProperties.h>
 
 PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector<string> filenameVascularRegions,
 		vector<string> filenameNonVascularRegions, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->whichDomain = 4;
+	this->filenameHull = filename;
+	this->filenameVR = filenameVascularRegions;
+	this->filenameNVR = filenameNVR;
 	//	Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -68,7 +71,10 @@ PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector
 PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector<string> filenameVascularRegions,
 		vector<string> filenameNonVascularRegions, int N, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->whichDomain = 4;
+	this->filenameHull = filename;
+	this->filenameVR = filenameVascularRegions;
+	this->filenameNVR = filenameNVR;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -115,7 +121,10 @@ PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector
 PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector<string> filenameVascularRegions,
 		vector<string> filenameNonVascularRegions, int N, int seed, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->whichDomain = 4;
+	this->filenameHull = filename;
+	this->filenameVR = filenameVascularRegions;
+	this->filenameNVR = filenameNVR;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -362,4 +371,21 @@ void PartiallyVascularizedDomain::savePoints(string filename) {
 
 	writer->SetDataModeToBinary();
 	writer->Write();
+}
+
+int PartiallyVascularizedDomain::getSeed()
+{
+	return (*this).seed;
+}
+
+string PartiallyVascularizedDomain::getFilenameHull() {
+	return this->filenameHull;
+}
+
+vector<string> PartiallyVascularizedDomain::getFilenameVR() {
+	return this->filenameVR;
+}
+
+vector<string> PartiallyVascularizedDomain::getFilenameNVR() {
+	return this->filenameNVR;
 }

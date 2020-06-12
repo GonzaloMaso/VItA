@@ -9,9 +9,9 @@
 
 #include "SphereCreator.h"
 
-#include "vtkSphereSource.h"
-#include "vtkSmartPointer.h"
-#include "vtkPolyDataWriter.h"
+#include <vtkSphereSource.h>
+#include <vtkSmartPointer.h>
+#include <vtkPolyDataWriter.h>
 
 SphereCreator::SphereCreator(vector<double> center, double radius, double phiResolution, double thetaResolution){
 	this->center = center;

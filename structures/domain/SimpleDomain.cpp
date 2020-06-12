@@ -11,22 +11,23 @@
 
 #include <chrono>
 #include <random>
-#include "omp.h"
+#include <omp.h>
 
 //	Model
-#include "vtkPolyDataReader.h"
-#include "vtkXMLPolyDataWriter.h"
-#include "vtkSelectEnclosedPoints.h"
-#include "vtkPointData.h"
-#include "vtkPoints.h"
-#include "vtkMassProperties.h"
-#include "vtkSmartPointer.h"
+#include <vtkPolyDataReader.h>
+#include <vtkXMLPolyDataWriter.h>
+#include <vtkSelectEnclosedPoints.h>
+#include <vtkPointData.h>
+#include <vtkPoints.h>
+#include <vtkMassProperties.h>
+#include <vtkSmartPointer.h>
 
 #include "UniformDistributionGenerator.h"
 
 SimpleDomain::SimpleDomain(string filename, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->whichDomain = 1;
+	this->filename = filename;
 	//	Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -51,6 +52,8 @@ SimpleDomain::SimpleDomain(string filename, GeneratorData *instanceData) :
 
 SimpleDomain::SimpleDomain(string filename, int N, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
+	this->whichDomain = 1;
+	this->filename = filename;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -75,6 +78,8 @@ SimpleDomain::SimpleDomain(string filename, int N, GeneratorData *instanceData) 
 
 SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
+	this->whichDomain = 1;
+	this->filename = filename;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -88,6 +93,7 @@ SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData *inst
 	locator->BuildLocator();
 
 	nDraw = N;
+	(*this).seed = seed;
 
 	double *bb = vtkGeometry->GetBounds();
 	distribution = new UniformDistributionGenerator();
@@ -99,6 +105,8 @@ SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData *inst
 
 SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData* instanceData, DistributionGenerator* distribution) :
 				AbstractDomain(instanceData) {
+	this->whichDomain = 1;
+	this->filename = filename;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -112,6 +120,7 @@ SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData* inst
 	locator->BuildLocator();
 
 	nDraw = N;
+	(*this).seed = seed;
 
 	double *bb = vtkGeometry->GetBounds();
 	this->distribution = distribution;
@@ -267,3 +276,12 @@ void SimpleDomain::savePoints(string filename) {
 	writer->Write();
 }
 
+int SimpleDomain::getSeed()
+{
+	return (*this).seed;
+}
+
+string SimpleDomain::getFilename()
+{
+	return this->filename;
+}
