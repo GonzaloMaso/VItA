@@ -11,20 +11,20 @@ add_compile_options(-Wall)
 # Setting components of the library
 
 set(CORE_CPP 
-    core/FixedPerfusionRadiusTreeGenerator.cpp 
+    # core/FixedPerfusionRadiusTreeGenerator.cpp 
     core/FRRSTreeGenerator.cpp 
     core/GeneratorData.cpp 
     core/GeneratorDataMonitor.cpp 
-    core/StagedFixedPerfusionRadiusTreeGenerator.cpp
+    # core/StagedFixedPerfusionRadiusTreeGenerator.cpp
     core/StagedFRROTreeGenerator.cpp 
     core/StagedFRRSTreeGenerator.cpp)
 
 set(CORE_HPP
-    core/FixedPerfusionRadiusTreeGenerator.h
+    # core/FixedPerfusionRadiusTreeGenerator.h
     core/FRRSTreeGenerator.h
     core/GeneratorData.h
     core/GeneratorDataMonitor.h
-    core/StagedFixedPerfusionRadiusTreeGenerator.h
+    # core/StagedFixedPerfusionRadiusTreeGenerator.h
     core/StagedFRROTreeGenerator.h
     core/StagedFRRSTreeGenerator.h
     )
@@ -194,6 +194,16 @@ set(STRUCTURES_TREE_HPP
     structures/tree/SproutingVolumetricCostEstimator.h
     structures/tree/VolumetricCostEstimator.h)
 
+set(STRUCTURES_TREE_PRUNING_CPP
+    structures/tree/pruning/AbstractPruningRule.cpp
+    structures/tree/pruning/OldLeavesPruningRule.cpp
+    structures/tree/pruning/PruningCCOOTree.cpp)
+
+set(STRUCTURES_TREE_PRUNING_HPP
+    structures/tree/pruning/AbstractPruningRule.h
+    structures/tree/pruning/OldLeavesPruningRule.h
+    structures/tree/pruning/PruningCCOOTree.h)
+
 set(STRUCTURES_VASCULAR_ELEMENTS_CPP
     structures/vascularElements/AbstractVascularElement.cpp
     structures/vascularElements/MultiSegmentVessel.cpp
@@ -212,11 +222,11 @@ set(UTILS_HPP
 
 set(SOURCE_CPP ${CORE_CPP} ${CREATORS_CPP} ${FILTERS_CPP} ${IO_CPP}  ${IO_TASK_CPP} ${STATS_CPP}
     ${STATS_MANIPULATORS_CPP} ${STRUCTURES_DOMAIN_CPP} ${STRUCTURES_TREE_CPP}
-    ${STRUCTURES_VASCULAR_ELEMENTS_CPP} ${UTILS_CPP})
+    ${STRUCTURES_VASCULAR_ELEMENTS_CPP} ${UTILS_CPP} ${STRUCTURES_TREE_PRUNING_CPP})
 
 set(SOURCE_HPP ${CORE_HPP} ${CREATORS_HPP} ${FILTERS_HPP} ${IO_HPP}  ${IO_TASK_HPP} ${STATS_HPP}
     ${STATS_MANIPULATORS_HPP} ${STRUCTURES_DOMAIN_HPP} ${STRUCTURES_TREE_HPP}
-    ${STRUCTURES_VASCULAR_ELEMENTS_HPP} ${UTILS_HPP} ${CONSTRAINTS_HPP} ${STRUCTURES_HPP})
+    ${STRUCTURES_VASCULAR_ELEMENTS_HPP} ${UTILS_HPP} ${CONSTRAINTS_HPP} ${STRUCTURES_HPP} ${STRUCTURES_TREE_PRUNING_CPP})
 
 option(BUILD_SHARED_LIBS "Build VItA as a shared library." ON)
 
