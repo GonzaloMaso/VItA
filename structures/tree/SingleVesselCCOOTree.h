@@ -31,6 +31,7 @@ class SingleVesselCCOOTree: public AbstractObjectCCOTree {
 	double variationTolerance;
 	/**	Amount of non-common terminals. */
 	long long int nCommonTerminals;
+	friend class PruningCCOOTree;
 public:
 	/**
 	 * Common tree creator.

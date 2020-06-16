@@ -9,7 +9,7 @@
 #define STRUCTURES_TREE_PRUNNING_PRUNINGCCOOTREE_H_
 
 #include "../SingleVesselCCOOTree.h"
-#include "../vascularElements/AbstractVascularElement.h"
+#include "../../vascularElements/AbstractVascularElement.h"
 #include "AbstractPruningRule.h"
 
 /**
