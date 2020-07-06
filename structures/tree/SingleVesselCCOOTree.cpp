@@ -407,8 +407,7 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData* in
 
 		//	Children parsing
 		cout << " - Children : ";
-		while (!ss.eof()) {
-			ss >> childId;
+		while (ss >> childId) {
 			cout << childId << " " ;
 			elements[vtkId]->addChild(elements[childId]);
 //			ss >> childId;
