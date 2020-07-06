@@ -1341,17 +1341,32 @@ void SingleVesselCCOOTree::removeWitheredBranches(int stage) {
 void SingleVesselCCOOTree::remove(SingleVessel* vessel) {
 
 	vector<AbstractVascularElement *> children = vessel->getChildren();
+	printf("children.size() = %lu\n", children.size());
 	for (vector<AbstractVascularElement *>::iterator it = children.begin(); it != children.end(); ++it) {
 		remove( (SingleVessel*) *it);
 	}
+	// Vessel is root
+	// if (!vessel->parent) {
+	// 	return;
+	// }
 	vector<AbstractVascularElement *> parentChildren = vessel->parent->getChildren();
-	for (vector<AbstractVascularElement *>::iterator it = parentChildren.begin(); it != parentChildren.end(); ++it) {
-		if( (SingleVessel*) *it == vessel)
-			parentChildren.erase(it);
+	printf("parentChildren.size() = %lu\n", parentChildren.size());
+	vector<AbstractVascularElement *>::iterator it = parentChildren.begin();
+	while (it != parentChildren.end()) {
+		if (*it == vessel) {
+			// We need to update the iterator this way, else we might run into trouble
+			it = parentChildren.erase(it);
+		}
+		else {
+			++it;
+		}
 	}
 
-	vtkTree->DeleteCell(vessel->vtkSegmentId);
+	printf("vtkCellType = %d\n", vessel->vtkSegment->GetCellType());
+	printf("GetNumberOfPoints = %d\n", vessel->vtkSegment->GetNumberOfPoints());
 	vtkTree->DeletePoint(vessel->vtkSegment->GetPointId(1));
+	vtkTree->DeleteCell(vessel->vtkSegmentId);	
+	
 	delete vessel;
 }
 
