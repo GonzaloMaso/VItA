@@ -11,7 +11,6 @@
 #include "../vascularElements/SingleVessel.h"
 
 SproutingVolumetricCostEstimator::SproutingVolumetricCostEstimator(double volumeFactor, double proteolyticFactor, double diffusionFactor): AbstractCostEstimator(){
-	(*this).which_estimator_ = 1;
 	previousVolume = 0.0;
 	this->proteolyticFactor = proteolyticFactor;
 	this->diffusionFactor = diffusionFactor;
@@ -70,15 +69,26 @@ AbstractCostEstimator* SproutingVolumetricCostEstimator::clone(){
 
 double SproutingVolumetricCostEstimator::getVolumeFactor()
 {
-	return (*this).volumeFactor;
+	return this->volumeFactor;
 }
 
 double SproutingVolumetricCostEstimator::getProteolyticFactor()
 {
-	return (*this).proteolyticFactor;
+	return this->proteolyticFactor;
 }
 
 double SproutingVolumetricCostEstimator::getDiffusionFactor()
 {
-	return (*this).diffusionFactor;
+	return this->diffusionFactor;
+}
+
+void SproutingVolumetricCostEstimator::logCostEstimator(FILE *fp) {
+	double v_fac, p_fac, d_fac;        
+    v_fac = this->getVolumeFactor();
+    p_fac = this->getProteolyticFactor();
+    d_fac = this->getDiffusionFactor();
+    fprintf(fp, "This domain uses SproutingVolumetricCostEstimator.\n");
+    fprintf(fp, "Volume factor = %f.\n", v_fac);
+    fprintf(fp, "Proteolytic factor = %f.\n", p_fac);
+    fprintf(fp, "Diffusion factor = %f.\n", d_fac);
 }

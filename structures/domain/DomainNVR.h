@@ -140,6 +140,8 @@ public:
 
 	vector<string> getFilenameNVR();
 
+	void logDomainFiles(FILE *fp);
+
 protected:
 	deque<point> randomInnerPoints;
 	void generateRandomPoints();

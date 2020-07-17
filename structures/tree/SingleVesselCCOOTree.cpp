@@ -407,7 +407,9 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData* in
 
 		//	Children parsing
 		cout << " - Children : ";
-		while (ss >> childId) {
+
+		while (!ss.eof()) {
+			ss >> childId;
 			cout << childId << " " ;
 			elements[vtkId]->addChild(elements[childId]);
 //			ss >> childId;
@@ -1405,7 +1407,7 @@ int SingleVesselCCOOTree::isValidOpeningAngle(point xBif, point xNew, SingleVess
 
 double SingleVesselCCOOTree::getVariationTolerance()
 {
-	return (*this).variationTolerance;
+	return this->variationTolerance;
 }
 
 string SingleVesselCCOOTree::getFilenameCCO() {

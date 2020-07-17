@@ -10,7 +10,6 @@
 #include "StagedDomain.h"
 
 StagedDomain::StagedDomain() : AbstractDomain(NULL){
-	this->whichDomain = 6;
 	currentTerminals = 0;
 	terminalAtPrevStage = 0;
 	currentStage = 0;
@@ -113,12 +112,12 @@ long long int StagedDomain::getPointCounter() const{
 
 vector<AbstractDomain *>* StagedDomain::getDomains()
 {
-	return &((*this).domainStage);
+	return &(this->domainStage);
 }
 
 vector<long long int>* StagedDomain::getNTerminals()
 {
-	return &((*this).terminalsPerStage);
+	return &(this->terminalsPerStage);
 }
 
 int StagedDomain::getDraw()
@@ -129,4 +128,8 @@ int StagedDomain::getDraw()
 int StagedDomain::getSeed()
 {
 	return -1;
+}
+
+void StagedDomain::logDomainFiles(FILE *fp) {
+	fprintf(fp, "StagedDomain\n");
 }

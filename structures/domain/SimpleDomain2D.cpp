@@ -21,7 +21,6 @@
 
 SimpleDomain2D::SimpleDomain2D(string filename, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-	this->whichDomain = 0;
 	this->filename = filename;
 	//	Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<
@@ -36,9 +35,8 @@ SimpleDomain2D::SimpleDomain2D(string filename, GeneratorData *instanceData) :
 	locator->BuildLocator();
 
 	nDraw = 10000;
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	double *bb = vtkGeometry->GetBounds();
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
@@ -47,7 +45,6 @@ SimpleDomain2D::SimpleDomain2D(string filename, GeneratorData *instanceData) :
 
 SimpleDomain2D::SimpleDomain2D(string filename, int N, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-	this->whichDomain = 0;
 	this->filename = filename;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<
@@ -62,9 +59,8 @@ SimpleDomain2D::SimpleDomain2D(string filename, int N, GeneratorData *instanceDa
 	locator->BuildLocator();
 
 	nDraw = N;
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	double *bb = vtkGeometry->GetBounds();
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
@@ -73,7 +69,6 @@ SimpleDomain2D::SimpleDomain2D(string filename, int N, GeneratorData *instanceDa
 
 SimpleDomain2D::SimpleDomain2D(string filename, int N, int seed, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-	this->whichDomain = 0;
 	this->filename = filename;			
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<
@@ -276,10 +271,15 @@ double* SimpleDomain2D::getLocalNeighborhood(point p, long long int nVessels) {
 
 int SimpleDomain2D::getSeed()
 {
-	return (*this).seed;
+	return this->seed;
 }
 
 string SimpleDomain2D::getFilename()
 {
 	return this->filename;
+}
+
+void SimpleDomain2D::logDomainFiles(FILE *fp) {
+	fprintf(fp, "SimpleDomain2D\n");
+    fprintf(fp, "filename = %s\n", this->getFilename().c_str());
 }

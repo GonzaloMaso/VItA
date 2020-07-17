@@ -26,7 +26,6 @@
 
 SimpleDomain::SimpleDomain(string filename, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-	this->whichDomain = 1;
 	this->filename = filename;
 	//	Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
@@ -42,17 +41,16 @@ SimpleDomain::SimpleDomain(string filename, GeneratorData *instanceData) :
 
 	nDraw = 10000;
 
-	int seed = chrono::system_clock::now().time_since_epoch().count();
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
 	double *bb = vtkGeometry->GetBounds();
 	distribution = new UniformDistributionGenerator();
-	distribution->initialize(seed,bb);
+	distribution->initialize(this->seed,bb);
 
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
 }
 
 SimpleDomain::SimpleDomain(string filename, int N, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-	this->whichDomain = 1;
 	this->filename = filename;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
@@ -68,17 +66,16 @@ SimpleDomain::SimpleDomain(string filename, int N, GeneratorData *instanceData) 
 
 	nDraw = N;
 
-	int seed = chrono::system_clock::now().time_since_epoch().count();
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
 	double *bb = vtkGeometry->GetBounds();
 	distribution = new UniformDistributionGenerator();
-	distribution->initialize(seed,bb);
+	distribution->initialize(this->seed,bb);
 
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
 }
 
 SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-	this->whichDomain = 1;
 	this->filename = filename;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
@@ -93,7 +90,7 @@ SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData *inst
 	locator->BuildLocator();
 
 	nDraw = N;
-	(*this).seed = seed;
+	this->seed = seed;
 
 	double *bb = vtkGeometry->GetBounds();
 	distribution = new UniformDistributionGenerator();
@@ -105,7 +102,6 @@ SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData *inst
 
 SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData* instanceData, DistributionGenerator* distribution) :
 				AbstractDomain(instanceData) {
-	this->whichDomain = 1;
 	this->filename = filename;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
@@ -120,7 +116,7 @@ SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData* inst
 	locator->BuildLocator();
 
 	nDraw = N;
-	(*this).seed = seed;
+	this->seed = seed;
 
 	double *bb = vtkGeometry->GetBounds();
 	this->distribution = distribution;
@@ -278,10 +274,15 @@ void SimpleDomain::savePoints(string filename) {
 
 int SimpleDomain::getSeed()
 {
-	return (*this).seed;
+	return this->seed;
 }
 
 string SimpleDomain::getFilename()
 {
 	return this->filename;
+}
+
+void SimpleDomain::logDomainFiles(FILE *fp) {
+	fprintf(fp, "SimpleDomain\n");
+    fprintf(fp, "filename = %s\n", this->getFilename().c_str());
 }

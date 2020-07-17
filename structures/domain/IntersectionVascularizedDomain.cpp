@@ -20,7 +20,6 @@
 
 IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> filenameVascularRegions, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-	this->whichDomain = 3;
 	this->filenameVR = filenameVascularRegions;
 	boundingBox = new double[6];
 
@@ -53,9 +52,8 @@ IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> fi
 	}
 
 	nDraw = 10000;
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	characteristicLength = max(max((boundingBox[1] - boundingBox[0]) / 2,
 			(boundingBox[3] - boundingBox[2]) / 2),
@@ -64,7 +62,6 @@ IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> fi
 
 IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> filenameVascularRegions,
 		int N, GeneratorData *instanceData) : AbstractDomain(instanceData) {
-	this->whichDomain = 3;
 	this->filenameVR = filenameVascularRegions;
 	boundingBox = new double[6];
 
@@ -97,9 +94,8 @@ IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> fi
 	}
 
 	nDraw = N;
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	characteristicLength = max(max((boundingBox[1] - boundingBox[0]) / 2,
 			(boundingBox[3] - boundingBox[2]) / 2),
@@ -108,7 +104,6 @@ IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> fi
 
 IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> filenameVascularRegions,
 		int N, int seed, GeneratorData *instanceData) : AbstractDomain(instanceData) {
-	this->whichDomain = 3;
 	this->filenameVR = filenameVascularRegions;
 	boundingBox = new double[6];
 
@@ -311,9 +306,18 @@ double* IntersectionVascularizedDomain::getLocalNeighborhood(point p, long long 
 
 int IntersectionVascularizedDomain::getSeed()
 {
-	return (*this).seed;
+	return this->seed;
 }
 
 vector<string> IntersectionVascularizedDomain::getFilenameVR() {
 	return this->filenameVR;
+}
+
+void IntersectionVascularizedDomain::logDomainFiles(FILE *fp) {
+	fprintf(fp, "IntersectionVascularizedDomain\n");
+    vector<string> filenameVR = this->getFilenameVR();
+    int size = filenameVR.size();
+    for (int i = 0; i < size; ++i) {
+        fprintf(fp, "filenameVR[%d] = %s\n", i, filenameVR[i].c_str());
+    }
 }

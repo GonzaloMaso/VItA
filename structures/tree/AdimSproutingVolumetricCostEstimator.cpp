@@ -12,7 +12,6 @@
 #include <math.h>
 
 AdimSproutingVolumetricCostEstimator::AdimSproutingVolumetricCostEstimator(double volumeFactor, double proteolyticFactor, double diffusionFactor, double volumeRef, double radiusRef): AbstractCostEstimator(){
-	(*this).which_estimator_ = 2;
 	this->previousVolume = 0.0;
 	this->proteolyticFactor = proteolyticFactor;
 	this->diffusionFactor = diffusionFactor;
@@ -79,30 +78,47 @@ AbstractCostEstimator* AdimSproutingVolumetricCostEstimator::clone(){
 
 double AdimSproutingVolumetricCostEstimator::getVolumeFactor()
 {
-	return (*this).volumeFactor;
+	return this->volumeFactor;
 }
 
 double AdimSproutingVolumetricCostEstimator::getProteolyticFactor()
 {
-	return (*this).proteolyticFactor;
+	return this->proteolyticFactor;
 }
 
 double AdimSproutingVolumetricCostEstimator::getDiffusionFactor()
 {
-	return (*this).diffusionFactor;
+	return this->diffusionFactor;
 }
 
 double AdimSproutingVolumetricCostEstimator::getVolumeRef()
 {
-	return (*this).volumeRef;
+	return this->volumeRef;
 }
 
 double AdimSproutingVolumetricCostEstimator::getRadiusRef()
 {
-	return (*this).radiusRef;
+	return this->radiusRef;
 }
 
 double AdimSproutingVolumetricCostEstimator::getLenghtRef()
 {
-	return (*this).lengthRef;
+	return this->lengthRef;
+}
+
+void AdimSproutingVolumetricCostEstimator::logCostEstimator(FILE *fp) {
+	double v_fac, p_fac, d_fac, v_ref, r_ref, l_ref;
+	v_fac = this->getVolumeFactor();
+    p_fac = this->getProteolyticFactor();
+    d_fac = this->getDiffusionFactor();
+    v_ref = this->getVolumeRef();
+    r_ref = this->getRadiusRef();
+    l_ref = this->getLenghtRef();
+    fprintf(fp, "This domain uses AdimSproutingVolumetricCost.\n");
+    fprintf(fp, "Volume factor = %f.\n", v_fac);
+    fprintf(fp, "Proteolytic factor = %f.\n", p_fac);
+    fprintf(fp, "Diffusion factor = %f.\n", d_fac);
+    fprintf(fp, "Reference volume = %f.\n", v_ref);
+    fprintf(fp, "Reference radius = %f.\n", r_ref);
+    fprintf(fp, "Reference lenght = %f.\n", l_ref);
 }

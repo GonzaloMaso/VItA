@@ -136,6 +136,8 @@ public:
 
 	vector<string> getFilenameVR();
 
+	void logDomainFiles(FILE *fp);
+
 protected:
 	deque<point> randomInnerPoints;
 	void generateRandomPoints();

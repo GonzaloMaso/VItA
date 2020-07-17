@@ -31,16 +31,6 @@
 
 class AbstractDomain : public IDomainObservable {
 protected:
-	/** Indicates which type of domain is used
-	 * 0 for SimpledDomain2D
-	 * 1 for SimpleDomain
-	 * 2 for DomainNVR
-	 * 3 for IntersectionVascularizedDomain
-	 * 4 for PartiallyVascularizedDomain
-	 * 5 DummyDomain
-	 * 6 StagedDomain
-	 * **/	
-	int whichDomain;
 	/**	Vessels with stages contained in such list are allowed to grow. If empty, all vessels are allowed to grow. */
 	vector<int> growingStages;
 	/** Wrapper with parameters associated to a tree generation process. */
@@ -163,16 +153,19 @@ public:
 	 * Default setter of @p instanceData.
 	 * @param instanceData Instance for @p instanceData.
 	 */
-	int getWhichDomain();
-	virtual int getDraw() = 0;
-	virtual int getSeed() = 0;
 	void setInstanceData(GeneratorData* instanceData);
+	/**
+	 * Virtual method to be used by StagedFRROTreeGeneratorLogger.
+	 */
+	virtual void logDomainFiles(FILE *fp) = 0;
 	const vector<int>& getGrowingStages() const;
 	void setGrowingStages(const vector<int>& growingStages);
 	bool isIsBifPlaneContrained() const;
 	void setIsBifPlaneContrained(bool isBifPlaneContrained);
 	double getMinPlaneAngle();
 	void setMinPlaneAngle(double minPlaneAngle);
+	virtual int getDraw() = 0;
+	virtual int getSeed() = 0;
 };
 
 #endif /* DOMAIN_ABSTRACTDOMAIN_H_ */

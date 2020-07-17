@@ -31,6 +31,8 @@ public:
 	 * @return Last preloaded point.
 	 */
 	virtual point getRandomPoint();
+
+	void logDomainFiles(FILE *fp);
 };
 
 #endif /* DUMMYDOMAIN_H_ */

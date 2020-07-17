@@ -556,24 +556,24 @@ void StagedFRROTreeGenerator::saveStatus(long long int terminals){
 
 vector<AbstractConstraintFunction<double, int> *>* StagedFRROTreeGenerator::getGams()
 {
-	return &((*this).gams);
+	return &(this->gams);
 }
 
 vector<AbstractConstraintFunction<double, int> *>* StagedFRROTreeGenerator::getEpsLims()
 {
-	return &((*this).epsLims);
+	return &(this->epsLims);
 }
 vector<AbstractConstraintFunction<double, int> *>* StagedFRROTreeGenerator::getNus()
 {
-	return &((*this).nus);
+	return &(this->nus);
 }
 
 double StagedFRROTreeGenerator::getDLim() {
-	return (*this).dLim;
+	return this->dLim;
 }
 
 void StagedFRROTreeGenerator::setDLim(double newDLim) {
-	(*this).dLim = newDLim;
+	this->dLim = newDLim;
 }
 
 double StagedFRROTreeGenerator::getDLimInitial() {
