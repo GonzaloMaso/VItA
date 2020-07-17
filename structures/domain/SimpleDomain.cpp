@@ -90,7 +90,7 @@ SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData *inst
 	locator->BuildLocator();
 
 	nDraw = N;
-	(*this).seed = seed;
+	this->seed = seed;
 
 	double *bb = vtkGeometry->GetBounds();
 	distribution = new UniformDistributionGenerator();
@@ -116,7 +116,7 @@ SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData* inst
 	locator->BuildLocator();
 
 	nDraw = N;
-	(*this).seed = seed;
+	this->seed = seed;
 
 	double *bb = vtkGeometry->GetBounds();
 	this->distribution = distribution;

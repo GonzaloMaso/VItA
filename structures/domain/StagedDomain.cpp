@@ -112,12 +112,12 @@ long long int StagedDomain::getPointCounter() const{
 
 vector<AbstractDomain *>* StagedDomain::getDomains()
 {
-	return &((*this).domainStage);
+	return &(this->domainStage);
 }
 
 vector<long long int>* StagedDomain::getNTerminals()
 {
-	return &((*this).terminalsPerStage);
+	return &(this->terminalsPerStage);
 }
 
 int StagedDomain::getDraw()
