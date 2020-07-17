@@ -17,14 +17,6 @@
  * Estimates the functional cost of a tree.
  */
 class AbstractCostEstimator {
-protected:
-	/**
-	 * This indicates what kind of estimator we're using. 
-	 * 0 is for VolumetricCostEstimator.
-	 * 1 is for SproutingVolumetricCostEstimator.
-	 * 2 is for AdimSproutingVolumetricCostEstimator.
-	 */
-	int which_estimator_;
 public:
 	/**
 	 * Common constructor.
@@ -57,10 +49,9 @@ public:
 	 */
 	virtual double computeCost(AbstractObjectCCOTree *tree) = 0;
 	/**
-	 * Returns what kind of estimator we're using.
-	 * @return @p which_estimator_
-	 */
-	int getWhichEstimator();
+	 * Virtual method to be used by StagedFRROTreeGeneratorLogger
+	 */	 
+	virtual void logCostEstimator(FILE *fp) = 0;
 };
 
 #endif /* TREE_ABSTRACTCOSTESTIMATOR_H_ */

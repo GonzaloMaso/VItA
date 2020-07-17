@@ -21,7 +21,6 @@
 
 SimpleDomain2D::SimpleDomain2D(string filename, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-	this->whichDomain = 0;
 	this->filename = filename;
 	//	Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<
@@ -47,7 +46,6 @@ SimpleDomain2D::SimpleDomain2D(string filename, GeneratorData *instanceData) :
 
 SimpleDomain2D::SimpleDomain2D(string filename, int N, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-	this->whichDomain = 0;
 	this->filename = filename;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<
@@ -73,7 +71,6 @@ SimpleDomain2D::SimpleDomain2D(string filename, int N, GeneratorData *instanceDa
 
 SimpleDomain2D::SimpleDomain2D(string filename, int N, int seed, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-	this->whichDomain = 0;
 	this->filename = filename;			
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<
@@ -276,10 +273,15 @@ double* SimpleDomain2D::getLocalNeighborhood(point p, long long int nVessels) {
 
 int SimpleDomain2D::getSeed()
 {
-	return (*this).seed;
+	return this->seed;
 }
 
 string SimpleDomain2D::getFilename()
 {
 	return this->filename;
+}
+
+void SimpleDomain2D::logDomainFiles(FILE *fp) {
+	fprintf(fp, "SimpleDomain2D\n");
+    fprintf(fp, "filename = %s\n", this->getFilename().c_str());
 }

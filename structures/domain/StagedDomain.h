@@ -146,6 +146,8 @@ public:
 	 * This function serves no purpose in StagedDomain.
 	 */
 	int getSeed();
+
+	void logDomainFiles(FILE *fp);
 };
 
 #endif /* DOMAIN_STAGEDDOMAIN_H_ */

@@ -131,6 +131,8 @@ public:
 
 	string getFilename();
 
+	void logDomainFiles(FILE *fp);
+
 protected:
 	deque<point> randomInnerPoints;
 	void generateRandomPoints();

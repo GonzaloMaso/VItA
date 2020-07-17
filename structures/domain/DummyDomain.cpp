@@ -17,7 +17,6 @@
  */
 DummyDomain::DummyDomain(string filename, vector<point> points,GeneratorData *instanceData) : SimpleDomain(filename,instanceData)
 {
-	this->whichDomain = 5;
 	for(vector<point>::iterator it = points.begin(); it != points.end(); ++it)
 		randomInnerPoints.push_back(*it);
 }
@@ -35,4 +34,9 @@ point DummyDomain::getRandomPoint(){
 		randomInnerPoints.pop_front();
 		return p;
 	}
+}
+
+void DummyDomain::logDomainFiles(FILE *fp) {
+	fprintf(fp, "DummyDomain\n");
+    fprintf(fp, "filename = %s\n", this->getFilename().c_str());
 }

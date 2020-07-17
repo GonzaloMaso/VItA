@@ -10,7 +10,6 @@
 #include "StagedDomain.h"
 
 StagedDomain::StagedDomain() : AbstractDomain(NULL){
-	this->whichDomain = 6;
 	currentTerminals = 0;
 	terminalAtPrevStage = 0;
 	currentStage = 0;
@@ -129,4 +128,8 @@ int StagedDomain::getDraw()
 int StagedDomain::getSeed()
 {
 	return -1;
+}
+
+void StagedDomain::logDomainFiles(FILE *fp) {
+	fprintf(fp, "StagedDomain\n");
 }

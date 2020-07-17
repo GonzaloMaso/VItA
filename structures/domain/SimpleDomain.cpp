@@ -26,7 +26,6 @@
 
 SimpleDomain::SimpleDomain(string filename, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-	this->whichDomain = 1;
 	this->filename = filename;
 	//	Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
@@ -52,7 +51,6 @@ SimpleDomain::SimpleDomain(string filename, GeneratorData *instanceData) :
 
 SimpleDomain::SimpleDomain(string filename, int N, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-	this->whichDomain = 1;
 	this->filename = filename;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
@@ -78,7 +76,6 @@ SimpleDomain::SimpleDomain(string filename, int N, GeneratorData *instanceData) 
 
 SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-	this->whichDomain = 1;
 	this->filename = filename;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
@@ -105,7 +102,6 @@ SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData *inst
 
 SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData* instanceData, DistributionGenerator* distribution) :
 				AbstractDomain(instanceData) {
-	this->whichDomain = 1;
 	this->filename = filename;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
@@ -278,10 +274,15 @@ void SimpleDomain::savePoints(string filename) {
 
 int SimpleDomain::getSeed()
 {
-	return (*this).seed;
+	return this->seed;
 }
 
 string SimpleDomain::getFilename()
 {
 	return this->filename;
+}
+
+void SimpleDomain::logDomainFiles(FILE *fp) {
+	fprintf(fp, "SimpleDomain\n");
+    fprintf(fp, "filename = %s\n", this->getFilename().c_str());
 }

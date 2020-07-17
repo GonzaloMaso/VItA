@@ -11,20 +11,16 @@ add_compile_options(-Wall)
 # Setting components of the library
 
 set(CORE_CPP 
-    core/FixedPerfusionRadiusTreeGenerator.cpp 
     core/FRRSTreeGenerator.cpp 
     core/GeneratorData.cpp 
     core/GeneratorDataMonitor.cpp 
-    core/StagedFixedPerfusionRadiusTreeGenerator.cpp
     core/StagedFRROTreeGenerator.cpp 
     core/StagedFRRSTreeGenerator.cpp)
 
 set(CORE_HPP
-    core/FixedPerfusionRadiusTreeGenerator.h
     core/FRRSTreeGenerator.h
     core/GeneratorData.h
     core/GeneratorDataMonitor.h
-    core/StagedFixedPerfusionRadiusTreeGenerator.h
     core/StagedFRROTreeGenerator.h
     core/StagedFRRSTreeGenerator.h
     )

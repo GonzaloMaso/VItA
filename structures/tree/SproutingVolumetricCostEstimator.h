@@ -72,6 +72,8 @@ public:
 	 * @return @p diffusionFactor
 	 */
 	double getDiffusionFactor();
+
+	void logCostEstimator(FILE *fp);
 private:
 	/**
 	 * Computes the volume for the tree with root @p root.
