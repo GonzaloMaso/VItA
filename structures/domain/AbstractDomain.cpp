@@ -89,7 +89,3 @@ double AbstractDomain::getMinPlaneAngle(){
 void AbstractDomain::setMinPlaneAngle(double minPlaneAngle){
 	this->minPlaneAngle = minPlaneAngle;
 }
-
-int AbstractDomain::getWhichDomain() {
-	return this->whichDomain;
-}

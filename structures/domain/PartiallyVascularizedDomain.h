@@ -164,6 +164,8 @@ public:
 
 	vector<string> getFilenameNVR();
 
+	void logDomainFiles(FILE *fp);
+
 protected:
 	//	TODO This should be generalised in the AbstractDomain class
 	deque<point> randomInnerPoints;

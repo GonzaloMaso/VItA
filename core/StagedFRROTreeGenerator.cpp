@@ -168,6 +168,91 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::generate(long long int saveInter
 	return tree;
 }
 
+AbstractObjectCCOTree *StagedFRROTreeGenerator::generate_experimental(long long int saveInterval, string tempDirectory, int maxNumOfTrials) {
+
+	this->beginTime = time(nullptr);
+	this->dLimInitial = this->dLim;
+
+//	VTKObjectTreeSplinesNodalWriter *nodalWriter = new VTKObjectTreeSplinesNodalWriter();
+	generatesConfigurationFile(ios::out);
+
+	point xNew;
+	int i = 0;
+
+	do {
+		xNew = domain->getRandomPoint();
+	} while (!isValidRootSegment(xNew, ++i));
+
+	tree->addVessel(xNew, xNew, NULL, (AbstractVascularElement::VESSEL_FUNCTION) instanceData->vesselFunction);
+
+	for (long long i = 1; i < nTerminals; i = tree->getNTerms()) {
+
+		dataMonitor->update();
+
+		if (i % saveInterval == 0 ) {
+			saveStatus(i);
+		}
+
+		int invalidTerminal = true;
+		int iTry = 0;
+		dLim = instanceData->dLimCorrectionFactor * domain->getDLim(i, instanceData->perfusionAreaFactor);
+		while (invalidTerminal) {
+
+			do {
+				xNew = domain->getRandomPoint();
+			} while (!isValidSegment(xNew, ++iTry));
+			if (iTry > maxNumOfTrials) {
+				return NULL;
+			}
+
+			int nNeighbors;
+			vector<AbstractVascularElement *> neighborVessels = tree->getCloseSegments(xNew, domain, &nNeighbors);
+			cout << "Trying segment #" << i << " at terminal point " << xNew << " with the " << nNeighbors << " closest neighbors (dLim = " << dLim << ")." << endl;
+
+			double minCost = INFINITY;
+			point minBif;
+			AbstractVascularElement *minParent = NULL;
+#pragma omp parallel for shared(minCost, minBif, minParent), schedule(dynamic,1), num_threads(omp_get_max_threads())
+			for (unsigned j = 0; j < neighborVessels.size(); ++j) {
+				point xBif;
+				double cost;
+				tree->testVessel(xNew, neighborVessels[j], domain,
+						neighborVessels, dLim, &xBif, &cost); //	Inf cost stands for invalid solution
+#pragma omp critical
+				{
+					if (cost < minCost) {
+						minCost = cost;
+						minBif = xBif;
+						minParent = neighborVessels[j];
+					}
+				}
+			}
+			//	end for trees
+
+			if (minCost < INFINITY) {
+				cout << "Added with a cost of " << minCost << endl;
+				tree->addVessel(minBif, xNew, minParent, (AbstractVascularElement::VESSEL_FUNCTION) instanceData->vesselFunction);
+				invalidTerminal = false;
+			}
+		}
+		dataMonitor->addDLimValue(dLim,i);
+		domain->update();
+		//	TODO Reset data monitor!!
+		//	Terminal added.
+	}
+	tree->computePressure(tree->getRoot());
+	tree->setPointCounter(domain->getPointCounter());
+
+	this->endTime = time(nullptr);
+	this->dLimLast = this->dLim;
+
+	saveStatus(nTerminals-1);
+	markTimestampOnConfigurationFile("Tree successfully generated.");
+	closeConfigurationFile();
+
+	return tree;
+}
+
 int StagedFRROTreeGenerator::isValidRootSegment(point xNew,
 		int iTry) {
 
@@ -346,6 +431,94 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::resume(long long int saveInterva
 
 }
 
+AbstractObjectCCOTree *StagedFRROTreeGenerator::resume_experimental(long long int saveInterval, string tempDirectory, int maxNumOfTrials) {
+
+	this->beginTime = time(nullptr);
+	this->dLimInitial = this->dLim;
+
+//	VTKObjectTreeSplinesNodalWriter *nodalWriter = new VTKObjectTreeSplinesNodalWriter();
+	generatesConfigurationFile(ios::out);
+
+	for (long long int j = 0; j < tree->getPointCounter(); ++j) {
+		domain->getRandomPoint();
+	}
+
+	//	Compute current nTerm
+	long long currentTerminals = tree->getNTerms();
+	point xNew;
+
+	cout << "Generating from " << currentTerminals << " to " << nTerminals << "..." << endl;
+	//	Be careful nTerminals may differ from the current amount of terminals since vessel-tip conexions are allowed in some cases.
+	for (long long i = currentTerminals; i < nTerminals; i = tree->getNTerms()) {
+
+		dataMonitor->update();
+
+		if (i % saveInterval == 0 || i == currentTerminals) {
+			saveStatus(i);
+		}
+
+		int invalidTerminal = true;
+		int iTry = 0;
+		dLim = instanceData->dLimCorrectionFactor * domain->getDLim(i, instanceData->perfusionAreaFactor);
+		while (invalidTerminal) {
+
+			do {
+				xNew = domain->getRandomPoint();
+			} while (!isValidSegment(xNew, ++iTry));
+			if (iTry > maxNumOfTrials) {
+				return NULL;
+			}
+
+			int nNeighbors;
+			vector<AbstractVascularElement *> neighborVessels = tree->getCloseSegments(xNew, domain, &nNeighbors);
+			cout << "Trying segment #" << i << " at terminal point " << xNew << " with the " << nNeighbors << " closest neighbors (dLim = " << dLim << ")." << endl;
+
+			double minCost = INFINITY;
+			point minBif;
+			AbstractVascularElement *minParent = NULL;
+#pragma omp parallel for shared(minCost, minBif, minParent), schedule(dynamic,1), num_threads(omp_get_max_threads())
+			for (unsigned j = 0; j < neighborVessels.size(); ++j) {
+				point xBif;
+				double cost;
+				tree->testVessel(xNew, neighborVessels[j], domain,
+						neighborVessels, dLim, &xBif, &cost); //	Inf cost stands for invalid solution
+#pragma omp critical
+				{
+					if (cost < minCost) {
+						minCost = cost;
+						minBif = xBif;
+						minParent = neighborVessels[j];
+					}
+				}
+			}
+			//	end for trees
+
+			if (minCost < INFINITY) {
+				cout << "Added with a cost of " << minCost << " with a total cost of " << ((SingleVessel *) tree->getRoot())->treeVolume << endl;
+				tree->addVessel(minBif, xNew, minParent, (AbstractVascularElement::VESSEL_FUNCTION) instanceData->vesselFunction);
+				invalidTerminal = false;
+			}
+		}
+		dataMonitor->addDLimValue(dLim,i);
+		domain->update();
+		//	TODO Reset data monitor!!
+		//	Terminal added.
+	}
+	tree->computePressure(tree->getRoot());
+	tree->setPointCounter(domain->getPointCounter());
+
+	this->endTime = time(nullptr);
+	this->dLimLast = this->dLim;
+
+	saveStatus(nTerminals-1);
+	markTimestampOnConfigurationFile("Final tree volume " + to_string(((SingleVessel *) tree->getRoot())->treeVolume));
+	markTimestampOnConfigurationFile("Tree successfully generated.");
+	closeConfigurationFile();
+
+	return tree;
+
+}
+
 void StagedFRROTreeGenerator::observableModified(IDomainObservable* observableInstance) {
 	cout << "Changing instance parameters from " << endl << instanceData;
 	instanceData = ((AbstractDomain *) observableInstance)->getInstanceData();
@@ -383,24 +556,24 @@ void StagedFRROTreeGenerator::saveStatus(long long int terminals){
 
 vector<AbstractConstraintFunction<double, int> *>* StagedFRROTreeGenerator::getGams()
 {
-	return &((*this).gams);
+	return &(this->gams);
 }
 
 vector<AbstractConstraintFunction<double, int> *>* StagedFRROTreeGenerator::getEpsLims()
 {
-	return &((*this).epsLims);
+	return &(this->epsLims);
 }
 vector<AbstractConstraintFunction<double, int> *>* StagedFRROTreeGenerator::getNus()
 {
-	return &((*this).nus);
+	return &(this->nus);
 }
 
 double StagedFRROTreeGenerator::getDLim() {
-	return (*this).dLim;
+	return this->dLim;
 }
 
 void StagedFRROTreeGenerator::setDLim(double newDLim) {
-	(*this).dLim = newDLim;
+	this->dLim = newDLim;
 }
 
 double StagedFRROTreeGenerator::getDLimInitial() {

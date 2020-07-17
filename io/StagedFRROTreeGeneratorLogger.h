@@ -4,19 +4,19 @@
 class StagedFRROTreeGeneratorLogger 
 {
     // Attibutes
-    StagedFRROTreeGenerator *tree_generator_;
-    FILE *file_;
+    StagedFRROTreeGenerator *treeGenerator;
+    FILE *file;
 
     public:
         /**
          * Constructor.
          * @param fp Pointer to file to write to, in "w" mode.
-         * @param tree_gen Tree generator.
+         * @param treeGen Tree generator.
          */
-        StagedFRROTreeGeneratorLogger(FILE *fp, StagedFRROTreeGenerator* tree_gen);
+        StagedFRROTreeGeneratorLogger(FILE *fp, StagedFRROTreeGenerator* treeGen);
         ~StagedFRROTreeGeneratorLogger();
         /**
-         * Writes relevant parameters of @p tree_generator_ to @p file_.
+         * Writes relevant parameters of @p treeGenerator_ to @p file.
          */
         void write();
 };

@@ -11,7 +11,6 @@
 #include "../vascularElements/SingleVessel.h"
 
 VolumetricCostEstimator::VolumetricCostEstimator() : AbstractCostEstimator(){
-	(*this).which_estimator_ = 0;
 	previousVolume = 0.0;
 }
 
@@ -38,4 +37,8 @@ double VolumetricCostEstimator::computeTreeCost(AbstractVascularElement* root) {
 
 AbstractCostEstimator* VolumetricCostEstimator::clone(){
 	return (new VolumetricCostEstimator());
+}
+
+void VolumetricCostEstimator::logCostEstimator(FILE *fp) {
+	fprintf(fp, "This domain uses VolumetricCostEstimator.\n");
 }

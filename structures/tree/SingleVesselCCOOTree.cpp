@@ -802,32 +802,46 @@ int SingleVesselCCOOTree::testVessel(point xNew, AbstractVascularElement *parent
 		point bif = bifPoints[i];
 		//	TODO Implement the BIG if as a filter design pattern for testing vessels. IMPORTANT! Benchmark that implementation against the hardcoded version to evaluate the performance since
 		//	its a highly covered piece of the code. Advantages: can dynamically modify the checks at different stages to enhance computation.
+		// Branching is distal or angles are valid
 		if (pVessel->branchingMode == AbstractVascularElement::BRANCHING_MODE::DISTAL_BRANCHING || (areValidAngles(bif, xNew, pVessel, domain->getMinBifurcationAngle())
 				&&	isValidOpeningAngle(bif, xNew, pVessel, domain->getMinPlaneAngle()))
 			) {
+			/* x_n, bif is inside the domain AND
+			(Branching is distal OR
+			((Vessel is perforator OR x_p,x_b is inside) AND
+			x_b, x_p is inside)
+			In other words
+			v_new is inside the domain AND
+			(parent vessel is distal OR
+			((v_p is inside the domain OR parente vessel is perforator) AND
+			v_s is inside the domain))
+			*/
 			if (domain->isSegmentInside(xNew, bif) && (pVessel->branchingMode == AbstractVascularElement::BRANCHING_MODE::DISTAL_BRANCHING ||
 					((pVessel->vesselFunction == AbstractVascularElement::VESSEL_FUNCTION::PERFORATOR ||  domain->isSegmentInside(pVessel->xProx, bif)) && domain->isSegmentInside(pVessel->xDist, bif)) ) ) {
+				/* v_new, v_s and v_p do not intersect neighbouring vessel */
 				if (!isIntersectingVessels(xNew, bif, pVessel, neighbors) &&
 						!isIntersectingVessels(pVessel->xProx, bif, pVessel, neighbors) &&
 						!isIntersectingVessels(pVessel->xDist, bif, pVessel, neighbors)) {
+					// Is distal
 					if(pVessel->branchingMode == AbstractVascularElement::BRANCHING_MODE::DISTAL_BRANCHING){
 						costs[i] = evaluate(xNew, pVessel, dLim);
 					}
+					// Is rigid/deformable/no_branching
 					else{
 						costs[i] = evaluate(xNew, bif, pVessel, dLim);
 //						cout << "Cost for xNew " << xNew << " and " << parent->vtkSegmentId << " with bifurcation at " << coordinates[majorIndex + j-1] << " is " << costs[majorIndex + j-1] << endl;
 					}
 				} else {
 					costs[i] = INFINITY;
-//					cout << "Intersection detected." << endl;
+					// cout << "Intersection detected." << endl;
 				}
 			} else {
 				costs[i] = INFINITY;
-//				cout << "Cost for bifurcation at " << coordinates[majorIndex + j-1] << " connection outside the domain." << endl;
+				// cout << "Cost for bifurcation outside the domain." << endl;
 			}
 		} else {
 			costs[i] = INFINITY;
-//					cout << "Small angle detected." << endl;
+			// cout << "Small angle detected." << endl;
 		}
 //#pragma omp critical
 //			cout << "Cost of bifurcation at coordinates " << coordinates[majorIndex + j] << " is " << costs[majorIndex + j] << endl;
@@ -1014,6 +1028,7 @@ int SingleVesselCCOOTree::isIntersectingVessels(point p1, point p2, SingleVessel
 		SingleVessel* currentNeighbor = (SingleVessel*) (*it);
 		int isIntersecting = 0;
 		if (currentNeighbor != parent) {
+			// TO DO check if this was changed in VTK 8.2 or 9.0
 			isIntersecting = vtkLine::Intersection3D(currentNeighbor->xProx.p, currentNeighbor->xDist.p, p1.p, p2.p, uv[0], uv[1]);
 			if (isIntersecting && (uv[0] > 0 && uv[0] < 1) && (uv[1] > 0 && uv[1] < 1)) {
 				return true;
@@ -1406,7 +1421,7 @@ int SingleVesselCCOOTree::isValidOpeningAngle(point xBif, point xNew, SingleVess
 
 double SingleVesselCCOOTree::getVariationTolerance()
 {
-	return (*this).variationTolerance;
+	return this->variationTolerance;
 }
 
 string SingleVesselCCOOTree::getFilenameCCO() {
