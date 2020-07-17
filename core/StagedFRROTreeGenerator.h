@@ -113,6 +113,22 @@ public:
 	 */
 	AbstractObjectCCOTree *resume(long long int saveInterval, string tempDirectory);
 	/**
+	 * Generates the specified tree with a failsafe for bad configuration.
+	 * @param saveInterval Number of iterations performed between saved steps.
+	 * @param tempDirectory Directory where intermediate solutions are saved.
+	 * @param maxNumOfTrials Maximum number of trials before generator fails and exits.
+	 * @return	Perfusion tree.
+	 */
+	AbstractObjectCCOTree *generate_experimental(long long int saveInterval, string tempDirectory, int maxNumOfTrials);
+	/**
+	 * Resumes the tree generation.
+	 * @param saveInterval Number of iterations performed between saved steps.
+	 * @param tempDirectory Directory where intermediate solutions are saved.
+	 * @param maxNumOfTrials Maximum number of trials before generator fails and exits.
+	 * @return	Perfusion tree.
+	 */
+	AbstractObjectCCOTree *resume_experimental(long long int saveInterval, string tempDirectory, int maxNumOfTrials);
+	/**
 	 * Returns the perfusion domain.
 	 * @return Perfusion domain.
 	 */
