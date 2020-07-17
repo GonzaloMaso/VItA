@@ -59,9 +59,8 @@ PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector
 	}
 
 	nDraw = 10000;
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	double *bb = vtkTransportRegion->GetBounds();
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
@@ -107,9 +106,8 @@ PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector
 	}
 
 	nDraw = N;
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	double *bb = vtkTransportRegion->GetBounds();
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);

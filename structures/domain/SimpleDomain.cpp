@@ -41,10 +41,10 @@ SimpleDomain::SimpleDomain(string filename, GeneratorData *instanceData) :
 
 	nDraw = 10000;
 
-	int seed = chrono::system_clock::now().time_since_epoch().count();
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
 	double *bb = vtkGeometry->GetBounds();
 	distribution = new UniformDistributionGenerator();
-	distribution->initialize(seed,bb);
+	distribution->initialize(this->seed,bb);
 
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
 }
@@ -66,10 +66,10 @@ SimpleDomain::SimpleDomain(string filename, int N, GeneratorData *instanceData) 
 
 	nDraw = N;
 
-	int seed = chrono::system_clock::now().time_since_epoch().count();
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
 	double *bb = vtkGeometry->GetBounds();
 	distribution = new UniformDistributionGenerator();
-	distribution->initialize(seed,bb);
+	distribution->initialize(this->seed,bb);
 
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
 }

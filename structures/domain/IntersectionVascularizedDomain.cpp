@@ -52,9 +52,8 @@ IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> fi
 	}
 
 	nDraw = 10000;
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	characteristicLength = max(max((boundingBox[1] - boundingBox[0]) / 2,
 			(boundingBox[3] - boundingBox[2]) / 2),
@@ -95,9 +94,8 @@ IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> fi
 	}
 
 	nDraw = N;
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	characteristicLength = max(max((boundingBox[1] - boundingBox[0]) / 2,
 			(boundingBox[3] - boundingBox[2]) / 2),

@@ -35,9 +35,8 @@ SimpleDomain2D::SimpleDomain2D(string filename, GeneratorData *instanceData) :
 	locator->BuildLocator();
 
 	nDraw = 10000;
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	double *bb = vtkGeometry->GetBounds();
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
@@ -60,9 +59,8 @@ SimpleDomain2D::SimpleDomain2D(string filename, int N, GeneratorData *instanceDa
 	locator->BuildLocator();
 
 	nDraw = N;
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	double *bb = vtkGeometry->GetBounds();
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);

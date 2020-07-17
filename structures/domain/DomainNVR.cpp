@@ -50,9 +50,8 @@ DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions,
 
 	nDraw = 10000;
 
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	double *bb = vtkGeometry->GetBounds();
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
@@ -87,9 +86,8 @@ DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions,
 		hollowLocators.push_back(locatorHollowRegion);
 	}
 
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	nDraw = N;
 	double *bb = vtkGeometry->GetBounds();
