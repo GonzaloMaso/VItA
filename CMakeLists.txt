@@ -197,12 +197,14 @@ set(STRUCTURES_TREE_HPP
 set(STRUCTURES_TREE_PRUNING_CPP
     structures/tree/pruning/AbstractPruningRule.cpp
     structures/tree/pruning/OldLeavesPruningRule.cpp
-    structures/tree/pruning/PruningCCOOTree.cpp)
+    structures/tree/pruning/PruningCCOOTree.cpp
+    structures/tree/pruning/BreadthFirstPruning.cpp)
 
 set(STRUCTURES_TREE_PRUNING_HPP
     structures/tree/pruning/AbstractPruningRule.h
     structures/tree/pruning/OldLeavesPruningRule.h
-    structures/tree/pruning/PruningCCOOTree.h)
+    structures/tree/pruning/PruningCCOOTree.h
+    structures/tree/pruning/BreadthFirstPruning.h)
 
 set(STRUCTURES_VASCULAR_ELEMENTS_CPP
     structures/vascularElements/AbstractVascularElement.cpp
