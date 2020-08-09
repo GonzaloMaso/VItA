@@ -17,7 +17,8 @@ set(CORE_CPP
     core/GeneratorDataMonitor.cpp 
     # core/StagedFixedPerfusionRadiusTreeGenerator.cpp
     core/StagedFRROTreeGenerator.cpp 
-    core/StagedFRRSTreeGenerator.cpp)
+    core/StagedFRRSTreeGenerator.cpp
+    core/TreeMerger.cpp)
 
 set(CORE_HPP
     # core/FixedPerfusionRadiusTreeGenerator.h
@@ -27,7 +28,7 @@ set(CORE_HPP
     # core/StagedFixedPerfusionRadiusTreeGenerator.h
     core/StagedFRROTreeGenerator.h
     core/StagedFRRSTreeGenerator.h
-    )
+    core/TreeMerger.h)
 
 set(CREATORS_CPP
     creators/AbstractCreator.cpp

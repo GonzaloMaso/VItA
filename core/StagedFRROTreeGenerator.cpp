@@ -672,13 +672,21 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::resumeSavePoints(long long int s
 
 			if (minCost < INFINITY) {
 				cout << "Added with a cost of " << minCost << " with a total cost of " << ((SingleVessel *) tree->getRoot())->treeVolume << endl;
-				tree->addVessel(minBif, xNew, minParent, (AbstractVascularElement::VESSEL_FUNCTION) instanceData->vesselFunction);				
 				SingleVessel *minParentSV = (SingleVessel *) minParent;
-				fprintf(fp, "%f %f %f %f %f %f %f %f %f %f %f %f %d\n",
-					minBif.p[0], minBif.p[1], minBif.p[2], xNew.p[0], xNew.p[1], xNew.p[2],
-					minParentSV->xProx.p[0], minParentSV->xProx.p[1], minParentSV->xProx.p[2],
-					minParentSV->xDist.p[0], minParentSV->xDist.p[1], minParentSV->xDist.p[2],
-					(int) instanceData->vesselFunction);
+				fwrite(&(minBif.p[0]), sizeof(double), 1, fp);
+				fwrite(&(minBif.p[1]), sizeof(double), 1, fp);
+				fwrite(&(minBif.p[2]), sizeof(double), 1, fp);
+				fwrite(&(xNew.p[0]), sizeof(double), 1, fp);
+				fwrite(&(xNew.p[1]), sizeof(double), 1, fp);
+				fwrite(&(xNew.p[2]), sizeof(double), 1, fp);
+				fwrite(&(minParentSV->xProx.p[0]), sizeof(double), 1, fp);
+				fwrite(&(minParentSV->xProx.p[1]), sizeof(double), 1, fp);
+				fwrite(&(minParentSV->xProx.p[2]), sizeof(double), 1, fp);
+				fwrite(&(minParentSV->xDist.p[0]), sizeof(double), 1, fp);
+				fwrite(&(minParentSV->xDist.p[1]), sizeof(double), 1, fp);
+				fwrite(&(minParentSV->xDist.p[2]), sizeof(double), 1, fp);
+				fwrite(&(instanceData->vesselFunction), sizeof(int), 1, fp);
+				tree->addVessel(minBif, xNew, minParent, (AbstractVascularElement::VESSEL_FUNCTION) instanceData->vesselFunction);				
 				invalidTerminal = false;
 			}
 		}

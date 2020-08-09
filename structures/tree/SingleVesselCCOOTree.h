@@ -33,6 +33,7 @@ class SingleVesselCCOOTree: public AbstractObjectCCOTree {
 	long long int nCommonTerminals;
 	friend class PruningCCOOTree;
 	friend class BreadthFirstPruning;
+	friend class TreeMerger;
 public:
 	/**
 	 * Common tree creator.
@@ -118,7 +119,9 @@ public:
 	 * @param vesselFunction Vessel function of the added vessel.
 	 */
 	void addVessel(point xProx, point xDist, AbstractVascularElement *parent, AbstractVascularElement::VESSEL_FUNCTION vesselFunction);
-	
+
+	void addVesselMergeFast(point xProx, point xDist, AbstractVascularElement *parent, AbstractVascularElement::VESSEL_FUNCTION vesselFunction, unordered_map<string, SingleVessel *>* stringToPointer);
+
 	/** 
 	 * Adds a vessel that has already been validated. This function is used by BreadthFirstPrunning.
 	 * @param newVessel Vessel that will be added.

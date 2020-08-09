@@ -165,3 +165,13 @@ long long int SingleVessel::getTerminals(TERMINAL_TYPE type){
 		return 0;
 
 }
+
+string SingleVessel::coordToString() {
+    double coordArray[6] = {this->xProx.p[0], this->xProx.p[1], this->xProx.p[2],
+		this->xDist.p[0], this->xDist.p[1], this->xDist.p[2]};
+    char *coordCString = (char *) malloc(6 * sizeof(double));
+    memcpy(coordCString, &coordArray, 6 * sizeof(double));
+    string coordString(coordCString, (6 * sizeof(double) / sizeof(char)));
+    free(coordCString);
+    return coordString;
+}
