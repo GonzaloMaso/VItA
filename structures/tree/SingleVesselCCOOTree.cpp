@@ -802,6 +802,12 @@ void SingleVesselCCOOTree::addVesselMergeFast(point xProx, point xDist, Abstract
 		if(!didInsert.second) {
 			printf("Did not insert new vessel!\n");
 		}
+		else {
+			printf("Added new vessel at xProx = (%.16e, %.16e, %.16e) xDist = (%.16e, %.16e, %.16e)\n",
+				iNew->xProx.p[0], iNew->xProx.p[1], iNew->xProx.p[2],
+				iNew->xDist.p[0], iNew->xDist.p[1], iNew->xDist.p[2]);
+			printf("stringToPointer.size = %llu\n", stringToPointer->size());
+		}
 		iNew->nLevel = ((SingleVessel *) parent)->nLevel + 1;
 		iNew->length = sqrt(dNew ^ dNew);
 		iNew->viscosity = nu->getValue(iNew->nLevel);
@@ -817,6 +823,12 @@ void SingleVesselCCOOTree::addVesselMergeFast(point xProx, point xDist, Abstract
 		didInsert = stringToPointer->insert(pair<string, SingleVessel *>(iCon->coordToString(), iCon));
 		if(!didInsert.second) {
 			printf("Did not insert new sibling vessel!\n");
+		}
+		else {
+			printf("Added sibling vessel at xProx = (%.16e, %.16e, %.16e) xDist = (%.16e, %.16e, %.16e)\n",
+				iCon->xProx.p[0], iCon->xProx.p[1], iCon->xProx.p[2],
+				iCon->xDist.p[0], iCon->xDist.p[1], iCon->xDist.p[2]);
+			printf("stringToPointer.size = %llu\n", stringToPointer->size());
 		}
 		iCon->nLevel = ((SingleVessel *) parent)->nLevel + 1;
 		iCon->length = sqrt(dCon ^ dCon);
@@ -840,11 +852,31 @@ void SingleVesselCCOOTree::addVesselMergeFast(point xProx, point xDist, Abstract
 		parent->addChild(iNew);
 		parent->addChild(iCon);
 
-		// stringToPointer->erase(((SingleVessel *)parent)->coordToString());
-		((SingleVessel *) parent)->xDist = xProx;
-		didInsert = stringToPointer->insert(pair<string, SingleVessel *>(((SingleVessel *)parent)->coordToString(), (SingleVessel *) parent));
+		SingleVessel *parentSV = (SingleVessel *) parent;
+		size_t didErase = stringToPointer->erase(parentSV->coordToString());
+		if(!didErase) {
+			printf("Failed to erase parent at xProx = (%.16e, %.16e, %.16e) xDist = (%.16e, %.16e, %.16e)\n",
+				parentSV->xProx.p[0], parentSV->xProx.p[2], parentSV->xProx.p[2],
+				parentSV->xDist.p[0], parentSV->xDist.p[2], parentSV->xDist.p[2]);
+			printf("stringToPointer.size = %llu\n", stringToPointer->size());
+		}
+		else {
+			printf("Erased parent vessel at xProx = (%.16e, %.16e, %.16e) xDist = (%.16e, %.16e, %.16e)",
+				parentSV->xProx.p[0], parentSV->xProx.p[2], parentSV->xProx.p[2],
+				parentSV->xDist.p[0], parentSV->xDist.p[2], parentSV->xDist.p[2]);
+			printf("stringToPointer.size = %llu\n", stringToPointer->size());
+		}
+		parentSV->xDist = xProx;
+		didInsert = stringToPointer->insert(pair<string, SingleVessel *>(parentSV->coordToString(), parentSV));
 		if(!didInsert.second) {
 			printf("Did not insert updated parent vessel!\n");
+			printf("stringToPointer.size = %llu\n", stringToPointer->size());
+		}
+		else {
+			printf("Added new parent vessel at xProx = (%.16e, %.16e, %.16e) xDist = (%.16e, %.16e, %.16e)",
+				parentSV->xProx.p[0], parentSV->xProx.p[2], parentSV->xProx.p[2],
+				parentSV->xDist.p[0], parentSV->xDist.p[2], parentSV->xDist.p[2]);
+			printf("stringToPointer.size = %llu\n", stringToPointer->size());
 		}
 		((SingleVessel *) parent)->length = sqrt(dBif ^ dBif);
 
