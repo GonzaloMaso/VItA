@@ -66,7 +66,7 @@ TreeMerger::TreeMerger(string baseTree, vector<string>& derivedTreePoints, Gener
             readLine.xBif.p[2] = tempPoints[2];
             readLine.xNew.p[0] = tempPoints[3];
             readLine.xNew.p[1] = tempPoints[4];
-            readLine.xNew.p[2] = tempPoints[4];
+            readLine.xNew.p[2] = tempPoints[5];
             readLine.xPProx.p[0] = tempPoints[6];
             readLine.xPProx.p[1] = tempPoints[7];
             readLine.xPProx.p[2] = tempPoints[8];
@@ -82,7 +82,7 @@ TreeMerger::TreeMerger(string baseTree, vector<string>& derivedTreePoints, Gener
                 readLine.xBif.p[2] = tempPoints[2];
                 readLine.xNew.p[0] = tempPoints[3];
                 readLine.xNew.p[1] = tempPoints[4];
-                readLine.xNew.p[2] = tempPoints[4];
+                readLine.xNew.p[2] = tempPoints[5];
                 readLine.xPProx.p[0] = tempPoints[6];
                 readLine.xPProx.p[1] = tempPoints[7];
                 readLine.xPProx.p[2] = tempPoints[8];
@@ -117,7 +117,7 @@ TreeMerger::~TreeMerger() {
         delete (*it);
     }
     delete this->vesselToMerge;
-    delete tree;
+    delete this->tree;
 }
 
 SingleVesselCCOOTree* TreeMerger::merge() {
