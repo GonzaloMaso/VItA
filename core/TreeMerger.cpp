@@ -8,7 +8,7 @@
 #include"../structures/vascularElements/AbstractVascularElement.h"
 #include"GeneratorData.h"
 
-string coordToString(point &xProx, point &xDist) {
+string coordToString(const point &xProx,const point &xDist) {
     double coordArray[6] = {xProx.p[0], xProx.p[1], xProx.p[2],
 		xDist.p[0], xDist.p[1], xDist.p[2]};
     char *coordCString = (char *) malloc(6 * sizeof(double));
@@ -39,11 +39,12 @@ void TreeMerger::createMapping(SingleVessel *vessel) {
 }
 
 TreeMerger::TreeMerger(string baseTree, vector<string>& derivedTreePoints, GeneratorData *instanceData, AbstractConstraintFunction<double, int> *gam,
-    AbstractConstraintFunction<double, int> *epsLim, AbstractConstraintFunction<double, int> *nu) {
+    AbstractConstraintFunction<double, int> *epsLim, AbstractConstraintFunction<double, int> *nu, bool isInCm) {
         
         this->tree = new SingleVesselCCOOTree(baseTree, instanceData, gam, epsLim, nu);
+        this->tree->setIsInCm(isInCm);
         
-        this->vesselToMerge = new vector<vector<readData> *>;
+        this->vesselToMerge = new vector<vector<ReadData> *>;
         
         for (auto it = derivedTreePoints.begin(); it != derivedTreePoints.end(); ++it) {
             
@@ -53,10 +54,10 @@ TreeMerger::TreeMerger(string baseTree, vector<string>& derivedTreePoints, Gener
                 exit(EXIT_FAILURE);
             }
            
-            vector<readData> *toMerge = new vector<readData>;
+            vector<ReadData> *toMerge = new vector<ReadData>;
             this->vesselToMerge->push_back(toMerge);
             
-            readData readLine;
+            ReadData readLine;
             double tempPoints[12];
             int tempFunction;
             fread(&tempPoints, sizeof(double), 12, fp);
@@ -90,6 +91,7 @@ TreeMerger::TreeMerger(string baseTree, vector<string>& derivedTreePoints, Gener
                 readLine.xPDist.p[1] = tempPoints[10];
                 readLine.xPDist.p[2] = tempPoints[11];
             }
+            fclose(fp);
         }
 
         // for (auto it1 = vesselToMerge->begin(); it1 != vesselToMerge->end(); ++it1) {
@@ -120,7 +122,7 @@ TreeMerger::~TreeMerger() {
     delete this->tree;
 }
 
-SingleVesselCCOOTree* TreeMerger::merge() {
+SingleVesselCCOOTree* TreeMerger::mergeFast() {
     for (auto itTree = vesselToMerge->begin(); itTree != vesselToMerge->end(); ++itTree) {
         for (auto itVessels = (*itTree)->begin(); itVessels != (*itTree)->end(); ++itVessels) {
             printf("Trying to access parent at xProx = (%.16e, %.16e, %.16e) xDist = (%.16e, %.16e, %.16e)\n",
@@ -140,5 +142,58 @@ SingleVesselCCOOTree* TreeMerger::merge() {
 			this->tree->updateTreeViscositiesBeta(((SingleVessel *) this->tree->getRoot()), &maxVariation);
 	}
 
+    return this->tree;
+}
+
+typedef struct {
+    ReadData *readData;    
+    size_t noVessels;
+    size_t cur;
+    bool isDone;
+} ReadDataArray;
+
+typedef struct {
+    ReadDataArray *vessels;
+    size_t size;
+} TreesArray;
+
+bool didEnd(const TreesArray &treesArray) {
+    bool didEnd = true;
+    for (size_t i = 0; i < treesArray.size; ++i) {
+        didEnd = didEnd && (treesArray.vessels)[i].isDone;
+    }
+    return didEnd;
+}
+
+SingleVesselCCOOTree* TreeMerger::merge() {
+    TreesArray treesArray;
+    treesArray.size = this->vesselToMerge->size();
+    treesArray.vessels = new ReadDataArray[treesArray.size];
+    for (size_t i = 0; i < treesArray.size; ++i) {
+        (treesArray.vessels)[i].readData = this->vesselToMerge->at(i)->data();
+        (treesArray.vessels)[i].noVessels = this->vesselToMerge->at(i)->size();
+        (treesArray.vessels)[i].cur = 0;
+        (treesArray.vessels)[i].isDone = false;
+    }
+
+    size_t i = 0;
+    while(!didEnd(treesArray)) {
+        if (!(treesArray.vessels)[i].isDone) {
+            ReadData curData = ((treesArray.vessels)[i].readData)[(treesArray.vessels)[i].cur];
+            printf("Trying to access parent at xProx = (%.16e, %.16e, %.16e) xDist = (%.16e, %.16e, %.16e)\n",
+                curData.xPProx.p[0], curData.xPProx.p[1], curData.xPProx.p[2],
+                curData.xPDist.p[0], curData.xPDist.p[1], curData.xPDist.p[2]);
+            // printf("key_accessed = %s\n", coordToString((*itVessels).xPProx, (*itVessels).xPDist).c_str());
+            SingleVessel *parentPointer = this->stringToPointer->at(coordToString(curData.xPProx, curData.xPDist));
+            tree->addVesselMerge(curData.xBif, curData.xNew, parentPointer, curData.function, this->stringToPointer);
+            if ((treesArray.vessels)[i].cur + 1 == (treesArray.vessels)[i].noVessels) {
+                (treesArray.vessels)[i].isDone = true;
+            }
+            ++((treesArray.vessels)[i].cur);
+        }
+        i = (i + 1) % treesArray.size;
+    }
+
+    delete treesArray.vessels;
     return this->tree;
 }

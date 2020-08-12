@@ -8,19 +8,20 @@
 
 using namespace std;
 
-struct readData {
+struct ReadData {
     point xBif, xNew, xPProx, xPDist;
     AbstractVascularElement::VESSEL_FUNCTION function;
 };
 
 class TreeMerger {
     SingleVesselCCOOTree *tree;
-    vector<vector<readData>*> *vesselToMerge;
+    vector<vector<ReadData>*> *vesselToMerge;
     unordered_map<string, SingleVessel *> *stringToPointer;
 
     public:
-    TreeMerger(string baseTree, vector<string>& derivedTreePoints, GeneratorData *instanceData, AbstractConstraintFunction<double, int> *gam, AbstractConstraintFunction<double, int> *epsLim, AbstractConstraintFunction<double, int> *nu);
+    TreeMerger(string baseTree, vector<string>& derivedTreePoints, GeneratorData *instanceData, AbstractConstraintFunction<double, int> *gam, AbstractConstraintFunction<double, int> *epsLim, AbstractConstraintFunction<double, int> *nu, bool isInCm);
     ~TreeMerger();
+    SingleVesselCCOOTree *mergeFast();
     SingleVesselCCOOTree *merge();
 
     private:
