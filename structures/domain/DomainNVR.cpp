@@ -11,17 +11,18 @@
 
 #include <chrono>
 #include <random>
-#include "omp.h"
+#include <omp.h>
 
 //	Model
-#include "vtkPolyDataReader.h"
-#include "vtkSelectEnclosedPoints.h"
-#include "vtkPointData.h"
-#include "vtkMassProperties.h"
+#include <vtkPolyDataReader.h>
+#include <vtkSelectEnclosedPoints.h>
+#include <vtkPointData.h>
+#include <vtkMassProperties.h>
 
 DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->filenameHull = filename;
+	this->filenameNVR = filenameNonVascularRegions;
 	//	Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -49,9 +50,8 @@ DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions,
 
 	nDraw = 10000;
 
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	double *bb = vtkGeometry->GetBounds();
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
@@ -59,7 +59,8 @@ DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions,
 
 DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions, int N, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->filenameHull = filename;
+	this->filenameNVR = filenameNonVascularRegions;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -85,9 +86,8 @@ DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions,
 		hollowLocators.push_back(locatorHollowRegion);
 	}
 
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	nDraw = N;
 	double *bb = vtkGeometry->GetBounds();
@@ -97,7 +97,8 @@ DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions,
 
 DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions, int N, int seed, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->filenameHull = filename;
+	this->filenameNVR = filenameNonVascularRegions;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -365,4 +366,27 @@ double* DomainNVR::getLocalNeighborhood(point p, long long int nVessels) {
 	localBox[5] = p.p[2] + size;
 
 	return localBox;
+}
+
+int DomainNVR::getSeed()
+{
+	return this->seed;
+}
+
+string DomainNVR::getFilenameHull() {
+	return this->filenameHull;
+}
+
+vector<string> DomainNVR::getFilenameNVR() {
+	return this->filenameNVR;
+}
+
+void DomainNVR::logDomainFiles(FILE *fp) {
+	fprintf(fp, "DomainNVR\n");
+    fprintf(fp, "filenameHull = %s\n", this->getFilenameHull().c_str());
+    vector<string> filenameNVR = this->getFilenameNVR();
+    int size = filenameNVR.size();
+    for (int i = 0; i < size; ++i) {
+        fprintf(fp, "filenameNVR[%d] = %s\n", i, filenameNVR[i].c_str());
+    }
 }

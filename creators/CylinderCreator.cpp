@@ -9,10 +9,10 @@
 
 #include "CylinderCreator.h"
 
-#include "vtkCylinderSource.h"
-#include "vtkSmartPointer.h"
-#include "vtkPolyDataWriter.h"
-#include "vtkTriangleFilter.h"
+#include <vtkCylinderSource.h>
+#include <vtkSmartPointer.h>
+#include <vtkPolyDataWriter.h>
+#include <vtkTriangleFilter.h>
 
 CylinderCreator::CylinderCreator(vector<double> center, double radius, double height, int resolution) {
 	this->center = center;

@@ -11,7 +11,7 @@
 #define DUMMYDOMAIN_H_
 
 #include "../CCOCommonStructures.h"
-#include "vector"
+#include <vector>
 #include "SimpleDomain.h"
 
 /**
@@ -31,6 +31,8 @@ public:
 	 * @return Last preloaded point.
 	 */
 	virtual point getRandomPoint();
+
+	void logDomainFiles(FILE *fp);
 };
 
 #endif /* DUMMYDOMAIN_H_ */

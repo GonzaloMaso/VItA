@@ -14,6 +14,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include<ctime>
 
 #include "../constrains/AbstractConstraintFunction.h"
 #include "../io/task/AbstractSavingTask.h"
@@ -30,6 +31,10 @@ using namespace std;
  */
 class StagedFRROTreeGenerator : public IDomainObserver {
 
+	/** Time of the beggining of the tree generation process*/
+	time_t beginTime;
+	/** Time of the end of the tree generation process*/
+	time_t endTime;
 	/** Wrapper with parameters associated to a tree generation process. */
 	GeneratorData *instanceData;
 	/**	Monitor of the @p instanceData . */
@@ -43,7 +48,10 @@ class StagedFRROTreeGenerator : public IDomainObserver {
 	long long int nTerminals;
 	/** Perfusion volume.*/
 	double dLim;
-
+	/** Initial dLim value*/
+	double dLimInitial;
+	/** Final dLim value*/
+	double dLimLast;
 	/** Perfusion domain. */
 	StagedDomain *domain;
 
@@ -139,7 +147,36 @@ public:
 	 * @param savingTasks	Set of tasks to be performed each time that the tree is saved.
 	 */
 	void setSavingTasks(const vector<AbstractSavingTask*>& savingTasks);
+	/**
+	 * Returns a pointer to the vector of gams.
+	 */
+	vector<AbstractConstraintFunction<double, int> *>* getGams();
+	/**
+	 * Returns a pointer to the vector of eps_lims.
+	 */
+	vector<AbstractConstraintFunction<double, int> *>* getEpsLims();
+	/**
+	 * Returns a pointer to the vector of nus.
+	 */
+	vector<AbstractConstraintFunction<double, int> *>* getNus();
+	/**
+	 * Returns the current DLim value.
+	 */
+	double getDLim();
+	/**
+	 * Set the DLim value. Use this only to resume process from a previous generation.
+	 */
+	void setDLim(double newDLim);
+	
+	time_t getBeginTime();
 
+	time_t getEndTime();
+
+	double getDLimInitial();
+
+	double getDLimLast();
+	 
+	
 protected:
 	/**	Configuration file stream. */
 	ofstream confFile;
@@ -172,7 +209,7 @@ protected:
 	 * Closes the configuration file for the current tree generation.
 	 */
 	void closeConfigurationFile();
-
+	
 };
 
 #endif /* STAGEDFRROTREEGENERATOR_H_ */

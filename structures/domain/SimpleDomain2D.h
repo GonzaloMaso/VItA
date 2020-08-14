@@ -29,6 +29,8 @@ using namespace std;
  * generation of inner random points and computation of perfusion volume.
  */
 class SimpleDomain2D : public AbstractDomain {
+	/** Name of the file from which domain is constructed */
+	string filename;
 	/** vtkPolydata description of the domain. */
 	vtkSmartPointer<vtkPolyData> vtkGeometry;
 	/** Cell locator responsible to determine if a segment is inside the domain. */
@@ -121,6 +123,15 @@ public:
 	 * @return vtkPolydata with the domain representation.
 	 */
 	vtkSmartPointer<vtkPolyData>& getVtkGeometry();
+	/**
+	 * Returns the random generator seed.
+	 * @return @p seed
+	 */
+	int getSeed();
+
+	string getFilename();
+
+	void logDomainFiles(FILE *fp);
 
 protected:
 	deque<point> randomInnerPoints;
