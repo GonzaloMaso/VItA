@@ -13,8 +13,8 @@
 #include "AbstractVascularElement.h"
 #include "../CCOCommonStructures.h"
 
-#include "vtkSmartPointer.h"
-#include "vtkLine.h"
+#include <vtkSmartPointer.h>
+#include <vtkLine.h>
 
 #include <vector>
 

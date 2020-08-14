@@ -154,12 +154,18 @@ public:
 	 * @param instanceData Instance for @p instanceData.
 	 */
 	void setInstanceData(GeneratorData* instanceData);
+	/**
+	 * Virtual method to be used by StagedFRROTreeGeneratorLogger.
+	 */
+	virtual void logDomainFiles(FILE *fp) = 0;
 	const vector<int>& getGrowingStages() const;
 	void setGrowingStages(const vector<int>& growingStages);
 	bool isIsBifPlaneContrained() const;
 	void setIsBifPlaneContrained(bool isBifPlaneContrained);
 	double getMinPlaneAngle();
 	void setMinPlaneAngle(double minPlaneAngle);
+	virtual int getDraw() = 0;
+	virtual int getSeed() = 0;
 };
 
 #endif /* DOMAIN_ABSTRACTDOMAIN_H_ */

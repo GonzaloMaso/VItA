@@ -17,7 +17,6 @@
  * Estimates the functional cost of a tree.
  */
 class AbstractCostEstimator {
-protected:
 public:
 	/**
 	 * Common constructor.
@@ -49,6 +48,10 @@ public:
 	 * @return Cost of the given tree.
 	 */
 	virtual double computeCost(AbstractObjectCCOTree *tree) = 0;
+	/**
+	 * Virtual method to be used by StagedFRROTreeGeneratorLogger
+	 */	 
+	virtual void logCostEstimator(FILE *fp) = 0;
 };
 
 #endif /* TREE_ABSTRACTCOSTESTIMATOR_H_ */

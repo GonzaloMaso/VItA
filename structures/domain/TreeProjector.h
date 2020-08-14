@@ -12,9 +12,9 @@
 
 #include <iostream>
 
-#include "vtkSmartPointer.h"
-#include "vtkPolyData.h"
-#include "vtkCellLocator.h"
+#include <vtkSmartPointer.h>
+#include <vtkPolyData.h>
+#include <vtkCellLocator.h>
 
 #include "../vascularElements/SingleVessel.h"
 #include "../CCOCommonStructures.h"

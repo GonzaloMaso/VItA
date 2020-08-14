@@ -66,3 +66,29 @@ double SproutingVolumetricCostEstimator::computeTreeCost(AbstractVascularElement
 AbstractCostEstimator* SproutingVolumetricCostEstimator::clone(){
 	return (new SproutingVolumetricCostEstimator(volumeFactor, proteolyticFactor, diffusionFactor));
 }
+
+double SproutingVolumetricCostEstimator::getVolumeFactor()
+{
+	return this->volumeFactor;
+}
+
+double SproutingVolumetricCostEstimator::getProteolyticFactor()
+{
+	return this->proteolyticFactor;
+}
+
+double SproutingVolumetricCostEstimator::getDiffusionFactor()
+{
+	return this->diffusionFactor;
+}
+
+void SproutingVolumetricCostEstimator::logCostEstimator(FILE *fp) {
+	double v_fac, p_fac, d_fac;        
+    v_fac = this->getVolumeFactor();
+    p_fac = this->getProteolyticFactor();
+    d_fac = this->getDiffusionFactor();
+    fprintf(fp, "This domain uses SproutingVolumetricCostEstimator.\n");
+    fprintf(fp, "Volume factor = %f.\n", v_fac);
+    fprintf(fp, "Proteolytic factor = %f.\n", p_fac);
+    fprintf(fp, "Diffusion factor = %f.\n", d_fac);
+}

@@ -9,14 +9,14 @@
 
 #include "AbstractObjectCCOTree.h"
 
-#include "vtkCellData.h"
-#include "vtkPointData.h"
-#include "vtkParametricSpline.h"
-#include "vtkCardinalSpline.h"
-#include "vtkSpline.h"
-#include "vtkXMLPolyDataWriter.h"
-#include "vtkSmartPointer.h"
-#include "vtkDoubleArray.h"
+#include <vtkCellData.h>
+#include <vtkPointData.h>
+#include <vtkParametricSpline.h>
+#include <vtkCardinalSpline.h>
+#include <vtkSpline.h>
+#include <vtkXMLPolyDataWriter.h>
+#include <vtkSmartPointer.h>
+#include <vtkDoubleArray.h>
 
 AbstractObjectCCOTree::AbstractObjectCCOTree(GeneratorData *instanceData) {
 

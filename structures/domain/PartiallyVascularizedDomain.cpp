@@ -10,19 +10,21 @@
 #include "PartiallyVascularizedDomain.h"
 
 #include <chrono>
-#include "omp.h"
+#include <omp.h>
 
 //	Model
-#include "vtkXMLPolyDataWriter.h"
-#include "vtkPolyDataReader.h"
-#include "vtkSelectEnclosedPoints.h"
-#include "vtkPointData.h"
-#include "vtkMassProperties.h"
+#include <vtkXMLPolyDataWriter.h>
+#include <vtkPolyDataReader.h>
+#include <vtkSelectEnclosedPoints.h>
+#include <vtkPointData.h>
+#include <vtkMassProperties.h>
 
 PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector<string> filenameVascularRegions,
 		vector<string> filenameNonVascularRegions, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->filenameHull = filename;
+	this->filenameVR = filenameVascularRegions;
+	this->filenameNVR = filenameNonVascularRegions;
 	//	Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -57,9 +59,8 @@ PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector
 	}
 
 	nDraw = 10000;
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	double *bb = vtkTransportRegion->GetBounds();
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
@@ -68,7 +69,9 @@ PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector
 PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector<string> filenameVascularRegions,
 		vector<string> filenameNonVascularRegions, int N, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->filenameHull = filename;
+	this->filenameVR = filenameVascularRegions;
+	this->filenameNVR = filenameNonVascularRegions;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -103,9 +106,8 @@ PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector
 	}
 
 	nDraw = N;
-	this->seed = -1;
-	seed = chrono::system_clock::now().time_since_epoch().count();
-	generator = mt19937(seed);
+	this->seed = chrono::system_clock::now().time_since_epoch().count();
+	generator = mt19937(this->seed);
 
 	double *bb = vtkTransportRegion->GetBounds();
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
@@ -115,7 +117,9 @@ PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector
 PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector<string> filenameVascularRegions,
 		vector<string> filenameNonVascularRegions, int N, int seed, GeneratorData *instanceData) :
 		AbstractDomain(instanceData) {
-
+	this->filenameHull = filename;
+	this->filenameVR = filenameVascularRegions;
+	this->filenameNVR = filenameNonVascularRegions;
 	// Read all the data from the file
 	vtkSmartPointer<vtkPolyDataReader> reader = vtkSmartPointer<vtkPolyDataReader>::New();
 	reader->SetFileName(filename.c_str());
@@ -362,4 +366,37 @@ void PartiallyVascularizedDomain::savePoints(string filename) {
 
 	writer->SetDataModeToBinary();
 	writer->Write();
+}
+
+int PartiallyVascularizedDomain::getSeed()
+{
+	return this->seed;
+}
+
+string PartiallyVascularizedDomain::getFilenameHull() {
+	return this->filenameHull;
+}
+
+vector<string> PartiallyVascularizedDomain::getFilenameVR() {
+	return this->filenameVR;
+}
+
+vector<string> PartiallyVascularizedDomain::getFilenameNVR() {
+	return this->filenameNVR;
+}
+
+void PartiallyVascularizedDomain::logDomainFiles(FILE *fp) {
+	string filenameHull = this->getFilenameHull();
+    vector<string> filenameVR = this->getFilenameVR();
+    int size_vr = filenameVR.size();
+    vector<string> filenameNVR = this->getFilenameNVR();
+    int size_nvr = filenameNVR.size();
+    fprintf(fp, "PartiallyVascularizedDomain\n");
+    fprintf(fp, "filenameHull = %s\n", filenameHull.c_str());
+    for (int i = 0; i < size_vr; ++i) {
+        fprintf(fp, "filenameVR[%d] = %s\n", i, filenameVR[i].c_str());
+    }
+    for (int i = 0; i < size_nvr; ++i) {
+        fprintf(fp, "filenameNVR[%d] = %s\n", i, filenameNVR[i].c_str());
+    }
 }

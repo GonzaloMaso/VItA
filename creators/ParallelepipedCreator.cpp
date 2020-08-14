@@ -9,9 +9,9 @@
 
 #include "ParallelepipedCreator.h"
 
-#include "vtkCubeSource.h"
-#include "vtkSmartPointer.h"
-#include "vtkPolyDataWriter.h"
+#include <vtkCubeSource.h>
+#include <vtkSmartPointer.h>
+#include <vtkPolyDataWriter.h>
 
 ParallelepipedCreator::ParallelepipedCreator(double *lb, double *ub) : AbstractCreator(){
 	this->lb = lb;

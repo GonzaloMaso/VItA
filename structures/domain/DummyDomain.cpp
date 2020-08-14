@@ -35,3 +35,8 @@ point DummyDomain::getRandomPoint(){
 		return p;
 	}
 }
+
+void DummyDomain::logDomainFiles(FILE *fp) {
+	fprintf(fp, "DummyDomain\n");
+    fprintf(fp, "filename = %s\n", this->getFilename().c_str());
+}

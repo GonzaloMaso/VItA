@@ -9,11 +9,11 @@
 
 #include "FRRCCOSTree.h"
 
-#include "vtkCellData.h"
-#include "vtkXMLPolyDataWriter.h"
-#include "vtkSmartPointer.h"
-#include "vtkDoubleArray.h"
-#include "math.h"
+#include <vtkCellData.h>
+#include <vtkXMLPolyDataWriter.h>
+#include <vtkSmartPointer.h>
+#include <vtkDoubleArray.h>
+#include <math.h>
 
 FRRCCOSTree::FRRCCOSTree(point xi,
 		double rootRadius, double qi, AbstractConstraintFunction<double,int> *gam, AbstractConstraintFunction<double,int> *epsLim,

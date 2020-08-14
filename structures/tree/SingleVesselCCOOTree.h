@@ -24,6 +24,7 @@ using namespace std;
  * N-furcation tree with only SingleVessel elements as vascular elements.
  */
 class SingleVesselCCOOTree: public AbstractObjectCCOTree {
+	string filenameCCO;
 	/**	Root radius. */
 	double rootRadius;
 	/** Convergence tolerance. */
@@ -174,6 +175,8 @@ public:
 	 */
 	bool isWithered(SingleVessel *vessel);
 
+	string getFilenameCCO();
+
 protected:
 	/**
 	 * Returns a string with the tree atributes to create the .cco file.
@@ -275,6 +278,8 @@ private:
 	 * Creates the VTK lines and points associated to a HeMoLab file loaded.
 	 */
 	void createSegmentVtkLines(AbstractVascularElement *rootVessel);
+
+	double getVariationTolerance();
 
 };
 

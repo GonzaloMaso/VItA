@@ -20,7 +20,7 @@
 #include "../structures/tree/FRRVaViOptCCOSTree.h"
 #include "../utils/MemoryMonitor.h"
 
-#include "omp.h"
+#include <omp.h>
 
 StagedFRRSTreeGenerator::StagedFRRSTreeGenerator(
 		StagedDomain* domain, point xi, double rootRadii, double qi,

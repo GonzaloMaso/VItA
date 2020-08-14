@@ -14,4 +14,3 @@ AbstractCostEstimator::AbstractCostEstimator(){
 
 AbstractCostEstimator::~AbstractCostEstimator(){
 }
-
