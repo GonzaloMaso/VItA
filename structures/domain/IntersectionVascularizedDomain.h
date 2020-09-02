@@ -138,6 +138,11 @@ public:
 
 	void logDomainFiles(FILE *fp);
 
+	/**
+	 * Returns vtkSelectEnclosedPoints for the first geometry passed to the domain.
+	 */
+	vtkSmartPointer<vtkSelectEnclosedPoints> getEnclosedPoints() override;
+
 protected:
 	deque<point> randomInnerPoints;
 	void generateRandomPoints();

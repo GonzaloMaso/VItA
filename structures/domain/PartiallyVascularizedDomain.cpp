@@ -400,3 +400,9 @@ void PartiallyVascularizedDomain::logDomainFiles(FILE *fp) {
         fprintf(fp, "filenameNVR[%d] = %s\n", i, filenameNVR[i].c_str());
     }
 }
+
+vtkSmartPointer<vtkSelectEnclosedPoints> PartiallyVascularizedDomain::getEnclosedPoints() {
+	vtkSmartPointer<vtkSelectEnclosedPoints> enclosedPoints = vtkSmartPointer<vtkSelectEnclosedPoints>::New();
+	enclosedPoints->Initialize(this->vtkTransportRegion);
+	return enclosedPoints;
+}

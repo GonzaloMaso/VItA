@@ -11,6 +11,7 @@
 
 #include <cmath>
 #include <fstream>
+#include<unordered_set>
 
 #include "../io/VTKObjectTreeElementalWriter.h"
 #include "../io/VTKObjectTreeSplinesNodalWriter.h"
@@ -519,14 +520,7 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::resume_experimental(long long in
 
 }
 
-AbstractObjectCCOTree *StagedFRROTreeGenerator::resumeMidPoint(long long int saveInterval, string tempDirectory, string optimalPointsFile) {
-
-	FILE *fp = fopen(optimalPointsFile.c_str(), "w");
-	if (!fp) {
-		fprintf(stderr, "Failed to create optimalPointsFile!\n");
-		exit(EXIT_FAILURE);
-	}
-
+AbstractObjectCCOTree *StagedFRROTreeGenerator::resumeSavePoints(long long int saveInterval, string tempDirectory, FILE *fp) {
 	this->beginTime = time(nullptr);
 	this->dLimInitial = this->dLim;
 
@@ -586,7 +580,21 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::resumeMidPoint(long long int sav
 
 			if (minCost < INFINITY) {
 				cout << "Added with a cost of " << minCost << " with a total cost of " << ((SingleVessel *) tree->getRoot())->treeVolume << endl;
-				tree->addVessel(minBif, xNew, minParent, (AbstractVascularElement::VESSEL_FUNCTION) instanceData->vesselFunction);
+				SingleVessel *minParentSV = (SingleVessel *) minParent;
+				fwrite(&(minBif.p[0]), sizeof(double), 1, fp);
+				fwrite(&(minBif.p[1]), sizeof(double), 1, fp);
+				fwrite(&(minBif.p[2]), sizeof(double), 1, fp);
+				fwrite(&(xNew.p[0]), sizeof(double), 1, fp);
+				fwrite(&(xNew.p[1]), sizeof(double), 1, fp);
+				fwrite(&(xNew.p[2]), sizeof(double), 1, fp);
+				fwrite(&(minParentSV->xProx.p[0]), sizeof(double), 1, fp);
+				fwrite(&(minParentSV->xProx.p[1]), sizeof(double), 1, fp);
+				fwrite(&(minParentSV->xProx.p[2]), sizeof(double), 1, fp);
+				fwrite(&(minParentSV->xDist.p[0]), sizeof(double), 1, fp);
+				fwrite(&(minParentSV->xDist.p[1]), sizeof(double), 1, fp);
+				fwrite(&(minParentSV->xDist.p[2]), sizeof(double), 1, fp);
+				fwrite(&(instanceData->vesselFunction), sizeof(int), 1, fp);
+				tree->addVessel(minBif, xNew, minParent, (AbstractVascularElement::VESSEL_FUNCTION) instanceData->vesselFunction);				
 				invalidTerminal = false;
 			}
 		}
@@ -606,15 +614,35 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::resumeMidPoint(long long int sav
 	markTimestampOnConfigurationFile("Tree successfully generated.");
 	closeConfigurationFile();
 
-	fclose(fp);
-
 	return tree;
-
 }
 
-AbstractObjectCCOTree *StagedFRROTreeGenerator::resumeSavePoints(long long int saveInterval, string tempDirectory, FILE *fp) {
+void originalVesselsRecursive(SingleVessel *root, unordered_map<string, pair<SingleVessel *, bool>>* originals, vtkSmartPointer<vtkSelectEnclosedPoints> enclosedPoints) {
+	if(!root) {
+		return;
+	}
+	point midPoint = (root->xProx + root->xDist) / 2.;
+	string key = root->coordToString();
+	pair<SingleVessel *, bool> value = pair<SingleVessel *, bool>(root, static_cast<bool>(enclosedPoints->IsInsideSurface(midPoint.p)));
+	originals->insert(pair<string, pair<SingleVessel *, bool>>(key, value));
+	for(auto it = root->getChildren().begin(); it != root->getChildren().end(); ++it) {
+		originalVesselsRecursive(static_cast<SingleVessel *>((*it)), originals, enclosedPoints);
+	}
+}
+
+
+unordered_map<string, pair<SingleVessel*, bool>>* originalVessels(SingleVesselCCOOTree *tree, vtkSmartPointer<vtkSelectEnclosedPoints> enclosedPoints) {
+	unordered_map<string, pair<SingleVessel *, bool>>* originalSV = new unordered_map<string, pair<SingleVessel *, bool>>;
+	originalVesselsRecursive(static_cast<SingleVessel *>(tree->getRoot()), originalSV, enclosedPoints);
+	return originalSV;
+}
+
+AbstractObjectCCOTree *StagedFRROTreeGenerator::resumeSavePointsMidPoint(long long int saveInterval, string tempDirectory, FILE *fp) {
 	this->beginTime = time(nullptr);
 	this->dLimInitial = this->dLim;
+
+	vtkSmartPointer<vtkSelectEnclosedPoints> enclosedPoints = domain->getEnclosedPoints();
+	unordered_map<string, pair<SingleVessel *, bool>> *ogVessels = originalVessels(static_cast<SingleVesselCCOOTree *>(this->tree), enclosedPoints);
 
 //	VTKObjectTreeSplinesNodalWriter *nodalWriter = new VTKObjectTreeSplinesNodalWriter();
 	generatesConfigurationFile(ios::out);
@@ -657,6 +685,10 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::resumeSavePoints(long long int s
 			for (unsigned j = 0; j < neighborVessels.size(); ++j) {
 				point xBif;
 				double cost;
+				auto ogIt = ogVessels->find(static_cast<SingleVessel *>(neighborVessels[j])->coordToString());
+				if (ogIt != ogVessels->end() && (*ogIt).second.second == false) {
+					continue;
+				} 
 				tree->testVessel(xNew, neighborVessels[j], domain,
 						neighborVessels, dLim, &xBif, &cost); //	Inf cost stands for invalid solution
 #pragma omp critical

@@ -321,3 +321,9 @@ void IntersectionVascularizedDomain::logDomainFiles(FILE *fp) {
         fprintf(fp, "filenameVR[%d] = %s\n", i, filenameVR[i].c_str());
     }
 }
+
+vtkSmartPointer<vtkSelectEnclosedPoints> IntersectionVascularizedDomain::getEnclosedPoints() {
+	vtkSmartPointer<vtkSelectEnclosedPoints> enclosedPoints = vtkSmartPointer<vtkSelectEnclosedPoints>::New();
+	enclosedPoints->Initialize(this->vtkVascularizedRegions[0]);
+	return enclosedPoints;
+}

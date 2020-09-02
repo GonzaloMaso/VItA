@@ -132,15 +132,13 @@ public:
 	 * Returns the perfusion domain.
 	 * @return Perfusion domain.
 	 */
-	/**
-	 * Resumes the tree generation process considering that the vessel is only valid if its midpoint is inside the domain.
-	 */
-	AbstractObjectCCOTree *resumeMidPoint(long long int saveInterval, string tempDirectory, string outOptimal);
 
 	/**
 	 * Resumes the tree generation process and saves the optimal xNew and xBif in @param fp.
 	 */
 	AbstractObjectCCOTree *resumeSavePoints(long long int saveInterval, string tempDirectory, FILE *fp);
+
+	AbstractObjectCCOTree *resumeSavePointsMidPoint(long long int saveInterval, string tempDirectory, FILE *fp);
 	
 	StagedDomain* getDomain();
 	/**

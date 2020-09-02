@@ -283,3 +283,9 @@ void SimpleDomain2D::logDomainFiles(FILE *fp) {
 	fprintf(fp, "SimpleDomain2D\n");
     fprintf(fp, "filename = %s\n", this->getFilename().c_str());
 }
+
+vtkSmartPointer<vtkSelectEnclosedPoints> SimpleDomain2D::getEnclosedPoints() {
+	vtkSmartPointer<vtkSelectEnclosedPoints> enclosedPoints = vtkSmartPointer<vtkSelectEnclosedPoints>::New();
+	enclosedPoints->Initialize(this->vtkGeometry);
+	return enclosedPoints;
+}

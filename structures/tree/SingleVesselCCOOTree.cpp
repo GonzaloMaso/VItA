@@ -853,14 +853,14 @@ void SingleVesselCCOOTree::addVesselMergeFast(point xProx, point xDist, Abstract
 		size_t didErase = stringToPointer->erase(parentSV->coordToString());
 		if(!didErase) {
 			printf("Failed to erase parent at xProx = (%.16e, %.16e, %.16e) xDist = (%.16e, %.16e, %.16e)\n",
-				parentSV->xProx.p[0], parentSV->xProx.p[2], parentSV->xProx.p[2],
-				parentSV->xDist.p[0], parentSV->xDist.p[2], parentSV->xDist.p[2]);
+				parentSV->xProx.p[0], parentSV->xProx.p[1], parentSV->xProx.p[2],
+				parentSV->xDist.p[0], parentSV->xDist.p[1], parentSV->xDist.p[2]);
 			printf("stringToPointer.size = %lu\n", stringToPointer->size());
 		}
 		else {
 			printf("Erased parent vessel at xProx = (%.16e, %.16e, %.16e) xDist = (%.16e, %.16e, %.16e)\n",
-				parentSV->xProx.p[0], parentSV->xProx.p[2], parentSV->xProx.p[2],
-				parentSV->xDist.p[0], parentSV->xDist.p[2], parentSV->xDist.p[2]);
+				parentSV->xProx.p[0], parentSV->xProx.p[1], parentSV->xProx.p[2],
+				parentSV->xDist.p[0], parentSV->xDist.p[1], parentSV->xDist.p[2]);
 			printf("stringToPointer.size = %lu\n", stringToPointer->size());
 		}
 		parentSV->xDist = xProx;
@@ -871,8 +871,8 @@ void SingleVesselCCOOTree::addVesselMergeFast(point xProx, point xDist, Abstract
 		}
 		else {
 			printf("Added new parent vessel at xProx = (%.16e, %.16e, %.16e) xDist = (%.16e, %.16e, %.16e)\n",
-				parentSV->xProx.p[0], parentSV->xProx.p[2], parentSV->xProx.p[2],
-				parentSV->xDist.p[0], parentSV->xDist.p[2], parentSV->xDist.p[2]);
+				parentSV->xProx.p[0], parentSV->xProx.p[1], parentSV->xProx.p[2],
+				parentSV->xDist.p[0], parentSV->xDist.p[1], parentSV->xDist.p[2]);
 			printf("stringToPointer.size = %lu\n", stringToPointer->size());
 		}
 		((SingleVessel *) parent)->length = sqrt(dBif ^ dBif);
@@ -1507,8 +1507,7 @@ int SingleVesselCCOOTree::testVessel(point xNew, AbstractVascularElement *parent
 		if (pVessel->branchingMode == AbstractVascularElement::BRANCHING_MODE::DISTAL_BRANCHING || (areValidAngles(bif, xNew, pVessel, domain->getMinBifurcationAngle())
 				&&	isValidOpeningAngle(bif, xNew, pVessel, domain->getMinPlaneAngle()))
 			) {
-			/* x_n, bif is inside the domain AND
-			(Branching is distal OR
+			/* x_n, bif is inside the domain ANDAND
 			((Vessel is perforator OR x_p,x_b is inside) AND
 			x_b, x_p is inside)
 			In other words
