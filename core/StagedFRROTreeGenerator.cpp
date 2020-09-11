@@ -169,7 +169,7 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::generate(long long int saveInter
 	return tree;
 }
 
-AbstractObjectCCOTree *StagedFRROTreeGenerator::generate_experimental(long long int saveInterval, string tempDirectory, int maxNumOfTrials) {
+AbstractObjectCCOTree *StagedFRROTreeGenerator::generateExperimental(long long int saveInterval, string tempDirectory, int maxNumOfTrials) {
 
 	this->beginTime = time(nullptr);
 	this->dLimInitial = this->dLim;
@@ -432,7 +432,7 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::resume(long long int saveInterva
 
 }
 
-AbstractObjectCCOTree *StagedFRROTreeGenerator::resume_experimental(long long int saveInterval, string tempDirectory, int maxNumOfTrials) {
+AbstractObjectCCOTree *StagedFRROTreeGenerator::resumeExperimental(long long int saveInterval, string tempDirectory, int maxNumOfTrials) {
 
 	this->beginTime = time(nullptr);
 	this->dLimInitial = this->dLim;

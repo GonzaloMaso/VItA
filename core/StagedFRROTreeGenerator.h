@@ -119,7 +119,7 @@ public:
 	 * @param maxNumOfTrials Maximum number of trials before generator fails and exits.
 	 * @return	Perfusion tree.
 	 */
-	AbstractObjectCCOTree *generate_experimental(long long int saveInterval, string tempDirectory, int maxNumOfTrials);
+	AbstractObjectCCOTree *generateExperimental(long long int saveInterval, string tempDirectory, int maxNumOfTrials);
 	/**
 	 * Resumes the tree generation.
 	 * @param saveInterval Number of iterations performed between saved steps.
@@ -127,7 +127,7 @@ public:
 	 * @param maxNumOfTrials Maximum number of trials before generator fails and exits.
 	 * @return	Perfusion tree.
 	 */
-	AbstractObjectCCOTree *resume_experimental(long long int saveInterval, string tempDirectory, int maxNumOfTrials);
+	AbstractObjectCCOTree *resumeExperimental(long long int saveInterval, string tempDirectory, int maxNumOfTrials);
 	/**
 	 * Returns the perfusion domain.
 	 * @return Perfusion domain.

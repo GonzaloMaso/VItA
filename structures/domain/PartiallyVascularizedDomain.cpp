@@ -192,7 +192,7 @@ void PartiallyVascularizedDomain::removeRandomOuterPoints() {
 
 	vector<vector<vtkSmartPointer<vtkSelectEnclosedPoints> > > allEnclosedPoints;
 	vector<vector<vtkSmartPointer<vtkSelectEnclosedPoints> > > allEnclosedInNVR;
-//#pragma omp parallel for shared(allEnclosedPoints,allEnclosedInNVR), ordered, schedule(static,1), num_threads(omp_get_max_threads())
+#pragma omp parallel for shared(allEnclosedPoints,allEnclosedInNVR), ordered, schedule(static,1), num_threads(omp_get_max_threads())
 	for (unsigned j = 0; j < points.size(); ++j) {
 		vtkSmartPointer<vtkPolyData> pointsPolydata = vtkSmartPointer<vtkPolyData>::New();
 		pointsPolydata->SetPoints(points[j]);
@@ -225,13 +225,13 @@ void PartiallyVascularizedDomain::removeRandomOuterPoints() {
 			testNVR.push_back(selectEnclosedPointsByHoles);
 		}
 
-//#pragma omp ordered
-//#pragma omp critical
+#pragma omp ordered
+#pragma omp critical
 		{
 			allEnclosedPoints.push_back(testVR);
 			allEnclosedInNVR.push_back(testNVR);
 		}
-//#pragma omp flush
+#pragma omp flush
 	}
 
 	randomInnerPoints.clear();
