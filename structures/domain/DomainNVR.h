@@ -142,6 +142,8 @@ public:
 
 	void logDomainFiles(FILE *fp);
 
+	vtkSmartPointer<vtkSelectEnclosedPoints> getEnclosedPoints() override;
+
 protected:
 	deque<point> randomInnerPoints;
 	void generateRandomPoints();

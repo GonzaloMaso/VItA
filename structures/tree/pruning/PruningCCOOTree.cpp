@@ -17,9 +17,11 @@ PruningCCOOTree::~PruningCCOOTree(){
 void PruningCCOOTree::pruneTree(AbstractPruningRule *rule, SingleVessel *root){
 
 	if(root && rule->needsPruning(root)){
+		printf("This vessl needs pruning! %p\n", (void *)root);
 		pruneBranch(root);
 	}
 	else{
+		printf("This vessel does not need pruning! It has %lu children. %p\n", root->getChildren().size(), (void *) root);
 		for (std::vector<AbstractVascularElement *>::iterator it = root->getChildren().begin(); it != root->getChildren().end(); ++it) {
 			SingleVessel *childVessel = (SingleVessel *)(*it);
 			pruneTree(rule, childVessel);

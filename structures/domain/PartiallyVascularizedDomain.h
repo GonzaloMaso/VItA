@@ -166,6 +166,8 @@ public:
 
 	void logDomainFiles(FILE *fp);
 
+	vtkSmartPointer<vtkSelectEnclosedPoints> getEnclosedPoints() override;
+
 protected:
 	//	TODO This should be generalised in the AbstractDomain class
 	deque<point> randomInnerPoints;

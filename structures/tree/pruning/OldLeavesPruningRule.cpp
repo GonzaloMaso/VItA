@@ -8,7 +8,7 @@
 #include "OldLeavesPruningRule.h"
 
 OldLeavesPruningRule::OldLeavesPruningRule(int oldLeaveStage){
-	this->oldLeaveStage = oldLeaveStage
+	this->oldLeaveStage = oldLeaveStage;
 }
 
 OldLeavesPruningRule::~OldLeavesPruningRule(){

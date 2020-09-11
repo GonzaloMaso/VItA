@@ -390,3 +390,9 @@ void DomainNVR::logDomainFiles(FILE *fp) {
         fprintf(fp, "filenameNVR[%d] = %s\n", i, filenameNVR[i].c_str());
     }
 }
+
+vtkSmartPointer<vtkSelectEnclosedPoints> DomainNVR::getEnclosedPoints() {
+	vtkSmartPointer<vtkSelectEnclosedPoints> enclosedPoints = vtkSmartPointer<vtkSelectEnclosedPoints>::New();
+	enclosedPoints->Initialize(this->vtkGeometry);
+	return enclosedPoints;
+}
