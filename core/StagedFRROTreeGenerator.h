@@ -232,5 +232,5 @@ protected:
 	 * Closes the configuration file for the current tree generation.
 	 */
 	void closeConfigurationFile();
-}
+};
 #endif
