@@ -18,6 +18,7 @@ AbstractDomain::AbstractDomain(GeneratorData *instanceData) {
 	volume = 0.0;
 	minAngle = M_PI * 1. / 18.;
 	minPlaneAngle = 0.0;
+	this->isBifPlaneContrained = false;
 }
 
 AbstractDomain::AbstractDomain(GeneratorData* instanceData, vector<int> growingStages){
@@ -28,6 +29,7 @@ AbstractDomain::AbstractDomain(GeneratorData* instanceData, vector<int> growingS
 	minAngle = M_PI * 1. / 18.;
 	this->growingStages = growingStages;
 	minPlaneAngle = 0.0;
+	this->isBifPlaneContrained = false;
 }
 
 AbstractDomain::~AbstractDomain() {
