@@ -917,6 +917,10 @@ double SingleVesselCCOOTree::evaluate(point xNew, point xTest, SingleVessel *par
 	delete localEstimator;
 	delete clonedTree;
 
+	// As iCon and iNew are not added to clonedTree->elements we have to manually delete it.
+	delete iNew;
+	delete iCon;
+
 	return diffCost;
 
 }
@@ -978,6 +982,9 @@ double SingleVesselCCOOTree::evaluate(point xNew, SingleVessel *parent, double d
 
 	delete localEstimator;
 	delete clonedTree;
+
+	// As iNew is not added to clonedTree->elements we have to manually delete it
+	delete iNew;
 
 	return diffCost;
 
