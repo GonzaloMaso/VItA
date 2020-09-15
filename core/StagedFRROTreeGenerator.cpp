@@ -42,6 +42,8 @@ StagedFRROTreeGenerator::StagedFRROTreeGenerator(
 	this->tree = new SingleVesselCCOOTree(xi, rootRadii, qi, gam[0], epsLim[0],
 			nu[0], refPressure, viscosityTolerance, instanceData);
 	this->tree->setCurrentStage(stage);
+	this->didAllocateTree = true;
+	
 
 	this->dLim = domain->getDLim(1, instanceData->perfusionAreaFactor);
 
@@ -81,10 +83,16 @@ StagedFRROTreeGenerator::StagedFRROTreeGenerator(
 
 	this->dataMonitor = new GeneratorDataMonitor(domain);
 	this->monitor = new MemoryMonitor(MemoryMonitor::MEGABYTE);
+
+	this->didAllocateTree = false;
 }
 
 StagedFRROTreeGenerator::~StagedFRROTreeGenerator() {
-	delete monitor;
+	delete this->dataMonitor;
+	delete this->monitor;
+	if (didAllocateTree) {
+		delete this->tree;
+	}
 }
 
 AbstractObjectCCOTree *StagedFRROTreeGenerator::generate(long long int saveInterval, string tempDirectory) {

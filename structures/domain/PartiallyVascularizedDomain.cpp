@@ -162,6 +162,15 @@ PartiallyVascularizedDomain::PartiallyVascularizedDomain(string filename, vector
 
 }
 
+PartiallyVascularizedDomain::~PartiallyVascularizedDomain() {
+	this->randomInnerPoints.clear();
+	this->filenameVR.clear();
+	this->filenameNVR.clear();
+	this->vtkVascularizedRegions.clear();
+	this->vtkHollowRegions.clear();
+	this->hollowLocators.clear();
+}
+
 void PartiallyVascularizedDomain::generateRandomPoints() {
 	double *boundingBox = vtkTransportRegion->GetBounds();
 	uniform_real_distribution<double> distX(boundingBox[0], boundingBox[1]);

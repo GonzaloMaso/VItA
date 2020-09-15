@@ -15,6 +15,8 @@ NormalDistributionGenerator::NormalDistributionGenerator(vector<double> mean, ve
 }
 
 NormalDistributionGenerator::~NormalDistributionGenerator(){
+	this->mean.clear();
+	this->std.clear();
 }
 
 void NormalDistributionGenerator::initialize(int seed, double *boundingBox) {

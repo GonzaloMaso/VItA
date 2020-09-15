@@ -69,6 +69,8 @@ class StagedFRROTreeGenerator : public IDomainObserver {
 	/**	File name for the configuration file.*/
 	string confFilename;
 
+	bool didAllocateTree;
+
 public:
 	/**
 	 * Constructor for tree with Fahraeus-Lindquist viscosity model.

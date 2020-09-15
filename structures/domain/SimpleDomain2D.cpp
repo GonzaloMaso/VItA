@@ -92,6 +92,10 @@ SimpleDomain2D::SimpleDomain2D(string filename, int N, int seed, GeneratorData *
 
 }
 
+SimpleDomain2D::~SimpleDomain2D() {
+	this->randomInnerPoints.clear();
+}
+
 void SimpleDomain2D::generateRandomPoints() {
 	if (seed == -1)
 		seed = chrono::system_clock::now().time_since_epoch().count();

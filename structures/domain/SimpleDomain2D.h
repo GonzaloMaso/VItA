@@ -66,6 +66,10 @@ public:
 	 */
 	SimpleDomain2D(string filename, int nDraw, int seed, GeneratorData *instanceData);
 	/**
+	 * Destructor
+	 */
+	~SimpleDomain2D();
+	/**
 	 * Returns if the segment defined by the vertexes @p xs and @p xf is inside the current domain.
 	 * @param xs Start point of the segment.
 	 * @param xf End point of the segment.

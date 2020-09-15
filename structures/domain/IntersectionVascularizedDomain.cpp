@@ -145,6 +145,14 @@ IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> fi
 
 }
 
+IntersectionVascularizedDomain::~IntersectionVascularizedDomain() {
+	this->randomInnerPoints.clear();
+	this->filenameVR.clear();
+	this->vtkVascularizedRegions.clear();
+	this->sublocators.clear();
+	delete[] this->boundingBox;
+}
+
 void IntersectionVascularizedDomain::generateRandomPoints() {
 	uniform_real_distribution<double> distX(boundingBox[0], boundingBox[1]);
 	uniform_real_distribution<double> distY(boundingBox[2], boundingBox[3]);
