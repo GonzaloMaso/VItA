@@ -44,6 +44,7 @@ AbstractObjectCCOTree::AbstractObjectCCOTree(GeneratorData *instanceData) {
 
 	this->currentStage = 0;
 	this->isInCm = 0;
+
 }
 
 AbstractObjectCCOTree::AbstractObjectCCOTree(point xi, double qi, AbstractConstraintFunction<double, int> *gam,
@@ -77,7 +78,6 @@ AbstractObjectCCOTree::AbstractObjectCCOTree(point xi, double qi, AbstractConstr
 }
 
 AbstractObjectCCOTree::~AbstractObjectCCOTree() {
-
 	for (auto it = elements.begin(); it != elements.end(); it++){
 		delete it->second;
 	}

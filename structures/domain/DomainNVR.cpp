@@ -133,6 +133,13 @@ DomainNVR::DomainNVR(string filename, vector<string> filenameNonVascularRegions,
 
 }
 
+DomainNVR::~DomainNVR() {
+	this->randomInnerPoints.clear();
+	this->filenameNVR.clear();
+	this->vtkHollowRegions.clear();
+	this->hollowLocators.clear();
+}
+
 void DomainNVR::generateRandomPoints() {
 	double *boundingBox = vtkGeometry->GetBounds();
 	uniform_real_distribution<double> distX(boundingBox[0], boundingBox[1]);

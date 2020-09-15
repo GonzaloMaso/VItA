@@ -27,6 +27,10 @@ public:
 	 */
 	IDomainObservable();
 	/**
+	 * Destructor
+	 */
+	~IDomainObservable();
+	/**
 	 * Registrate a new observer in order to notify each time that the observable class is updated.
 	 * @param observer Observer class type IDomainObserver.
 	 */

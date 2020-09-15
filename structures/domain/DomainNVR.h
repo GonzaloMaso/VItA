@@ -32,7 +32,7 @@ class DomainNVR: public AbstractDomain {
 	/** vtkPolydata description of the domain. */
 	vtkSmartPointer<vtkPolyData> vtkGeometry;
 	/** Non-vascularized subdomains represented by vtkPolydata. */
-	vector<vtkSmartPointer<vtkPolyData> > vtkHollowRegions;
+	vector<vtkSmartPointer<vtkPolyData>> vtkHollowRegions;
 	/** Cell locator responsible to determine if a segment is inside the domain. */
 	vtkSmartPointer<vtkOBBTree> locator;
 	/** Cell locator responsible to determine if a segment is inside a non-vascularized region. */
@@ -73,6 +73,10 @@ public:
 	 */
 	DomainNVR(string filenameHull, vector<string> filenameNonVascularRegions,
 			int nDraw, int seed, GeneratorData *instanceData);
+	/**
+	 * Destructor
+	 */
+	~DomainNVR();
 	/**
 	 * Returns if the segment defined by the vertexes @p xs and @p xf is inside the current domain.
 	 * @param xs Start point of the segment.
