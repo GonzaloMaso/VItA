@@ -246,6 +246,16 @@ if(OPTM)
     add_compile_options(-O3)
 endif()
 
+option(O0 "No optimization." OFF)
+if(O0) 
+	add_compile_options(-O0)
+endif()
+
+option(Inline "Inlining." ON)
+if(NOT Inline)
+	add_compile_options(-fno-inline)
+endif()
+
 add_library(vita ${SOURCE_CPP})
 
 #[[
