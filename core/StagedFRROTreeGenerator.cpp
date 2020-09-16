@@ -742,6 +742,7 @@ AbstractObjectCCOTree *StagedFRROTreeGenerator::resumeSavePointsMidPoint(long lo
 	this->dLimLast = this->dLim;
 
 	ogVessels->clear();
+	delete ogVessels;
 
 	saveStatus(nTerminals-1);
 	markTimestampOnConfigurationFile("Final tree volume " + to_string(((SingleVessel *) tree->getRoot())->treeVolume));
