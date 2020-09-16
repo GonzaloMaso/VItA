@@ -12,5 +12,11 @@
 IDomainObserver::IDomainObserver(){
 }
 
+<<<<<<< HEAD
 IDomainObserver::~IDomainObserver() {
 };
+||||||| 4ccacd4
+=======
+IDomainObserver::~IDomainObserver(){
+}
+>>>>>>> patch_memory

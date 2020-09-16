@@ -18,7 +18,6 @@ SingleVessel::SingleVessel() :
 }
 
 SingleVessel::~SingleVessel() {
-	vessels.clear();
 }
 
 AbstractVascularElement* SingleVessel::getParent() {
