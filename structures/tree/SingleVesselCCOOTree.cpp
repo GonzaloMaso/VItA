@@ -907,7 +907,10 @@ double SingleVesselCCOOTree::evaluate(point xNew, point xTest, SingleVessel *par
 
 	//	Check the symmetry constraint only for the newest vessel.
 	if (!isSymmetricallyValid(iCon->beta, iNew->beta, iCon->nLevel)) {
+		delete localEstimator;
 		delete clonedTree;
+		delete iNew;
+		delete iCon;
 		return INFINITY;
 	}
 
@@ -973,7 +976,9 @@ double SingleVesselCCOOTree::evaluate(point xNew, SingleVessel *parent, double d
 	//	FIXME Define symmetry law for N-ary bifurcations (Most different betas?)
 	//	Check the symmetry constraint only for the newest vessel.
 	if (!isSymmetricallyValid( ((SingleVessel *)clonedParent->getChildren()[0])->beta, iNew->beta, iNew->nLevel)) {
+		delete localEstimator;
 		delete clonedTree;
+		delete iNew;
 		return INFINITY;
 	}
 
