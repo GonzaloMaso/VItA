@@ -114,12 +114,12 @@ void StagedFRROTreeGeneratorLogger::write()
     fprintf(fp, "Last dLim = %f.\n", generator->getDLimLast());
     time_t begin_time = generator->getBeginTime();
     time_t end_time = generator->getEndTime();
-    struct tm *initial_tm = localtime(&begin_time);
-    struct tm *last_tm = localtime(&end_time);
+    struct tm initial_tm = *localtime(&begin_time);
+    struct tm last_tm = *localtime(&end_time);
     char time_initial_c_string[21];
     char time_last_c_string[21];
-    strftime(time_initial_c_string, 20, "%d_%m_%Y_%H_%M_%S", initial_tm);
-    strftime(time_last_c_string, 20, "%d_%m_%Y_%H_%M_%S", last_tm);
+    strftime(time_initial_c_string, 20, "%d_%m_%Y_%H_%M_%S", &initial_tm);
+    strftime(time_last_c_string, 20, "%d_%m_%Y_%H_%M_%S", &last_tm);
     fprintf(fp, "\n");
     fprintf(fp, "Beginning of generation time = %s\n", time_initial_c_string);
     fprintf(fp, "End of generation time = %s\n", time_last_c_string);
