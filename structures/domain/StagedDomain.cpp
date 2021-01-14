@@ -137,3 +137,7 @@ int StagedDomain::getSeed()
 void StagedDomain::logDomainFiles(FILE *fp) {
 	fprintf(fp, "StagedDomain\n");
 }
+
+vtkSmartPointer<vtkSelectEnclosedPoints> StagedDomain::getEnclosedPoints() {
+	return this->domainStage[(this->currentStage)-(this->initialStage)]->getEnclosedPoints();
+}

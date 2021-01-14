@@ -76,6 +76,8 @@ protected:
 	/**	If the tree is in cm, otherwise is assumed that is in mm (default) */
 	int isInCm;
 
+	friend class PruningCCOOTree;
+
 public:
 	/**
 	 * Constructor for tree with no parameters, convenient to create a tree and load its parameters later.

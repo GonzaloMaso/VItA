@@ -21,6 +21,7 @@
 #include <vtkPoints.h>
 #include <vtkMassProperties.h>
 #include <vtkSmartPointer.h>
+#include <vtkSelectEnclosedPoints.h>
 
 #include "UniformDistributionGenerator.h"
 
@@ -296,4 +297,10 @@ string SimpleDomain::getFilename()
 void SimpleDomain::logDomainFiles(FILE *fp) {
 	fprintf(fp, "SimpleDomain\n");
     fprintf(fp, "filename = %s\n", this->getFilename().c_str());
+}
+
+vtkSmartPointer<vtkSelectEnclosedPoints> SimpleDomain::getEnclosedPoints() {
+	vtkSmartPointer<vtkSelectEnclosedPoints> enclosedPoints = vtkSmartPointer<vtkSelectEnclosedPoints>::New();
+	enclosedPoints->Initialize(this->vtkGeometry);
+	return enclosedPoints;
 }

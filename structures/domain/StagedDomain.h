@@ -152,6 +152,8 @@ public:
 	int getSeed();
 
 	void logDomainFiles(FILE *fp);
+
+	vtkSmartPointer<vtkSelectEnclosedPoints> getEnclosedPoints() override;
 };
 
 #endif /* DOMAIN_STAGEDDOMAIN_H_ */
