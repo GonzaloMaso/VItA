@@ -15,6 +15,7 @@ CompositeDistributionGenerator::CompositeDistributionGenerator(vector<Distributi
 }
 
 CompositeDistributionGenerator::~CompositeDistributionGenerator(){
+	this->distributions.clear();
 }
 
 void CompositeDistributionGenerator::initialize(int seed, double *boundingBox) {

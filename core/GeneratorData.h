@@ -20,6 +20,8 @@ using namespace std;
  * Class that acts as a wrapper of the parameters associated to a tree generation process.
  */
 class GeneratorData {
+private:
+	bool didAllocateCostEstimator;
 public:
 	/**
 	 * Constructor with default parameters.
@@ -75,6 +77,10 @@ public:
 	 * @param costEstimator Cost estimator used to compute the functional at the current stage.
 	 */
 	GeneratorData(int nLevelTest, int nTerminalTrial, double dLimReductionFactor, double perfusionAreaFactor, double closeNeighborhoodFactor, double midPointDlimFactor, int nBifurcationTest, int vesselFunction, bool resetDLim, AbstractCostEstimator *costEstimator);
+	/**
+	 * Destructor
+	 */
+	~GeneratorData();
 	/**
 	 * Levels for tree scaling for each new segment test.
 	 */

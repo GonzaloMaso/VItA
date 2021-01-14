@@ -24,6 +24,10 @@ public:
 	 */
 	IDomainObserver();
 	/**
+	 * Destructor
+	 */
+	virtual ~IDomainObserver() = 0;
+	/**
 	 * Method executed when @p modifiedDomain has changed.
 	 * @param observableInstance Observable domain.
 	 */

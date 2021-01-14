@@ -72,6 +72,10 @@ public:
 	 */
 	IntersectionVascularizedDomain(vector<string> filenameVascularRegions, int nDraw, int seed, GeneratorData *instanceData);
 	/**
+	 * Desctructor
+	 */
+	~IntersectionVascularizedDomain();
+	/**
 	 * Returns if the segment defined by the vertexes @p xs and @p xf is inside the current transport domain without intersecting non-vascularized regions.
 	 * @param xs Start point of the segment.
 	 * @param xf End point of the segment.

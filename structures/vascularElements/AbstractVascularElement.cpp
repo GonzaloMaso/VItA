@@ -20,6 +20,8 @@ AbstractVascularElement::AbstractVascularElement(){
 }
 
 AbstractVascularElement::~AbstractVascularElement(){
+	this->children.clear();
+	this->vessels.clear();
 }
 
 vector<SingleVessel*>& AbstractVascularElement::getVessels(){
