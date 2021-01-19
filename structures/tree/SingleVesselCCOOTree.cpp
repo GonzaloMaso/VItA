@@ -1796,7 +1796,6 @@ SingleVessel* SingleVesselCCOOTree::cloneTree(SingleVessel* root, unordered_map<
 void SingleVesselCCOOTree::updateTree(SingleVessel* root, SingleVesselCCOOTree* tree) {
 	if (root->getChildren().empty()) {
 		root->flow = root->getTerminalFlow(tree->qProx, tree->qProx * tree->qReservedFactor, tree->nCommonTerminals); //tree->qProx / tree->nTerms;
-		root->pressure = root->resistance * root->flow + refPressure;
 //		cout << tree->qProx << " " << tree->qReservedFactor << " " << tree->nCommonTerminals << " " << root->flow << endl;
 	} else {
 		vector<AbstractVascularElement *> rootChildren = root->getChildren();
@@ -1831,7 +1830,6 @@ void SingleVesselCCOOTree::updateTree(SingleVessel* root, SingleVesselCCOOTree* 
 		}
 		root->localResistance = 8 * nu->getValue(root->nLevel) / M_PI * root->length;
 		root->resistance = root->localResistance + 1 / invResistanceContributions;
-		root->pressure = root->resistance * root->flow + refPressure;
 	}
 }
 
@@ -1922,8 +1920,10 @@ void SingleVesselCCOOTree::updateTreeViscositiesBeta(SingleVessel* root, double*
 		root->localResistance = 8 * root->viscosity / M_PI * root->length;
 		root->resistance = root->localResistance + 1 / invResistanceContributions;
 		root->treeVolume = root->radius * root->radius * M_PI * root->length + totalChildrenVolume;
-		root->pressure = root->resistance * root->flow + refPressure;
 	}
+
+	double radiusSqr = root->radius * root->radius;
+	root->pressure = root->resistance * root->flow / (radiusSqr * radiusSqr) + refPressure;
 
 }
 
