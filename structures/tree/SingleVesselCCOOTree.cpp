@@ -97,6 +97,7 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData *in
 		cout << v->vtkSegmentId << endl;
 		treeFile >> v->xProx.p[0];
 		treeFile >> v->xProx.p[1];
+		treeFile >> v->xProx.p[1];
 		treeFile >> v->xProx.p[2];
 		treeFile >> v->xDist.p[0];
 		treeFile >> v->xDist.p[1];
@@ -634,7 +635,7 @@ void SingleVesselCCOOTree::addVessel(point xProx, point xDist, AbstractVascularE
 		((SingleVessel *) parent)->xDist = xProx;
 		((SingleVessel *) parent)->length = sqrt(dBif ^ dBif);
 
-		//	Update post-order nLevel, flux, pressure and determine initial resistance and beta values.
+		//	Update post-order nLevel and flow, and determine initial resistance and beta values.
 		updateTree(((SingleVessel *) root), this);
 
 		//	Update resistance, pressure and betas
@@ -1825,10 +1826,12 @@ void SingleVesselCCOOTree::updateTree(SingleVessel* root, SingleVesselCCOOTree* 
 				currentVessel->beta = pow(1 + pow(betaRatio, gam->getValue(currentVessel->nLevel)), -1.0 / gam->getValue(currentVessel->nLevel));
 
 				double betaSqr = currentVessel->beta * currentVessel->beta;
+				//	Check! This expression
 				invResistanceContributions += betaSqr * betaSqr / currentVessel->resistance;
 			}
 		}
 		root->localResistance = 8 * nu->getValue(root->nLevel) / M_PI * root->length;
+		//	Check! Is not 1/ (1/localResistance + invResistanceContribution)?
 		root->resistance = root->localResistance + 1 / invResistanceContributions;
 	}
 }

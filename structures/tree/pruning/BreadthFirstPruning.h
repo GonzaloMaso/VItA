@@ -4,6 +4,8 @@
 #include"../SingleVesselCCOOTree.h"
 #include"AbstractPruningRule.h"
 
+//	TODO The class is not following the abstract prunnig class.
+//	TODO Two implementations in one class, Split this class into two.
 class BreadthFirstPruning {
     public:
         SingleVesselCCOOTree *pruneTree(SingleVesselCCOOTree *tree, vector<AbstractPruningRule *>& rules);
