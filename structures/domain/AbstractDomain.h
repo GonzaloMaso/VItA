@@ -15,6 +15,7 @@
 
 #include <vtkSmartPointer.h>
 #include <vtkPolyData.h>
+#include<vtkSelectEnclosedPoints.h>
 
 #include "../vascularElements/AbstractVascularElement.h"
 #include "../CCOCommonStructures.h"
@@ -157,6 +158,9 @@ public:
 	/**
 	 * Virtual method to be used by StagedFRROTreeGeneratorLogger.
 	 */
+
+	virtual vtkSmartPointer<vtkSelectEnclosedPoints> getEnclosedPoints() = 0;
+
 	virtual void logDomainFiles(FILE *fp) = 0;
 	const vector<int>& getGrowingStages() const;
 	void setGrowingStages(const vector<int>& growingStages);

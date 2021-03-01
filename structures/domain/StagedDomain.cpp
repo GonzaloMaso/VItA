@@ -16,6 +16,10 @@ StagedDomain::StagedDomain() : AbstractDomain(NULL){
 	initialStage = 0;
 }
 
+StagedDomain::~StagedDomain() {
+	this->domainStage.clear();
+}
+
 void StagedDomain::addStage(long long int terminals, AbstractDomain* domain){
 	domainStage.push_back(domain);
 	if(terminalsPerStage.size()>0){
@@ -132,4 +136,8 @@ int StagedDomain::getSeed()
 
 void StagedDomain::logDomainFiles(FILE *fp) {
 	fprintf(fp, "StagedDomain\n");
+}
+
+vtkSmartPointer<vtkSelectEnclosedPoints> StagedDomain::getEnclosedPoints() {
+	return this->domainStage[(this->currentStage)-(this->initialStage)]->getEnclosedPoints();
 }

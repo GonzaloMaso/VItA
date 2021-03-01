@@ -21,6 +21,7 @@
 #include <vtkPoints.h>
 #include <vtkMassProperties.h>
 #include <vtkSmartPointer.h>
+#include <vtkSelectEnclosedPoints.h>
 
 #include "UniformDistributionGenerator.h"
 
@@ -45,6 +46,7 @@ SimpleDomain::SimpleDomain(string filename, GeneratorData *instanceData) :
 	double *bb = vtkGeometry->GetBounds();
 	distribution = new UniformDistributionGenerator();
 	distribution->initialize(this->seed,bb);
+	this->didAllocateDistribution = true;
 
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
 }
@@ -70,6 +72,7 @@ SimpleDomain::SimpleDomain(string filename, int N, GeneratorData *instanceData) 
 	double *bb = vtkGeometry->GetBounds();
 	distribution = new UniformDistributionGenerator();
 	distribution->initialize(this->seed,bb);
+	this->didAllocateDistribution = true;
 
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
 }
@@ -95,6 +98,7 @@ SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData *inst
 	double *bb = vtkGeometry->GetBounds();
 	distribution = new UniformDistributionGenerator();
 	distribution->initialize(seed,bb);
+	this->didAllocateDistribution = true;
 
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
 	cout << "Characteristic length " << characteristicLength << endl;
@@ -121,9 +125,17 @@ SimpleDomain::SimpleDomain(string filename, int N, int seed, GeneratorData* inst
 	double *bb = vtkGeometry->GetBounds();
 	this->distribution = distribution;
 	this->distribution->initialize(seed,bb);
+	this->didAllocateDistribution = false;
 
 	characteristicLength = max(max((bb[1] - bb[0]) / 2, (bb[3] - bb[2]) / 2), (bb[5] - bb[4]) / 2);
 	cout << "Characteristic length " << characteristicLength << endl;
+}
+
+SimpleDomain::~SimpleDomain() {
+	this->randomInnerPoints.clear();
+	if (this->didAllocateDistribution) {
+		delete this->distribution;
+	}
 }
 
 void SimpleDomain::generateRandomPoints() {
@@ -285,4 +297,10 @@ string SimpleDomain::getFilename()
 void SimpleDomain::logDomainFiles(FILE *fp) {
 	fprintf(fp, "SimpleDomain\n");
     fprintf(fp, "filename = %s\n", this->getFilename().c_str());
+}
+
+vtkSmartPointer<vtkSelectEnclosedPoints> SimpleDomain::getEnclosedPoints() {
+	vtkSmartPointer<vtkSelectEnclosedPoints> enclosedPoints = vtkSmartPointer<vtkSelectEnclosedPoints>::New();
+	enclosedPoints->Initialize(this->vtkGeometry);
+	return enclosedPoints;
 }

@@ -12,3 +12,5 @@
 IDomainObserver::IDomainObserver(){
 }
 
+IDomainObserver::~IDomainObserver() {
+};

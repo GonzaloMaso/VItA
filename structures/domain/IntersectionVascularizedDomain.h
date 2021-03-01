@@ -72,6 +72,10 @@ public:
 	 */
 	IntersectionVascularizedDomain(vector<string> filenameVascularRegions, int nDraw, int seed, GeneratorData *instanceData);
 	/**
+	 * Desctructor
+	 */
+	~IntersectionVascularizedDomain();
+	/**
 	 * Returns if the segment defined by the vertexes @p xs and @p xf is inside the current transport domain without intersecting non-vascularized regions.
 	 * @param xs Start point of the segment.
 	 * @param xf End point of the segment.
@@ -137,6 +141,11 @@ public:
 	vector<string> getFilenameVR();
 
 	void logDomainFiles(FILE *fp);
+
+	/**
+	 * Returns vtkSelectEnclosedPoints for the first geometry passed to the domain.
+	 */
+	vtkSmartPointer<vtkSelectEnclosedPoints> getEnclosedPoints() override;
 
 protected:
 	deque<point> randomInnerPoints;

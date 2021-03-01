@@ -96,6 +96,10 @@ public:
 	 * @param xf End point of the segment.
 	 * @return 1 if the segment defined by the vertexes @p xs and @p xf is inside the current domain otherwise 0.
 	 */
+	/**
+	 * Destructor
+	 */
+	~PartiallyVascularizedDomain();
 	int isSegmentInside(point xs, point xf);
 	/**
 	 * Estimates a characteristic length for the current domain. This length is useful to estimate the perfusion volume of the domain.
@@ -165,6 +169,8 @@ public:
 	vector<string> getFilenameNVR();
 
 	void logDomainFiles(FILE *fp);
+
+	vtkSmartPointer<vtkSelectEnclosedPoints> getEnclosedPoints() override;
 
 protected:
 	//	TODO This should be generalised in the AbstractDomain class

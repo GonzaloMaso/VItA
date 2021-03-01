@@ -92,6 +92,10 @@ SimpleDomain2D::SimpleDomain2D(string filename, int N, int seed, GeneratorData *
 
 }
 
+SimpleDomain2D::~SimpleDomain2D() {
+	this->randomInnerPoints.clear();
+}
+
 void SimpleDomain2D::generateRandomPoints() {
 	if (seed == -1)
 		seed = chrono::system_clock::now().time_since_epoch().count();
@@ -282,4 +286,10 @@ string SimpleDomain2D::getFilename()
 void SimpleDomain2D::logDomainFiles(FILE *fp) {
 	fprintf(fp, "SimpleDomain2D\n");
     fprintf(fp, "filename = %s\n", this->getFilename().c_str());
+}
+
+vtkSmartPointer<vtkSelectEnclosedPoints> SimpleDomain2D::getEnclosedPoints() {
+	vtkSmartPointer<vtkSelectEnclosedPoints> enclosedPoints = vtkSmartPointer<vtkSelectEnclosedPoints>::New();
+	enclosedPoints->Initialize(this->vtkGeometry);
+	return enclosedPoints;
 }

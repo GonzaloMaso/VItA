@@ -69,6 +69,8 @@ class StagedFRROTreeGenerator : public IDomainObserver {
 	/**	File name for the configuration file.*/
 	string confFilename;
 
+	bool didAllocateTree;
+
 public:
 	/**
 	 * Constructor for tree with Fahraeus-Lindquist viscosity model.
@@ -113,9 +115,33 @@ public:
 	 */
 	AbstractObjectCCOTree *resume(long long int saveInterval, string tempDirectory);
 	/**
+	 * Generates the specified tree with a failsafe for bad configuration.
+	 * @param saveInterval Number of iterations performed between saved steps.
+	 * @param tempDirectory Directory where intermediate solutions are saved.
+	 * @param maxNumOfTrials Maximum number of trials before generator fails and exits.
+	 * @return	Perfusion tree.
+	 */
+	AbstractObjectCCOTree *generateExperimental(long long int saveInterval, string tempDirectory, int maxNumOfTrials);
+	/**
+	 * Resumes the tree generation.
+	 * @param saveInterval Number of iterations performed between saved steps.
+	 * @param tempDirectory Directory where intermediate solutions are saved.
+	 * @param maxNumOfTrials Maximum number of trials before generator fails and exits.
+	 * @return	Perfusion tree.
+	 */
+	AbstractObjectCCOTree *resumeExperimental(long long int saveInterval, string tempDirectory, int maxNumOfTrials);
+	/**
 	 * Returns the perfusion domain.
 	 * @return Perfusion domain.
 	 */
+
+	/**
+	 * Resumes the tree generation process and saves the optimal xNew and xBif in @param fp.
+	 */
+	AbstractObjectCCOTree *resumeSavePoints(long long int saveInterval, string tempDirectory, FILE *fp);
+
+	AbstractObjectCCOTree *resumeSavePointsMidPoint(long long int saveInterval, string tempDirectory, FILE *fp);
+	
 	StagedDomain* getDomain();
 	/**
 	 * Returns the generated tree.
@@ -175,7 +201,6 @@ public:
 	double getDLimInitial();
 
 	double getDLimLast();
-	 
 	
 protected:
 	/**	Configuration file stream. */
@@ -209,7 +234,5 @@ protected:
 	 * Closes the configuration file for the current tree generation.
 	 */
 	void closeConfigurationFile();
-	
 };
-
-#endif /* STAGEDFRROTREEGENERATOR_H_ */
+#endif

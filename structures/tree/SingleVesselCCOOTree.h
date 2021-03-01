@@ -3,6 +3,8 @@
 /*
  * SingleVesselCCOOTree.h
  *
+ *	Jan 28, 2021: Important! This class needs cleaning and refactoring.
+ *
  *  Created on: Mar 29, 2018
  *      Author: Gonzalo D. Maso Talou
  */
@@ -31,6 +33,10 @@ class SingleVesselCCOOTree: public AbstractObjectCCOTree {
 	double variationTolerance;
 	/**	Amount of non-common terminals. */
 	long long int nCommonTerminals;
+	//	FIXME These classes should not have this kind of permissions, must rework the architecture to a POO strategy.
+	friend class PruningCCOOTree;
+	friend class BreadthFirstPruning;
+	friend class TreeMerger;
 public:
 	/**
 	 * Common tree creator.
@@ -75,7 +81,11 @@ public:
 	 */
 	SingleVesselCCOOTree(string filenameCCO, GeneratorData* instanceData, double qi, AbstractConstraintFunction<double, int> *gam, AbstractConstraintFunction<double, int> *epsLim,
 			AbstractConstraintFunction<double, int> *nu, double refPressure, double viscosityTolerance);
-
+	/**
+	 * Creates a copy of the tree only with its parameters. Does not create vessel data.
+	 * @param baseTree Base tree.
+	 */
+	SingleVesselCCOOTree(SingleVesselCCOOTree *baseTree);
 	/**
 	 * Common destructor.
 	 */
@@ -112,6 +122,29 @@ public:
 	 * @param vesselFunction Vessel function of the added vessel.
 	 */
 	void addVessel(point xProx, point xDist, AbstractVascularElement *parent, AbstractVascularElement::VESSEL_FUNCTION vesselFunction);
+
+	//	FIXME This function probably should be part of other class
+	void addVesselMergeFast(point xProx, point xDist, AbstractVascularElement *parent, AbstractVascularElement::VESSEL_FUNCTION vesselFunction, unordered_map<string, SingleVessel *>* stringToPointer);
+
+	//	FIXME This function probably should be part of other class
+	void addVesselMerge(point xProx, point xDist, AbstractVascularElement *parent, AbstractVascularElement::VESSEL_FUNCTION vesselFunction, unordered_map<string, SingleVessel *>* stringToPointer);
+	/** 
+	 * Adds a vessel that has already been validated. This function is used by BreadthFirstPrunning.
+	 * @param newVessel Vessel that will be added.
+	 * @param originalVessel Vessel that has been validaded in a previous tree.
+	 * @param copiedTo Mapping such that copiedTo[originalVessel] = copiedVessel;
+	*/
+	//	FIXME This function probably should be part of other class
+	void addValitatedVessel(SingleVessel *newVessel, SingleVessel *originalVessel, unordered_map<SingleVessel *, SingleVessel *>& copiedTo);
+
+	/** 
+	 * Adds a vessel that has already been validated, but do not update the tree. This function is used by BreadthFirstPrunning.
+	 * @param newVessel Vessel that will be added.
+	 * @param originalVessel Vessel that has been validaded in a previous tree.
+	 * @param copiedTo Mapping such that copiedTo[originalVessel] = copiedVessel;
+	*/
+	//	FIXME This function probably should be part of other class
+	void addValitatedVesselFast(SingleVessel *newVessel, SingleVessel *originalVessel, unordered_map<SingleVessel *, SingleVessel *>& copiedTo);
 
 //	/**
 //	 * Adds a new vessel to the CCO tree as continuation of the pre-existent vessel @p parent. @param xDist is the distal nodes of the new

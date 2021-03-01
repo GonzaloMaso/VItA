@@ -44,6 +44,7 @@ class SimpleDomain: public AbstractDomain {
 	int seed;
 	/** Point generator */
 	DistributionGenerator *distribution;
+	bool didAllocateDistribution;
 public:
 	/**
 	 * Constructs a domain shaped by the vtkPolydata within @p filename.
@@ -81,6 +82,10 @@ public:
 	 * @param xf End point of the segment.
 	 * @return 1 if the segment defined by the vertexes @p xs and @p xf is inside the current domain otherwise 0.
 	 */
+	/**
+	 * Destructor
+	 */
+	~SimpleDomain();
 	int isSegmentInside(point xs, point xf);
 	/**
 	 * Estimates a characteristic length for the current domain. This length is useful to estimate the perfusion volume of the domain.
@@ -146,6 +151,8 @@ public:
 	string getFilename();
 
 	void logDomainFiles(FILE *fp);
+
+	vtkSmartPointer<vtkSelectEnclosedPoints> getEnclosedPoints() override;
 
 protected:
 	deque<point> randomInnerPoints;

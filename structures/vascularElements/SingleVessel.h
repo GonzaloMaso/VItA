@@ -144,6 +144,8 @@ public:
 	void saveVesselData(ofstream *treeFile);
 	void saveVesselConnectivity(ofstream *treeFile);
 
+	string coordToString();
+
 };
 
 #endif /* VASCULARELEMENTS_SINGLEVESSEL_H_ */

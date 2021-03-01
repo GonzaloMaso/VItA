@@ -35,6 +35,10 @@ public:
 	 */
 	StagedDomain();
 	/**
+	 * Descturctor.
+	 */
+	~StagedDomain();
+	/**
 	 * Add an additional stage to the domain.
 	 * @param terminals Amount of terminals for the added stage.
 	 * @param domain Domain used for the added stage.
@@ -148,6 +152,8 @@ public:
 	int getSeed();
 
 	void logDomainFiles(FILE *fp);
+
+	vtkSmartPointer<vtkSelectEnclosedPoints> getEnclosedPoints() override;
 };
 
 #endif /* DOMAIN_STAGEDDOMAIN_H_ */

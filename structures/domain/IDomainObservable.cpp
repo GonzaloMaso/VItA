@@ -12,6 +12,10 @@
 IDomainObservable::IDomainObservable() {
 }
 
+IDomainObservable::~IDomainObservable() {
+	(this->observers).clear();
+}
+
 void IDomainObservable::registerObserver(IDomainObserver* observer) {
 	observers.push_back(observer);
 }

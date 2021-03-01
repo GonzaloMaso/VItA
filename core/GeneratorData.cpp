@@ -22,6 +22,7 @@ GeneratorData::GeneratorData()
 	this->dLimCorrectionFactor = 1.0;
 	this->vesselFunction = 0;
 	this->resetsDLim = false;
+	this->didAllocateCostEstimator = false;
 }
 
 GeneratorData::GeneratorData(int nLevelTest, int nTerminalTrial, double dLimReductionFactor, double perfusionAreaFactor, double closeNeighborhoodFactor, double midPointDlimFactor,
@@ -38,6 +39,7 @@ GeneratorData::GeneratorData(int nLevelTest, int nTerminalTrial, double dLimRedu
 	this->vesselFunction = 0;
 	this->resetsDLim = false;
 	this->costEstimator = new VolumetricCostEstimator();
+	this->didAllocateCostEstimator = true;
 }
 
 GeneratorData::GeneratorData(int nLevelTest, int nTerminalTrial, double dLimReductionFactor, double perfusionAreaFactor, double closeNeighborhoodFactor, double midPointDlimFactor,
@@ -54,6 +56,7 @@ GeneratorData::GeneratorData(int nLevelTest, int nTerminalTrial, double dLimRedu
 	this->vesselFunction = vesselFunction;
 	this->resetsDLim = false;
 	this->costEstimator = new VolumetricCostEstimator();
+	this->didAllocateCostEstimator = true;
 }
 
 GeneratorData::GeneratorData(int nLevelTest, int nTerminalTrial, double dLimReductionFactor, double perfusionAreaFactor, double closeNeighborhoodFactor, double midPointDlimFactor,
@@ -70,6 +73,7 @@ GeneratorData::GeneratorData(int nLevelTest, int nTerminalTrial, double dLimRedu
 	this->vesselFunction = vesselFunction;
 	this->resetsDLim = resetDLim;
 	this->costEstimator = new VolumetricCostEstimator();
+	this->didAllocateCostEstimator = true;
 }
 
 GeneratorData::GeneratorData(int nLevelTest, int nTerminalTrial, double dLimReductionFactor, double perfusionAreaFactor, double closeNeighborhoodFactor, double midPointDlimFactor,
@@ -86,4 +90,11 @@ GeneratorData::GeneratorData(int nLevelTest, int nTerminalTrial, double dLimRedu
 	this->vesselFunction = vesselFunction;
 	this->resetsDLim = resetDLim;
 	this->costEstimator = costEstimator;
+	this->didAllocateCostEstimator = false;
+}
+
+GeneratorData::~GeneratorData() {
+	if(didAllocateCostEstimator) {
+		delete this->costEstimator;
+	}
 }

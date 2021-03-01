@@ -145,6 +145,14 @@ IntersectionVascularizedDomain::IntersectionVascularizedDomain(vector<string> fi
 
 }
 
+IntersectionVascularizedDomain::~IntersectionVascularizedDomain() {
+	this->randomInnerPoints.clear();
+	this->filenameVR.clear();
+	this->vtkVascularizedRegions.clear();
+	this->sublocators.clear();
+	delete[] this->boundingBox;
+}
+
 void IntersectionVascularizedDomain::generateRandomPoints() {
 	uniform_real_distribution<double> distX(boundingBox[0], boundingBox[1]);
 	uniform_real_distribution<double> distY(boundingBox[2], boundingBox[3]);
@@ -174,7 +182,7 @@ void IntersectionVascularizedDomain::removeRandomOuterPoints() {
 
 	vector<vector<vtkSmartPointer<vtkSelectEnclosedPoints> > > allEnclosedPoints;
 	vector<vector<vtkSmartPointer<vtkSelectEnclosedPoints> > > allEnclosedInNVR;
-//#pragma omp parallel for shared(allEnclosedPoints,allEnclosedInNVR), ordered, schedule(static,1), num_threads(omp_get_max_threads())
+#pragma omp parallel for shared(allEnclosedPoints,allEnclosedInNVR), ordered, schedule(static,1), num_threads(omp_get_max_threads())
 	for (unsigned j = 0; j < points.size(); ++j) {
 		vtkSmartPointer<vtkPolyData> pointsPolydata = vtkSmartPointer<vtkPolyData>::New();
 		pointsPolydata->SetPoints(points[j]);
@@ -192,12 +200,12 @@ void IntersectionVascularizedDomain::removeRandomOuterPoints() {
 			testVR.push_back(selectEnclosedPoints);
 		}
 
-//#pragma omp ordered
-//#pragma omp critical
+#pragma omp ordered
+#pragma omp critical
 		{
 			allEnclosedPoints.push_back(testVR);
 		}
-//#pragma omp flush
+#pragma omp flush
 	}
 
 	randomInnerPoints.clear();
@@ -320,4 +328,10 @@ void IntersectionVascularizedDomain::logDomainFiles(FILE *fp) {
     for (int i = 0; i < size; ++i) {
         fprintf(fp, "filenameVR[%d] = %s\n", i, filenameVR[i].c_str());
     }
+}
+
+vtkSmartPointer<vtkSelectEnclosedPoints> IntersectionVascularizedDomain::getEnclosedPoints() {
+	vtkSmartPointer<vtkSelectEnclosedPoints> enclosedPoints = vtkSmartPointer<vtkSelectEnclosedPoints>::New();
+	enclosedPoints->Initialize(this->vtkVascularizedRegions[0]);
+	return enclosedPoints;
 }
