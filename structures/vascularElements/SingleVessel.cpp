@@ -71,12 +71,13 @@ double SingleVessel::getVolume() {
 }
 
 void SingleVessel::updatePressure() {
-	localResistance = 8 * viscosity / M_PI * length;
+	double radiusSqr = this->radius * this->radius;
+	this->localResistance = (8 * this->viscosity * this->length) / (M_PI * radiusSqr *  radiusSqr);
 	double distalPressure = 0;
 	for (std::vector<AbstractVascularElement *>::iterator it = children.begin(); it != children.end(); ++it) {
 		distalPressure += (*it)->getProximalPressure();
 	}
-	pressure = flow * localResistance + distalPressure;
+	this->pressure = this->flow * this->localResistance + distalPressure;
 }
 
 double SingleVessel::getDistalRadius() {
