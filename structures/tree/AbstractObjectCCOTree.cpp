@@ -44,6 +44,7 @@ AbstractObjectCCOTree::AbstractObjectCCOTree(GeneratorData *instanceData) {
 
 	this->currentStage = 0;
 	this->isInCm = 0;
+	this->isFL = true;
 
 }
 
@@ -75,6 +76,7 @@ AbstractObjectCCOTree::AbstractObjectCCOTree(point xi, double qi, AbstractConstr
 
 	this->currentStage = 0;
 	this->isInCm = 0;
+	this->isFL = true;
 }
 
 AbstractObjectCCOTree::~AbstractObjectCCOTree() {
@@ -368,4 +370,8 @@ int AbstractObjectCCOTree::getIsInCm() const
 void AbstractObjectCCOTree::setIsInCm(int isInCm)
 		{
 	this->isInCm = isInCm;
+}
+
+void AbstractObjectCCOTree::setIsFL(bool isFL) {
+	this->isFL = isFL;
 }

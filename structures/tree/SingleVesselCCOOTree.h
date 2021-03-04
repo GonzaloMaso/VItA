@@ -314,6 +314,11 @@ private:
 
 	double getVariationTolerance();
 
+
+	/** 
+	 * Get vessel resistance.
+	 */
+	double getRealViscosity(SingleVessel *vessel);
 };
 
 #endif /* TREE_SINGLEVESSELCCOOTREE_H_ */
