@@ -11,6 +11,7 @@ using namespace std;
 struct ReadData {
     point xBif, xNew, xPProx, xPDist;
     AbstractVascularElement::VESSEL_FUNCTION function;
+    int stage;
 };
 
 class TreeMerger {
@@ -19,7 +20,7 @@ class TreeMerger {
     unordered_map<string, SingleVessel *> *stringToPointer;
 
     public:
-    TreeMerger(string baseTree, vector<string>& derivedTreePoints, GeneratorData *instanceData, AbstractConstraintFunction<double, int> *gam, AbstractConstraintFunction<double, int> *epsLim, AbstractConstraintFunction<double, int> *nu, bool isInCm);
+    TreeMerger(SingleVesselCCOOTree *baseTree, vector<string>& derivedTreePoints);
     ~TreeMerger();
     SingleVesselCCOOTree *mergeFast();
     SingleVesselCCOOTree *merge();

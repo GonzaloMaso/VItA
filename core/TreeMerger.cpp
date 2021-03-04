@@ -38,11 +38,9 @@ void TreeMerger::createMapping(SingleVessel *vessel) {
     }
 }
 
-TreeMerger::TreeMerger(string baseTree, vector<string>& derivedTreePoints, GeneratorData *instanceData, AbstractConstraintFunction<double, int> *gam,
-    AbstractConstraintFunction<double, int> *epsLim, AbstractConstraintFunction<double, int> *nu, bool isInCm) {
+TreeMerger::TreeMerger(SingleVesselCCOOTree *baseTree, vector<string>& derivedTreePoints) {
         
-        this->tree = new SingleVesselCCOOTree(baseTree, instanceData, gam, epsLim, nu);
-        this->tree->setIsInCm(isInCm);
+        this->tree = baseTree;
         
         this->vesselToMerge = new vector<vector<ReadData> *>;
         
@@ -60,8 +58,10 @@ TreeMerger::TreeMerger(string baseTree, vector<string>& derivedTreePoints, Gener
             ReadData readLine;
             double tempPoints[12];
             int tempFunction;
+            int tempStage;
             fread(&tempPoints, sizeof(double), 12, fp);
             fread(&tempFunction, sizeof(int), 1, fp);
+            fread(&tempStage, sizeof(int), 1, fp);
             readLine.xBif.p[0] = tempPoints[0];
             readLine.xBif.p[1] = tempPoints[1];
             readLine.xBif.p[2] = tempPoints[2];
@@ -73,11 +73,14 @@ TreeMerger::TreeMerger(string baseTree, vector<string>& derivedTreePoints, Gener
             readLine.xPProx.p[2] = tempPoints[8];
             readLine.xPDist.p[0] = tempPoints[9];
             readLine.xPDist.p[1] = tempPoints[10];
-            readLine.xPDist.p[2] = tempPoints[11];            
+            readLine.xPDist.p[2] = tempPoints[11];
+            readLine.function = static_cast<AbstractVascularElement::VESSEL_FUNCTION>(tempFunction);
+            readLine.stage = tempStage;
             while (!feof(fp)) {
                 toMerge->push_back(readLine);
                 fread(&tempPoints, sizeof(double), 12, fp);
                 fread(&tempFunction, sizeof(int), 1, fp);
+                fread(&tempStage, sizeof(int), 1, fp);
                 readLine.xBif.p[0] = tempPoints[0];
                 readLine.xBif.p[1] = tempPoints[1];
                 readLine.xBif.p[2] = tempPoints[2];
@@ -90,6 +93,8 @@ TreeMerger::TreeMerger(string baseTree, vector<string>& derivedTreePoints, Gener
                 readLine.xPDist.p[0] = tempPoints[9];
                 readLine.xPDist.p[1] = tempPoints[10];
                 readLine.xPDist.p[2] = tempPoints[11];
+                readLine.function = static_cast<AbstractVascularElement::VESSEL_FUNCTION>(tempFunction);
+                readLine.stage = tempStage;
             }
             fclose(fp);
         }
@@ -119,7 +124,6 @@ TreeMerger::~TreeMerger() {
         delete (*it);
     }
     delete this->vesselToMerge;
-    delete this->tree;
 }
 
 SingleVesselCCOOTree* TreeMerger::mergeFast() {
@@ -130,7 +134,7 @@ SingleVesselCCOOTree* TreeMerger::mergeFast() {
                 (*itVessels).xPDist.p[0], (*itVessels).xPDist.p[1], (*itVessels).xPDist.p[2]);
             // printf("key_accessed = %s\n", coordToString((*itVessels).xPProx, (*itVessels).xPDist).c_str());
             SingleVessel *parentPointer = this->stringToPointer->at(coordToString((*itVessels).xPProx, (*itVessels).xPDist));
-            tree->addVesselMergeFast((*itVessels).xBif, (*itVessels).xNew, parentPointer, (*itVessels).function, this->stringToPointer);
+            tree->addVesselMergeFast((*itVessels).xBif, (*itVessels).xNew, parentPointer, (*itVessels).function, (*itVessels).stage, this->stringToPointer);
         }
     }
 
@@ -141,6 +145,8 @@ SingleVesselCCOOTree* TreeMerger::mergeFast() {
 	while (maxVariation > this->tree->variationTolerance) {
 			this->tree->updateTreeViscositiesBeta(((SingleVessel *) this->tree->getRoot()), &maxVariation);
 	}
+
+    this->tree->computePressure(this->tree->getRoot());
 
     return this->tree;
 }
@@ -185,7 +191,7 @@ SingleVesselCCOOTree* TreeMerger::merge() {
                 curData.xPDist.p[0], curData.xPDist.p[1], curData.xPDist.p[2]);
             // printf("key_accessed = %s\n", coordToString((*itVessels).xPProx, (*itVessels).xPDist).c_str());
             SingleVessel *parentPointer = this->stringToPointer->at(coordToString(curData.xPProx, curData.xPDist));
-            tree->addVesselMerge(curData.xBif, curData.xNew, parentPointer, curData.function, this->stringToPointer);
+            tree->addVesselMerge(curData.xBif, curData.xNew, parentPointer, curData.function, curData.stage, this->stringToPointer);
             if ((treesArray.vessels)[i].cur + 1 == (treesArray.vessels)[i].noVessels) {
                 (treesArray.vessels)[i].isDone = true;
             }
@@ -193,6 +199,13 @@ SingleVesselCCOOTree* TreeMerger::merge() {
         }
         i = (i + 1) % treesArray.size;
     }
+
+    this->tree->updateTree((SingleVessel *) this->tree->getRoot(), this->tree);
+	double maxVariation = INFINITY;
+	while (maxVariation > this->tree->variationTolerance) {
+		this->tree->updateTreeViscositiesBeta(((SingleVessel *) this->tree->getRoot()), &maxVariation);
+    }
+    this->tree->computePressure(this->tree->getRoot());
 
     delete treesArray.vessels;
     return this->tree;
