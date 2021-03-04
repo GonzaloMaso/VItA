@@ -75,6 +75,8 @@ protected:
 	int currentStage;
 	/**	If the tree is in cm, otherwise is assumed that is in mm (default) */
 	int isInCm;
+	/** To check whether the tree user fixed viscosity or considers FL effect*/
+	bool isFL;
 
 	friend class PruningCCOOTree;
 
@@ -313,7 +315,11 @@ public:
 	 * @param isInCm.
 	 */
 	void setIsInCm(int isInCm);
-
+	/**
+	 * Setter of @p isFl
+	 * @param isFL
+	 */
+	void setIsFL(bool isFL);
 protected:
 	/**
 	 * Writes a string with the vessel attributes in a .cco file.
@@ -344,6 +350,8 @@ protected:
 	 * @return	Amount of terminals in the subtree.
 	 */
 	long long int countTerminals(AbstractVascularElement* root, AbstractVascularElement::TERMINAL_TYPE type);
+
+	
 
 private:
 	void saveVessels(AbstractVascularElement *root, ofstream *treeFile);
