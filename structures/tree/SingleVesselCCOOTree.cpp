@@ -1629,6 +1629,14 @@ double SingleVesselCCOOTree::evaluate(point xNew, point xTest, SingleVessel *par
 		return INFINITY;
 	}
 
+	if (!isValidAspectRatio(iNew) || !isValidAspectRatio(iCon) || !isValidAspectRatio(clonedParent)) {
+		delete localEstimator;
+		delete clonedTree;
+		delete iNew;
+		delete iCon;
+		return INFINITY;
+	}
+
 	//	Compute cost and checks the geometric constraint only at the terminals - if the last is violated, cost is INFINITY
 	double diffCost = localEstimator->computeCost(clonedTree);
 
@@ -1691,6 +1699,13 @@ double SingleVesselCCOOTree::evaluate(point xNew, SingleVessel *parent, double d
 	//	FIXME Define symmetry law for N-ary bifurcations (Most different betas?)
 	//	Check the symmetry constraint only for the newest vessel.
 	if (!isSymmetricallyValid( ((SingleVessel *)clonedParent->getChildren()[0])->beta, iNew->beta, iNew->nLevel)) {
+		delete localEstimator;
+		delete clonedTree;
+		delete iNew;
+		return INFINITY;
+	}
+
+	if (!isValidAspectRatio(clonedParent) || !isValidAspectRatio(iNew)) {
 		delete localEstimator;
 		delete clonedTree;
 		delete iNew;
@@ -2141,4 +2156,11 @@ double SingleVesselCCOOTree::getVariationTolerance()
 
 string SingleVesselCCOOTree::getFilenameCCO() {
 	return this->filenameCCO;
+}
+
+bool SingleVesselCCOOTree::isValidAspectRatio(SingleVessel *vessel) {
+	if (vessel->length/vessel->radius <= 2) {
+		return false;
+	}
+	return true;
 }
