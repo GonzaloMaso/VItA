@@ -38,6 +38,6 @@ double DoublePowerCostEstimator::computeVesselCost(SingleVessel *vessel) {
 
 void DoublePowerCostEstimator::logCostEstimator(FILE *fp) {
     fprintf(fp, "This domain uses PowerCostEstimator.\n");
-    fprintf(fp, "Lenght exponent = %u.\n", this->lExp);
-    fprintf(fp, "Radius exponent = %u.\n", this->rExp);
+    fprintf(fp, "Lenght exponent = %lf.\n", this->lExp);
+    fprintf(fp, "Radius exponent = %lf.\n", this->rExp);
 }
