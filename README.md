@@ -11,7 +11,7 @@ As a first step, we must clone the github repository in our local drive using th
     cd vita_build
     ccmake ../vita_source
 
-Complete the CMAKE_INSTALL_PREFIX = <my_vita_folder>, press key "c" to configure and after "g" to generate make files. Once back in the terminal, we will build and install the library with the following commands:
+In the ccmake interface, press key "c" to configure the cmake project, complete the CMAKE_INSTALL_PREFIX = <my_vita_folder>, press key "c" again, and then press "g" to generate make files. Once back in the terminal, we will build and install the library with the following commands:
 
     make
     make install
