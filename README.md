@@ -18,10 +18,11 @@ In the ccmake interface, press key "c" to configure the cmake project, complete 
 
 For parallel compilation with N threads, switch the command "make" by "make -jN", e.g., to parallelise with 8 threads execute "make -j8". Note that the "make" command may take more than 30 minutes as is also installing VTK 8.1 (a dependency of this library).
 
-
-
 # Using VItA library
 
+Once you create your project, cpp files using VItA should be compiled and linked as follows
+
+    g++ <cpp_filename>.cpp -Wall -std=c++11 -O3 -I<vita_folder>/vita_build/include/vtk-8.1 -I<vita_folder>/include/vita_source -L<vita_folder>/vita_build/lib -L<vita_folder>/lib -o <executable_filename> -lVItA -lvtkCommonCore-8.1 -lvtkCommonDataModel-8.1 -lvtkCommonExecutionModel-8.1 -lvtkFiltersModeling-8.1 -lvtkIOCore-8.1 -lvtkIOLegacy-8.1 -lvtkIOXML-8.1 -lvtkIOGeometry-8.1 -lvtkInfovisCore-8.1 -lvtkFiltersGeneral-8.1 -lvtkFiltersCore-8.1 -lvtkCommonTransforms-8.1 -lvtkIOXMLParser-8.1
 
 
 # About
