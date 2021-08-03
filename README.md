@@ -16,7 +16,7 @@ Complete the CMAKE_INSTALL_PREFIX = <my_vita_folder>, press key "c" to configure
     make
     make install
 
-For parallel compilation with N threads, switch the command "make" by "make -jN", e.g., to parallelise with 8 threads execute "make -j8". Note that the "make" command will take more than 30 minutes as is also installing VTK 8.1 (a dependency of this library).
+For parallel compilation with N threads, switch the command "make" by "make -jN", e.g., to parallelise with 8 threads execute "make -j8". Note that the "make" command may take more than 30 minutes as is also installing VTK 8.1 (a dependency of this library).
 
 
 
