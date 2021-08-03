@@ -24,6 +24,7 @@ Once you create your project, cpp files using VItA should be compiled and linked
 
     g++ <cpp_filename>.cpp -Wall -std=c++11 -O3 -I<vita_folder>/vita_build/include/vtk-8.1 -I<vita_folder>/include/vita_source -L<vita_folder>/vita_build/lib -L<vita_folder>/lib -o <executable_filename> -lVItA -lvtkCommonCore-8.1 -lvtkCommonDataModel-8.1 -lvtkCommonExecutionModel-8.1 -lvtkFiltersModeling-8.1 -lvtkIOCore-8.1 -lvtkIOLegacy-8.1 -lvtkIOXML-8.1 -lvtkIOGeometry-8.1 -lvtkInfovisCore-8.1 -lvtkFiltersGeneral-8.1 -lvtkFiltersCore-8.1 -lvtkCommonTransforms-8.1 -lvtkIOXMLParser-8.1
 
+An example can be found in the released version 0.2 (see tag VItA v0.2 - https://github.com/GonzaloMaso/VItA/releases/tag/v0.2).
 
 # About
 
