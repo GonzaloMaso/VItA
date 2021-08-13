@@ -29,3 +29,7 @@ An example can be found in the released version 0.2 (see tag VItA v0.2 - https:/
 # About
 
 The Virtual ITerative Angiogenesis library allows the generation of synthetic vasculatures mimicking the angiogenesis process. The models support the usage of in-vivo or experimental prior constraints over the geometrical description.
+
+# Publications
+
+Maso Talou, G. D., et al. "Adaptive constrained constructive optimisation for complex vascularisation processes." Scientific Reports 11.1 (2021): 1-22. - https://www.nature.com/articles/s41598-021-85434-9
