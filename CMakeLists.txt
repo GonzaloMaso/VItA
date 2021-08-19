@@ -13,9 +13,25 @@ if(DOWNLOAD_DEPENDENCIES)
 	link_directories(${VTK_LIB_DIR})
 	include_directories(${VTK_INCLUDE_DIR})
 else()
-	set(VTK_DIR "/usr/local/VTK")
-	find_package(VTK REQUIRED)
-	include(${VTK_USE_FILE})
+	find_path(VTK_INCLUDE_DIRS vtkAbstractArray.h
+          HINTS .. ENV VITA_PATH /usr/local/include/vtk-8.1
+          PATH_SUFFIXES vita_build/include/vtk-8.1)
+	find_path(VTK_LIBRARY_DIRS libvtkCommonCore-8.1.so
+          HINTS .. ENV VITA_PATH /usr/local/lib
+          PATH_SUFFIXES vita_build/lib)
+	link_directories(${VTK_LIBRARY_DIRS})
+	include_directories(${VTK_INCLUDE_DIRS})
+	set(VTK_LIBRARIES
+			vtkCommonCore-8.1
+			vtkCommonDataModel-8.1
+			vtkCommonExecutionModel-8.1
+			vtkFiltersFlowPaths-8.1
+			vtkFiltersModeling-8.1
+			vtkIOCore-8.1
+			vtkIOLegacy-8.1
+			vtkIOXML-8.1
+			vtkIOGeometry-8.1
+		)
 endif()
 
 file(GLOB_RECURSE SOURCE_FILES
@@ -30,15 +46,11 @@ file(GLOB_RECURSE HEADER_FILES
 option(SHARED_LIBRARY "when ON generates a .so library." OFF)
 if(SHARED_LIBRARY)
 	add_library(VItA SHARED ${SOURCE_FILES} ${HEADER_FILES})
-#	set_target_properties(VItA PROPERTIES LINK_FLAGS "-fPIC")
+	set_target_properties(VItA PROPERTIES POSITION_INDEPENDENT_CODE True)
 else()
     add_library(VItA STATIC ${SOURCE_FILES} ${HEADER_FILES})
-#	set_target_properties(VItA PROPERTIES LINK_FLAGS "-Wl,--whole-archive")
 endif()
 
-#add_library(VItA STATIC ${SOURCE_FILES} ${HEADER_FILES})
-
-#set_target_properties(VItA PROPERTIES PUBLIC_HEADER ${HEADER_FILES})
 target_link_libraries(VItA ${VTK_LIBRARIES})
 
 if(DOWNLOAD_DEPENDENCIES)
