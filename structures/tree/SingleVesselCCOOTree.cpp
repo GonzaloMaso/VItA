@@ -97,7 +97,6 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData *in
 		cout << v->vtkSegmentId << endl;
 		treeFile >> v->xProx.p[0];
 		treeFile >> v->xProx.p[1];
-		treeFile >> v->xProx.p[1];
 		treeFile >> v->xProx.p[2];
 		treeFile >> v->xDist.p[0];
 		treeFile >> v->xDist.p[1];
@@ -195,122 +194,6 @@ SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData *in
 
 	treeFile.close();
 }
-
-//SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, string filenameVTK, GeneratorData *instanceData) :
-//		AbstractObjectCCOTree(instanceData) {
-//	ifstream treeFile;
-//
-//	treeFile.open(filenameCCO.c_str(), ios::in);
-//	string token;
-//	treeFile >> token;
-//	while (token.compare("*Tree") != 0 && !treeFile.eof()) {
-//		treeFile >> token;
-//	}
-//
-//	//	Read tree
-//	treeFile >> xPerf.p[0];
-//	treeFile >> xPerf.p[1];
-//	treeFile >> xPerf.p[2];
-//	treeFile >> qProx;
-//	treeFile >> psiFactor;
-//	treeFile >> dp;
-//	treeFile >> nTerms;
-//	treeFile >> refPressure;
-//	treeFile >> pointCounter;
-//	treeFile >> rootRadius;
-//	treeFile >> variationTolerance;
-//
-//	treeFile >> token;
-//	while (token.compare("*Vessels") != 0 && !treeFile.eof()) {
-//		treeFile >> token;
-//	}
-//
-//	//	Read each vessel
-//	//	TODO update to support new features.
-//	int numVessels;
-//	treeFile >> numVessels;
-//	for (int i = 0; i < numVessels; ++i) {
-//		SingleVessel *v = new SingleVessel();
-//		treeFile >> v->vtkSegmentId;
-//		treeFile >> v->xProx.p[0];
-//		treeFile >> v->xProx.p[1];
-//		treeFile >> v->xProx.p[2];
-//		treeFile >> v->xDist.p[0];
-//		treeFile >> v->xDist.p[1];
-//		treeFile >> v->xDist.p[2];
-//		treeFile >> v->nLevel;
-//		treeFile >> v->radius;
-//		treeFile >> v->beta;
-//		treeFile >> v->length;
-//		treeFile >> v->resistance;
-//		treeFile >> v->flow;
-//		treeFile >> v->pressure;
-//		treeFile >> v->ID;
-//		treeFile >> v->treeVolume;
-//		treeFile >> v->viscosity;
-//		treeFile >> v->stage;
-//		this->elements[v->vtkSegmentId] = v;
-//	}
-//
-//	//	Load connectivity among segments
-//	treeFile >> token;
-//	while (token.compare("*Connectivity") != 0 && !treeFile.eof()) {
-//		treeFile >> token;
-//	}
-//	getline(treeFile, token);
-//
-//	long long rootId = 0;
-//	for (long long i = 0; i < numVessels; ++i) {
-//		long long vtkId, parentId, childId;
-//		getline(treeFile, token);
-//		stringstream ss;
-//		ss << token;
-//		ss >> vtkId;
-//
-//		//	Parent parsing
-//		ss >> parentId;
-//		if (vtkId == -1){
-//			elements[vtkId]->parent = NULL;
-//			rootId = vtkId;
-//		}
-//		else
-//			elements[vtkId]->parent = elements[parentId];
-//
-//		//	Children parsing
-//		while (!ss.eof()) {
-//			ss >> childId;
-//			elements[vtkId]->addChild(elements[childId]);
-//		}
-//	}
-//
-//	this->root = elements[rootId];
-//	cout << "Tree successfully loaded" << endl;
-//	cout << "Loading VTK structure..." << endl;
-//
-//	this->nCommonTerminals = getNTerminals(AbstractVascularElement::TERMINAL_TYPE::COMMON);
-//
-////	Load VTK tree from .vtk file
-//	vtkSmartPointer<vtkXMLPolyDataReader> reader = vtkSmartPointer<vtkXMLPolyDataReader>::New();
-//	reader->SetFileName(filenameVTK.c_str());
-//	reader->Update();
-//	this->vtkTree = reader->GetOutput();
-//	cout << "Points = " << vtkTree->GetNumberOfPoints() << endl;
-//	cout << "Vessels = " << vtkTree->GetNumberOfLines() << endl;
-//
-//	updateSegmentVtkLines();
-//
-//	vtkTree->BuildCells();
-//	vtkTree->Modified();
-//
-////	printVtkTree();
-//
-//	vtkTreeLocator->SetDataSet(vtkTree);
-//	vtkTreeLocator->BuildLocator();
-//	vtkTreeLocator->Update();
-//
-//	treeFile.close();
-//
-//}
 
 SingleVesselCCOOTree::SingleVesselCCOOTree(string filenameCCO, GeneratorData* instanceData, double qi, AbstractConstraintFunction<double, int> *gam, AbstractConstraintFunction<double, int> *epsLim,
 		AbstractConstraintFunction<double, int> *nu, double refPressure, double viscosityTolerance) :
