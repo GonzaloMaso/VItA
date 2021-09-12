@@ -29,7 +29,13 @@ void FillData(unordered_map<long long int, int>* extendedVessel, SingleVessel* r
         FillData(extendedVessel, child);
         maxChildrenStrahler = max(maxChildrenStrahler,extendedVessel->at(child->vtkSegmentId));
     }
-    extendedVessel->insert(pair<long long int, int>(root->vtkSegmentId,maxChildrenStrahler+1));
+    // For distal branching we do not increase strahler order.
+    if(root->children.size()==1) {
+        extendedVessel->insert(pair<long long int, int>(root->vtkSegmentId,maxChildrenStrahler));
+    }
+    else {
+        extendedVessel->insert(pair<long long int, int>(root->vtkSegmentId,maxChildrenStrahler+1));
+    }
 };
 
 VTKObjectTreeStrahlerWriter::VTKObjectTreeStrahlerWriter()
@@ -59,7 +65,7 @@ void VTKObjectTreeStrahlerWriter::write(string filename, AbstractObjectCCOTree* 
 	vtkSmartPointer<vtkDoubleArray> cellDataLevel = vtkSmartPointer<vtkDoubleArray>::New();
 	cellDataLevel->SetName("level");
     vtkSmartPointer<vtkDoubleArray> cellDataStrahler = vtkSmartPointer<vtkDoubleArray>::New();
-	cellDataLevel->SetName("strahler");
+	cellDataStrahler->SetName("strahler");
 	vtkSmartPointer<vtkDoubleArray> cellDataFlow = vtkSmartPointer<vtkDoubleArray>::New();
 	cellDataFlow->SetName("flow");
 	vtkSmartPointer<vtkDoubleArray> cellDataPressure = vtkSmartPointer<vtkDoubleArray>::New();
@@ -143,6 +149,7 @@ void VTKObjectTreeStrahlerWriter::write(string filename, AbstractObjectCCOTree* 
 	vtkNewTree->GetPointData()->AddArray(nodeDataTerminal);
 
 	vtkNewTree->GetCellData()->AddArray(cellDataLevel);
+    vtkNewTree->GetCellData()->AddArray(cellDataStrahler);
 	vtkNewTree->GetCellData()->AddArray(cellDataFlow);
 	vtkNewTree->GetCellData()->AddArray(cellDataPressure);
 	vtkNewTree->GetCellData()->AddArray(cellDataResistance);
