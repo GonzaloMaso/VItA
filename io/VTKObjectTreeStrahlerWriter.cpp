@@ -18,7 +18,7 @@
 
 #include "../structures/vascularElements/SingleVessel.h"
 
-void FillData(unordered_map<long long int, int>* extendedVessel, SingleVessel* root) {
+static void FillDataStrahler(unordered_map<long long int, int>* extendedVessel, SingleVessel* root) {
     if (root->children.empty()) {
         extendedVessel->insert(pair<long long int, int>(root->vtkSegmentId,0));
         return;
@@ -26,7 +26,7 @@ void FillData(unordered_map<long long int, int>* extendedVessel, SingleVessel* r
     int maxChildrenStrahler = 0;
     for(auto it = root->children.begin(); it != root->children.end(); ++it) {
         SingleVessel *child = static_cast<SingleVessel*>(*it);
-        FillData(extendedVessel, child);
+        FillDataStrahler(extendedVessel, child);
         maxChildrenStrahler = max(maxChildrenStrahler,extendedVessel->at(child->vtkSegmentId));
     }
     // For distal branching we do not increase strahler order.
@@ -38,6 +38,19 @@ void FillData(unordered_map<long long int, int>* extendedVessel, SingleVessel* r
     }
 };
 
+static void FillDataStrahlerConnectivity(unordered_map<long long int, int>* connectivity, unordered_map<long long int, int>* strahler, SingleVessel* root) {
+	for(auto it = root->children.begin(); it != root->children.end(); ++it) {
+        SingleVessel *child = static_cast<SingleVessel*>(*it);
+        FillDataStrahlerConnectivity(connectivity, strahler, child);
+    }
+	if(root->parent == nullptr) {
+		connectivity->insert(pair<long long int, int>(root->vtkSegmentId,-1));
+	}
+	else {
+		connectivity->insert(pair<long long int, int>(root->vtkSegmentId, strahler->at(static_cast<SingleVessel*>(root->parent)->vtkSegmentId)));
+	}
+}
+
 VTKObjectTreeStrahlerWriter::VTKObjectTreeStrahlerWriter()
 {
 	// TODO Auto-generated constructor stub
@@ -48,7 +61,9 @@ void VTKObjectTreeStrahlerWriter::write(string filename, AbstractObjectCCOTree* 
 	tree->computeTreeCost(tree->getRoot());
     // Create Strahler parallel structure
     unordered_map<long long int, int>* extendedVessel = new unordered_map<long long int, int>();
-    FillData(extendedVessel,static_cast<SingleVessel*>(tree->getRoot()));
+    FillDataStrahler(extendedVessel,static_cast<SingleVessel*>(tree->getRoot()));
+	unordered_map<long long int, int>* strahlerConnectivity = new unordered_map<long long int, int>();
+	FillDataStrahlerConnectivity(strahlerConnectivity, extendedVessel,static_cast<SingleVessel*>(tree->getRoot()));
 
 	vtkSmartPointer<vtkPolyData> vtkNewTree = vtkSmartPointer<vtkPolyData>::New();
 
@@ -66,6 +81,11 @@ void VTKObjectTreeStrahlerWriter::write(string filename, AbstractObjectCCOTree* 
 	cellDataLevel->SetName("level");
     vtkSmartPointer<vtkDoubleArray> cellDataStrahler = vtkSmartPointer<vtkDoubleArray>::New();
 	cellDataStrahler->SetName("strahler");
+	vtkSmartPointer<vtkDoubleArray> cellDataSubtreeVolume = vtkSmartPointer<vtkDoubleArray>::New();
+	cellDataSubtreeVolume->SetName("subtreeVolume");
+	// Connectivity
+	vtkSmartPointer<vtkDoubleArray> cellDataStrahlerConnectivity = vtkSmartPointer<vtkDoubleArray>::New();
+	cellDataStrahlerConnectivity->SetName("strahlerConnectivity");
 	vtkSmartPointer<vtkDoubleArray> cellDataFlow = vtkSmartPointer<vtkDoubleArray>::New();
 	cellDataFlow->SetName("flow");
 	vtkSmartPointer<vtkDoubleArray> cellDataPressure = vtkSmartPointer<vtkDoubleArray>::New();
@@ -121,6 +141,8 @@ void VTKObjectTreeStrahlerWriter::write(string filename, AbstractObjectCCOTree* 
 
 			cellDataLevel->InsertNextValue(currentSegment->nLevel);
             cellDataStrahler->InsertNextValue(extendedVessel->at(currentSegment->vtkSegmentId));
+			cellDataSubtreeVolume->InsertNextValue(currentSegment->treeVolume);
+			cellDataStrahlerConnectivity->InsertNextValue(strahlerConnectivity->at(currentSegment->vtkSegmentId));
 			cellDataFlow->InsertNextValue(currentSegment->flow);
 			cellDataPressure->InsertNextValue(currentSegment->pressure);
 			cellDataResistance->InsertNextValue(currentSegment->localResistance);
@@ -150,6 +172,8 @@ void VTKObjectTreeStrahlerWriter::write(string filename, AbstractObjectCCOTree* 
 
 	vtkNewTree->GetCellData()->AddArray(cellDataLevel);
     vtkNewTree->GetCellData()->AddArray(cellDataStrahler);
+	vtkNewTree->GetCellData()->AddArray(cellDataSubtreeVolume);
+	vtkNewTree->GetCellData()->AddArray(cellDataStrahlerConnectivity);
 	vtkNewTree->GetCellData()->AddArray(cellDataFlow);
 	vtkNewTree->GetCellData()->AddArray(cellDataPressure);
 	vtkNewTree->GetCellData()->AddArray(cellDataResistance);
@@ -171,6 +195,7 @@ void VTKObjectTreeStrahlerWriter::write(string filename, AbstractObjectCCOTree* 
 	writer->SetDataModeToBinary();
 	writer->Write();
     
+	delete strahlerConnectivity;
     delete extendedVessel;
 }
 
