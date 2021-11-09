@@ -1976,7 +1976,7 @@ void SingleVesselCCOOTree::remove(SingleVessel* vessel) {
 	}
 
 	printf("vtkCellType = %d\n", vessel->vtkSegment->GetCellType());
-	printf("GetNumberOfPoints = %d\n", vessel->vtkSegment->GetNumberOfPoints());
+	printf("GetNumberOfPoints = %lld\n", vessel->vtkSegment->GetNumberOfPoints());
 	vtkTree->DeletePoint(vessel->vtkSegment->GetPointId(1));
 	vtkTree->DeleteCell(vessel->vtkSegmentId);	
 	
