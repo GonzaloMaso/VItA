@@ -1,0 +1,38 @@
+VItA dependencies installation guide
+
+Install pre-requisites:
+
+sudo apt-get install gcc
+sudo apt-get install build-essential libgl1-mesa-dev
+sudo apt-get install freeglut3-dev
+sudo apt-get install libglew-dev libsdl2-dev libsdl2-image-dev libglm-dev libfreetype6-dev
+sudo apt install cmake-curses-gui
+
+Download and build VTK 8.1:
+
+mkdir VTK_source
+cd VTK_source
+wget https://www.vtk.org/files/release/8.1/VTK-8.1.0.tar.gz
+tar -xf VTK-8.1.0.tar.gz
+mkdir build
+cd build
+ccmake ..
+
+Write your compilation preferences. For VItA rendering and Qt modules can be deactivated. Configure and build.
+
+make -j8
+sudo make install
+
+Eclipse dependencies
+
+sudo apt install cmake-qt-gui
+sudo apt install ninja-build
+
+Install Eclipse for Scientific Computing
+Install The Complete eclipse from Eclipse marketplace (Help menu)
+Import VItA project into the IDE
+
+In Eclipse go to Project > Properties > CMake > Launch CMake GUI
+Uncheck "Download dependencies", configure and generate. If VTK is not found, complete the correspondent fields with your VTK installation path.
+
+Look how to Debug on cmake eclipse
